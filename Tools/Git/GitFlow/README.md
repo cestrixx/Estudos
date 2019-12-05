@@ -1,8 +1,5 @@
 # Git Flow
 
-GIT FLOW
-========
-
 INIT:
 
 ```
