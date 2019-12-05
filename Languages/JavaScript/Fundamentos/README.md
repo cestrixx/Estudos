@@ -1,9 +1,10 @@
-### Table of Contents
+# Table of Contents
 **[Numeros](#numeros)**<br>
+**[Numeros Alguns Cuidados](#numeros-alguns-cuidados)**<br>
 **[Boleanos](#boleanos)**<br>
+**[Comentários](#comentarios)**<br>
 
-
-# Numeros
+## Numeros
 
 ```javascript
 const peso1 = 1.0
@@ -25,7 +26,20 @@ console.log(typeof media)
 console.log(typeof Number)
 ```
 
-# Boleanos
+## Numeros Alguns Cuidados
+
+```javascript
+console.log(7 / 0)
+console.log("10" / 2)
+console.log('3' + 2) // string ganha!
+console.log('3' - 2)
+console.log("Show!" * 2)
+console.log(0.1 + 0.7)
+// console.log(10.toString())
+console.log((10.345).toFixed(2))
+```
+
+## Boleanos
 
 ```javascript
 let isAtivo = false
@@ -60,4 +74,21 @@ console.log(!!('' || null || 0 || ' '))
 
 let nome = 'Lucas'
 console.log(nome || 'Desconhecido')
+```
+
+## Comentários
+
+```javascript
+// Comentário de uma linha
+console.log('Linha 1')
+/*
+ Comentário de
+ múltiplas linhas
+*/
+console.log('Linha 2')
+/*
+ * Comentário de
+ * múliplas linhas
+ */
+console.log('Linha 3')
 ```
