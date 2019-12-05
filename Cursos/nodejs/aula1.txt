@@ -1,0 +1,10 @@
+Todo arquivo é um modulo.
+Modulo encapsula as coisas, só fica visivil quanto importa o que voce esportou.
+
+Modulo
+    CommonJS
+    exports = exportar conteudo
+    require = importar conteudo
+
+Nodemon = restarta o servidor automaticamente 
+quando houver alguma modificacao em algum arquivo.
