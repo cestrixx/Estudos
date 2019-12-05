@@ -1,5 +1,7 @@
 # Git Flow
 
+[Read more](http://nvie.com/posts/a-successful-git-branching-model/)
+
 INIT:
 
 ```
