@@ -1,4 +1,3 @@
-# Git Tools
-- [Flow] Git Flow
+# Git
+- [Flow](http://danielkummer.github.com/git-flow-cheatsheet/)
 
-[Flow]: http://danielkummer.github.com/git-flow-cheatsheet/
