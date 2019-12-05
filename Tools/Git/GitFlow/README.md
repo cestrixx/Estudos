@@ -1,6 +1,7 @@
 # Git Flow
 
-[Read more](http://nvie.com/posts/a-successful-git-branching-model/)
+[Cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
+[BranchingModel](http://nvie.com/posts/a-successful-git-branching-model/)
 
 INIT:
 
