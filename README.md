@@ -1,13 +1,14 @@
 # Estudos
 
 #### Languages
-    - [JavaScript], JavaScript
+   - [JavaScript], JavaScript
 #### FrontEnd
 #### BackEnd
-    - [NodeJS], NodeJS
+   - [NodeJS], NodeJS
 #### Tools
-    - [Git], Git
-    - [Markdown], Markdown
+   - [Git], Git
+   - [Markdown], Markdown
+
 
 [JavaScript]: https://github.com/cestrixx/Estudos/tree/master/Languages/JavaScript
 [NodeJS]: https://github.com/cestrixx/Estudos/tree/master/BackEnd/NodeJS
