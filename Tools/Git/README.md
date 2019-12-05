@@ -1,4 +1,4 @@
 # Git Tools
 - [Flow] Git Flow
 
-[Flow]: https://github.com/cestrixx/git-flow-cheatsheet
+[Flow]: http://danielkummer.github.com/git-flow-cheatsheet/
