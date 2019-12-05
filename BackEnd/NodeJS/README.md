@@ -1,14 +1,30 @@
 # NodeJS
 
 ### Modulo
-  * Todo arquivo é um modulo.
-  * Modulo encapsula as coisas, só fica visivil quanto importa o que voce esportou.
+  > Todo arquivo é um modulo.
+  > Modulo encapsula as coisas, só fica visivil quanto importa o que voce esportou.
      
   ## CommonJS
-     * exports = exportar conteudo
+     Exports = exportar conteudo.
 
+     ModuloA.js
 ```javascript
-const circle = require('./circle.js');
-console.log(`The area of a circle of radius 4 is ${circle.area(4)}`);
-```     
-     * require = importar conteudo
+      this.ola = 'Fala Pessoal'
+      exports.bemVindo = 'Bem vindo ao node!'
+      module.exports.ateLogo = 'Até próximo exemplo'
+```
+    ModuloB.js
+```javascript
+      ModuloB.js
+      module.exports = {
+      bomDia: 'Bom dia',
+        boaNoite() {
+        return 'Boa noite'
+        }
+      }
+```
+     Require = importar conteudo.
+```javascript
+      const moduloA = require('./moduloA')
+      const moduloB = require('./moduloB')
+```
