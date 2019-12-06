@@ -1,15 +1,15 @@
 # NodeJS
 
 ## Table of Contents
-**[Instruções de instalação](#installation-instructions)**<br>
-**[Instruções de uso](#usage-instructions)**<br>
+**[Instrucoes de Instalacao](#installation-instructions)**<br>
+**[Instrucoes de Uso](#usage-instructions)**<br>
 **[Tools](#tools)**<br>
 
-### Instruções de instalação
+### Instrucoes de Instalacao
  - [Via Package Manager](https://nodejs.org/en/download/package-manager/)
  - [Download](https://nodejs.org/en/download/)
 
-### Instruções de uso
+### Instrucoes de Uso
  - [Documento](https://nodejs.org/en/docs/)
 
   Arquivo **.gitignore**
@@ -26,8 +26,9 @@
 
 ### Tools
   **Gerenciador de pacotes**
- - [npm](https://www.npmjs.com)
- - [yarn](https://yarnpkg.com/lang/en/)
+  > Essa utilidade auxilia na instalação e desinstalação de pacotes, gerenciamento da versões e gerenciamento de dependências necessárias para executar um projeto.
+ - [NPM](https://www.npmjs.com)
+ - [YARN](https://yarnpkg.com/lang/en/)
 
   **Nodemon**
   > Esse módulo é um utilitário que irá monitorar todas as alterações nos arquivos de sua aplicação e reiniciar automaticamente o servidor quando for necessário.
