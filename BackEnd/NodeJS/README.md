@@ -14,6 +14,7 @@
 
   Arquivo **.gitignore**
   > Utilize para iginorar arquivos ou modulos que voce nao quer enviar para o git (node_modules).
+  [Templates](https://github.com/github/gitignore)
 
   Arquivo **Package.json**
   > O package.json é um elemento-chave em muitas aplicações do ecossistema Node.js.
