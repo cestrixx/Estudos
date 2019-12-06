@@ -34,6 +34,11 @@
  - [NPM](https://www.npmjs.com)
  - [YARN](https://yarnpkg.com/lang/en/)
 
+  **ESLint**
+  > Find and fix problems in your JavaScript code. **(Extension: Visual Code)**
+  > Mantém o código uniforme.
+  [Link](https://eslint.org)
+
   **Nodemon**
   > Esse módulo é um utilitário que irá monitorar todas as alterações nos arquivos de sua aplicação e reiniciar automaticamente o servidor quando for necessário.
  - [Link1](https://nodemon.io)
@@ -44,10 +49,7 @@
  - [Link1](https://github.com/axios/axios)
  - [Link2](http://codeheaven.io/how-to-use-axios-as-your-http-client-pt)
 
-  **ESLint**
-  > Find and fix problems in your JavaScript code **(Extension: Visual Code)**
-  [Link](https://eslint.org)
-
   **Teste**
+  > Criar uma pasta teste e padronizar a criação das sub-pastas e dos arquivos do mesmo modo da padronização do projeto
  - [Mocha](https://mochajs.org) **(Extension: Visual Code)**
  - [Jest](https://jestjs.io)

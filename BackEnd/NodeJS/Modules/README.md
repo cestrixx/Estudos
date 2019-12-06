@@ -57,8 +57,10 @@
 
 ### Lista
 
-- [Axios], Promise based HTTP client for the browser and node.js
+- [Axios], Promise based HTTP client for the browser and node.js.
+- [Jest], Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
 
 
 
 [Axios]: https://github.com/axios/axios
+[Jest]: https://jestjs.io
