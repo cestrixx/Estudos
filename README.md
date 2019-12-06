@@ -1,5 +1,7 @@
 # Estudos
 
+#### Arquitetura
+   - [Archtecture], Architecture
 #### Languages
    - [JavaScript], JavaScript
 #### FrontEnd
@@ -10,6 +12,7 @@
    - [Markdown], Markdown
 
 
+[Archtecture]: https://github.com/cestrixx/Estudos/tree/master/Architecture
 [JavaScript]: https://github.com/cestrixx/Estudos/tree/master/Languages/JavaScript
 [NodeJS]: https://github.com/cestrixx/Estudos/tree/master/BackEnd/NodeJS
 [Git]: https://github.com/cestrixx/Estudos/tree/master/Tools/Git

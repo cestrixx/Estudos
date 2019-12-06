@@ -5,16 +5,14 @@
 **[Instrucoes de Uso](#usage-instructions)**<br>
 **[Tools](#tools)**<br>
 
+
 ### Instrucoes de Instalacao
  - [Via Package Manager](https://nodejs.org/en/download/package-manager/)
  - [Download](https://nodejs.org/en/download/)
 
+
 ### Instrucoes de Uso
  - [Documento](https://nodejs.org/en/docs/)
-
-  Arquivo **.gitignore**
-  > Utilize para iginorar arquivos ou modulos que voce nao quer enviar para o git (node_modules).
-  > Coleções de modelos do arquivo .gitignore. [Link](https://github.com/github/gitignore)
 
   Arquivo **Package.json**
   > O package.json é um elemento-chave em muitas aplicações do ecossistema Node.js.
@@ -24,6 +22,11 @@
   npm init -y
 ```
   > Define um wizard de configuracao
+
+  Arquivo **.gitignore**
+  > Utilize para iginorar arquivos ou modulos que voce nao quer enviar para o git (node_modules).
+  > Coleções de modelos do arquivo .gitignore. [Link](https://github.com/github/gitignore)
+
 
 ### Tools
   **Gerenciador de pacotes**
@@ -41,3 +44,10 @@
  - [Link1](https://github.com/axios/axios)
  - [Link2](http://codeheaven.io/how-to-use-axios-as-your-http-client-pt)
 
+  **ESLint**
+  > Find and fix problems in your JavaScript code **(Extension: Visual Code)**
+  [Link](https://eslint.org)
+
+  **Teste**
+ - [Mocha](https://mochajs.org) **(Extension: Visual Code)**
+ - [Jest](https://jestjs.io)
