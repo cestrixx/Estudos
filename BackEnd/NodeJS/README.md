@@ -3,78 +3,19 @@
 ## Table of Contents
 **[Instruções de instalação](#installation-instructions)**<br>
 **[Instruções de uso](#usage-instructions)**<br>
-**[Módulos](#modules)**<br>
-**[NPM](#npm)**<br>
-**[GitIgnore](#gitignore)**<br>
-**[Nodemon](#nodemon)**<br>
-**[Package.json](#package-json)**<br>
-**[Axios](#axios)**<br>
+**[Tools](#tools)**<br>
 
 ### Instruções de instalação
-sdf
+ - [Via Package Manager](https://nodejs.org/en/download/package-manager/)
+ - [Download](https://nodejs.org/en/download/)
 
 ### Instruções de uso
-a
+ - [Documento](https://nodejs.org/en/docs/)
 
-### Módulos
-  > Node tem um sistema simples de carregamento de módulos, a utilização 
-  > de módulos permite incluir outros arquivos JavaScript em sua aplicação,> este sistema utiliza o formáto de módulos CommonJS.
-
-  > Módulos são cruciais para construção de aplicações em Node pois eles 
-  > permitem incluir bibliotecas externas, como bibliotecas de acesso ao 
-  > banco de dados, e ajudam a organizar seu código em partes separadas 
-  > com responsabilidades limitadas. Você deve tentar indentificar partes > reusáveis do seu código e transformá-las em módulos separados para 
-  > reduzir a quantidade de código por arquivo e para ficar mais fácil de > ler e manter seu código.
-
-  > Todo arquivo é um modulo.
-     
-#### Exportar
-  > Exports = Exporta o conteudo, deixa visível.
-
-  > ModuloA.js
-```javascript
-      this.ola = 'Fala Pessoal'
-      exports.bemVindo = 'Bem vindo ao node!'
-      module.exports.ateLogo = 'Até próximo exemplo'
-```
-  > ModuloB.js
-  > Utilize sempre module.exports, pra esportar objeto
-```javascript
-      ModuloB.js
-      module.exports = {
-      bomDia: 'Bom dia',
-        boaNoite() {
-        return 'Boa noite'
-        }
-      }
-```
-#### Importar
-  > Require = Importa o conteudo.
-```javascript
-      const moduloA = require('./moduloA')
-      const moduloB = require('./moduloB')
-      console.log(moduloA.ola)
-      console.log(moduloA.bemVindo)
-      console.log(moduloA.ateLogo)
-      console.log(moduloA)
-
-      console.log(moduloB.bomDia)
-      console.log(moduloB.boaNoite())
-      console.log(moduloB)      
-```
-
-### NPM
-  > Gerenciador de pacotes
- - [NPM](https://github.com/cestrixx/Estudos/tree/master/Tools/NPM)
-
-### GitIgnore
-  > Arquivo .gitignore
+  Arquivo **.gitignore**
   > Utilize para iginorar arquivos ou modulos que voce nao quer enviar para o git (node_modules).
 
-### Nodemon
-  > Esse módulo é um utilitário que irá monitorar todas as alterações nos arquivos de sua aplicação e reiniciar automaticamente o servidor quando for necessário.
-
-### Package.json
+  Arquivo **Package.json**
   > O package.json é um elemento-chave em muitas aplicações do ecossistema Node.js.
   > O package.json é uma espécie de manifesto do seu projeto. Ele pode fazer várias coisas, completamente não relacionadas. Ele é um repositório central de configurações de ferramentas, por exemplo. Ele também é onde npm armazena os nomes e versões dos pacotes instalados.
 ```
@@ -83,4 +24,18 @@ a
 ```
   > Define um wizard de configuracao
 
-### Axios
+### Tools
+  **Gerenciador de pacotes**
+ - [npm](https://www.npmjs.com)
+ - [yarn](https://yarnpkg.com/lang/en/)
+
+  **Nodemon**
+  > Esse módulo é um utilitário que irá monitorar todas as alterações nos arquivos de sua aplicação e reiniciar automaticamente o servidor quando for necessário.
+ - [Link1](https://nodemon.io)
+ - [Link2](https://medium.com/front-end-weekly/configuring-nodemon-on-a-node-js-server-da9eed2eeb5)
+
+  **Axios**
+  > Axios é um cliente HTTP, que funciona tanto no browser quanto em node.js. A biblioteca é basicamente uma API que sabe interagir tanto com XMLHttpRequest quanto com a interface http do node. Isso significa que o mesmo código utilizado para fazer requisições ajax no browser também funciona no servidor.
+ - [Link1](https://github.com/axios/axios)
+ - [Link2](http://codeheaven.io/how-to-use-axios-as-your-http-client-pt)
+
