@@ -28,7 +28,7 @@ a
 
   > Todo arquivo é um modulo.
      
-  ## Exportar
+#### Exportar
   > Exports = Exporta o conteudo, deixa visível.
 
   > ModuloA.js
@@ -48,6 +48,7 @@ a
         }
       }
 ```
+#### Importar
   > Require = Importa o conteudo.
 ```javascript
       const moduloA = require('./moduloA')
