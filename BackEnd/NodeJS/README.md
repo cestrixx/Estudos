@@ -61,3 +61,6 @@
   > Criar uma pasta teste e padronizar a criação das sub-pastas e dos arquivos do mesmo modo da padronização do projeto
   - [Mocha](https://mochajs.org) **(Extension: Visual Code)**
   - [Jest](https://jestjs.io)
+
+  **Express-Validator**
+  - [Express-Validator](https://express-validator.github.io/docs/)
