@@ -1,0 +1,4594 @@
+Notas fiscais
+
+Notas_fiscais - Cadastrar uma nota fiscal
+
+2.0.0 
+Requisição para cadastro de notas fiscais
+
+POST
+https://api.vhsys.com/v2/notas-fiscais
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/notas-fiscais \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        serie_nota : 1234,
+        id_cliente : 123456,
+        nome_cliente : "Nome do cliente",
+        vendedor_pedido : "Nome do vendedor",
+        vendedor_pedido_id : 123456,
+        desconto_pedido : "0.00",
+        peso_total_nota : "0.00",
+        peso_total_nota_liq : "0.00",
+        frete_pedido : "0.00",
+        valor_baseICMS : "0.00",
+        valor_ICMS : "0.00",
+        valor_baseST : "0.00",
+        valor_ST : "0.00",
+        valor_IPI : "0.00",
+        valor_despesas : "0.00",
+        transportadora_pedido : "Nome da transportadora",
+        id_transportadora : 123456,
+        frete_por_pedido : 1,
+        volumes_transporta : 1,
+        especie_transporta : "Caixa",
+        marca_transporta : "Marca do volume",
+        numeracao_transporta : 123,
+        placa_transporta : "AAA-0000",
+        uf_embarque : "PR",
+        local_embarque : "Local do embarque",
+        data_pedido : "0000-00-00",
+        data_pedido_hora : "00:00:00",
+        natureza_pedido : "Natureza da operação",
+        finalidade_nfe : 1,
+        obs_pedido : "Observação",
+        obs_interno_pedido : "Observação interna",
+        status_pedido : "Em Aberto",
+        ambiente : 2
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 255
+
+ambiente	Integer	
+Ambiente de emissão
+1 - Produção / 2 - Homologação
+
+Faixa de tamanho: 0-9
+
+serie_nota opcional	Integer	
+Serie da nota fiscal
+
+Faixa de tamanho: 0-9
+
+id_cliente opcional	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 0-9
+
+vendedor_pedido opcional	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 255
+
+vendedor_pedido_id opcional	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 0-9
+
+desconto_pedido opcional	Decimal	
+Valor total do desconto
+
+Faixa de tamanho: 10,2
+
+peso_total_nota opcional	Decimal	
+Peso total da nota fiscal
+
+Faixa de tamanho: 10,2
+
+peso_total_nota_liq opcional	Decimal	
+Peso liquido da nota fiscal
+
+Faixa de tamanho: 10,2
+
+frete_pedido opcional	Decimal	
+Valor do frete
+
+Faixa de tamanho: 10,2
+
+valor_baseICMS opcional	Decimal	
+Valor da base de ICMS
+
+Faixa de tamanho: 10,2
+
+valor_ICMS opcional	Decimal	
+Valor do ICMS
+
+Faixa de tamanho: 10,2
+
+valor_baseST opcional	Decimal	
+Valor da base de ST
+
+Faixa de tamanho: 10,2
+
+valor_ST opcional	Decimal	
+Valor do ST
+
+Faixa de tamanho: 10,2
+
+valor_IPI opcional	Decimal	
+Valor do IPI
+
+Faixa de tamanho: 10,2
+
+valor_despesas opcional	Decimal	
+Valor das despesas
+
+Faixa de tamanho: 10,2
+
+transportadora_pedido opcional	String	
+Nome da transportadora (Consultar transportadoras disponíveis)
+
+Faixa de tamanho: 255
+
+id_transportadora opcional	Integer	
+ID da transportadora (Consultar transportadoras disponíveis)
+
+Faixa de tamanho: 0-9
+
+frete_por_pedido opcional	Enum	
+Tipo do frete (Consultar tipos de frete disponíveis)
+
+Valor padrão: 9
+
+Valores permitidos: 0, 1, 2, 9
+
+volumes_transporta opcional	Integer	
+Volumes para transporte
+
+Faixa de tamanho: 0-9
+
+especie_transporta opcional	String	
+Especie do volume para transporte
+
+Faixa de tamanho: 0-25
+
+marca_transporta opcional	String	
+Marca do volume
+
+Faixa de tamanho: 0-60
+
+numeracao_transporta opcional	String	
+Numeração do volume
+
+Faixa de tamanho: 0-60
+
+placa_transporta opcional	String	
+Placa da transportadora
+
+Faixa de tamanho: 0-25
+
+uf_embarque opcional	String	
+UF do embarque
+
+Faixa de tamanho: 0-2
+
+local_embarque opcional	String	
+Local do embarque
+
+Faixa de tamanho: 0-60
+
+data_pedido opcional	Date	
+Data do pedido
+
+Valores permitidos: YYYY-MM-DD
+
+data_pedido_hora opcional	Date	
+Hora do pedido
+
+Valores permitidos: H:i:s
+
+destino_operacao opcional	Integer	
+Destino da operação
+
+Faixa de tamanho: 0-9
+
+natureza_pedido opcional	String	
+Natureza da operação
+
+Faixa de tamanho: 0-60
+
+finalidade_nfe opcional	Integer	
+Finalidade da NF-e (Consultar tipos de finalidades disponíveis)
+
+Faixa de tamanho: 0-9
+
+obs_pedido opcional	String	
+Observações da nota fiscal
+
+obs_interno_pedido opcional	String	
+Observação interna da nota fiscal
+
+status_pedido opcional	Enum	
+Status da nota fiscal
+
+Valores permitidos: Em Aberto, Em Andamento, Atendido, Cancelado
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_venda	Integer	
+ID da venda
+
+  tp_nfe	Integer	
+Tipo da NF-e (Consultar tipos de NF-e disponíveis)
+
+  serie_nota	Integer	
+Número de serie da nota
+
+  id_pedido	Integer	
+ID Sequencial da nota
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vendedor_pedido	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+  vendedor_pedido_id	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+  valor_total_produtos	Decimal	
+Valor total dos produtos
+
+  desconto_pedido	Decimal	
+Valor do desconto
+
+  peso_total_nota	Decimal	
+Peso total do pedido
+
+  peso_total_nota_lig	Decimal	
+Peso líquido dos produtos
+
+  frete_pedido	Decimal	
+Valor do frete
+
+  valor_total_nota	Decimal	
+Valor total do pedido
+
+  valor_baseICMS	Decimal	
+Valor da base do ICMS
+
+  valor_ICMS	Decimal	
+Valor do ICMS
+
+  valor_baseST	Decimal	
+Valor da base de ST
+
+  valor_ST	Decimal	
+Valor do ST
+
+  valor_IPI	Decimal	
+Valor do IPI
+
+  valor_despesas	Decimal	
+Valor das despesas
+
+  condicao_pagamento	Integer	
+Númeto total de parcelas
+
+  transportadora_pedido	String	
+Nome da transportadora (Consultar transportadoras disponíveis)
+
+  id_transportadora	Integer	
+ID da transportadora (Consultar transportadoras disponíveis)
+
+  frete_por_pedido	Enum	
+Tipo do frete (Consultar tipos de frete disponíveis)
+
+  volumes_transporta	Integer	
+Volumes para transporte
+
+  especie_transporta	String	
+Especie dos volumes Ex : Caixa
+
+  marca_transporta	String	
+Marca dos volumes
+
+  numeracao_transporta	Integer	
+Numeração para a transportadora
+
+  placa_transporta	String	
+Placa da transportadora
+
+  uf_embarque	String	
+Estado do embarque
+
+  local_embarque	String	
+Local para embarque
+
+  data_pedido	Date	
+Data do pedido
+
+  data_pedido_hora	Date	
+Hora do pedido
+
+  data_emissao	Date	
+Data da emissão da nota
+
+  natureza_pedido	String	
+Natureza de operação
+
+  finalidade_nfe	Integer	
+Finalidade da NF-e (Consultar tipos de finalidades disponíveis)
+
+  obs_pedido	String	
+Observações da nota fiscal
+
+  obs_interno_pedido	String	
+Observações internas da nota fiscal
+
+  status_pedido	Enum	
+Status da nota fiscal
+
+  comissao_pedido	Integer	
+Comissão Lançada
+
+  boletos_pedido	Integer	
+Boleto gerado
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  estoque_pedido	Integer	
+Estoque Lançado
+
+  nota_emitida	Integer	
+Se a nota fiscal foi emitida
+
+  nota_chave	String	
+Chave da nota fiscal
+
+  nota_protocolo	String	
+Protocolo da nota fiscal
+
+  nota_codigov	String	
+Código da nota fiscal
+
+  nota_recibo	String	
+Recibo da nota fiscal
+
+  nota_data_autorizacao	Date	
+Data da autorização da nota fiscal
+
+  nota_usuario_autorizacao	Integer	
+Usuário que emitiu a nota fiscal
+
+  nota_data_cancelamento	Date	
+Data do cancelamento da nota
+
+  nota_usuario_cancelamento	Integer	
+Usuário que cancelou a nota
+
+  nota_motivo_cancelamento	Stirng	
+Motivo do cancelamento
+
+  nota_denegada	Integer	
+Se a nota foi denegada
+
+  nota_importada	Integer	
+Se a nota foi importada para o sistema
+
+  nota_scan	Integer	
+Se a nota foi emitida no ambiente de SCAN
+
+  data_cad_pedido	Date	
+Data de cadastro da nota fiscal
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  ambiente	Integer	
+Ambiente de emissão 
+1 - Produção / 2 - Homologação
+
+  lixeira	Enum	
+Situação da nota fiscal no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_venda": 123456,
+              "tp_nfe": 1,
+              "serie_nota": 1,
+              "id_pedido": 123456,
+              "id_cliente": 1135219,
+              "nome_cliente": "Nome do cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 12345,
+              "valor_total_produtos": "0.00",
+              "desconto_pedido": "0.00",
+              "peso_total_nota": "0.0000",
+              "peso_total_nota_liq": "0.0000",
+              "frete_pedido": "0.00",
+              "valor_total_nota": "0.00",
+              "valor_baseICMS": "0.00",
+              "valor_ICMS": "0.00",
+              "valor_baseST": "0.00",
+              "valor_ST": "0.00",
+              "valor_IPI": "0.00",
+              "valor_despesas": "0.00",
+              "condicao_pagamento": 0,
+              "transportadora_pedido": "Nome da transportadora",
+              "id_transportadora": 0,
+				"frete_por_pedido":0,
+              "volumes_transporta": 0,
+              "especie_transporta": "Caixa",
+              "marca_transporta": "Marca do volume",
+              "numeracao_transporta": "123456",
+              "placa_transporta": "AAA-0000",
+              "uf_embarque": "PR",
+              "local_embarque": "Local do embarque",
+              "data_pedido": "0000-00-00",
+              "data_pedido_hora": "00:00:00",
+              "data_emissao": "0000-00-00",
+              "ordem_pedido": 0,
+              "destino_operacao": 0,
+              "natureza_pedido": "Natureza de operação",
+              "finalidade_nfe": 1,
+              "obs_pedido": "Observação",
+              "obs_interno_pedido": "Observação Interna",
+              "status_pedido": "Cancelado",
+              "contas_pedido": 0,
+              "comissao_pedido": 0,
+              "boletos_pedido": 0,
+              "estoque_pedido": 0,
+              "nota_emitida": 0,
+              "nota_chave": 123456456789454545165664591266124,
+              "nota_protocolo": 123456,
+              "nota_codigov": 123456,
+              "nota_recibo": 123456,
+              "nota_data_autorizacao": 0000-00-00,
+              "nota_usuario_autorizacao": 123456,
+              "nota_data_cancelamento": Observação,
+              "nota_usuario_cancelamento": 123456,
+              "nota_motivo_cancelamento": "Motivo do cancelamento",
+              "nota_denegada": 0,
+              "nota_importada": 0,
+              "nota_scan": 0,
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "ambiente": 2,
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar a nota fiscal!"
+   }
+Notas_fiscais - Alterar uma nota fiscal
+
+2.0.0 
+Requisição para alterar uma nota fiscal
+
+PUT
+https://api.vhsys.com/v2/notas-fiscais/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/notas-fiscais/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        serie_nota : 1234,
+        id_cliente : 123456,
+        nome_cliente : "Nome do cliente",
+        vendedor_pedido : "Nome do vendedor",
+        vendedor_pedido_id : 123456,
+        desconto_pedido : "0.00",
+        peso_total_nota : "0.00",
+        peso_total_nota_liq : "0.00",
+        frete_pedido : "0.00",
+        valor_baseICMS : "0.00",
+        valor_ICMS : "0.00",
+        valor_baseST : "0.00",
+        valor_ST : "0.00",
+        valor_IPI : "0.00",
+        valor_despesas : "0.00",
+        transportadora_pedido : "Nome da transportadora",
+        id_transportadora : 123456,
+        frete_por_pedido : 1,
+        volumes_transporta : 1,
+        especie_transporta : "Caixa",
+        marca_transporta : "Marca do volume",
+        numeracao_transporta : 123,
+        placa_transporta : "AAA-0000",
+        uf_embarque : "PR",
+        local_embarque : "Local do embarque",
+        data_pedido : "0000-00-00",
+        data_pedido_hora : "00:00:00",
+        natureza_pedido : "Natureza da operação",
+        finalidade_nfe : 1,
+        obs_pedido : "Observação",
+        obs_interno_pedido : "Observação interna",
+        status_pedido : "Em Aberto",
+        ambiente : 2
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+serie_nota opcional	Integer	
+Serie da nota fiscal
+
+Faixa de tamanho: 0-9
+
+id_cliente opcional	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 0-9
+
+nome_cliente opcional	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 255
+
+vendedor_pedido opcional	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 255
+
+vendedor_pedido_id opcional	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 0-9
+
+desconto_pedido opcional	Decimal	
+Valor total do desconto
+
+Faixa de tamanho: 10,2
+
+peso_total_nota opcional	Decimal	
+Peso total da nota fiscal
+
+Faixa de tamanho: 10,2
+
+peso_total_nota_liq opcional	Decimal	
+Peso liquido da nota fiscal
+
+Faixa de tamanho: 10,2
+
+frete_pedido opcional	Decimal	
+Valor do frete
+
+Faixa de tamanho: 10,2
+
+valor_baseICMS opcional	Decimal	
+Valor da base de ICMS
+
+Faixa de tamanho: 10,2
+
+valor_ICMS opcional	Decimal	
+Valor do ICMS
+
+Faixa de tamanho: 10,2
+
+valor_baseST opcional	Decimal	
+Valor da base de ST
+
+Faixa de tamanho: 10,2
+
+valor_ST opcional	Decimal	
+Valor do ST
+
+Faixa de tamanho: 10,2
+
+valor_IPI opcional	Decimal	
+Valor do IPI
+
+Faixa de tamanho: 10,2
+
+valor_despesas opcional	Decimal	
+Valor das despesas
+
+Faixa de tamanho: 10,2
+
+transportadora_pedido opcional	String	
+Nome da transportadora (Consultar transportadoras disponíveis)
+
+Faixa de tamanho: 255
+
+id_transportadora opcional	Integer	
+ID da transportadora (Consultar transportadoras disponíveis)
+
+Faixa de tamanho: 0-9
+
+frete_por_pedido opcional	Enum	
+Tipo do frete (Consultar tipos de frete disponíveis)
+
+Valores permitidos: 0, 1, 2, 9
+
+volumes_transporta opcional	Integer	
+Volumes para transporte
+
+Faixa de tamanho: 0-9
+
+especie_transporta opcional	String	
+Especie do volume para transporte
+
+Faixa de tamanho: 0-25
+
+marca_transporta opcional	String	
+Marca do volume
+
+Faixa de tamanho: 0-60
+
+numeracao_transporta opcional	String	
+Numeração do volume
+
+Faixa de tamanho: 0-60
+
+placa_transporta opcional	String	
+Placa da transportadora
+
+Faixa de tamanho: 0-25
+
+uf_embarque opcional	String	
+UF do embarque
+
+Faixa de tamanho: 0-2
+
+local_embarque opcional	String	
+Local do embarque
+
+Faixa de tamanho: 0-60
+
+data_pedido opcional	Date	
+Data do pedido
+
+Valores permitidos: YYYY-MM-DD
+
+data_pedido_hora opcional	Date	
+Hora do pedido
+
+Valores permitidos: H:i:s
+
+destino_operacao opcional	Integer	
+Destino da operação
+
+Faixa de tamanho: 0-9
+
+natureza_pedido opcional	String	
+Natureza da operação
+
+Faixa de tamanho: 0-60
+
+finalidade_nfe opcional	Integer	
+Finalidade da NF-e (Consultar tipos de finalidades disponíveis)
+
+Faixa de tamanho: 0-9
+
+obs_pedido opcional	String	
+Observações da nota fiscal
+
+obs_interno_pedido opcional	String	
+Observação interna da nota fiscal
+
+status_pedido opcional	Enum	
+Status da nota fiscal
+
+Valores permitidos: Em Aberto, Em Andamento, Atendido, Cancelado
+
+ambiente opcional	Integer	
+Ambiente de emissão
+1 - Produção / 2 - Homologação
+
+Faixa de tamanho: 0-9
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_venda	Integer	
+ID da venda
+
+  tp_nfe	Integer	
+Tipo da NF-e (Consultar tipos de NF-e disponíveis)
+
+  serie_nota	Integer	
+Número de serie da nota
+
+  id_pedido	Integer	
+ID Sequencial da nota
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vendedor_pedido	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+  vendedor_pedido_id	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+  valor_total_produtos	Decimal	
+Valor total dos produtos
+
+  desconto_pedido	Decimal	
+Valor do desconto
+
+  peso_total_nota	Decimal	
+Peso total do pedido
+
+  peso_total_nota_lig	Decimal	
+Peso líquido dos produtos
+
+  frete_pedido	Decimal	
+Valor do frete
+
+  valor_total_nota	Decimal	
+Valor total do pedido
+
+  valor_baseICMS	Decimal	
+Valor da base do ICMS
+
+  valor_ICMS	Decimal	
+Valor do ICMS
+
+  valor_baseST	Decimal	
+Valor da base de ST
+
+  valor_ST	Decimal	
+Valor do ST
+
+  valor_IPI	Decimal	
+Valor do IPI
+
+  valor_despesas	Decimal	
+Valor das despesas
+
+  condicao_pagamento	Integer	
+Númeto total de parcelas
+
+  transportadora_pedido	String	
+Nome da transportadora (Consultar transportadoras disponíveis)
+
+  id_transportadora	Integer	
+ID da transportadora (Consultar transportadoras disponíveis)
+
+  frete_por_pedido	Enum	
+Tipo do frete (Consultar tipos de frete disponíveis)
+
+  volumes_transporta	Integer	
+Volumes para transporte
+
+  especie_transporta	String	
+Especie dos volumes Ex : Caixa
+
+  marca_transporta	String	
+Marca dos volumes
+
+  numeracao_transporta	Integer	
+Numeração para a transportadora
+
+  placa_transporta	String	
+Placa da transportadora
+
+  uf_embarque	String	
+Estado do embarque
+
+  local_embarque	String	
+Local para embarque
+
+  data_pedido	Date	
+Data do pedido
+
+  data_pedido_hora	Date	
+Hora do pedido
+
+  data_emissao	Date	
+Data da emissão da nota
+
+  natureza_pedido	String	
+Natureza de operação
+
+  finalidade_nfe	Integer	
+Finalidade da NF-e (Consultar tipos de finalidades disponíveis)
+
+  obs_pedido	String	
+Observações da nota fiscal
+
+  obs_interno_pedido	String	
+Observações internas da nota fiscal
+
+  status_pedido	Enum	
+Status da nota fiscal
+
+  comissao_pedido	Integer	
+Comissão Lançada
+
+  boletos_pedido	Integer	
+Boleto gerado
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  estoque_pedido	Integer	
+Estoque Lançado
+
+  nota_emitida	Integer	
+Se a nota fiscal foi emitida
+
+  nota_chave	String	
+Chave da nota fiscal
+
+  nota_protocolo	String	
+Protocolo da nota fiscal
+
+  nota_codigov	String	
+Código da nota fiscal
+
+  nota_recibo	String	
+Recibo da nota fiscal
+
+  nota_data_autorizacao	Date	
+Data da autorização da nota fiscal
+
+  nota_usuario_autorizacao	Integer	
+Usuário que emitiu a nota fiscal
+
+  nota_data_cancelamento	Date	
+Data do cancelamento da nota
+
+  nota_usuario_cancelamento	Integer	
+Usuário que cancelou a nota
+
+  nota_motivo_cancelamento	Stirng	
+Motivo do cancelamento
+
+  nota_denegada	Integer	
+Se a nota foi denegada
+
+  nota_importada	Integer	
+Se a nota foi importada para o sistema
+
+  nota_scan	Integer	
+Se a nota foi emitida no ambiente de SCAN
+
+  data_cad_pedido	Date	
+Data de cadastro da nota fiscal
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  ambiente	Integer	
+Ambiente de emissão
+1 - Produção / 2 - Homologação
+
+  lixeira	Enum	
+Situação da nota fiscal no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_venda": 123456,
+              "tp_nfe": 1,
+              "serie_nota": 1,
+              "id_pedido": 123456,
+              "id_cliente": 1135219,
+              "nome_cliente": "Nome do cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 12345,
+              "valor_total_produtos": "0.00",
+              "desconto_pedido": "0.00",
+              "peso_total_nota": "0.0000",
+              "peso_total_nota_liq": "0.0000",
+              "frete_pedido": "0.00",
+              "valor_total_nota": "0.00",
+              "valor_baseICMS": "0.00",
+              "valor_ICMS": "0.00",
+              "valor_baseST": "0.00",
+              "valor_ST": "0.00",
+              "valor_IPI": "0.00",
+              "valor_despesas": "0.00",
+              "condicao_pagamento": 0,
+              "transportadora_pedido": "Nome da transportadora",
+              "id_transportadora": 123456,
+				"frete_por_pedido":0,
+              "volumes_transporta": 0,
+              "especie_transporta": "Caixa",
+              "marca_transporta": "Marca do volume",
+              "numeracao_transporta": "123456",
+              "placa_transporta": "AAA-0000",
+              "uf_embarque": "PR",
+              "local_embarque": "Local do embarque",
+              "data_pedido": "0000-00-00",
+              "data_pedido_hora": "00:00:00",
+              "data_emissao": "0000-00-00",
+              "ordem_pedido": "0",
+              "destino_operacao": 0,
+              "natureza_pedido": "Natureza de operação",
+              "finalidade_nfe": 1,
+              "obs_pedido": "Observação",
+              "obs_interno_pedido": "Observação Interna",
+              "status_pedido": "Cancelado",
+              "contas_pedido": 0,
+              "comissao_pedido": 0,
+              "boletos_pedido": 0,
+              "estoque_pedido": 0,
+              "nota_emitida": 0,
+              "nota_chave": 123456456789454545165664591266124,
+              "nota_protocolo": 123456,
+              "nota_codigov": 123456,
+              "nota_recibo": 123456,
+              "nota_data_autorizacao": 0000-00-00,
+              "nota_usuario_autorizacao": 123456,
+              "nota_data_cancelamento": Observação,
+              "nota_usuario_cancelamento": 123456,
+              "nota_motivo_cancelamento": "Motivo do cancelamento",
+              "nota_denegada": 0,
+              "nota_importada": 0,
+              "nota_scan": 0,
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "ambiente": 2,
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar a nota fiscal!"
+   }
+Notas_fiscais - Excluir uma nota fiscal
+
+2.0.0 
+Requisição para deletar uma nota fiscal, a nota fiscal deletada por ser encontrada com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/notas-fiscais/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/notas-fiscais/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da nota fiscal
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_venda	Integer	
+ID do nota fiscal
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_venda": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar a nota fiscal!"
+   }
+Notas_fiscais - Consultar nota fiscal
+
+2.0.0 
+Requisição para a consulta de dados da nota fiscal
+
+GET
+https://api.vhsys.com/v2/notas-fiscais/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/notas-fiscais/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da venda
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_venda	Integer	
+ID da venda
+
+  tp_nfe	Integer	
+Tipo da NF-e (Consultar tipos de NF-e disponíveis)
+
+  serie_nota	Integer	
+Número de serie da nota
+
+  id_pedido	Integer	
+ID Sequencial da nota
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vendedor_pedido	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+  vendedor_pedido_id	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+  valor_total_produtos	Decimal	
+Valor total dos produtos
+
+  desconto_pedido	Decimal	
+Valor do desconto
+
+  peso_total_nota	Decimal	
+Peso total do pedido
+
+  peso_total_nota_lig	Decimal	
+Peso líquido dos produtos
+
+  frete_pedido	Decimal	
+Valor do frete
+
+  valor_total_nota	Decimal	
+Valor total do pedido
+
+  valor_baseICMS	Decimal	
+Valor da base do ICMS
+
+  valor_ICMS	Decimal	
+Valor do ICMS
+
+  valor_baseST	Decimal	
+Valor da base de ST
+
+  valor_ST	Decimal	
+Valor do ST
+
+  valor_IPI	Decimal	
+Valor do IPI
+
+  valor_despesas	Decimal	
+Valor das despesas
+
+  condicao_pagamento	Integer	
+Númeto total de parcelas
+
+  transportadora_pedido	String	
+Nome da transportadora (Consultar transportadoras disponíveis)
+
+  id_transportadora	Integer	
+ID da transportadora (Consultar transportadoras disponíveis)
+
+  frete_por_pedido	Enum	
+Tipo do frete (Consultar tipos de frete disponíveis)
+
+  volumes_transporta	Integer	
+Volumes para transporte
+
+  especie_transporta	String	
+Especie dos volumes Ex : Caixa
+
+  marca_transporta	String	
+Marca dos volumes
+
+  numeracao_transporta	Integer	
+Numeração para a transportadora
+
+  placa_transporta	String	
+Placa da transportadora
+
+  uf_embarque	String	
+Estado do embarque
+
+  local_embarque	String	
+Local para embarque
+
+  data_pedido	Date	
+Data do pedido
+
+  data_pedido_hora	Date	
+Hora do pedido
+
+  data_emissao	Date	
+Data da emissão da nota
+
+  natureza_pedido	String	
+Natureza de operação
+
+  finalidade_nfe	Integer	
+Finalidade da NF-e (Consultar tipos de finalidades disponíveis)
+
+  obs_pedido	String	
+Observações da nota fiscal
+
+  obs_interno_pedido	String	
+Observações internas da nota fiscal
+
+  status_pedido	Enum	
+Status da nota fiscal
+
+  comissao_pedido	Integer	
+Comissão Lançada
+
+  boletos_pedido	Integer	
+Boleto gerado
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  estoque_pedido	Integer	
+Estoque Lançado
+
+  nota_emitida	Integer	
+Se a nota fiscal foi emitida
+
+  nota_chave	String	
+Chave da nota fiscal
+
+  nota_protocolo	String	
+Protocolo da nota fiscal
+
+  nota_codigov	String	
+Código da nota fiscal
+
+  nota_recibo	String	
+Recibo da nota fiscal
+
+  nota_data_autorizacao	Date	
+Data da autorização da nota fiscal
+
+  nota_usuario_autorizacao	Integer	
+Usuário que emitiu a nota fiscal
+
+  nota_data_cancelamento	Date	
+Data do cancelamento da nota
+
+  nota_usuario_cancelamento	Integer	
+Usuário que cancelou a nota
+
+  nota_motivo_cancelamento	Stirng	
+Motivo do cancelamento
+
+  nota_denegada	Integer	
+Se a nota foi denegada
+
+  nota_importada	Integer	
+Se a nota foi importada para o sistema
+
+  nota_scan	Integer	
+Se a nota foi emitida no ambiente de SCAN
+
+  data_cad_pedido	Date	
+Data de cadastro da nota fiscal
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  ambiente	Integer	
+Ambiente de emissão
+1 - Produção / 2 - Homologação
+
+  lixeira	Enum	
+Situação da nota fiscal no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_venda": 123456,
+              "tp_nfe": 1,
+              "serie_nota": 1,
+              "id_pedido": 123456,
+              "id_cliente": 1135219,
+              "nome_cliente": "Nome do cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 12345,
+              "valor_total_produtos": "0.00",
+              "desconto_pedido": "0.00",
+              "peso_total_nota": "0.0000",
+              "peso_total_nota_liq": "0.0000",
+              "frete_pedido": "0.00",
+              "valor_total_nota": "0.00",
+              "valor_baseICMS": "0.00",
+              "valor_ICMS": "0.00",
+              "valor_baseST": "0.00",
+              "valor_ST": "0.00",
+              "valor_IPI": "0.00",
+              "valor_despesas": "0.00",
+              "condicao_pagamento": 0,
+              "transportadora_pedido": "Nome da transportadora",
+              "id_transportadora": 123456,
+				"frete_por_pedido":0,
+              "volumes_transporta": 0,
+              "especie_transporta": "Caixa",
+              "marca_transporta": "Marca do volume",
+              "numeracao_transporta": "123456",
+              "placa_transporta": "AAA-0000",
+              "uf_embarque": "PR",
+              "local_embarque": "Local do embarque",
+              "data_pedido": "0000-00-00",
+              "data_pedido_hora": "00:00:00",
+              "data_emissao": "0000-00-00",
+              "ordem_pedido": 0,
+              "destino_operacao": 0,
+              "natureza_pedido": "Natureza de operação",
+              "finalidade_nfe": 1,
+              "obs_pedido": "Observação",
+              "obs_interno_pedido": "Observação Interna",
+              "status_pedido": "Cancelado",
+              "contas_pedido": 0,
+              "comissao_pedido": 0,
+              "boletos_pedido": 0,
+              "estoque_pedido": 0,
+              "nota_emitida": 0,
+              "nota_chave": 123456456789454545165664591266124,
+              "nota_protocolo": 123456,
+              "nota_codigov": 123456,
+              "nota_recibo": 123456,
+              "nota_data_autorizacao": 0000-00-00,
+              "nota_usuario_autorizacao": 123456,
+              "nota_data_cancelamento": Observação,
+              "nota_usuario_cancelamento": 123456,
+              "nota_motivo_cancelamento": "Motivo do cancelamento",
+              "nota_denegada": 0,
+              "nota_importada": 0,
+              "nota_scan": 0,
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "ambiente": 2,
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma nota fiscal encontrada!"
+   }
+Notas_fiscais - Lista de notas fiscais
+
+2.0.0 
+Requisição para a consulta de diversas notas fiscais
+
+GET
+https://api.vhsys.com/v2/notas-fiscais
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/notas-fiscais \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+order opcional	String	
+Nome do campo para ordenação EX:data_mod_pedido
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+nome_cliente opcional	String	
+Nome do cliente
+
+vendedor opcional	String	
+Nome do vendedor
+
+valor_produtos opcional	String	
+Valor total dos produtos 
+buscar a partir de um valor: valor_produtos=10.00 
+buscar entre valores: valor_produtos=10.00,20.00
+
+valor_total opcional	String	
+Valor total da nota 
+buscar a partir de um valor: valor_total=10.00 
+buscar entre valores: valor_total=10.00,20.00
+
+status opcional	String	
+Status da nota
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+data_modificacao opcional	Date	
+Registros criados ou modificados após a data informada
+
+Valores permitidos: YYYY-MM-DD
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de notas fiscais no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_venda	Integer	
+ID da venda
+
+  tp_nfe	Integer	
+Tipo da NF-e (Consultar tipos de NF-e disponíveis)
+
+  serie_nota	Integer	
+Número de serie da nota
+
+  id_pedido	Integer	
+ID Sequencial da nota
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vendedor_pedido	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+  vendedor_pedido_id	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+  valor_total_produtos	Decimal	
+Valor total dos produtos
+
+  desconto_pedido	Decimal	
+Valor do desconto
+
+  peso_total_nota	Decimal	
+Peso total do pedido
+
+  peso_total_nota_lig	Decimal	
+Peso líquido dos produtos
+
+  frete_pedido	Decimal	
+Valor do frete
+
+  valor_total_nota	Decimal	
+Valor total do pedido
+
+  valor_baseICMS	Decimal	
+Valor da base do ICMS
+
+  valor_ICMS	Decimal	
+Valor do ICMS
+
+  valor_baseST	Decimal	
+Valor da base de ST
+
+  valor_ST	Decimal	
+Valor do ST
+
+  valor_IPI	Decimal	
+Valor do IPI
+
+  valor_despesas	Decimal	
+Valor das despesas
+
+  condicao_pagamento	Integer	
+Númeto total de parcelas
+
+  transportadora_pedido	String	
+Nome da transportadora (Consultar transportadoras disponíveis)
+
+  id_transportadora	Integer	
+ID da transportadora (Consultar transportadoras disponíveis)
+
+  frete_por_pedido	Enum	
+Tipo do frete (Consultar tipos de frete disponíveis)
+
+  volumes_transporta	Integer	
+Volumes para transporte
+
+  especie_transporta	String	
+Especie dos volumes Ex : Caixa
+
+  marca_transporta	String	
+Marca dos volumes
+
+  numeracao_transporta	Integer	
+Numeração para a transportadora
+
+  placa_transporta	String	
+Placa da transportadora
+
+  uf_embarque	String	
+Estado do embarque
+
+  local_embarque	String	
+Local para embarque
+
+  data_pedido	Date	
+Data do pedido
+
+  data_pedido_hora	Date	
+Hora do pedido
+
+  data_emissao	Date	
+Data da emissão da nota
+
+  natureza_pedido	String	
+Natureza de operação
+
+  finalidade_nfe	Integer	
+Finalidade da NF-e (Consultar tipos de finalidades disponíveis)
+
+  obs_pedido	String	
+Observações da nota fiscal
+
+  obs_interno_pedido	String	
+Observações internas da nota fiscal
+
+  status_pedido	Enum	
+Status da nota fiscal
+
+  comissao_pedido	Integer	
+Comissão Lançada
+
+  boletos_pedido	Integer	
+Boleto gerado
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  estoque_pedido	Integer	
+Estoque Lançado
+
+  nota_emitida	Integer	
+Se a nota fiscal foi emitida
+
+  nota_chave	String	
+Chave da nota fiscal
+
+  nota_protocolo	String	
+Protocolo da nota fiscal
+
+  nota_codigov	String	
+Código da nota fiscal
+
+  nota_recibo	String	
+Recibo da nota fiscal
+
+  nota_data_autorizacao	Date	
+Data da autorização da nota fiscal
+
+  nota_usuario_autorizacao	Integer	
+Usuário que emitiu a nota fiscal
+
+  nota_data_cancelamento	Date	
+Data do cancelamento da nota
+
+  nota_usuario_cancelamento	Integer	
+Usuário que cancelou a nota
+
+  nota_motivo_cancelamento	Stirng	
+Motivo do cancelamento
+
+  nota_denegada	Integer	
+Se a nota foi denegada
+
+  nota_importada	Integer	
+Se a nota foi importada para o sistema
+
+  nota_scan	Integer	
+Se a nota foi emitida no ambiente de SCAN
+
+  data_cad_pedido	Date	
+Data de cadastro da nota fiscal
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  ambiente	Integer	
+Ambiente de emissão
+1 - Produção / 2 - Homologação
+
+  lixeira	Enum	
+Situação da nota fiscal no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_venda": 123456,
+              "tp_nfe": 1,
+              "serie_nota": 1,
+              "id_pedido": 123456,
+              "id_cliente": 1135219,
+              "nome_cliente": "Nome do cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 12345,
+              "valor_total_produtos": "0.00",
+              "desconto_pedido": "0.00",
+              "peso_total_nota": "0.0000",
+              "peso_total_nota_liq": "0.0000",
+              "frete_pedido": "0.00",
+              "valor_total_nota": "0.00",
+              "valor_baseICMS": "0.00",
+              "valor_ICMS": "0.00",
+              "valor_baseST": "0.00",
+              "valor_ST": "0.00",
+              "valor_IPI": "0.00",
+              "valor_despesas": "0.00",
+              "condicao_pagamento": 0,
+              "transportadora_pedido": "Nome da transportadora",
+              "id_transportadora": 0,
+				"frete_por_pedido":0,
+              "volumes_transporta": 0,
+              "especie_transporta": "Caixa",
+              "marca_transporta": "Marca do volume",
+              "numeracao_transporta": "123456",
+              "placa_transporta": "AAA-0000",
+              "uf_embarque": "PR",
+              "local_embarque": "Local do embarque",
+              "data_pedido": "0000-00-00",
+              "data_pedido_hora": "00:00:00",
+              "data_emissao": "0000-00-00",
+              "ordem_pedido": "0",
+              "destino_operacao": 0,
+              "natureza_pedido": "Natureza de operação",
+              "finalidade_nfe": 1,
+              "obs_pedido": "Observação",
+              "obs_interno_pedido": "Observação Interna",
+              "status_pedido": "Cancelado",
+              "contas_pedido": 0,
+              "comissao_pedido": 0,
+              "boletos_pedido": 0,
+              "estoque_pedido": 0,
+              "nota_emitida": 0,
+              "nota_chave": 123456456789454545165664591266124,
+              "nota_protocolo": 123456,
+              "nota_codigov": 123456,
+              "nota_recibo": 123456,
+              "nota_data_autorizacao": 0000-00-00,
+              "nota_usuario_autorizacao": 123456,
+              "nota_data_cancelamento": Observação,
+              "nota_usuario_cancelamento": 123456,
+              "nota_motivo_cancelamento": "Motivo do cancelamento",
+              "nota_denegada": 0,
+              "nota_importada": 0,
+              "nota_scan": 0,
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "ambiente": 2,
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma nota fiscal encontrada!"
+   }
+Notas_fiscais - Alterar um produto
+
+2.0.0 
+Requisição para alterar um produto de uma nota fiscal
+
+PUT
+https://api.vhsys.com/v2/notas-fiscais/:id_venda/produtos/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/notas-fiscais/:id_venda/produtos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "id_produto" : 12345,
+        "desc_produto" : "Nome do produto",
+        "cod_produto" : "Código do produto",
+        "qtde_produto" : "1.00",
+        "desconto_produto" : "10.00",
+        "ipi_produto" : "1.50",
+        "icms_produto" : "2.50",
+        "cfop_produto" : "123456",
+        "ncm_produto" : "123456",
+        "unidade_produto" : "CX",
+        "unidade_tributavel" : "CX",
+        "valor_unit_produto" : "450.00",
+        "valor_custo_produto" : "400.00",
+        "vICMS_produto" : "0.00",
+        "vBCipi_produto" : "0.00",
+        "vIPI_produto" : "0.00",
+        "vBCST_produto" : "0.00",
+        "vST_produto" : "0.00",
+        "info_adicional" : "Informações adicionais",
+        "codigo_barras" : "Código de barras",
+        "valor_tributos_unit" : "0.00",
+        "valor_tributos_total" : "0.00",
+        "valor_tributosEst_unit" : "0.00",
+        "valor_tributosEst_total" : "0.00",
+        "peso_produto" : "1.10",
+        "peso_liq_produto" : "1.10"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_venda	Integer	
+ID da nota fiscal (Consultar nota disponíveis)
+
+:id	Integer	
+ID do vínculo produto/notas fiscais (Consultar produtos disponíveis)
+
+desc_produto opcional	String	
+Nome do produto (Consultar produtos disponíveis)
+
+Faixa de tamanho: 0-120
+
+cod_produto opcional	String	
+Código do produto
+
+Faixa de tamanho: 0-60
+
+qtde_produto opcional	Decimal	
+Quantidade de produtos
+
+Faixa de tamanho: 15,4
+
+desconto_produto opcional	Decimal	
+Valor do desconto
+
+Faixa de tamanho: 10,2
+
+ipi_produto opcional	Decimal	
+Valor do IPI
+
+Faixa de tamanho: 10,2
+
+icms_produto opcional	Decimal	
+Valor do ICMS
+
+Faixa de tamanho: 10,2
+
+cfop_produto opcional	Integer	
+CFOP do produto
+
+Faixa de tamanho: 0-4
+
+ncm_produto opcional	String	
+NCM do produto
+
+Faixa de tamanho: 0-8
+
+unidade_produto opcional	String	
+Unidade do produto
+
+Faixa de tamanho: 0-6
+
+unidade_tributavel opcional	String	
+Unidade tributável do produto
+
+Faixa de tamanho: 0-6
+
+valor_unit_produto opcional	Decimal	
+Valor unitário do produto
+
+Faixa de tamanho: 15,6
+
+valor_custo_produto opcional	Decimal	
+Valor de custo do produto
+
+Faixa de tamanho: 15,6
+
+vICMS_produto opcional	Decimal	
+Valor do ICMS
+
+Faixa de tamanho: 15,6
+
+vBCipi_produto opcional	Decimal	
+Valor da base de calculo IPI
+
+Faixa de tamanho: 10,2
+
+vIPI_produto opcional	Decimal	
+Valor do IPI
+
+Faixa de tamanho: 10,2
+
+vBCST_produto opcional	Decimal	
+Valor da base de calculo ST
+
+Faixa de tamanho: 10,2
+
+vST_produto opcional	Decimal	
+Valor do ST
+
+Faixa de tamanho: 10,2
+
+info_adicional opcional	String	
+Informações adicionais
+
+Faixa de tamanho: 0-500
+
+codigo_barras opcional	String	
+Código de barras
+
+Faixa de tamanho: 0-14
+
+valor_tributos_unit opcional	Decimal	
+Valor unitário dos tributos
+
+Faixa de tamanho: 15,2
+
+valor_tributos_total opcional	Decimal	
+Valor total dos tributos
+
+Faixa de tamanho: 10,2
+
+valor_tributosEst_unit opcional	Decimal	
+Valor unitário dos tributos estaduais
+
+Faixa de tamanho: 15,2
+
+valor_tributosEst_total opcional	Decimal	
+Valor total dos tributos estaduais
+
+Faixa de tamanho: 10,2
+
+peso_produto opcional	Decimal	
+Peso do produto
+
+Faixa de tamanho: 10,2
+
+peso_liq_produto opcional	Decimal	
+Peso líquido do produto
+
+Faixa de tamanho: 10,2
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_produto	Integer	
+ID do vínculo produto/nota fiscal
+
+  id_produto	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+  desc_produto	String	
+Nome do produto (Consultar produtos disponíveis)
+
+  qtde_produto	Decimal	
+Quantidade do produto
+
+  desconto_produto	Decimal	
+Valor do desconto
+
+  ipi_produto	Decimal	
+Valor do IPI
+
+  icms_produto	Decimal	
+Valor do ICMS
+
+  valor_custo_produto	Decimal	
+Valor de custo do produto
+
+  valor_unit_produto	Decimal	
+Valor unitário do produto
+
+  peso_produto	Decimal	
+Peso do produto
+
+  peso_liq_produto	Decimal	
+Peso líquido do produto
+
+  vBC_produto	Decimal	
+Valor da base de calculo
+
+  vICMS_produto	Decimal	
+Valor do ICMS
+
+  vBCipi_produto	Decimal	
+Valor da base de calculo IPI
+
+  vIPI_produto	Decimal	
+Valor do IPI
+
+  vBCST_produto	Decimal	
+Valor da base de calculo ST
+
+  vST_produto	Decimal	
+Valor do ST
+
+  cfop_produto	Integer	
+CFOP do produto
+
+  ncm_produto	String	
+NCM do produto
+
+  unidade_produto	String	
+Unidade do produto
+
+  unidade_tributavel	String	
+Unidade tributável do produto
+
+  origem_produto	Integer	
+Origem do produto no estoque
+
+  info_adicional	String	
+Informações adicionais
+
+  ordem_produto	String	
+Ordem do produto
+
+  codigo_barras	String	
+Código de barras
+
+  valor_tributos_unit	Decimal	
+Valor unitário dos tributos
+
+  valor_tributos_total	Decimal	
+Valor total dos tributos
+
+  valor_tributosEst_unit	Decimal	
+Valor unitário dos tributos
+
+  valor_tributosEst_total	Decimal	
+Valor total dos tributos
+
+  cod_produto	String	
+Código do produto
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ped_produto": 123456,
+              "id_venda": 12345,
+              "id_produto": 12345,
+              "desc_produto": "Nome do produto",
+              "qtde_produto": "1.00",
+              "desconto_produto": "10.00",
+              "ipi_produto": "1.50",
+              "icms_produto": "2.50",
+              "valor_unit_produto": "450.00",
+              "valor_custo_produto": "400.00",
+              "valor_total_produto": 450.00,
+              "peso_produto": "1.10",
+              "peso_liq_produto": "1.10"
+              "codigo_produto":"Código do produto"
+              "vBC_produto":"0.00",
+              "vICMS_produto":"0.00",
+              "vBCipi_produto":"0.00",
+              "vIPI_produto":"0.00",
+              "vBCST_produto":"0.00",
+              "vST_produto":"0.00",
+              "cfop_produto":01233,
+              "ncm_produto":01233,
+              "unidade_produto":"PÇ",
+              "unidade_tributavel":"PÇ",
+              "origem_produto":"Origem",
+              "info_adicional":"Informações",
+              "ordem_produto":1,
+              "codigo_barras":"123456",
+              "valor_tributos_unit":"0.00",
+              "valor_tributos_total":"0.00",
+              "valor_tributosEst_unit":"0.00",
+              "valor_tributosEst_total":"0.00"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar o produto da nota fiscal!"
+   }
+Notas_fiscais - Cadastra um produto
+
+2.0.0 
+Requisição para cadastro de produto para a nota fiscal
+
+POST
+https://api.vhsys.com/v2/notas-fiscais/:id_venda/produtos
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/notas-fiscais/:id_venda/produtos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '[{
+        "qtde_produto":"3",
+        "id_produto":0000000,
+        "valor_unit_produto":15.00,
+        "desc_produto":"Produto 1",
+        "impostos":{
+            "armas": {
+                "tpArma_arma":"",
+                "nSerie_arma":"",
+                "nCano_arma":"",
+                "descr_arma":""
+            },
+            "cofins": {
+                "cst_cofins":"",
+                "vBC_cofins":"",
+                "pCOFINS_cofins":"",
+                "vCOFINS_cofins":""
+            },
+            "combustivel":{
+                "cod_anp_comb":"",
+                "cod_codif_comb":"",
+                "qTemp_comb":"",
+                "UFCons_comb":"",
+                "qBCProd_comb":"",
+                "vAliqProd_comb":"",
+                "vCIDE_comb":""
+            },
+            "di":{
+                "numero_di":"",
+                "cod_exportador":"",
+                "data_registro":"",
+                "uf_desembaraco":"",
+                "local_desembaraco":"",
+                "data_desembaraco":"",
+                "via_transporte":"",
+                "tipo_importacao":"",
+                "valor_afrmm":""
+            },
+            "di_adicao":{
+                "adicao" : {
+                    {"numero_adicao":"","cod_fabricante":"","desconto_adicao":""},
+                    {"numero_adicao":"","cod_fabricante":"","desconto_adicao":""},
+                    {"numero_adicao":"","cod_fabricante":"","desconto_adicao":""}
+                }
+            },
+            "exportacao":{
+                "nDraw_exp":"",
+                "nRE_exp":"",
+                "chNFe_exp":"",
+                "qExport_exp":""
+            },
+            "icms":{
+                "cst_icms":"",
+                "origem_mercadoria":"",
+                "modalidade_icms":"",
+                "vBC_icms":"",
+                "pICMS_icms":"",
+                "vICMS_icms":"",
+                "pRedBC_icms":"",
+                "motDesICMS_icms":"",
+                "pCredSN_icms":"",
+                "vBCSTRet_icms":"",
+                "vCredICMSSN_icms":"",
+                "vICMSSTRet_icms":"",
+                "pICMSUFDest_icms":"",
+                "vBCUFDest_icms":"",
+                "pFCPUFDest_icms":"",
+                "pDif_icms":""
+            },
+            "imposto_importacao":{
+                "vBC_ii":"",
+                "vDespesas_ii":"",
+                "vIOF_ii":"",
+                "vII_ii":""
+            },
+            "ipi":{
+                "cst_ipi":"",
+                "classe_enquadramento":"",
+                "cEnq_enquadramento":"",
+                "vBC_ipi":"",
+                "pIPI_ipi":"",
+                "vIPI_ipi":""
+            },
+            "issqn":{
+                "tributacao_issqn":"",
+                "vBC_issqn":"",
+                "pISSQN_issqn":"",
+                "vISSQN_issqn":"",
+                "cListServ_issqn":"",
+                "cidade_issqn":"",
+                "cidade_issqn_cod":"",
+                "estado_issqn":""
+            },
+            "medicamento":{
+                "nLote_med":"",
+                "qLote_med":"",
+                "dFab_med":"",
+                "vPMC_med":"",
+                "dVal_med":"",
+            },
+            "pis":{
+                "pPIS_pis":"",
+                "vPIS_pis":"",
+                "vBC_pis":"",
+                "cst_pis":""
+            },
+            "st":{
+                "modalidade_st":"",
+                "pCOFINS_st":"",
+                "pMVAST_st":"",
+                "pRedBCST_st":"",
+                "pICMSST_st":"",
+                "vBCcofins_st":"",
+                "vCOFINS_st":"",
+                "pPIS_st":"",
+                "codigo_cest":"",
+                "vBCST_st":"",
+                "vPIS_st":"",
+                "vICMSST_st":"",
+                "vBCpis_st":""
+            }
+        },
+    },{
+        "qtde_produto":"3",
+        "valor_unit_produto":25.00,
+        "id_produto":000000,
+        "desc_produto":"Produto 2",
+        "impostos":{
+            "armas": {
+                "tpArma_arma":"",
+                "nSerie_arma":"",
+                "nCano_arma":"",
+                "descr_arma":""
+            },
+            "cofins": {
+                "cst_cofins":"",
+                "vBC_cofins":"",
+                "pCOFINS_cofins":"",
+                "vCOFINS_cofins":""
+            },
+            "combustivel":{
+                "cod_anp_comb":"",
+                "cod_codif_comb":"",
+                "qTemp_comb":"",
+                "UFCons_comb":"",
+                "qBCProd_comb":"",
+                "vAliqProd_comb":"",
+                "vCIDE_comb":""
+            },
+            "di":{
+                "numero_di":"",
+                "cod_exportador":"",
+                "data_registro":"",
+                "uf_desembaraco":"",
+                "local_desembaraco":"",
+                "data_desembaraco":"",
+                "via_transporte":"",
+                "tipo_importacao":"",
+                "valor_afrmm":""
+            },
+            "di_adicao":{
+                "adicao" : {
+                    {"numero_adicao":"","cod_fabricante":"","desconto_adicao":""},
+                    {"numero_adicao":"","cod_fabricante":"","desconto_adicao":""},
+                    {"numero_adicao":"","cod_fabricante":"","desconto_adicao":""}
+                }
+            },
+            "exportacao":{
+                "nDraw_exp":"",
+                "nRE_exp":"",
+                "chNFe_exp":"",
+                "qExport_exp":""
+            },
+            "icms":{
+                "cst_icms":"",
+                "origem_mercadoria":"",
+                "modalidade_icms":"",
+                "vBC_icms":"",
+                "pICMS_icms":"",
+                "vICMS_icms":"",
+                "pRedBC_icms":"",
+                "motDesICMS_icms":"",
+                "pCredSN_icms":"",
+                "vBCSTRet_icms":"",
+                "vCredICMSSN_icms":"",
+                "vICMSSTRet_icms":"",
+                "pICMSUFDest_icms":"",
+                "vBCUFDest_icms":"",
+                "pFCPUFDest_icms":"",
+                "pDif_icms":""
+            },
+            "imposto_importacao":{
+                "vBC_ii":"",
+                "vDespesas_ii":"",
+                "vIOF_ii":"",
+                "vII_ii":""
+            },
+            "ipi":{
+                "cst_ipi":"",
+                "classe_enquadramento":"",
+                "cEnq_enquadramento":"",
+                "vBC_ipi":"",
+                "pIPI_ipi":"",
+                "vIPI_ipi":""
+            },
+            "issqn":{
+                "tributacao_issqn":"",
+                "vBC_issqn":"",
+                "pISSQN_issqn":"",
+                "vISSQN_issqn":"",
+                "cListServ_issqn":"",
+                "cidade_issqn":"",
+                "cidade_issqn_cod":"",
+                "estado_issqn":""
+            },
+            "medicamento":{
+                "nLote_med":"",
+                "qLote_med":"",
+                "dFab_med":"",
+                "vPMC_med":"",
+                "dVal_med":"",
+            },
+            "pis":{
+                "pPIS_pis":"",
+                "vPIS_pis":"",
+                "vBC_pis":"",
+                "cst_pis":""
+            },
+            "st":{
+                "modalidade_st":"",
+                "pCOFINS_st":"",
+                "pMVAST_st":"",
+                "pRedBCST_st":"",
+                "pICMSST_st":"",
+                "vBCcofins_st":"",
+                "vCOFINS_st":"",
+                "pPIS_st":"",
+                "codigo_cest":"",
+                "vBCST_st":"",
+                "vPIS_st":"",
+                "vICMSST_st":"",
+                "vBCpis_st":""
+            }
+        }
+    }]'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_venda	Integer	
+ID da nota fiscal (Consultar nota disponíveis)
+
+:id	Integer	
+ID do vínculo produto/notas fiscais (Consultar produtos disponíveis)
+
+desc_produto	String	
+Nome do produto (Consultar produtos disponíveis)
+
+Faixa de tamanho: 0-120
+
+cod_produto opcional	String	
+Código do produto
+
+Faixa de tamanho: 0-60
+
+qtde_produto	Decimal	
+Quantidade de produtos
+
+Faixa de tamanho: 15,4
+
+desconto_produto opcional	Decimal	
+Valor do desconto
+
+Faixa de tamanho: 10,2
+
+ipi_produto opcional	Decimal	
+Valor do IPI
+
+Faixa de tamanho: 10,2
+
+icms_produto opcional	Decimal	
+Valor do ICMS
+
+Faixa de tamanho: 10,2
+
+cfop_produto opcional	Integer	
+CFOP do produto
+
+Faixa de tamanho: 0-4
+
+ncm_produto opcional	String	
+NCM do produto
+
+Faixa de tamanho: 0-8
+
+unidade_produto opcional	String	
+Unidade do produto
+
+Faixa de tamanho: 0-6
+
+unidade_tributavel opcional	String	
+Unidade tributável do produto
+
+Faixa de tamanho: 0-6
+
+valor_unit_produto opcional	Decimal	
+Valor unitário do produto
+
+Faixa de tamanho: 15,6
+
+valor_custo_produto opcional	Decimal	
+Valor de custo do produto
+
+Faixa de tamanho: 15,6
+
+vICMS_produto opcional	Decimal	
+Valor do ICMS
+
+Faixa de tamanho: 15,6
+
+vBCipi_produto opcional	Decimal	
+Valor da base de calculo IPI
+
+Faixa de tamanho: 10,2
+
+vIPI_produto opcional	Decimal	
+Valor do IPI
+
+Faixa de tamanho: 10,2
+
+vBCST_produto opcional	Decimal	
+Valor da base de calculo ST
+
+Faixa de tamanho: 10,2
+
+vST_produto opcional	Decimal	
+Valor do ST
+
+Faixa de tamanho: 10,2
+
+info_adicional opcional	String	
+Informações adicionais
+
+Faixa de tamanho: 0-500
+
+codigo_barras opcional	String	
+Código de barras
+
+Faixa de tamanho: 0-14
+
+valor_tributos_unit opcional	Decimal	
+Valor unitário dos tributos
+
+Faixa de tamanho: 15,2
+
+valor_tributos_total opcional	Decimal	
+Valor total dos tributos
+
+Faixa de tamanho: 10,2
+
+valor_tributosEst_unit opcional	Decimal	
+Valor unitário dos tributos estaduais
+
+Faixa de tamanho: 15,2
+
+valor_tributosEst_total opcional	Decimal	
+Valor total dos tributos estaduais
+
+Faixa de tamanho: 10,2
+
+peso_produto opcional	Decimal	
+Peso do produto
+
+Faixa de tamanho: 10,2
+
+peso_liq_produto opcional	Decimal	
+Peso líquido do produto
+
+Faixa de tamanho: 10,2
+
+impostos opcional	Object[]	
+Impostos do produto para emissao da NF-e (Consultar preenchimento e retorno)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_produto	Integer	
+ID do vínculo produto/nota fiscal
+
+  id_produto	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+  desc_produto	String	
+Nome do produto (Consultar produtos disponíveis)
+
+  qtde_produto	Decimal	
+Quantidade do produto
+
+  desconto_produto	Decimal	
+Valor do desconto
+
+  ipi_produto	Decimal	
+Valor do IPI
+
+  icms_produto	Decimal	
+Valor do ICMS
+
+  valor_custo_produto	Decimal	
+Valor de custo do produto
+
+  valor_unit_produto	Decimal	
+Valor unitário do produto
+
+  peso_produto	Decimal	
+Peso do produto
+
+  peso_liq_produto	Decimal	
+Peso líquido do produto
+
+  vBC_produto	Decimal	
+Valor da base de calculo
+
+  vICMS_produto	Decimal	
+Valor do ICMS
+
+  vBCipi_produto	Decimal	
+Valor da base de calculo IPI
+
+  vIPI_produto	Decimal	
+Valor do IPI
+
+  vBCST_produto	Decimal	
+Valor da base de calculo ST
+
+  vST_produto	Decimal	
+Valor do ST
+
+  cfop_produto	Integer	
+CFOP do produto
+
+  ncm_produto	String	
+NCM do produto
+
+  unidade_produto	String	
+Unidade do produto
+
+  unidade_tributavel	String	
+Unidade tributável do produto
+
+  origem_produto	Integer	
+Origem do produto no estoque
+
+  info_adicional	String	
+Informações adicionais
+
+  ordem_produto	String	
+Ordem do produto
+
+  codigo_barras	String	
+Código de barras
+
+  valor_tributos_unit	Decimal	
+Valor unitário dos tributos
+
+  valor_tributos_total	Decimal	
+Valor total dos tributos
+
+  valor_tributosEst_unit	Decimal	
+Valor unitário dos tributos
+
+  valor_tributosEst_total	Decimal	
+Valor total dos tributos
+
+  cod_produto	String	
+Código do produto
+
+impostos	Object[]	
+Impostos do produto para emissao da NF-e (Consultar preenchimento e retorno)
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ped_produto": 123456,
+              "id_venda": 12345,
+              "id_produto": 12345,
+              "desc_produto": "Nome do produto",
+              "qtde_produto": "1.00",
+              "desconto_produto": "10.00",
+              "ipi_produto": "1.50",
+              "icms_produto": "2.50",
+              "valor_unit_produto": "450.00",
+              "valor_custo_produto": "400.00",
+              "valor_total_produto": 450.00,
+              "peso_produto": "1.10",
+              "peso_liq_produto": "1.10"
+              "codigo_produto":"Código do produto"
+              "vBC_produto":"0.00",
+              "vICMS_produto":"0.00",
+              "vBCipi_produto":"0.00",
+              "vIPI_produto":"0.00",
+              "vBCST_produto":"0.00",
+              "vST_produto":"0.00",
+              "cfop_produto":01233,
+              "ncm_produto":01233,
+              "unidade_produto":"PÇ",
+              "unidade_tributavel":"PÇ",
+              "origem_produto":"Origem",
+              "info_adicional":"Informações",
+              "ordem_produto":1,
+              "codigo_barras":"123456",
+              "valor_tributos_unit":"0.00",
+              "valor_tributos_total":"0.00",
+              "valor_tributosEst_unit":"0.00",
+              "valor_tributosEst_total":"0.00"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o produto para a nota fiscal!"
+   }
+Notas_fiscais - Cadastra um status
+
+2.0.0 
+Requisição para cadastro de status para a nota fiscal
+
+POST
+https://api.vhsys.com/v2/notas-fiscais/:id_venda/status
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/notas-fiscais/:id_venda/status \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "data_status" : "0000-00-00",
+        "obs_status" : "Observação do status",
+        "tipo_status" : "Cancelado"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_venda	Integer	
+ID da venda (Consultar notas disponíveis)
+
+data_status	Date	
+Data do status
+
+Valores permitidos: YYYY-MM-DD
+
+tipo_status	Enum	
+Tipo do status
+
+Valores permitidos: Em Aberto, Em Andamento, Cancelado, Atendido
+
+obs_status opcional	String	
+Observação do status
+
+Faixa de tamanho: 255
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_status	Integer	
+Id do status
+
+  id_venda	Integer	
+ID da nota fiscal (Consultar notas disponíveis)
+
+  data_status	Data	
+Data de cadastro do status
+
+  obs_status	String	
+Descrição do status
+
+  tipo_status	String	
+Tipo do status
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_status": 123456,
+              "id_venda": 1234,
+              "data_status": "0000-00-00",
+              "obs_status": "Observação do status",
+              "tipo_status": "Em Aberto",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o status para a nota fiscal!"
+   }
+Notas_fiscais - Cadastra uma parcela
+
+2.0.0 
+Requisição para cadastro de parcelas para a nota fiscal, ao cadastrar novas parcelas para uma nota fiscal as parcelas anteriores serão removidas
+
+POST
+https://api.vhsys.com/v2/notas-fiscais/:id_venda/parcelas
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/notas-fiscais/:id_venda/parcelas \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '[{
+        "data_parcela":"0000-00-00",
+        "valor_parcela":"00.00",
+        "forma_pagamento":"Forma de pagamento",
+        "observacoes_parcela":"Observação"
+    },{
+        "data_parcela":"0000-00-00",
+        "valor_parcela":"00.00",
+        "forma_pagamento":"Forma de pagamento",
+        "observacoes_parcela":"Observação"
+    }]'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_venda	Integer	
+ID da nota fiscal (Consultar notas disponíveis)
+
+data_parcela	Date	
+Data da parcela
+
+Valores permitidos: YYYY-MM-DD
+
+valor_parcela	Decimal	
+Valor da parcela
+
+Faixa de tamanho: 10,2
+
+forma_pagamento opcional	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+observacoes_parcela opcional	String	
+Observação da parcela
+
+Faixa de tamanho: 255
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_venda	Integer	
+ID da nota fiscal (Consultar notas disponíveis)
+
+  data_parcela	Date	
+Data da parcela
+
+  valor_parcela	Decimal	
+Valor da parcela
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  observacoes_parcela	String	
+Observação da parcela
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_venda": 123456,
+              "data_parcela": "0000-00-00",
+              "valor_parcela": "00.00",
+              "forma_pagamento": "Forma de pagamento",
+              "observacoes_parcela": "Observação"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar a parcela para a nota fiscal!"
+   }
+Notas_fiscais - Cadastrar carta de correção
+
+2.0.0 
+Requisição para cadastro de carta de correção de uma nota fiscais
+
+POST
+https://api.vhsys.com/v2/notas-fiscais-carta-correcao
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/notas-fiscais-carta-correcao \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "chave_nfe" : "12584596578816454178979887954198746654894269",
+        "ambiente" : 1,
+        "correcao_cce" : "Descrição da carta de correção",
+        "sequencia_cce" : 1
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+chave_nfe	String	
+Chave da nota fiscal
+
+Faixa de tamanho: 44
+
+ambiente	Integer	
+Ambiente de emissão
+1 - Produção / 2 - Homologação
+
+Faixa de tamanho: 9
+
+correcao_cce	String	
+Descrição da correção
+
+Faixa de tamanho: 15-1000
+
+sequencia_cce	Integer	
+Sequência de cartas de correção para essa nota fiscal
+
+Faixa de tamanho: 1
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  chave_nfe	String	
+Chave da nota fiscal
+
+  ambiente	Integer	
+Ambiente de emissão
+1 - Produção / 2 - Homologação
+
+  correcao_cce	String	
+Descrição da carta de correção
+
+  sequencia_cce	Integer	
+Sequência de cartas de correção para essa nota fiscal
+
+  chave_cce	String	
+Chave da carta de correção
+
+  protocolo_cce	String	
+Protocolo da carta de correção
+
+  nome_usuario	String	
+Usuário que criou a carta de correção
+
+  data_cad_cce	Date	
+Data de cadastro
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "chave_nfe": "12584596578816454178979887954198746654894269",
+              "ambiente": 1,
+              "correcao_cce": "Descrição da carta de correção",
+              "sequencia_cce": 1,
+              "data_cad_cce": "0000-00-00 00:00:00",
+              "chave_cce": "78512698467474859614124889745651897",
+              "protocolo_cce": "87367811874954",
+              "nome_usuario": "login_usuario",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar a carta de correção!"
+   }
+Notas_fiscais - Cadastrar impostos
+
+2.0.0 
+Os campos abaixo são enviados no momento do cadastro do produto como descrito na documentação de cadastro de produdo (Consultar)
+
+POST
+https://api.vhsys.com/v2/notas-fiscais/:id_venda/produtos
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/notas-fiscais/:id_venda/produtos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '[{
+        //DADOS DO PRODUTO
+        "impostos":{
+            "armas": {
+                "tpArma_arma":"",
+                "nSerie_arma":"",
+                "nCano_arma":"",
+                "descr_arma":""
+            },
+            "cofins": {
+                "cst_cofins":"",
+                "vBC_cofins":"",
+                "pCOFINS_cofins":"",
+                "vCOFINS_cofins":""
+            },
+            "combustivel":{
+                "cod_anp_comb":"",
+                "cod_codif_comb":"",
+                "qTemp_comb":"",
+                "UFCons_comb":"",
+                "qBCProd_comb":"",
+                "vAliqProd_comb":"",
+                "vCIDE_comb":""
+            },
+            "di":{
+                "numero_di":"",
+                "cod_exportador":"",
+                "data_registro":"",
+                "uf_desembaraco":"",
+                "local_desembaraco":"",
+                "data_desembaraco":"",
+                "via_transporte":"",
+                "tipo_importacao":"",
+                "valor_afrmm":""
+            },
+            "di_adicao":{
+                "adicao" : {
+                    {"numero_adicao":"","cod_fabricante":"","desconto_adicao":""},
+                    {"numero_adicao":"","cod_fabricante":"","desconto_adicao":""},
+                    {"numero_adicao":"","cod_fabricante":"","desconto_adicao":""}
+                }
+            },
+            "exportacao":{
+                "nDraw_exp":"",
+                "nRE_exp":"",
+                "chNFe_exp":"",
+                "qExport_exp":""
+            },
+            "icms":{
+                "cst_icms":"",
+                "origem_mercadoria":"",
+                "modalidade_icms":"",
+                "vBC_icms":"",
+                "pICMS_icms":"",
+                "vICMS_icms":"",
+                "pRedBC_icms":"",
+                "motDesICMS_icms":"",
+                "pCredSN_icms":"",
+                "vBCSTRet_icms":"",
+                "vCredICMSSN_icms":"",
+                "vICMSSTRet_icms":"",
+                "pICMSUFDest_icms":"",
+                "vBCUFDest_icms":"",
+                "pFCPUFDest_icms":"",
+                "pDif_icms":""
+            },
+            "imposto_importacao":{
+                "vBC_ii":"",
+                "vDespesas_ii":"",
+                "vIOF_ii":"",
+                "vII_ii":""
+            },
+            "ipi":{
+                "cst_ipi":"",
+                "classe_enquadramento":"",
+                "cEnq_enquadramento":"",
+                "vBC_ipi":"",
+                "pIPI_ipi":"",
+                "vIPI_ipi":""
+            },
+            "issqn":{
+                "tributacao_issqn":"",
+                "vBC_issqn":"",
+                "pISSQN_issqn":"",
+                "vISSQN_issqn":"",
+                "cListServ_issqn":"",
+                "cidade_issqn":"",
+                "cidade_issqn_cod":"",
+                "estado_issqn":""
+            },
+            "medicamento":{
+                "nLote_med":"",
+                "qLote_med":"",
+                "dFab_med":"",
+                "vPMC_med":"",
+                "dVal_med":"",
+            },
+            "pis":{
+                "pPIS_pis":"",
+                "vPIS_pis":"",
+                "vBC_pis":"",
+                "cst_pis":""
+            },
+            "st":{
+                "modalidade_st":"",
+                "pCOFINS_st":"",
+                "pMVAST_st":"",
+                "pRedBCST_st":"",
+                "pICMSST_st":"",
+                "vBCcofins_st":"",
+                "vCOFINS_st":"",
+                "pPIS_st":"",
+                "codigo_cest":"",
+                "vBCST_st":"",
+                "vPIS_st":"",
+                "vICMSST_st":"",
+                "vBCpis_st":""
+            }
+        },
+    },{
+        //DADOS DO PRODUTO
+        "impostos":{
+            "armas": {
+                "tpArma_arma":"",
+                "nSerie_arma":"",
+                "nCano_arma":"",
+                "descr_arma":""
+            },
+            "cofins": {
+                "cst_cofins":"",
+                "vBC_cofins":"",
+                "pCOFINS_cofins":"",
+                "vCOFINS_cofins":""
+            },
+            "combustivel":{
+                "cod_anp_comb":"",
+                "cod_codif_comb":"",
+                "qTemp_comb":"",
+                "UFCons_comb":"",
+                "qBCProd_comb":"",
+                "vAliqProd_comb":"",
+                "vCIDE_comb":""
+            },
+            "di":{
+                "numero_di":"",
+                "cod_exportador":"",
+                "data_registro":"",
+                "uf_desembaraco":"",
+                "local_desembaraco":"",
+                "data_desembaraco":"",
+                "via_transporte":"",
+                "tipo_importacao":"",
+                "valor_afrmm":""
+            },
+            "di_adicao":{
+                "adicao" : {
+                    {"numero_adicao":"","cod_fabricante":"","desconto_adicao":""},
+                    {"numero_adicao":"","cod_fabricante":"","desconto_adicao":""},
+                    {"numero_adicao":"","cod_fabricante":"","desconto_adicao":""}
+                }
+            },
+            "exportacao":{
+                "nDraw_exp":"",
+                "nRE_exp":"",
+                "chNFe_exp":"",
+                "qExport_exp":""
+            },
+            "icms":{
+                "cst_icms":"",
+                "origem_mercadoria":"",
+                "modalidade_icms":"",
+                "vBC_icms":"",
+                "pICMS_icms":"",
+                "vICMS_icms":"",
+                "pRedBC_icms":"",
+                "motDesICMS_icms":"",
+                "pCredSN_icms":"",
+                "vBCSTRet_icms":"",
+                "vCredICMSSN_icms":"",
+                "vICMSSTRet_icms":"",
+                "pICMSUFDest_icms":"",
+                "vBCUFDest_icms":"",
+                "pFCPUFDest_icms":"",
+                "pDif_icms":""
+            },
+            "imposto_importacao":{
+                "vBC_ii":"",
+                "vDespesas_ii":"",
+                "vIOF_ii":"",
+                "vII_ii":""
+            },
+            "ipi":{
+                "cst_ipi":"",
+                "classe_enquadramento":"",
+                "cEnq_enquadramento":"",
+                "vBC_ipi":"",
+                "pIPI_ipi":"",
+                "vIPI_ipi":""
+            },
+            "issqn":{
+                "tributacao_issqn":"",
+                "vBC_issqn":"",
+                "pISSQN_issqn":"",
+                "vISSQN_issqn":"",
+                "cListServ_issqn":"",
+                "cidade_issqn":"",
+                "cidade_issqn_cod":"",
+                "estado_issqn":""
+            },
+            "medicamento":{
+                "nLote_med":"",
+                "qLote_med":"",
+                "dFab_med":"",
+                "vPMC_med":"",
+                "dVal_med":"",
+            },
+            "pis":{
+                "pPIS_pis":"",
+                "vPIS_pis":"",
+                "vBC_pis":"",
+                "cst_pis":""
+            },
+            "st":{
+                "modalidade_st":"",
+                "pCOFINS_st":"",
+                "pMVAST_st":"",
+                "pRedBCST_st":"",
+                "pICMSST_st":"",
+                "vBCcofins_st":"",
+                "vCOFINS_st":"",
+                "pPIS_st":"",
+                "codigo_cest":"",
+                "vBCST_st":"",
+                "vPIS_st":"",
+                "vICMSST_st":"",
+                "vBCpis_st":""
+            }
+        }
+    }]'
+Parâmetro
+
+Campo	Tipo	Descrição
+impostos opcional	Object[]	
+Dados dos impostos
+
+  armas opcional	Object[]	
+Dados dos imposto - Armas
+
+    tpArma_arma opcional	Enum	
+0 - Uso permitido / 1 - Uso restrito
+
+Valor padrão: 0
+
+Faixa de tamanho: 0,1
+
+    nSerie_arma opcional	String	
+Número de série
+
+Faixa de tamanho: 0-15
+
+    nCano_arma opcional	String	
+Número do cano
+
+Faixa de tamanho: 0-15
+
+    descr_arma opcional	String	
+Descrição para a arma
+
+Faixa de tamanho: 0-255
+
+  cofins opcional	Object[]	
+Dados dos imposto - COFINS
+
+    cst_cofins opcional	String	
+Situação tributária do COFINS
+
+Valor padrão: 8
+
+Faixa de tamanho: 0-2
+
+    vBC_cofins opcional	Decimal	
+Base COFINS
+
+Faixa de tamanho: 10,2
+
+    pCOFINS_cofins opcional	Decimal	
+Alíquota COFINS
+
+Faixa de tamanho: 10,2
+
+    vCOFINS_cofins opcional	Decimal	
+Valor COFINS
+
+Faixa de tamanho: 10,2
+
+  combustivel opcional	Object[]	
+Dados dos imposto - COMBUSTIVEL
+
+    cod_anp_comb opcional	String	
+Código da ANP
+
+Faixa de tamanho: 0-9
+
+    cod_codif_comb opcional	String	
+Código autorização CODIF
+
+Faixa de tamanho: 0-21
+
+    qTemp_comb opcional	Decimal	
+Qtde. de combustível/Temperatura
+
+Faixa de tamanho: 10,4
+
+    UFCons_comb opcional	String	
+Estado de consumo
+
+Faixa de tamanho: 0-2
+
+    qBCProd_comb opcional	Decimal	
+Base da CIDE
+
+Faixa de tamanho: 10,4
+
+    vAliqProd_comb opcional	Decimal	
+Alíquota em reais da CIDE
+
+Faixa de tamanho: 10,4
+
+    vCIDE_comb opcional	Decimal	
+Valor da CIDE
+
+Faixa de tamanho: 10,2
+
+  di opcional	Object[]	
+Dados dos imposto - DI
+
+    numero_di opcional	String	
+Número da DI
+
+Faixa de tamanho: 0-12
+
+    cod_exportador opcional	String	
+Código do exportador
+
+Faixa de tamanho: 0-60
+
+    data_registro opcional	Date	
+Data do registro
+
+Valores permitidos: YYYY-MM-DD
+
+    uf_desembaraco opcional	String	
+UF Desembaraço
+
+Faixa de tamanho: 0-2
+
+    local_desembaraco opcional	String	
+Local do Desembaraço
+
+Faixa de tamanho: 0-60
+
+    data_desembaraco opcional	Date	
+Data do desembaraço
+
+Valores permitidos: YYYY-MM-DD
+
+    via_transporte opcional	Integer	
+Via de Transporte
+
+Faixa de tamanho: 0-2
+
+    tipo_importacao opcional	Integer	
+Forma de Importação
+
+Faixa de tamanho: 0-1
+
+    valor_afrmm opcional	Decimal	
+Valor da AFRMM
+
+Faixa de tamanho: 10,2
+
+  di_adicao opcional	Object[]	
+Dados dos imposto - DI ADIÇÃO
+
+    adicao opcional	Object[]	
+Array de impostos
+
+      id_di	Integer	
+Número da DI
+
+Faixa de tamanho: 0-20
+
+      numero_adicao opcional	Integer	
+Número da adição
+
+Faixa de tamanho: 0-3
+
+      cod_fabricante opcional	String	
+Cód. Fabricante
+
+Faixa de tamanho: 0-60
+
+      desconto_adicao opcional	Decimal	
+Desconto
+
+Faixa de tamanho: 10,2
+
+  exportacao opcional	Object[]	
+Dados dos imposto - EXPORTAÇÃO
+
+    nDraw_exp opcional	String	
+Número do ato concessório de Drawback
+
+Faixa de tamanho: 0-11
+
+    nRE_exp opcional	String	
+Número do Registro de Exportação
+
+Faixa de tamanho: 0-12
+
+    chNFe_exp opcional	String	
+Chave de Acesso da NF-e recebida para exportação
+
+Faixa de tamanho: 0-44
+
+    qExport_exp opcional	Decimal	
+Quantidade do item exportado
+
+Faixa de tamanho: 10,2
+
+  icms opcional	Object[]	
+Dados dos imposto - ICMS
+
+    cst_icms opcional	String	
+Situação tributária do ICMS - Simples Nacional
+
+Valor padrão: 40
+
+Faixa de tamanho: 0-3
+
+    origem_mercadoria opcional	Integer	
+Origem da mercadoria
+
+Faixa de tamanho: 0-1
+
+    modalidade_icms opcional	Integer	
+Modalidade BC ICMS
+
+Faixa de tamanho: 0-1
+
+    vBC_icms opcional	Decimal	
+Base ICMS
+
+Faixa de tamanho: 10,2
+
+    pICMS_icms opcional	Decimal	
+Alíq. ICMS
+
+Faixa de tamanho: 10,2
+
+    vICMS_icms opcional	Decimal	
+Valor ICMS
+
+Faixa de tamanho: 10,2
+
+    pRedBC_icms opcional	Decimal	
+Redução Base
+
+Faixa de tamanho: 10,2
+
+    motDesICMS_icms opcional	Integer	
+Motivo Desoneração
+
+Valor padrão: 9
+
+Faixa de tamanho: 0-1
+
+    pCredSN_icms opcional	Decimal	
+Aplicável Créd.
+
+Faixa de tamanho: 10,2
+
+    vBCSTRet_icms opcional	Decimal	
+Base ICMS ST Retido
+
+Faixa de tamanho: 10,2
+
+    vCredICMSSN_icms opcional	Decimal	
+Crédito ICMS
+
+Faixa de tamanho: 10,2
+
+    vICMSSTRet_icms opcional	Decimal	
+Valor ICMS ST Retido
+
+Faixa de tamanho: 10,2
+
+    pICMSUFDest_icms opcional	Decimal	
+Alíquota interna na UF de destino
+
+Faixa de tamanho: 10,2
+
+    vBCUFDest_icms opcional	Decimal	
+Base na UF de destino
+
+Faixa de tamanho: 10,2
+
+    pFCPUFDest_icms opcional	Decimal	
+FCP (Fundo de combate a pobreza)
+
+Faixa de tamanho: 10,2
+
+    pDif_icms opcional	Decimal	
+Percentual do diferimento
+
+Faixa de tamanho: 10,4
+
+  imposto_importacao opcional	Object[]	
+Dados dos imposto - IMPORTAÇÃO
+
+    vBC_ii opcional	Decimal	
+Base II
+
+Faixa de tamanho: 10,4
+
+    vDespesas_ii opcional	Decimal	
+Despesas Aduaneiras
+
+Faixa de tamanho: 10,4
+
+    vIOF_ii opcional	Decimal	
+Valor IOF
+
+Faixa de tamanho: 10,4
+
+    vII_ii opcional	Decimal	
+Valor II
+
+Faixa de tamanho: 10,4
+
+  ipi opcional	Object[]	
+Dados dos imposto - IPI
+
+    cst_ipi opcional	String	
+Situação tributária do IPI
+
+Valor padrão: 52
+
+Faixa de tamanho: 0-2
+
+    classe_enquadramento opcional	String	
+Classe enquadramento
+
+Faixa de tamanho: 0-5
+
+    cEnq_enquadramento opcional	String	
+Código enquadramento
+
+Faixa de tamanho: 0-3
+
+    vBC_ipi opcional	Decimal	
+Base IPI
+
+Faixa de tamanho: 10,2
+
+    pIPI_ipi opcional	Decimal	
+Alíq. IPI
+
+Faixa de tamanho: 10,2
+
+    vIPI_ipi opcional	Decimal	
+Valor IPI
+
+Faixa de tamanho: 10,2
+
+  issqn opcional	Object[]	
+Dados dos imposto - ISSQN
+
+    tributacao_issqn opcional	String	
+Tributação ISSQN
+
+Faixa de tamanho: 0-1
+
+    vBC_issqn opcional	Decimal	
+Valor BC
+
+Faixa de tamanho: 10,2
+
+    pISSQN_issqn opcional	Decimal	
+Alíq. ISSQN
+
+Faixa de tamanho: 10,2
+
+    vISSQN_issqn opcional	Decimal	
+Valor ISSQN
+
+Faixa de tamanho: 10,2
+
+    cListServ_issqn opcional	String	
+Lista de Serviço
+
+Faixa de tamanho: 0-4
+
+    cidade_issqn opcional	String	
+Cidade
+
+Faixa de tamanho: 0-200
+
+    cidade_issqn_cod opcional	Integer	
+Código da cidade
+
+Faixa de tamanho: 0-10
+
+    estado_issqn opcional	String	
+Estado
+
+Faixa de tamanho: 0-2
+
+  medicamento opcional	Object[]	
+Dados dos imposto - MEDICAMENTOS
+
+    nLote_med opcional	String	
+Número do lote
+
+Faixa de tamanho: 0-20
+
+    qLote_med opcional	Decimal	
+Quantidade no lote
+
+Faixa de tamanho: 11,3
+
+    dFab_med opcional	Date	
+Data de fabricação
+
+Valores permitidos: YYYY-MM-DD
+
+    vPMC_med opcional	Decimal	
+Preço máximo consumidor
+
+Faixa de tamanho: 10,2
+
+    dVal_med opcional	Date	
+Data de validade
+
+Valores permitidos: YYYY-MM-DD
+
+  pis opcional	Object[]	
+Dados dos imposto - PIS
+
+    cst_pis opcional	String	
+Situação tributária do PIS
+
+Faixa de tamanho: 0-2
+
+    vPIS_pis opcional	Decimal	
+Alíquota PIS
+
+Faixa de tamanho: 10,2
+
+    vBC_pis opcional	Decimal	
+Base PIS
+
+Faixa de tamanho: 10,2
+
+    pPIS_pis opcional	Decimal	
+Alíquota PIS
+
+Faixa de tamanho: 10,2
+
+  st opcional	Object[]	
+Dados dos imposto - ST
+
+    modalidade_st opcional	Integer	
+Modalidade BC ICMS ST
+
+Faixa de tamanho: 0-1
+
+    pMVAST_st opcional	Decimal	
+MVA ICMS ST
+
+Faixa de tamanho: 10,2
+
+    pRedBCST_st opcional	Decimal	
+Redução base ST
+
+Faixa de tamanho: 10,2
+
+    pICMSST_st opcional	Decimal	
+Alíq. ICMS ST
+
+Faixa de tamanho: 10,2
+
+    codigo_cest opcional	String	
+Código CEST
+
+Faixa de tamanho: 0-7
+
+    vBCST_st opcional	Decimal	
+Base ICMS ST
+
+Faixa de tamanho: 10,2
+
+    vICMSST_st opcional	Decimal	
+Valor ICMS ST
+
+Faixa de tamanho: 10,2
+
+Notas_fiscais - Cadastrar inutilização
+
+2.0.0 
+Requisição para cadastro de inutilização de notas fiscais
+
+POST
+https://api.vhsys.com/v2/notas-fiscais-inutilizar
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/notas-fiscais-inutilizar \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "tipo_inut" : "NFe",
+        "ano_inut" : 17,
+        "serie_inut" : "001",
+        "inicial_inut" : "12345",
+        "final_inut" : "12346",
+        "motivo_inut" : "Motivo da inutilização"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+tipo_inut	Enum	
+Tipo da inutilização
+
+Valor padrão: NFe
+
+Valores permitidos: NFe, NFCe
+
+ano_inut	Integer	
+Ano da inutilização
+
+Faixa de tamanho: 20
+
+serie_inut	String	
+Série da nota fiscal
+
+Faixa de tamanho: 3
+
+inicial_inut	Integer	
+Numeração inicial da nota
+
+Faixa de tamanho: 10
+
+final_inut	Integer	
+Numeração final da nota
+
+Faixa de tamanho: 10
+
+motivo_inut	String	
+Motivo da inutilização
+
+Faixa de tamanho: 25
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  tipo_inut	String	
+Tipo da inutilização
+
+  ano_inut	Integer	
+Ano da inutilização
+
+  serie_inut	String	
+Série da nota fiscal
+
+  inicial_inut	Integer	
+Numeração inicial da nota
+
+  final_inut	Integer	
+Numeração final da nota
+
+  motivo_inut	String	
+Motivo da inutilização
+
+  protocolo_inut	String	
+Protocolo da inutilização
+
+  chave_inut	String	
+Chave da inutilização
+
+  data_cad_inut	Date	
+Data de cadastro
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "tipo_inut": "NFe",
+              "ano_inut": 17,
+              "serie_inut": "001",
+              "inicial_inut": 1234,
+              "final_inut": 1235,
+              "motivo_inut": "Motivo do cancelamento",
+              "protocolo_inut": "1491187070000662854",
+              "chave_inut": "1234567893214569874563214158975",
+              "data_emissao": "0000-00-00 00:00:00",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar a inutilização da nota fiscal!"
+   }
+Notas_fiscais - Consultar xml da carta de correção
+
+2.0.0 
+Requisição para a consulta o xml da carta de correção
+
+GET
+https://api.vhsys.com/v2/notas-fiscais-carta-correcao/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/notas-fiscais-carta-correcao/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da carta de correção (Consultar cartas de correção disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+xml	XML	
+xml da carta de correção
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+      //XML DA CARTA DE CORREÇÃO
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma carta de correção encontrada!"
+   }
+Notas_fiscais - Emitir nota fiscal
+
+2.0.0 
+Requisição para emitir uma nota fiscal
+
+POST
+https://api.vhsys.com/v2/notas-fiscais/:id_venda/emitir
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/notas-fiscais/:id_venda/emitir \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da venda (Consultar vendas disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  Status	String	
+Status da emissão da NFe
+
+  xMotivo	String	
+Dados sobre a emissão
+
+  Protocolo	String	
+Protocolo da emissão
+
+  Chave	String	
+Chave de acesso da NFe
+
+  Danfe	String	
+Link da Danfe
+
+  DanfeErro	String	
+Erros encontrados
+
+  Ambiente	String	
+Ambiente da emissão da NFe
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "Status": 100,
+              "xMotivo": "100 - Autorizado o uso da NF-e",
+              "Protocolo": "1298936946516134195424",
+              "Chave": "745644565644254489552565444112329578911486675353",
+              "Danfe": http://vh0.me/YlpQ8,
+              "DanfeErro": "Erro referente a emissão",
+              "Ammbiente": "1",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao emitir a nota fiscal!"
+   }
+Notas_fiscais - Excluir um produto
+
+2.0.0 
+Requisição para deletar um produto da nota fiscal
+
+DELETE
+https://api.vhsys.com/v2/notas-fiscais/:id_venda/produtos/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/notas-fiscais/:id_venda/produtos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_venda	Integer	
+ID da nota fiscal (Consultar notas disponíveis)
+
+:id	Integer	
+ID do vínculo produto/nota fiscal
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_produto	Integer	
+ID vínculo produto/nota fiscal
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_ped_produto": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar o produto da nota fiscal!"
+   }
+Notas_fiscais - Lista de parcelas
+
+2.0.0 
+Requisição para a consulta das parcelas de uma nota fiscal
+
+GET
+https://api.vhsys.com/v2/notas-fiscais/:id_venda/parcelas
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/notas-fiscais/:id_venda/parcelas \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_venda	Integer	
+ID da nota fiscal (Consultar notas disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_venda	Integer	
+ID da nota fiscal
+
+  data_parcela	Date	
+Data da parcela
+
+  valor_parcela	Decimal	
+Valor da parcela
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  observacoes_parcela	String	
+Observação da parcela
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_venda": 1233456,
+              "data_parcela": "0000-00-00",
+              "valor_parcela": "00.00",
+              "forma_pagamento": "Forma de pagamento",
+              "observacoes_parcela": "Observação"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma parcela para a nota fiscal encontrada!"
+   }
+Notas_fiscais - Lista de produtos
+
+2.0.0 
+Requisição para a consulta de diversos produtos da nota fiscal
+
+GET
+https://api.vhsys.com/v2/notas-fiscais/:id_venda/produtos
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/notas-fiscais/:id_venda/produtos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_venda	Integer	
+ID do nota fiscal (Consultar notas disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_produto	Integer	
+Id do vínculo produto/nota fiscal
+
+  id_venda	Integer	
+ID da venda (Consultar notas disponíveis)
+
+  id_produto	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+  desc_produto	String	
+Nome do produto (Consultar produtos disponíveis)
+
+  qtde_produto	Decimal	
+Quantidade de produtos
+
+  cod_produto	String	
+Código do produto
+
+  desconto_produto	Decimal	
+Valor do desconto
+
+  ipi_produto	Decimal	
+Valor do IPI
+
+  icms_produto	Decimal	
+Valor do ICMS
+
+  valor_unit_produto	Decimal	
+Valor unitário do produto
+
+  valor_custo_produto	Decimal	
+Valor de custo do produto
+
+  valor_total_produto	Decimal	
+Valor total do produto
+
+  peso_produto	Decimal	
+Peso do produto
+
+  peso_liq_produto	Decimal	
+Peso líquido do produto
+
+  vBC_produto	Decimal	
+Valor da base de calculo
+
+  vICMS_produto	Decimal	
+Valor do ICMS
+
+  vBCipi_produto	Decimal	
+Valor da base de calculo IPI
+
+  vIPI_produto	Decimal	
+Valor do IPI
+
+  vBCST_produto	Decimal	
+Valor da base de calculo ST
+
+  vST_produto	Decimal	
+Valor do ST
+
+  cfop_produto	Integer	
+CFOP do produto
+
+  ncm_produto	String	
+NCM do produto
+
+  unidade_produto	String	
+Unidade do produto
+
+  unidade_tributavel	String	
+Unidade tributável do produto
+
+  origem_produto	Integer	
+Origem do produto no estoque
+
+  info_adicional	String	
+Informações adicionais
+
+  ordem_produto	String	
+Ordem do produto
+
+  codigo_barras	String	
+Código de barras
+
+  valor_tributos_unit	Decimal	
+Valor unitário dos tributos
+
+  valor_tributos_total	Decimal	
+Valor total dos tributos
+
+  valor_tributosEst_unit	Decimal	
+Valor unitário dos tributos estaduais
+
+  valor_tributosEst_total	Decimal	
+Valor total dos tributos estaduais
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ped_produto": 123456,
+              "id_venda": 1234,
+              "id_produto": 123456789,
+              "desc_produto": "Nome do produto",
+              "qtde_produto": "1.00",
+              "codigo_produto": "123456",
+              "desconto_produto": "1.00",
+              "ipi_produto": "1.50",
+              "icms_produto": "2.50",
+              "valor_unit_produto": "450.00",
+              "valor_custo_produto": "400.00",
+              "valor_total_produto": 450.00,
+              "peso_produto": "1.10",
+              "peso_liq_produto": "1.10",
+              "vBC_produto":"0.00",
+              "vICMS_produto":"0.00",
+              "vBCipi_produto":"0.00",
+              "vIPI_produto":"0.00",
+              "vBCST_produto":"0.00",
+              "vST_produto":"0.00",
+              "cfop_produto":01233,
+              "ncm_produto":01233,
+              "unidade_produto":"PÇ",
+              "unidade_tributavel":"PÇ",
+              "origem_produto":"Origem",
+              "info_adicional":"Informações",
+              "ordem_produto":1,
+              "codigo_barras":"123456",
+              "valor_tributos_unit":"0.00",
+              "valor_tributos_total":"0.00",
+              "valor_tributosEst_unit":"0.00",
+              "valor_tributosEst_total":"0.00"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum produto para a nota fiscal encontrada!"
+   }
+Notas_fiscais - Lista de status
+
+2.0.0 
+Requisição para a consulta dos status da nota fiscal
+
+GET
+https://api.vhsys.com/v2/notas-fiscais/:id_venda/status
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/notas-fiscais/:id_venda/status \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_venda	Integer	
+ID da nota fiscal (Consultar notas disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_status	Integer	
+Id do status
+
+  id_venda	Integer	
+ID da nota fiscal (Consultar notas disponíveis)
+
+  data_status	Data	
+Data de cadastro do status
+
+  obs_status	String	
+Descrição do status
+
+  tipo_status	String	
+Tipo do status
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_status": 123456,
+              "id_venda": 1234,
+              "data_status": "0000-00-00",
+              "obs_status": "Observação do status",
+              "tipo_status": "Em Aberto",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum status para a nota encontrado!"
+   }
+Notas_fiscais - Listar cartas de correção
+
+2.0.0 
+Requisição para a consulta de cartas de correção
+
+GET
+https://api.vhsys.com/v2/notas-fiscais-carta-correcao
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/notas-fiscais-carta-correcao \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  chave_nfe	String	
+Chave da nota fiscal
+
+  ambiente	Integer	
+Ambiente de emissão
+1 - Produção / 2 - Homologação
+
+  correcao_cce	String	
+Descrição da carta de correção
+
+  sequencia_cce	Integer	
+Sequência de cartas de correção para essa nota fiscal
+
+  chave_cce	String	
+Chave da carta de correção
+
+  protocolo_cce	String	
+Protocolo da carta de correção
+
+  nome_usuario	String	
+Usuário que criou a carta de correção
+
+  data_cad_cce	Date	
+Data de cadastro
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "chave_nfe": "12584596578816454178979887954198746654894269",
+              "ambiente": 1,
+              "correcao_cce": "Descrição da carta de correção",
+              "sequencia_cce": 1,
+              "data_cad_cce": "0000-00-00 00:00:00",
+              "chave_cce": "78512698467474859614124889745651897",
+              "protocolo_cce": "87367811874954",
+              "nome_usuario": "login_usuario",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma carta de correção encontrada!"
+   }
+Notas_fiscais - Notas inutilizadas
+
+2.0.0 
+Requisição para a consulta de notas fiscais inutilizadas
+
+GET
+https://api.vhsys.com/v2/notas-fiscais-inutilizar
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/notas-fiscais-inutilizar \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  tipo_inut	String	
+Tipo da inutilização
+
+  ano_inut	Integer	
+Ano da inutilização
+
+  serie_inut	String	
+Série da nota fiscal
+
+  inicial_inut	Integer	
+Numeração inicial da nota
+
+  final_inut	Integer	
+Numeração final da nota
+
+  motivo_inut	String	
+Motivo da inutilização
+
+  protocolo_inut	String	
+Protocolo da inutilização
+
+  chave_inut	String	
+Chave da inutilização
+
+  data_cad_inut	Date	
+Data de cadastro
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "tipo_inut": "NFe",
+              "ano_inut": 17,
+              "serie_inut": "001",
+              "inicial_inut": 1234,
+              "final_inut": 1235,
+              "motivo_inut": "Motivo do cancelamento",
+              "protocolo_inut": "1491187070000662854",
+              "chave_inut": "1234567893214569874563214158975",
+              "data_emissao": "0000-00-00 00:00:00",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma numeração de nota fiscal encontrada!"
+   }

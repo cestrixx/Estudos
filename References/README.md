@@ -31,3 +31,23 @@
 - [The easiest way to mock REST APIs!](https://www.mockapi.io/projects)
 - [Postman](https://www.getpostman.com)
 - [Test your front-end against a real API](https://reqres.in)
+- [ApiDocjs](https://apidocjs.com)
+- [Estrutura de diretórios e arquivos em projetos Node.js](https://walde.co/2016/10/24/estrutura-de-diretorios-e-arquivos-em-projetos-node-js/)
+- [Node.js: estruturando suas aplicações](https://imasters.com.br/front-end/node-js-estruturando-suas-aplicacoes)
+- [Realworld-Sample](https://github.com/gothinkster/realworld)
+- [Node.js Best Practices](https://github.com/goldbergyoni/nodebestpractices)
+
+- Api's pagas
+- [TagPlus](https://developers.tagplus.com.br)
+- [Vhsys](https://developers.vhsys.com.br/api/)
+
+
+- [Projeto de exemplos em Node.js MVC](https://docs.lacunasoftware.com/pt-br/articles/rest-pki/nodejs/mvc.html)
+- [ExpressJS-sample](https://github.com/expressjs/express/tree/master/examples)
+- [Node-Frameworks](http://nodeframework.com/index.html#mvc)
+- [Node-mvc-api](https://github.com/cbroberg/node-mvc-api)
+- [10 Node Frameworks to Use in 2019](https://scotch.io/bar-talk/10-node-frameworks-to-use-in-2019)
+- [JavaScript-The Right Way](https://jstherightway.org/pt-br/#the-good-parts)
+- [Módulos essenciais para Node.js](https://udgwebdev.com/modulos-essenciais-para-nodejs-parte-1/)
+- [18 bibliotecas de Java Script e Node.js para microsserviços](https://computerworld.com.br/2019/01/21/18-bibliotecas-de-java-script-e-node-js-para-microsservicos/)
+- [5 dicas para criar melhores aplicações usando Node.js](https://braziljs.org/artigos/5-dicas-para-criar-melhores-aplicacoes-usando-node-js/)

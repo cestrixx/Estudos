@@ -1,0 +1,2319 @@
+Ordens de servico
+
+Ordens_de_servico - Cadastrar uma ordem de serviço
+
+2.0.0 
+Requisição para cadastro de ordem de serviço
+
+POST
+https://api.vhsys.com/v2/ordens-servico
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/ordens-servico \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "id_cliente" : "123",
+        "nome_cliente" : "Nome do cliente",
+        "vendedor_pedido" : "Nome do vendedor",
+        "vendedor_pedido_id" : "123",
+        "valor_total_despesas" : "00.00",
+        "valor_total_desconto" : "00.00",
+        "data_pedido" : "0000-00-00",
+        "data_entrega" : "0000-00-00",
+        "data_realizacao" : "0000-00-00",
+        "data_realizacao_hora" : "00:00",
+        "garantia_ordem" : "15 Dias",
+        "equipamento_ordem" : "Equipamentos usados",
+        "problema_ordem" : "Problemas encontrados",
+        "recebimento_ordem" : "Detalhes sobre o recebimento",
+        "referencia_ordem" : "Referência",
+        "obs_pedido" : "Observação",
+        "obs_interno_pedido" : "Observação interna",
+        "laudo_ordem" : "Laudo sobre o serviço ou produto",
+        "status_pedido" : "Em Aberto"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+id_cliente opcional	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 0-20
+
+nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 255
+
+vendedor_pedido opcional	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 30
+
+vendedor_pedido_id opcional	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 0-20
+
+valor_total_despesas opcional	Decimal	
+Valor total das despesas
+
+Faixa de tamanho: 10,2
+
+valor_total_desconto opcional	Decimal	
+Valor total dos descontos
+
+Faixa de tamanho: 10,2
+
+data_pedido opcional	Date	
+Data da ordem de serviço
+
+Valores permitidos: YYYY-MM-DD
+
+data_entrega opcional	Date	
+Data de entrega
+
+Valores permitidos: YYYY-MM-DD
+
+data_realizacao opcional	Date	
+Data de realização do serviço
+
+Valores permitidos: YYYY-MM-DD
+
+data_realizacao_hora opcional	Time	
+Hora da realização do serviço
+
+Valores permitidos: H:i
+
+garantia_ordem opcional	String	
+Detalhes sobre a garantia
+
+Faixa de tamanho: 0-25
+
+equipamento_ordem opcional	String	
+Detalhes sobre os equipamentos
+
+problema_ordem opcional	String	
+Detalhes sobre o problema
+
+recebimento_ordem opcional	String	
+Detalhes sobre o recebimento
+
+referencia_ordem opcional	String	
+Referência
+
+obs_pedido opcional	String	
+Observações da ordem de serviço
+
+Faixa de tamanho: 0-100
+
+obs_interno_pedido opcional	String	
+Observações internas da ordem de serviço
+
+laudo_ordem opcional	String	
+Detalhes sobre o laudo
+
+status_pedido opcional	Enum	
+Status da ordem de serviço
+
+Valor padrão: Em Aberto
+
+Valores permitidos: Em Aberto, Em Andamento, Atendido, Cancelado
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ordem	Integer	
+ID da ordem de serviço
+
+  id_pedido	Integer	
+ID Sequencial do pedido
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vendedor_pedido	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+  vendedor_pedido_id	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+  valor_total_servicos	Decimal	
+Valor total dos serviços
+
+  valor_total_pecas	Decimal	
+Valor total dos produtos
+
+  valor_total_despesas	Decimal	
+Valor total das despesas
+
+  valor_total_desconto	Decimal	
+Valor total dos descontos
+
+  valor_total_os	Decimal	
+Valor total da ordem de serviço
+
+  data_pedido	Date	
+Data da ordem de serviço
+
+  data_entrega	Date	
+Data de entrega
+
+  data_realizacao	Date	
+Data de realização do serviço
+
+  data_realizacao_hora	Time	
+Hora da realização do serviço
+
+  garantia_ordem	String	
+Detalhes sobre a garantia
+
+  equipamento_ordem	String	
+Detalhes sobre os equipamentos
+
+  problema_ordem	String	
+Detalhes sobre o problema
+
+  recebimento_ordem	String	
+Detalhes sobre o recebimento
+
+  referencia_ordem	String	
+Referência
+
+  obs_pedido	String	
+Observações da ordem de serviço
+
+  obs_interno_pedido	String	
+Observações internas da ordem de serviço
+
+  laudo_ordem	String	
+Detalhes sobre o laudo
+
+  status_pedido	Enum	
+Status da ordem de serviço
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  comissao_pedido	Integer	
+Comissão Lançada
+
+  estoque_pedido	Integer	
+Estoque Lançado
+
+  nota_servico_emitida	Integer	
+Nota de serviço emitida
+
+  nota_venda_emitida	Integer	
+Venda emitida
+
+  funil_emitido	Integer	
+Ordem de serviço emitida no funil de vendas
+
+  data_cad_pedido	Date	
+Data de cadastro da ordem de serviço
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da ordem de serviço
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ordem": 1234,
+              "id_pedido": 123,
+              "id_cliente": 123456,
+              "nome_cliente": "Nome do cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 123,
+              "valor_total_servicos": "0.00",
+              "valor_total_pecas": "0.00",
+              "valor_total_despesas": "0.00",
+              "valor_total_desconto": "0.00",
+              "valor_total_os": "0.00",
+              "data_pedido": "0000-00-00",
+              "data_entrega": "0000-00-00",
+              "data_realizacao": "0000-00-00",
+              "data_realizacao_hora": "00:00:00",
+              "garantia_ordem": "15 Dias",
+              "equipamento_ordem": "Equipamentos usados",
+              "problema_ordem": "Problemas encontrados",
+              "recebimento_ordem": "Detalhes sobre o recebimento",
+              "referencia_ordem": "Referência",
+              "obs_pedido": "Observação",
+              "obs_interno_pedido": "Observação interna",
+              "laudo_ordem": "Laudo sobre o serviço ou produto",
+              "status_pedido": "Em Aberto",
+              "contas_pedido": 0,
+              "comissao_pedido": 0,
+              "estoque_pedido": 0,
+              "nota_servico_emitida": 0,
+              "nota_venda_emitida": 0,
+              "funil_emitido": 0,
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "lixeira": "Sim"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar a ordem de serviço!"
+   }
+Ordens_de_servico - Alterar uma ordem de serviço
+
+2.0.0 
+Requisição para alterar uma ordem de serviço
+
+PUT
+https://api.vhsys.com/v2/ordens-servico/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/ordens-servico/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "id_cliente" : "123",
+        "nome_cliente" : "Nome do cliente",
+        "vendedor_pedido" : "Nome do vendedor",
+        "vendedor_pedido_id" : "123",
+        "valor_total_despesas" : "00.00",
+        "valor_total_desconto" : "00.00",
+        "data_pedido" : "0000-00-00",
+        "data_entrega" : "0000-00-00",
+        "data_realizacao" : "0000-00-00",
+        "data_realizacao_hora" : "00:00",
+        "garantia_ordem" : "15 Dias",
+        "equipamento_ordem" : "Equipamentos usados",
+        "problema_ordem" : "Problemas encontrados",
+        "recebimento_ordem" : "Detalhes sobre o recebimento",
+        "referencia_ordem" : "Referência",
+        "obs_pedido" : "Observação",
+        "obs_interno_pedido" : "Observação interna",
+        "laudo_ordem" : "Laudo sobre o serviço ou produto",
+        "status_pedido" : "Em Aberto"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da ordem de serviço
+
+Faixa de tamanho: 9
+
+id_cliente opcional	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 0-20
+
+nome_cliente opcional	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 255
+
+vendedor_pedido opcional	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 30
+
+vendedor_pedido_id opcional	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 0-20
+
+valor_total_despesas opcional	Decimal	
+Valor total das despesas
+
+Faixa de tamanho: 10,2
+
+valor_total_desconto opcional	Decimal	
+Valor total dos descontos
+
+Faixa de tamanho: 10,2
+
+data_pedido opcional	Date	
+Data da ordem de serviço
+
+Valores permitidos: YYYY-MM-DD
+
+data_entrega opcional	Date	
+Data de entrega
+
+Valores permitidos: YYYY-MM-DD
+
+data_realizacao opcional	Date	
+Data de realização do serviço
+
+Valores permitidos: YYYY-MM-DD
+
+data_realizacao_hora opcional	Time	
+Hora da realização do serviço
+
+Valores permitidos: H:i
+
+garantia_ordem opcional	String	
+Detalhes sobre a garantia
+
+Faixa de tamanho: 0-25
+
+equipamento_ordem opcional	String	
+Detalhes sobre os equipamentos
+
+problema_ordem opcional	String	
+Detalhes sobre o problema
+
+recebimento_ordem opcional	String	
+Detalhes sobre o recebimento
+
+referencia_ordem opcional	String	
+Referência
+
+obs_pedido opcional	String	
+Observações da ordem de serviço
+
+Faixa de tamanho: 0-100
+
+obs_interno_pedido opcional	String	
+Observações internas da ordem de serviço
+
+laudo_ordem opcional	String	
+Detalhes sobre o laudo
+
+status_pedido opcional	Enum	
+Status da ordem de serviço
+
+Valores permitidos: Em Aberto, Em Andamento, Atendido, Cancelado
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ordem	Integer	
+ID da ordem de serviço
+
+  id_pedido	Integer	
+ID Sequencial do pedido
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vendedor_pedido	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+  vendedor_pedido_id	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+  valor_total_servicos	Decimal	
+Valor total dos serviços
+
+  valor_total_pecas	Decimal	
+Valor total dos produtos
+
+  valor_total_despesas	Decimal	
+Valor total das despesas
+
+  valor_total_desconto	Decimal	
+Valor total dos descontos
+
+  valor_total_os	Decimal	
+Valor total da ordem de serviço
+
+  data_pedido	Date	
+Data da ordem de serviço
+
+  data_entrega	Date	
+Data de entrega
+
+  data_realizacao	Date	
+Data de realização do serviço
+
+  data_realizacao_hora	Time	
+Hora da realização do serviço
+
+  garantia_ordem	String	
+Detalhes sobre a garantia
+
+  equipamento_ordem	String	
+Detalhes sobre os equipamentos
+
+  problema_ordem	String	
+Detalhes sobre o problema
+
+  recebimento_ordem	String	
+Detalhes sobre o recebimento
+
+  referencia_ordem	String	
+Referência
+
+  obs_pedido	String	
+Observações da ordem de serviço
+
+  obs_interno_pedido	String	
+Observações internas da ordem de serviço
+
+  laudo_ordem	String	
+Detalhes sobre o laudo
+
+  status_pedido	Enum	
+Status da ordem de serviço
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  comissao_pedido	Integer	
+Comissão Lançada
+
+  estoque_pedido	Integer	
+Estoque Lançado
+
+  nota_servico_emitida	Integer	
+Nota de serviço emitida
+
+  nota_venda_emitida	Integer	
+Venda emitida
+
+  funil_emitido	Integer	
+Ordem de serviço emitida no funil de vendas
+
+  data_cad_pedido	Date	
+Data de cadastro da ordem de serviço
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da ordem de serviço
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ordem": 1234,
+              "id_pedido": 123,
+              "id_cliente": 123456,
+              "nome_cliente": "Nome do cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 123,
+              "valor_total_servicos": "0.00",
+              "valor_total_pecas": "0.00",
+              "valor_total_despesas": "0.00",
+              "valor_total_desconto": "0.00",
+              "valor_total_os": "0.00",
+              "data_pedido": "0000-00-00",
+              "data_entrega": "0000-00-00",
+              "data_realizacao": "0000-00-00",
+              "data_realizacao_hora": "00:00:00",
+              "garantia_ordem": "15 Dias",
+              "equipamento_ordem": "Equipamentos usados",
+              "problema_ordem": "Problemas encontrados",
+              "recebimento_ordem": "Detalhes sobre o recebimento",
+              "referencia_ordem": "Referência",
+              "obs_pedido": "Observação",
+              "obs_interno_pedido": "Observação interna",
+              "laudo_ordem": "Laudo sobre o serviço ou produto",
+              "status_pedido": "Em Aberto",
+              "contas_pedido": 0,
+              "comissao_pedido": 0,
+              "estoque_pedido": 0,
+              "nota_servico_emitida": 0,
+              "nota_venda_emitida": 0,
+              "funil_emitido": 0,
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "lixeira": "Sim"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar a ordem de serviço!"
+   }
+Ordens_de_servico - Excluir uma ordem de serviço
+
+2.0.0 
+Requisição para deletar uma ordem de serviço, a ordem de serviço deletada por ser encontrada com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/ordens-servico/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/ordens-servico/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da ordem de serviço
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ordem	Integer	
+ID da ordem de serviço
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_ordem": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar a ordem de serviço!"
+   }
+Ordens_de_servico - Consultar ordens de serviço
+
+2.0.0 
+Requisição para a consulta de dados da ordem de serviço
+
+GET
+https://api.vhsys.com/v2/ordens-servico/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/ordens-servico/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da ordem de serviço
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ordem	Integer	
+ID da ordem de serviço
+
+  id_pedido	Integer	
+ID Sequencial do pedido
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vendedor_pedido	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+  vendedor_pedido_id	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+  valor_total_servicos	Decimal	
+Valor total dos serviços
+
+  valor_total_pecas	Decimal	
+Valor total dos produtos
+
+  valor_total_despesas	Decimal	
+Valor total das despesas
+
+  valor_total_desconto	Decimal	
+Valor total dos descontos
+
+  valor_total_os	Decimal	
+Valor total da ordem de serviço
+
+  data_pedido	Date	
+Data da ordem de serviço
+
+  data_entrega	Date	
+Data de entrega
+
+  data_realizacao	Date	
+Data de realização do serviço
+
+  data_realizacao_hora	Time	
+Hora da realização do serviço
+
+  garantia_ordem	String	
+Detalhes sobre a garantia
+
+  equipamento_ordem	String	
+Detalhes sobre os equipamentos
+
+  problema_ordem	String	
+Detalhes sobre o problema
+
+  recebimento_ordem	String	
+Detalhes sobre o recebimento
+
+  referencia_ordem	String	
+Referência
+
+  obs_pedido	String	
+Observações da ordem de serviço
+
+  obs_interno_pedido	String	
+Observações internas da ordem de serviço
+
+  laudo_ordem	String	
+Detalhes sobre o laudo
+
+  status_pedido	Enum	
+Status da ordem de serviço
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  comissao_pedido	Integer	
+Comissão Lançada
+
+  estoque_pedido	Integer	
+Estoque Lançado
+
+  nota_servico_emitida	Integer	
+Nota de serviço emitida
+
+  nota_venda_emitida	Integer	
+Venda emitida
+
+  funil_emitido	Integer	
+Ordem de serviço emitida no funil de vendas
+
+  data_cad_pedido	Date	
+Data de cadastro da ordem de serviço
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da ordem de serviço
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ordem": 1234,
+              "id_pedido": 123,
+              "id_cliente": 123456,
+              "nome_cliente": "Nome do cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 123,
+              "valor_total_servicos": "0.00",
+              "valor_total_pecas": "0.00",
+              "valor_total_despesas": "0.00",
+              "valor_total_desconto": "0.00",
+              "valor_total_os": "0.00",
+              "data_pedido": "0000-00-00",
+              "data_entrega": "0000-00-00",
+              "data_realizacao": "0000-00-00",
+              "data_realizacao_hora": "00:00:00",
+              "garantia_ordem": "15 Dias",
+              "equipamento_ordem": "Equipamentos usados",
+              "problema_ordem": "Problemas encontrados",
+              "recebimento_ordem": "Detalhes sobre o recebimento",
+              "referencia_ordem": "Referência",
+              "obs_pedido": "Observação",
+              "obs_interno_pedido": "Observação interna",
+              "laudo_ordem": "Laudo sobre o serviço ou produto",
+              "status_pedido": "Em Aberto",
+              "contas_pedido": 0,
+              "comissao_pedido": 0,
+              "estoque_pedido": 0,
+              "nota_servico_emitida": 0,
+              "nota_venda_emitida": 0,
+              "funil_emitido": 0,
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "lixeira": "Sim"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma ordem de serviço encontrada!"
+   }
+Ordens_de_servico - Lista de ordens de serviço
+
+2.0.0 
+Requisição para a consulta de diversas ordens de serviço
+
+GET
+https://api.vhsys.com/v2/ordens-servico
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/ordens-servico \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+order opcional	String	
+Nome do campo para ordenação EX:data_mod_pedido
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+nome_cliente opcional	String	
+Nome do cliente
+
+vendedor opcional	String	
+Nome do vendedor
+
+valor_produtos opcional	String	
+Valor total dos produtos 
+buscar a partir de um valor: valor_produtos=10.00 
+buscar entre valores: valor_produtos=10.00,20.00
+
+valor_servicos opcional	String	
+Valor total dos serviços 
+buscar a partir de um valor: valor_servicos=10.00 
+buscar entre valores: valor_servicos=10.00,20.00
+
+valor_total opcional	String	
+Valor total da nota 
+buscar a partir de um valor: valor_total=10.00 
+buscar entre valores: valor_total=10.00,20.00
+
+status opcional	String	
+Status da nota
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+data_modificacao opcional	Date	
+Registros criados ou modificados após a data informada
+
+Valores permitidos: YYYY-MM-DD
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de ordens de serviço no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_ordem	Integer	
+ID da ordem de serviço
+
+  id_pedido	Integer	
+ID Sequencial do pedido
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vendedor_pedido	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+  vendedor_pedido_id	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+  valor_total_servicos	Decimal	
+Valor total dos serviços
+
+  valor_total_pecas	Decimal	
+Valor total dos produtos
+
+  valor_total_despesas	Decimal	
+Valor total das despesas
+
+  valor_total_desconto	Decimal	
+Valor total dos descontos
+
+  valor_total_os	Decimal	
+Valor total da ordem de serviço
+
+  data_pedido	Date	
+Data da ordem de serviço
+
+  data_entrega	Date	
+Data de entrega
+
+  data_realizacao	Date	
+Data de realização do serviço
+
+  data_realizacao_hora	Time	
+Hora da realização do serviço
+
+  garantia_ordem	String	
+Detalhes sobre a garantia
+
+  equipamento_ordem	String	
+Detalhes sobre os equipamentos
+
+  problema_ordem	String	
+Detalhes sobre o problema
+
+  recebimento_ordem	String	
+Detalhes sobre o recebimento
+
+  referencia_ordem	String	
+Referência
+
+  obs_pedido	String	
+Observações da ordem de serviço
+
+  obs_interno_pedido	String	
+Observações internas da ordem de serviço
+
+  laudo_ordem	String	
+Detalhes sobre o laudo
+
+  status_pedido	Enum	
+Status da ordem de serviço
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  comissao_pedido	Integer	
+Comissão Lançada
+
+  estoque_pedido	Integer	
+Estoque Lançado
+
+  nota_servico_emitida	Integer	
+Nota de serviço emitida
+
+  nota_venda_emitida	Integer	
+Venda emitida
+
+  funil_emitido	Integer	
+Ordem de serviço emitida no funil de vendas
+
+  data_cad_pedido	Date	
+Data de cadastro da ordem de serviço
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da ordem de serviço
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_ordem": 1234,
+              "id_pedido": 123,
+              "id_cliente": 123456,
+              "nome_cliente": "Nome do cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 123,
+              "valor_total_servicos": "0.00",
+              "valor_total_pecas": "0.00",
+              "valor_total_despesas": "0.00",
+              "valor_total_desconto": "0.00",
+              "valor_total_os": "0.00",
+              "data_pedido": "0000-00-00",
+              "data_entrega": "0000-00-00",
+              "data_realizacao": "0000-00-00",
+              "data_realizacao_hora": "00:00:00",
+              "garantia_ordem": "15 Dias",
+              "equipamento_ordem": "Equipamentos usados",
+              "problema_ordem": "Problemas encontrados",
+              "recebimento_ordem": "Detalhes sobre o recebimento",
+              "referencia_ordem": "Referência",
+              "obs_pedido": "Observação",
+              "obs_interno_pedido": "Observação interna",
+              "laudo_ordem": "Laudo sobre o serviço ou produto",
+              "status_pedido": "Em Aberto",
+              "contas_pedido": 0,
+              "comissao_pedido": 0,
+              "estoque_pedido": 0,
+              "nota_servico_emitida": 0,
+              "nota_venda_emitida": 0,
+              "funil_emitido": 0,
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "lixeira": "Sim"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma ordem de serviço encontrada!"
+   }
+Ordens_de_servico - Alterar um produto
+
+2.0.0 
+Requisição para alterar um produto de uma ordem de serviço
+
+PUT
+https://api.vhsys.com/v2/ordens-servico/:id_ordem/produtos/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/ordens-servico/:id_ordem/produtos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "id_produto" : 12345,
+        "desc_produto" : "Nome do produto",
+        "qtde_produto" : "1.00",
+        "valor_unit_produto" : "450.00",
+        "valor_custo_produto" : "400.00"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+:id	Integer	
+ID do vínculo produto/ordem de serviço
+
+id_produto opcional	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+Faixa de tamanho: 0-20
+
+desc_produto opcional	String	
+Nome do produto (Consultar produtos disponíveis)
+
+Faixa de tamanho: 255
+
+qtde_produto opcional	Decimal	
+Quantidade do produto
+
+Faixa de tamanho: 10,4
+
+valor_unit_produto opcional	Decimal	
+Valor unitário do produto
+
+Faixa de tamanho: 10,4
+
+valor_custo_produto opcional	Decimal	
+Valor de custo do produto
+
+Faixa de tamanho: 10,4
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_produto	Integer	
+ID do vínculo produto/ordem de serviço
+
+  id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+  id_produto	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+  desc_produto	String	
+Nome do produto (Consultar produtos disponíveis)
+
+  qtde_produto	Decimal	
+Quantidade do produto
+
+  valor_custo_produto	Decimal	
+Valor de custo do produto
+
+  valor_unit_produto	Decimal	
+Valor unitário do produto
+
+  valor_total_produto	Decimal	
+Valor total do produto
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ped_produto": 123456,
+              "id_ordem": 12345,
+              "id_produto": 12345,
+              "desc_produto": "Nome do produto",
+              "qtde_produto": "1.00",
+              "valor_unit_produto": "450.00",
+              "valor_custo_produto": "400.00",
+              "valor_total_produto": 450.00,
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar o produto da ordem de serviço!"
+   }
+Ordens_de_servico - Alterar um serviço
+
+2.0.0 
+Requisição para alterar um servico de uma ordem de serviço
+
+PUT
+https://api.vhsys.com/v2/ordens-servico/:id_ordem/servicos/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/ordens-servico/:id_ordem/servicos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+       "id_servico" : 12345,
+       "desc_servico" : "Descrição do serviço",
+       "horas_servico" : "1.00",
+       "valor_unit_servico" : "450.00",
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+:id	Integer	
+ID do vínculo serviço/ordem de serviço
+
+id_servico opcional	Integer	
+ID do serviço (Consultar serviços disponíveis)
+
+Faixa de tamanho: 0-20
+
+desc_servico opcional	String	
+Descrição do serviço (Consultar serviços disponíveis)
+
+Faixa de tamanho: 255
+
+horas_servico opcional	Decimal	
+Horas do serviço
+
+Faixa de tamanho: 10,4
+
+valor_unit_servico opcional	Decimal	
+Valor unitário do serviço
+
+Faixa de tamanho: 10,4
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_servico	Integer	
+ID do vínculo serviço/ordem de serviço
+
+  id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+  id_servico	Integer	
+ID do serviço (Consultar serviços disponíveis)
+
+  desc_servico	String	
+Descrição do serviço (Consultar serviços disponíveis)
+
+  horas_servico	Decimal	
+Horas do serviço
+
+  valor_unit_servico	Decimal	
+Valor unitário do serviço
+
+  valor_total_servico	Decimal	
+Valor total do serviço
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ped_servico": 123456,
+              "id_ordem": 12345,
+              "id_servico": 12345,
+              "desc_servico": "Descrição do serviço",
+              "horas_servico": "1.00",
+              "valor_unit_servico": "450.00",
+              "valor_total_servico": 450.00,
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar o serviço da ordem de serviço!"
+   }
+Ordens_de_servico - Cadastra um produto
+
+2.0.0 
+Requisição para cadastro de produto para a ordem de serviço
+
+POST
+https://api.vhsys.com/v2/ordens-servico/:id_ordem/produtos
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/ordens-servico/:id_ordem/produtos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '[{
+        "qtde_produto":"3",
+        "id_produto":"00000",
+        "valor_unit_produto":"15.00",
+        "desc_produto":"Produto 1"
+    },{
+        "qtde_produto":"3",
+        "id_produto":"00000",
+        "valor_unit_produto":"25.00",
+        "desc_produto":"Produto 2"
+    }]'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+id_produto opcional	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+Faixa de tamanho: 0-20
+
+desc_produto	String	
+Nome do produto (Consultar produtos disponíveis)
+
+Faixa de tamanho: 255
+
+qtde_produto	Decimal	
+Quantidade do produto
+
+Faixa de tamanho: 10,4
+
+valor_custo_produto opcional	Decimal	
+Valor de custos do produto
+
+Faixa de tamanho: 10,4
+
+valor_unit_produto	Decimal	
+Valor unitário do produto
+
+Faixa de tamanho: 10,4
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_produto	Integer	
+ID do vínculo produto/ordem de serviço
+
+  id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+  id_produto	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+  desc_produto	String	
+Nome do produto (Consultar produtos disponíveis)
+
+  qtde_produto	Decimal	
+Quantidade do produto
+
+  valor_custo_produto	Decimal	
+Valor de custo do produto
+
+  valor_unit_produto	Decimal	
+Valor unitário do produto
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ped_produto": 123456,
+              "id_ordem": 12345,
+              "id_produto": 12345,
+              "desc_produto": "Nome do produto",
+              "qtde_produto": "1.00",
+              "valor_custo_produto": "400.00",
+              "valor_unit_produto": "450.00",
+              "valor_total_produto": 450.00,
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o produto para a ordem de serviço!"
+   }
+Ordens_de_servico - Cadastra um serviço
+
+2.0.0 
+Requisição para cadastro de serviço para a ordem de serviço
+
+POST
+https://api.vhsys.com/v2/ordens-servico/:id_ordem/servicos
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/ordens-servico/:id_ordem/servicos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '[{
+        "horas_servico":"3",
+        "id_servico":"00000000",
+        "valor_unit_servico":"15.00",
+        "desc_servico":"Serviço 1"
+    },{
+        "horas_servico":"2",
+        "id_servico":"00000000",
+        "valor_unit_servico":"25.00",
+        "desc_servico":"Serviço 2"
+    }]'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+id_servico opcional	Integer	
+ID do serviço (Consultar serviços disponíveis)
+
+Faixa de tamanho: 0-20
+
+desc_servico	String	
+Descrição do serviço (Consultar serviços disponíveis)
+
+Faixa de tamanho: 255
+
+horas_servico	Decimal	
+Horas do serviço
+
+Faixa de tamanho: 10,4
+
+valor_unit_servico	Decimal	
+Valor unitário do serviço
+
+Faixa de tamanho: 10,4
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_servico	Integer	
+ID do vínculo serviço/ordem de serviço
+
+  id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+  id_servico	Integer	
+ID do serviço (Consultar serviços disponíveis)
+
+  desc_servico	String	
+Descrição do serviço (Consultar serviços disponíveis)
+
+  horas_servico	Decimal	
+Horas do serviço
+
+  valor_unit_servico	Decimal	
+Valor unitário do serviço
+
+  valor_total_servico	Decimal	
+Valor total do serviço
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ped_servico": 123456,
+              "id_ordem": 12345,
+              "id_servico": 12345,
+              "desc_servico": "Descrição do serviço",
+              "horas_servico": "1.00",
+              "valor_unit_servico": "450.00",
+              "valor_total_servico": 450.00,
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o serviço para a ordem de serviço!"
+   }
+Ordens_de_servico - Cadastra um status
+
+2.0.0 
+Requisição para cadastro de status para a ordem de serviçp
+
+POST
+https://api.vhsys.com/v2/ordens-servico/:id_ordem/status
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/ordens-servico/:id_ordem/status \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -d '{
+        "data_status" : "0000-00-00"
+        "obs_status" : "Observação do status"
+        "tipo_status" : "Cancelado"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+data_status	Date	
+Data do status
+
+Valores permitidos: YYYY-MM-DD
+
+tipo_status	Enum	
+Tipo do status
+
+Valores permitidos: Em Aberto, Em Andamento, Cancelado, Atendido
+
+obs_status opcional	String	
+Observação do status
+
+Faixa de tamanho: 255
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+  data_status	Data	
+Data de cadastro do status
+
+  obs_status	String	
+Descrição do status
+
+  tipo_status	String	
+Tipo do status
+
+id_status	Integer	
+Id do status
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_status": 123456,
+              "id_ordem": 1234,
+              "data_status": "0000-00-00",
+              "obs_status": "Observação do status",
+              "tipo_status": "Em Aberto",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o status para a ordem de serviço!"
+   }
+Ordens_de_servico - Cadastra uma parcela
+
+2.0.0 
+Requisição para cadastro de parcelas para a ordem de serviço, ao cadastrar novas parcelas para uma ordem de serviço as parcelas anteriores serão removidas
+
+POST
+https://api.vhsys.com/v2/ordens-servico/:id_ordem/parcelas
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/ordens-servico/:id_ordem/parcelas \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '[{
+        "data_parcela":"0000-00-00",
+        "valor_parcela":"00.00",
+        "forma_pagamento":"Forma de pagamento",
+        "observacoes_parcela":"Observação"
+    },{
+        "data_parcela":"0000-00-00",
+        "valor_parcela":"00.00",
+        "forma_pagamento":"Forma de pagamento",
+        "observacoes_parcela":"Observação"
+    }]'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+data_parcela	Date	
+Data da parcela
+
+Valores permitidos: YYYY-MM-DD
+
+valor_parcela	Decimal	
+Valor da parcela
+
+Faixa de tamanho: 10,2
+
+forma_pagamento opcional	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+observacoes_parcela opcional	String	
+Observação da parcela
+
+Faixa de tamanho: 255
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+  data_parcela	Date	
+Data da parcela
+
+  valor_parcela	Decimal	
+Valor da parcela
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  observacoes_parcela	String	
+Observação da parcela
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ordem": 123456,
+              "data_parcela": "0000-00-00",
+              "valor_parcela": "00.00",
+              "forma_pagamento": "Forma de pagamento",
+              "observacoes_parcela": "Observação"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar a parcela para a ordem de serviço!"
+   }
+Ordens_de_servico - Excluir um produto
+
+2.0.0 
+Requisição para deletar um produto da ordem de serviço
+
+DELETE
+https://api.vhsys.com/v2/ordens-servico/:id_ordem/produtos/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/ordens-servico/:id_ordem/produtos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+:id	Integer	
+ID do vínculo produto/ordem de serviço
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_produto	Integer	
+ID vínculo produto/ordem de serviço
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_ped_produto": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar o produto da ordem de serviço!"
+   }
+Ordens_de_servico - Excluir um serviço
+
+2.0.0 
+Requisição para deletar um serviço da ordem de serviço
+
+DELETE
+https://api.vhsys.com/v2/ordens-servico/:id_ordem/servicos/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/ordens-servico/:id_ordem/servicos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+:id	Integer	
+ID do vínculo serviço/ordem de serviço
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_servico	Integer	
+ID vínculo serviço/ordem de serviço
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_ped_servico": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar o serviço da ordem de serviço!"
+   }
+Ordens_de_servico - Lista de parcelas
+
+2.0.0 
+Requisição para a consulta das parcelas de uma ordem de serviço
+
+GET
+https://api.vhsys.com/v2/ordens-servico/:id_ordem/parcelas
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/ordens-servico/:id_ordem/parcelas \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+  data_parcela	Date	
+Data da parcela
+
+  valor_parcela	Decimal	
+Valor da parcela
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  observacoes_parcela	String	
+Observação da parcela
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ordem": 1233456,
+              "data_parcela": "0000-00-00",
+              "valor_parcela": "00.00",
+              "forma_pagamento": "Forma de pagamento",
+              "observacoes_parcela": "Observação"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma parcela para a ordem de serviço encontrada!"
+   }
+Ordens_de_servico - Lista de produtos
+
+2.0.0 
+Requisição para a consulta de diversos produtos da ordem de serviço
+
+GET
+https://api.vhsys.com/v2/ordens-servico/:id_ordem/produtos
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/ordens-servico/:id_ordem/produtos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_produto	Integer	
+Id do vínculo produto/ordem de serviço
+
+  id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+  id_produto	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+  desc_produto	String	
+Nome do produto (Consultar produtos disponíveis)
+
+  qtde_produto	Decimal	
+Quantidade de produtos
+
+  valor_unit_produto	Decimal	
+Valor unitário do produto
+
+  valor_custo_produto	Decimal	
+Valor de custo do produto
+
+  valor_total_produto	Decimal	
+Valor total do produto
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ped_produto": 123456,
+              "id_ordem": 1234,
+              "id_produto": 123456789,
+              "desc_produto": "Nome do produto",
+              "qtde_produto": "1.00",
+              "valor_unit_produto": "450.00",
+              "valor_custo_produto": "400.00",
+              "valor_total_produto": 450.00,
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum produto para a ordem de serviço encontrada!"
+   }
+Ordens_de_servico - Lista de servicos
+
+2.0.0 
+Requisição para a consulta de diversos serviços da ordem de serviço
+
+GET
+https://api.vhsys.com/v2/ordens-servico/:id_ordem/servicos
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/ordens-servico/:id_ordem/servicos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_servico	Integer	
+Id do vínculo serviço/ordem de serviço
+
+  id_ordem	Integer	
+ID da ordem de serviço (Consultar ordens de serviço disponíveis)
+
+  id_servico	Integer	
+ID do serviço (Consultar serviços disponíveis)
+
+  desc_servico	String	
+Descrição do serviço (Consultar serviços disponíveis)
+
+  horas_servico	Decimal	
+Horas do serviço
+
+  valor_unit_servico	Decimal	
+Valor unitário do serviço
+
+  valor_total_servico	Decimal	
+Valor total do serviço
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ped_servico": 123456,
+              "id_ordem": 1234,
+              "id_servico": 123456789,
+              "desc_servico": "Descrição do serviço",
+              "horas_servico": "1.00",
+              "valor_unit_servico": "450.00",
+              "valor_total_servico": 450.00,
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum serviço para a ordem de serviço encontrada!"
+   }
+Ordens_de_servico - Lista de status
+
+2.0.0 
+Requisição para a consulta dos status da ordem de serviço
+
+GET
+https://api.vhsys.com/v2/ordens-servico/:id_ordem/status
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/ordens-servico/:id_ordem/status \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_ordem	Integer	
+ID da ordem (Consultar ordens de serviço disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_status	Integer	
+Id do status
+
+  id_ordem	Integer	
+ID da ordem (Consultar ordens de serviço disponíveis)
+
+  data_status	Data	
+Data de cadastro do status
+
+  obs_status	String	
+Descrição do status
+
+  tipo_status	String	
+Tipo do status
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_status": 123456,
+              "id_ordem": 1234,
+              "data_status": "0000-00-00",
+              "obs_status": "Observação do status",
+              "tipo_status": "Em Aberto",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum status para a orde de serviço encontrada!"
+   }

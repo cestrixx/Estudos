@@ -1,0 +1,1978 @@
+Contas a pagar
+
+Contas_a_pagar - Cadastrar uma despesa
+
+2.0.0 
+Requisição para cadastro de despesas
+
+POST
+https://api.vhsys.com/v2/contas-pagar
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/contas-pagar \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "nome_conta" : "Nome da conta",
+        "id_categoria" : "0000",
+        "categoria_pag" : "0000",
+        "id_banco" : "000",
+        "id_fornecedor" : "00",
+        "nome_fornecedor" : "Nome do fornecedor",
+        "vencimento_pag" : "0000-00-00",
+        "valor_pag" : "00.00",
+        "valor_pago" : "00.00",
+        "data_emissao" : "0000-00-00",
+        "n_documento_pag" : "0000",
+        "observacoes_pag" : "Observações",
+        "id_centro_custos" : "000",
+        "centro_custos_pag" : "Centro de custo",
+        "liquidado_pag" : "Sim",
+        "data_pagamento" : "0000-00-00",
+        "obs_pagamento" : "Observações",
+        "forma_pagamento" : "Cartão",
+        "valor_juros" : "00.00",
+        "valor_desconto" : "00.00",
+        "valor_acrescimo" : "00.00"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+nome_conta	String	
+Nome da despesa
+
+Faixa de tamanho: 45
+
+id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+Faixa de tamanho: 20
+
+vencimento_pag	Date	
+Data do vencimento
+
+Valores permitidos: YYYY-MM-DD
+
+valor_pag	Decimal	
+Valor da despesa
+
+Faixa de tamanho: 10,2
+
+data_emissao	Date	
+Data da emissão
+
+Valores permitidos: YYYY-MM-DD
+
+id_categoria opcional	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+Faixa de tamanho: 0-9
+
+categoria_pag opcional	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+Faixa de tamanho: 0-50
+
+id_fornecedor opcional	Integer	
+ID do fornecedor (Consultar fornecedores disponíveis)
+
+Faixa de tamanho: 0-20
+
+nome_fornecedor opcional	String	
+Nome do Fornecedor (Consultar fornecedores disponíveis)
+
+Faixa de tamanho: 0-255
+
+valor_pago opcional	Decimal	
+Valor pago
+
+Faixa de tamanho: 10,2
+
+n_documento_pag opcional	String	
+Número do documento
+
+Faixa de tamanho: 0-45
+
+observacoes_pag opcional	String	
+Observações da despesa
+
+id_centro_custos opcional	Integer	
+ID do centro de custo (Consultar centros de custo disponíveis)
+
+Faixa de tamanho: 0-20
+
+centro_custos_pag opcional	String	
+Nome do centro de custo (Consultar centros de custo disponíveis)
+
+Faixa de tamanho: 0-255
+
+liquidado_pag opcional	Enum	
+Se a conta esta liquidada
+
+Valor padrão: Nao
+
+Valores permitidos: Sim, Nao
+
+data_pagamento opcional	Date	
+Data do pagamento
+
+Valores permitidos: YYYY-MM-DD
+
+obs_pagamento opcional	String	
+Observação do pagamento
+
+forma_pagamento opcional	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+Faixa de tamanho: 0-255
+
+valor_juros opcional	Decimal	
+Valor dos juros
+
+Faixa de tamanho: 10,2
+
+valor_desconto opcional	Decimal	
+Valor do desconto
+
+Faixa de tamanho: 10,2
+
+valor_acrescimo opcional	Decimal	
+Valor do acrescimo
+
+Faixa de tamanho: 10,2
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_conta_pag	Integer	
+ID da despesa
+
+  id_registro	Integer	
+ID do registro
+
+  nome_conta	String	
+Nome da despesa
+
+  id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+  categoria_pag	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+  id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+  id_fornecedor	Integer	
+ID do fornecedor (Consultar fornecedores disponíveis)
+
+  nome_fornecedor	String	
+Nome do Fornecedor (Consultar fornecedores disponíveis)
+
+  vencimento_pag	Date	
+Data do vencimento
+
+  valor_pag	Decimal	
+Valor da despesa
+
+  valor_pago	Decimal	
+Valor pago
+
+  data_emissao	Date	
+Data da emissão
+
+  n_documento_pag	String	
+Número do documento
+
+  observacoes_pag	String	
+Observações da despesa
+
+  id_centro_custos	Integer	
+ID do centro de custo (Consultar centros de custo disponíveis)
+
+  centro_custos_pag	String	
+Nome do centro de custo (Consultar centros de custo disponíveis)
+
+  liquidado_pag	Enum	
+Se a conta esta liquidada
+
+  data_pagamento	Date	
+Data do pagamento
+
+  obs_pagamento	String	
+Observação do pagamento
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  valor_juros	Decimal	
+Valor dos juros
+
+  valor_desconto	Decimal	
+Valor do desconto
+
+  valor_acrescimo	Decimal	
+Valor do acrescimo
+
+  data_cad_pag	Date	
+Data de cadastro da despesa
+
+  data_mod_pag	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da despesa no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_conta_pag": 123456,
+              "id_registro": 1,
+              "nome_conta": "Nome da conta",
+              "id_categoria": 57,
+              "categoria_pag": "Outras Despesas",
+              "id_banco": 123,
+              "id_fornecedor": 123,
+              "nome_fornecedor": "Nome do fornecedor",
+              "vencimento_pag": "0000-00-00",
+              "valor_pag": "00.00",
+              "valor_pago": "00.00",
+              "data_emissao": "0000-00-00",
+              "n_documento_pag": "0000",
+              "observacoes_pag": "Observações",
+              "id_centro_custos": 0,
+              "centro_custos_pag": "0",
+              "liquidado_pag": "Sim",
+              "data_pagamento": "0000-00-00",
+              "obs_pagamento": "Observações",
+              "forma_pagamento": "Dinheiro",
+              "valor_juros": 00.00,
+              "valor_desconto": 00.00,
+              "valor_acrescimo": 00.00,
+              "data_cad_pag": "0000-00-00 00:00:00",
+              "data_mod_pag": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar a despesa!"
+   }
+Contas_a_pagar - Alterar uma despesa
+
+2.0.0 
+Requisição para alterar uma despesa
+
+PUT
+https://api.vhsys.com/v2/contas-pagar/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/contas-pagar/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "nome_conta" : "Nome da conta",
+        "id_categoria" : "0000",
+        "categoria_pag" : "0000",
+        "id_banco" : "000",
+        "id_fornecedor" : "00",
+        "nome_fornecedor" : "Nome do fornecedor",
+        "vencimento_pag" : "0000-00-00",
+        "valor_pag" : "00.00",
+        "valor_pago" : "00.00",
+        "data_emissao" : "0000-00-00",
+        "n_documento_pag" : "0000",
+        "observacoes_pag" : "Observações",
+        "id_centro_custos" : "000",
+        "centro_custos_pag" : "Centro de custo",
+        "liquidado_pag" : "Sim",
+        "data_pagamento" : "0000-00-00",
+        "obs_pagamento" : "Observações",
+        "forma_pagamento" : "Cartão",
+        "valor_juros" : "00.00",
+        "valor_desconto" : "00.00",
+        "valor_acrescimo" : "00.00"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da despesa
+
+nome_conta opcional	String	
+Nome da despesa
+
+Faixa de tamanho: 0-45
+
+id_categoria opcional	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+Faixa de tamanho: 0-9
+
+categoria_pag opcional	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+Faixa de tamanho: 0-50
+
+id_banco opcional	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+Faixa de tamanho: 0-20
+
+id_fornecedor opcional	Integer	
+ID do fornecedor (Consultar fornecedores disponíveis)
+
+Faixa de tamanho: 0-20
+
+nome_fornecedor opcional	String	
+Nome do Fornecedor (Consultar fornecedores disponíveis)
+
+Faixa de tamanho: 0-255
+
+vencimento_pag opcional	Date	
+Data do vencimento
+
+Valores permitidos: YYYY-MM-DD
+
+valor_pag opcional	Decimal	
+Valor da despesa
+
+Faixa de tamanho: 10,2
+
+valor_pago opcional	Decimal	
+Valor pago
+
+Faixa de tamanho: 10,2
+
+data_emissao opcional	Date	
+Data da emissão
+
+Valores permitidos: YYYY-MM-DD
+
+n_documento_pag opcional	String	
+Número do documento
+
+Faixa de tamanho: 0-45
+
+observacoes_pag opcional	String	
+Observações da despesa
+
+id_centro_custos opcional	Integer	
+ID do centro de custo (Consultar centros de custo disponíveis)
+
+Faixa de tamanho: 0-20
+
+centro_custos_pag opcional	String	
+Nome do centro de custo (Consultar centros de custo disponíveis)
+
+Faixa de tamanho: 0-255
+
+liquidado_pag opcional	Enum	
+Se a conta esta liquidada
+
+Valores permitidos: Sim, Nao
+
+data_pagamento opcional	Date	
+Data do pagamento
+
+Valores permitidos: YYYY-MM-DD
+
+obs_pagamento opcional	String	
+Observação do pagamento
+
+forma_pagamento opcional	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+Faixa de tamanho: 0-255
+
+valor_juros opcional	Decimal	
+Valor dos juros
+
+Faixa de tamanho: 10,2
+
+valor_desconto opcional	Decimal	
+Valor do desconto
+
+Faixa de tamanho: 10,2
+
+valor_acrescimo opcional	Decimal	
+Valor do acrescimo
+
+Faixa de tamanho: 10,2
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_conta_pag	Integer	
+ID da despesa
+
+  id_registro	Integer	
+ID do registro
+
+  nome_conta	String	
+Nome da despesa
+
+  id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+  categoria_pag	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+  id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+  id_fornecedor	Integer	
+ID do fornecedor (Consultar fornecedores disponíveis)
+
+  nome_fornecedor	String	
+Nome do Fornecedor (Consultar fornecedores disponíveis)
+
+  vencimento_pag	Date	
+Data do vencimento
+
+  valor_pag	Decimal	
+Valor da despesa
+
+  valor_pago	Decimal	
+Valor pago
+
+  data_emissao	Date	
+Data da emissão
+
+  n_documento_pag	String	
+Número do documento
+
+  observacoes_pag	String	
+Observações da despesa
+
+  id_centro_custos	Integer	
+ID do centro de custo (Consultar centros de custo disponíveis)
+
+  centro_custos_pag	String	
+Nome do centro de custo (Consultar centros de custo disponíveis)
+
+  liquidado_pag	Enum	
+Se a conta esta liquidada
+
+  data_pagamento	Date	
+Data do pagamento
+
+  obs_pagamento	String	
+Observação do pagamento
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  valor_juros	Decimal	
+Valor dos juros
+
+  valor_desconto	Decimal	
+Valor do desconto
+
+  valor_acrescimo	Decimal	
+Valor do acrescimo
+
+  data_cad_pag	Date	
+Data de cadastro da despesa
+
+  data_mod_pag	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da despesa no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_conta_pag": 123456,
+              "id_registro": 1,
+              "nome_conta": "Nome da conta",
+              "id_categoria": 57,
+              "categoria_pag": "Outras Despesas",
+              "id_banco": 123,
+              "id_fornecedor": 123,
+              "nome_fornecedor": "Nome do fornecedor",
+              "vencimento_pag": "0000-00-00",
+              "valor_pag": "00.00",
+              "valor_pago": "00.00",
+              "data_emissao": "0000-00-00",
+              "n_documento_pag": "0000",
+              "observacoes_pag": "Observações",
+              "id_centro_custos": 0,
+              "centro_custos_pag": "0",
+              "liquidado_pag": "Sim",
+              "data_pagamento": "0000-00-00",
+              "obs_pagamento": "Observações",
+              "forma_pagamento": "Dinheiro",
+              "valor_juros": 00.00,
+              "valor_desconto": 00.00,
+              "valor_acrescimo": 00.00,
+              "data_cad_pag": "0000-00-00 00:00:00",
+              "data_mod_pag": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar a despesa!"
+   }
+Contas_a_pagar - Excluir uma despesa
+
+2.0.0 
+Requisição para deletar uma despesa, a despesa deletada pode ser encontrada com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/contas-pagar/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/contas-pagar/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da despesa
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_conta_pag	Integer	
+ID da despesa
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_conta_pag": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar a despesa!"
+   }
+Contas_a_pagar - Consultar despesa
+
+2.0.0 
+Requisição para a consulta de dados da despesa
+
+GET
+https://api.vhsys.com/v2/contas-pagar/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/contas-pagar/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da despesa
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_conta_pag	Integer	
+ID da despesa
+
+  id_registro	Integer	
+ID do registro
+
+  nome_conta	String	
+Nome da despesa
+
+  id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+  categoria_pag	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+  id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+  id_fornecedor	Integer	
+ID do fornecedor (Consultar fornecedores disponíveis)
+
+  nome_fornecedor	String	
+Nome do Fornecedor (Consultar fornecedores disponíveis)
+
+  vencimento_pag	Date	
+Data do vencimento
+
+  valor_pag	Decimal	
+Valor da despesa
+
+  valor_pago	Decimal	
+Valor pago
+
+  data_emissao	Date	
+Data da emissão
+
+  n_documento_pag	String	
+Número do documento
+
+  observacoes_pag	String	
+Observações da despesa
+
+  id_centro_custos	Integer	
+ID do centro de custo (Consultar centros de custo disponíveis)
+
+  centro_custos_pag	String	
+Nome do centro de custo (Consultar centros de custo disponíveis)
+
+  liquidado_pag	Enum	
+Se a conta esta liquidada
+
+  data_pagamento	Date	
+Data do pagamento
+
+  obs_pagamento	String	
+Observação do pagamento
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  valor_juros	Decimal	
+Valor dos juros
+
+  valor_desconto	Decimal	
+Valor do desconto
+
+  valor_acrescimo	Decimal	
+Valor do acrescimo
+
+  data_cad_pag	Date	
+Data de cadastro da despesa
+
+  data_mod_pag	Date	
+Data da última modificação
+
+  agrupado	Integer	
+Se essa despesa foi agrupada com outras
+
+  agrupado_data	Date	
+Data do agrupamento da despesa
+
+  agrupado_user	String	
+Usuário que efetuou o agrupamento
+
+  agrupamento	Integer	
+Se essa despesa é o resultado de um agrupamento
+
+  lixeira	Enum	
+Situação da despesa no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_conta_pag": 123456,
+              "id_registro": 1,
+              "nome_conta": "Nome da conta",
+              "id_categoria": 57,
+              "categoria_pag": "Outras Despesas",
+              "id_banco": 123,
+              "id_fornecedor": 123,
+              "nome_fornecedor": "Nome do fornecedor",
+              "vencimento_pag": "0000-00-00",
+              "valor_pag": "00.00",
+              "valor_pago": "00.00",
+              "data_emissao": "0000-00-00",
+              "n_documento_pag": "0000",
+              "observacoes_pag": "Observações",
+              "id_centro_custos": 0,
+              "centro_custos_pag": "0",
+              "liquidado_pag": "Sim",
+              "data_pagamento": "0000-00-00",
+              "obs_pagamento": "Observações",
+              "forma_pagamento": "Dinheiro",
+              "valor_juros": 00.00,
+              "valor_desconto": 00.00,
+              "valor_acrescimo": 00.00,
+              "data_cad_pag": "0000-00-00 00:00:00",
+              "data_mod_pag": "0000-00-00 00:00:00",
+              "agrupado": "0",
+              "agrupado_data": "0000-00-00 00:00:00",
+              "agrupado_user": "Usuário",
+              "agrupamento": "0",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma despesa encontrada!"
+   }
+Contas_a_pagar - Lista de despesas
+
+2.0.0 
+Requisição para a consulta de todas as contas a pagar
+
+GET
+https://api.vhsys.com/v2/contas-pagar
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/contas-pagar \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+order opcional	String	
+Nome do campo para ordenação EX:data_mod_pag
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+valor_despesa opcional	String	
+Valor da despesa 
+buscar a partir de um valor: valor_despesa=10.00 
+buscar entre valores: valor_despesa=10.00,20.00
+
+valor_pago opcional	String	
+Valor pago 
+buscar a partir de um valor: valor_pago=10.00 
+buscar entre valores: valor_pago=10.00,20.00
+
+data_pagamento opcional	Date	
+Data do pagamento 
+buscar a partir de uma data: data_pagamento=0000-00-00 
+buscar entre datas: data_pagamento=0000-00-00,0000-00-00
+
+Valores permitidos: YYYY-MM-DD
+
+data_vencimento opcional	Date	
+Data do vencimento 
+buscar a partir de uma data: data_vencimento=0000-00-00 
+buscar entre datas: data_vencimento=0000-00-00,0000-00-00
+
+Valores permitidos: YYYY-MM-DD
+
+nome_conta opcional	String	
+Nome da despesa
+
+id_registro opcional	String	
+ID do registro
+
+lixeira opcional	String	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+liquidado opcional	Enum	
+Se a conta está liquidada
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+data_modificacao opcional	Date	
+Registros criados ou modificados após a data informada
+
+Valores permitidos: YYYY-MM-DD
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de contas no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_conta_pag	Integer	
+ID da despesa
+
+  id_registro	Integer	
+ID do registro
+
+  nome_conta	String	
+Nome da despesa
+
+  id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+  categoria_pag	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+  id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+  id_fornecedor	Integer	
+ID do fornecedor (Consultar fornecedores disponíveis)
+
+  nome_fornecedor	String	
+Nome do Fornecedor (Consultar fornecedores disponíveis)
+
+  vencimento_pag	Date	
+Data do vencimento
+
+  valor_pag	Decimal	
+Valor da despesa
+
+  valor_pago	Decimal	
+Valor pago
+
+  data_emissao	Date	
+Data da emissão
+
+  n_documento_pag	String	
+Número do documento
+
+  observacoes_pag	String	
+Observações da despesa
+
+  id_centro_custos	Integer	
+ID do centro de custo (Consultar centros de custo disponíveis)
+
+  centro_custos_pag	String	
+Nome do centro de custo (Consultar centros de custo disponíveis)
+
+  liquidado_pag	Enum	
+Se a conta esta liquidada
+
+  data_pagamento	Date	
+Data do pagamento
+
+  obs_pagamento	String	
+Observação do pagamento
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  valor_juros	Decimal	
+Valor dos juros
+
+  valor_desconto	Decimal	
+Valor do desconto
+
+  valor_acrescimo	Decimal	
+Valor do acrescimo
+
+  data_cad_pag	Date	
+Data de cadastro da despesa
+
+  data_mod_pag	Date	
+Data da última modificação
+
+  agrupado	Integer	
+Se essa despesa foi agrupada com outras
+
+  agrupado_data	Date	
+Data do agrupamento da despesa
+
+  agrupado_user	String	
+Usuário que efetuou o agrupamento
+
+  agrupamento	Integer	
+Se essa despesa é o resultado de um agrupamento
+
+  lixeira	Enum	
+Situação da despesa no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_conta_pag": 123456,
+              "id_registro": 1,
+              "nome_conta": "Nome da conta",
+              "id_categoria": 57,
+              "categoria_pag": "Outras Despesas",
+              "id_banco": 123,
+              "id_fornecedor": 123,
+              "nome_fornecedor": "Nome do fornecedor",
+              "vencimento_pag": "0000-00-00",
+              "valor_pag": "00.00",
+              "valor_pago": "00.00",
+              "data_emissao": "0000-00-00",
+              "n_documento_pag": "0000",
+              "observacoes_pag": "Observações",
+              "id_centro_custos": 0,
+              "centro_custos_pag": "0",
+              "liquidado_pag": "Sim",
+              "data_pagamento": "0000-00-00",
+              "obs_pagamento": "Observações",
+              "forma_pagamento": "Dinheiro",
+              "valor_juros": 00.00,
+              "valor_desconto": 00.00,
+              "valor_acrescimo": 00.00,
+              "data_cad_pag": "0000-00-00 00:00:00",
+              "data_mod_pag": "0000-00-00 00:00:00",
+              "agrupado": "0",
+              "agrupado_data": "0000-00-00 00:00:00",
+              "agrupado_user": "Usuário",
+              "agrupamento": "0",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma conta encontrada!"
+   }
+Contas_a_pagar - Cadastrar um anexo
+
+2.0.0 
+Requisição para cadastro de anexo
+
+POST
+https://api.vhsys.com/v2/contas-pagar/:id_despesa/anexos
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/contas-pagar/:id_despesa/anexos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "link_arquivo" : "Link do arquivo para upload",
+        "titulo_arquivo" : "titulo do arquivo",
+        "privado" : "Sim",
+        "link" : "Publico"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_despesa	Integer	
+ID da despesa
+
+Faixa de tamanho: 9
+
+link_arquivo	String	
+Link do arquivo para upload
+
+Faixa de tamanho: 255
+
+titulo_arquivo	String	
+Título do arquivo
+
+Faixa de tamanho: 50
+
+privado opcional	Enum	
+Se o arquivo irá ser privado apenas para seu usuário no sistema
+
+Valor padrão: Nao
+
+Valores permitidos: Sim, Nao
+
+link opcional	Enum	
+Se o link do arquivo irá ser público para usuários fora do sistema
+
+Valor padrão: Publico
+
+Valores permitidos: Publico, Privado
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de anexos para a despesa
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_arquivo	Integer	
+ID do anexo
+
+  nome_arquivo	String	
+Nome do arquivo
+
+  titulo_arquivo	String	
+Titulo do arquivo
+
+  extensao_arquivo	String	
+Extenção do arquivo
+
+  tamanho_arquivo	Integer	
+Tamanho do arquivo (KB)
+
+  privado	Enum	
+Se esse arquivo é provado
+
+  link	Enum	
+Tipo do Link
+
+  downloads	Integer	
+Número de downloads
+
+  data_cad_arquivo	Date	
+Data de cadastro
+
+  data_exclusao	Date	
+Data de exclusão
+
+  lixeira	Enum	
+Situação do anexo no sistema
+
+  link_arquivo	String	
+Link do anexo enviado
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_arquivo": 1223,
+              "nome_arquivo": "nome_do_arquivo.jpg",
+              "titulo_arquivo": "nome_do_arquivo.jpg",
+              "extensao_arquivo": ".jpg",
+              "tamanho_arquivo": 000000,
+              "privado": "Nao",
+              "link": "Publico",
+              "downloads": 0,
+              "data_cad_arquivo": "0000-00-00 00:00:00",
+              "data_exclusao": "0000-00-00 00:00:00",
+              "lixeira": "Nao",
+              "link_arquivo": "https://www.linkdoarquivoenviado/image.jpg",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o anexo!"
+   }
+Contas_a_pagar - Consultar anexo
+
+2.0.0 
+Requisição para a consulta de dados do anexo
+
+GET
+https://api.vhsys.com/v2/contas-pagar/:id_despesa/anexos/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/contas-pagar/:id_despesa/anexos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da despesa
+
+:id_despesa	Integer	
+ID do anexo
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de anexos para a despesa
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_arquivo	Integer	
+ID do anexo
+
+  nome_arquivo	String	
+Nome do arquivo
+
+  titulo_arquivo	String	
+Titulo do arquivo
+
+  extensao_arquivo	String	
+Extenção do arquivo
+
+  tamanho_arquivo	Integer	
+Tamanho do arquivo (KB)
+
+  privado	Enum	
+Se esse arquivo é provado
+
+  link	Enum	
+Tipo do Link
+
+  downloads	Integer	
+Número de downloads
+
+  data_cad_arquivo	Date	
+Data de cadastro
+
+  data_exclusao	Date	
+Data de exclusão
+
+  lixeira	Enum	
+Situação do anexo no sistema
+
+  link_arquivo	String	
+Link do anexo enviado
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_arquivo": 1223,
+              "nome_arquivo": "nome_do_arquivo.jpg",
+              "titulo_arquivo": "nome_do_arquivo.jpg",
+              "extensao_arquivo": ".jpg",
+              "tamanho_arquivo": 000000,
+              "privado": "Nao",
+              "link": "Publico",
+              "downloads": 0,
+              "data_cad_arquivo": "0000-00-00 00:00:00",
+              "data_exclusao": "0000-00-00 00:00:00",
+              "lixeira": "Nao",
+              "link_arquivo": "https://www.linkdoarquivoenviado/image.jpg",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum anexo encontrado!"
+   }
+Contas_a_pagar - Estornar uma despesa
+
+2.0.0 
+Requisição para estornar uma despesa
+
+PUT
+https://api.vhsys.com/v2/contas-pagar/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/contas-pagar/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "liquidado_pag" : "Nao"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da despesa
+
+liquidado_pag	Enum	
+Se a conta esta liquidada
+
+Valores permitidos: Sim, Nao
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_conta_pag	Integer	
+ID da despesa
+
+  id_registro	Integer	
+ID do registro
+
+  nome_conta	String	
+Nome da despesa
+
+  id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+  categoria_pag	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+  id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+  id_fornecedor	Integer	
+ID do fornecedor (Consultar fornecedores disponíveis)
+
+  nome_fornecedor	String	
+Nome do Fornecedor (Consultar fornecedores disponíveis)
+
+  vencimento_pag	Date	
+Data do vencimento
+
+  valor_pag	Decimal	
+Valor da despesa
+
+  valor_pago	Decimal	
+Valor pago
+
+  data_emissao	Date	
+Data da emissão
+
+  n_documento_pag	String	
+Número do documento
+
+  observacoes_pag	String	
+Observações da despesa
+
+  id_centro_custos	Integer	
+ID do centro de custo (Consultar centros de custo disponíveis)
+
+  centro_custos_pag	String	
+Nome do centro de custo (Consultar centros de custo disponíveis)
+
+  liquidado_pag	Enum	
+Se a conta esta liquidada
+
+  data_pagamento	Date	
+Data do pagamento
+
+  obs_pagamento	String	
+Observação do pagamento
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  valor_juros	Decimal	
+Valor dos juros
+
+  valor_desconto	Decimal	
+Valor do desconto
+
+  valor_acrescimo	Decimal	
+Valor do acrescimo
+
+  data_cad_pag	Date	
+Data de cadastro da despesa
+
+  data_mod_pag	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da despesa no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_conta_pag": 123456,
+              "id_registro": 1,
+              "nome_conta": "Nome da conta",
+              "id_categoria": 57,
+              "categoria_pag": "Outras Despesas",
+              "id_banco": 123,
+              "id_fornecedor": 123,
+              "nome_fornecedor": "Nome do fornecedor",
+              "vencimento_pag": "0000-00-00",
+              "valor_pag": "00.00",
+              "valor_pago": "00.00",
+              "data_emissao": "0000-00-00",
+              "n_documento_pag": "0000",
+              "observacoes_pag": "Observações",
+              "id_centro_custos": 0,
+              "centro_custos_pag": "0",
+              "liquidado_pag": "Sim",
+              "data_pagamento": "0000-00-00",
+              "obs_pagamento": "Observações",
+              "forma_pagamento": "Dinheiro",
+              "valor_juros": 00.00,
+              "valor_desconto": 00.00,
+              "valor_acrescimo": 00.00,
+              "data_cad_pag": "0000-00-00 00:00:00",
+              "data_mod_pag": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar a despesa!"
+   }
+Contas_a_pagar - Excluir um anexo
+
+2.0.0 
+Requisição para deletar um anexo, o anexo deletado pode ser encontrado com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/contas-pagar/:id_despesa/anexos/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/contas-pagar/:id_despesa/anexos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_despesa	Integer	
+ID da despesa
+
+:id	Integer	
+ID da anexo
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_arquivo	Integer	
+ID do anexo
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_arquivo": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar o anexo!"
+   }
+Contas_a_pagar - Liquidar uma despesa
+
+2.0.0 
+Requisição para liquidar uma despesa
+
+PUT
+https://api.vhsys.com/v2/contas-pagar/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/contas-pagar/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "liquidado_pag" : "Sim",
+        "valor_pag" : "00.00",
+        "data_pagamento" : "0000-00-00"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da despesa
+
+liquidado_pag	Enum	
+Se a conta esta liquidada
+
+Valores permitidos: Sim, Nao
+
+data_pagamento	Date	
+Data do pagamento
+
+Valores permitidos: YYYY-MM-DD
+
+obs_pagamento	String	
+Observação do pagamento
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_conta_pag	Integer	
+ID da despesa
+
+  id_registro	Integer	
+ID do registro
+
+  nome_conta	String	
+Nome da despesa
+
+  id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+  categoria_pag	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+  id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+  id_fornecedor	Integer	
+ID do fornecedor (Consultar fornecedores disponíveis)
+
+  nome_fornecedor	String	
+Nome do Fornecedor (Consultar fornecedores disponíveis)
+
+  vencimento_pag	Date	
+Data do vencimento
+
+  valor_pag	Decimal	
+Valor da despesa
+
+  valor_pago	Decimal	
+Valor pago
+
+  data_emissao	Date	
+Data da emissão
+
+  n_documento_pag	String	
+Número do documento
+
+  observacoes_pag	String	
+Observações da despesa
+
+  id_centro_custos	Integer	
+ID do centro de custo (Consultar centros de custo disponíveis)
+
+  centro_custos_pag	String	
+Nome do centro de custo (Consultar centros de custo disponíveis)
+
+  liquidado_pag	Enum	
+Se a conta esta liquidada
+
+  data_pagamento	Date	
+Data do pagamento
+
+  obs_pagamento	String	
+Observação do pagamento
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  valor_juros	Decimal	
+Valor dos juros
+
+  valor_desconto	Decimal	
+Valor do desconto
+
+  valor_acrescimo	Decimal	
+Valor do acrescimo
+
+  data_cad_pag	Date	
+Data de cadastro da despesa
+
+  data_mod_pag	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da despesa no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_conta_pag": 123456,
+              "id_registro": 1,
+              "nome_conta": "Nome da conta",
+              "id_categoria": 57,
+              "categoria_pag": "Outras Despesas",
+              "id_banco": 123,
+              "id_fornecedor": 123,
+              "nome_fornecedor": "Nome do fornecedor",
+              "vencimento_pag": "0000-00-00",
+              "valor_pag": "00.00",
+              "valor_pago": "00.00",
+              "data_emissao": "0000-00-00",
+              "n_documento_pag": "0000",
+              "observacoes_pag": "Observações",
+              "id_centro_custos": 0,
+              "centro_custos_pag": "0",
+              "liquidado_pag": "Sim",
+              "data_pagamento": "0000-00-00",
+              "obs_pagamento": "Observações",
+              "forma_pagamento": "Dinheiro",
+              "valor_juros": 00.00,
+              "valor_desconto": 00.00,
+              "valor_acrescimo": 00.00,
+              "data_cad_pag": "0000-00-00 00:00:00",
+              "data_mod_pag": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar a despesa!"
+   }
+Contas_a_pagar - Lista de anexos
+
+2.0.0 
+Requisição para a consulta de todas os anexos da despesa
+
+GET
+https://api.vhsys.com/v2/contas-pagar/:id_despesa/anexos
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/contas-pagar/:id_despesa/anexos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_despesa	Integer	
+ID da despesa
+
+order opcional	String	
+Nome do campo para ordenação EX:data_mod_pag
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+data_cadastro opcional	Date	
+Data do cadastro 
+buscar a partir de uma data: data_cad_arquivo=0000-00-00 
+buscar entre datas: data_cad_arquivo=0000-00-00,0000-00-00
+
+Valores permitidos: YYYY-MM-DD
+
+extensao_arquivo opcional	String	
+Extenção do arquivo
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de anexos para a despesa
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_arquivo	Integer	
+ID do anexo
+
+  nome_arquivo	String	
+Nome do arquivo
+
+  titulo_arquivo	String	
+Titulo do arquivo
+
+  extensao_arquivo	String	
+Extenção do arquivo
+
+  tamanho_arquivo	Integer	
+Tamanho do arquivo (KB)
+
+  privado	Enum	
+Se esse arquivo é provado
+
+  link	Enum	
+Tipo do Link
+
+  downloads	Integer	
+Número de downloads
+
+  data_cad_arquivo	Date	
+Data de cadastro
+
+  data_exclusao	Date	
+Data de exclusão
+
+  lixeira	Enum	
+Situação do anexo no sistema
+
+  link_arquivo	String	
+Link do anexo enviado
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_arquivo": 1223,
+              "nome_arquivo": "nome_do_arquivo.jpg",
+              "titulo_arquivo": "nome_do_arquivo.jpg",
+              "extensao_arquivo": ".jpg",
+              "tamanho_arquivo": 000000,
+              "privado": "Nao",
+              "link": "Publico",
+              "downloads": 0,
+              "data_cad_arquivo": "0000-00-00 00:00:00",
+              "data_exclusao": "0000-00-00 00:00:00",
+              "lixeira": "Nao",
+              "link_arquivo": "https://www.linkdoarquivoenviado/image.jpg",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma anexo encontrado!"
+   }

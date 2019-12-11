@@ -1,0 +1,585 @@
+Produtos categorias
+
+Produtos___categorias - Cadastrar uma categoria
+
+2.0.0 
+Requisição para cadastro de categoria
+
+POST
+https://api.vhsys.com/v2/categorias
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/categorias \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "nome_categoria" : "Nome da Categoria",
+        "status_categoria" : "Ativo"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+nome_categoria	String	
+Nome da categoria
+
+Faixa de tamanho: 255
+
+status_categoria opcional	Enum	
+Status da categoria
+
+Valor padrão: Ativo
+
+Valores permitidos: Ativo, Inativo
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_categoria	Integer	
+ID da categoria
+
+  nome_categoria	String	
+Nome da categoria
+
+  atalho_categoria	String	
+Atalho para categoria
+
+  status_categoria	Enum	
+Status da categoria
+
+  data_cad_categoria	Date	
+Data de cadastro da categoria
+
+  data_mod_categoria	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da categoria no sistema
+
+  subcategorias	Object[]	
+Dados da subcategoria
+
+    id_subcategoria	Integer	
+ID da subcategoria
+
+    nome_subcategoria	String	
+Nome da subcategoria
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+  {
+      "code": 200,
+      "status": "success",
+      "data": [
+          {
+              "id_categoria": 123456789,
+              "atalho_categoria": "nome-da-categoria",
+              "nome_categoria": "Nome da categoria",
+              "status_categoria": "Ativo",
+              "data_cad_categoria": 00-00-0000 00:00:00,
+              "data_mod_categoria": 00-00-0000 00:00:00,
+              "lixeira": "Nao"
+              "subcategorias":[
+                  {
+                      "id_subcategoria": 123456,
+                      "nome_subcategoria": "Nome da subcategoria",
+                  }
+              ]
+          }
+      ]
+  }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar a categoria!"
+   }
+Produtos___categorias - Alterar uma categoria
+
+2.0.0 
+Requisição para alterar uma categoria
+
+PUT
+https://api.vhsys.com/v2/categorias/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/categorias/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "nome_categoria" : "Nome da Categoria",
+        "status_categoria" : "Ativo"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+Id da categoria
+
+nome_categoria opcional	String	
+Nome da categoria
+
+Faixa de tamanho: 0-255
+
+status_categoria opcional	Enum	
+Status da categoria
+
+Valores permitidos: Ativo, Inativo
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_categoria	Integer	
+ID da categoria
+
+  nome_categoria	String	
+Nome da categoria
+
+  atalho_categoria	String	
+Atalho para categoria
+
+  status_categoria	Enum	
+Status da categoria
+
+  data_cad_categoria	Date	
+Data de cadastro da categoria
+
+  data_mod_categoria	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da categoria no sistema
+
+  subcategorias	Object[]	
+Dados da subcategoria
+
+  id_subcategoria	Integer	
+ID da subcategoria
+
+  nome_subcategoria	String	
+Nome da subcategoria
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_categoria": 123456789,
+               "atalho_categoria": "nome-da-categoria",
+               "nome_categoria": "Nome da categoria",
+               "status_categoria": "Ativo",
+               "data_cad_categoria": 00-00-0000 00:00:00,
+               "data_mod_categoria": 00-00-0000 00:00:00,
+               "lixeira": "Nao"
+               "subcategorias": [
+                  {
+                      "id_subcategoria": 123,
+                      "nome_subcategoria": "Nome da subcategoria",
+                  {
+               ]
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar a categoria!"
+   }
+Produtos___categorias - Excluir uma categoria
+
+2.0.0 
+Requisição para deletar uma categoria, a Categoria deletada por ser encontrada com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/categorias/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/categorias/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+Id da categoria
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_categoria	Integer	
+ID da categoria
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_categoria": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar a categoria!"
+   }
+Produtos___categorias - Consultar categoria
+
+2.0.0 
+Requisição para a consulta de dados da categoria
+
+GET
+https://api.vhsys.com/v2/categorias/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/categorias/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+Id da categoria
+
+subcategoria opcional	String	
+Exibe as subcategorias vinculadas
+
+Valor padrão: null
+
+Valores permitidos: 0, 1
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_categoria	Integer	
+ID da categoria
+
+  nome_categoria	String	
+Nome da categoria
+
+  atalho_categoria	String	
+Atalho para categoria
+
+  status_categoria	Enum	
+Status da categoria
+
+  data_cad_categoria	Date	
+Data de cadastro da categoria
+
+  data_mod_categoria	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da categoria no sistema
+
+  subcategorias	Object[]	
+Dados da subcategoria
+
+  id_subcategoria	Integer	
+ID da subcategoria
+
+  nome_subcategoria	String	
+Nome da subcategoria
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_categoria": 123456789,
+               "atalho_categoria": "nome-da-categoria",
+               "nome_categoria": "Nome da categoria",
+               "status_categoria": "Ativo",
+               "data_cad_categoria": 00-00-0000 00:00:00,
+               "data_mod_categoria": 00-00-0000 00:00:00,
+               "lixeira": "Nao"
+               "subcategorias": [
+                  {
+                      "id_subcategoria": 123,
+                      "nome_subcategoria": "Nome da subcategoria",
+                  {
+               ]
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma categoria encontrada!"
+   }
+Produtos___categorias - Lista de categorias
+
+2.0.0 
+Requisição para a consulta de diversas categorias.
+
+GET
+https://api.vhsys.com/v2/categorias
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/categorias \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+order opcional	String	
+Nome do campo para ordenação EX:data_mod_categoria
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+nome_categoria opcional	String	
+Nome da categoria
+
+atalho_categoria opcional	String	
+Atalho da categoria
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+subcategoria opcional	String	
+Exibe as subcategorias vinculadas
+
+Valor padrão: null
+
+Valores permitidos: 0, 1
+
+data_modificacao opcional	Date	
+Registros criados ou modificados após a data informada
+
+Valores permitidos: YYYY-MM-DD
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de categorias no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_categoria	Integer	
+ID da categoria
+
+  nome_categoria	String	
+Nome da categoria
+
+  atalho_categoria	String	
+Atalho para categoria
+
+  status_categoria	Enum	
+Status da categoria
+
+  data_cad_categoria	Date	
+Data de cadastro da categoria
+
+  data_mod_categoria	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da categoria no sistema
+
+  subcategorias	Object[]	
+Dados da subcategoria
+
+  id_subcategoria	Integer	
+ID da subcategoria
+
+  nome_subcategoria	String	
+Nome da subcategoria
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+               "id_categoria": 123456789,
+               "atalho_categoria": "nome-da-categoria",
+               "nome_categoria": "Nome da categoria",
+               "status_categoria": "Ativo",
+               "data_cad_categoria": 00-00-0000 00:00:00,
+               "data_mod_categoria": 00-00-0000 00:00:00,
+               "lixeira": "Nao",
+               "subcategorias": [
+                  {
+                      "id_subcategoria": 123,
+                      "nome_subcategoria": "Nome da subcategoria",
+                  {
+               ]
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma categoria encontrada!"
+   }
