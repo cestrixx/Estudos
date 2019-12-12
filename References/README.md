@@ -52,3 +52,7 @@
 - [18 bibliotecas de Java Script e Node.js para microsserviços](https://computerworld.com.br/2019/01/21/18-bibliotecas-de-java-script-e-node-js-para-microsservicos/)
 - [5 dicas para criar melhores aplicações usando Node.js](https://braziljs.org/artigos/5-dicas-para-criar-melhores-aplicacoes-usando-node-js/)
 - [OAuth 2 Simplified](https://aaronparecki.com/oauth-2-simplified/)
+- [Criando uma API Node em 10 passos com Express.js](https://imasters.com.br/front-end/criando-uma-api-node-em-10-passos-com-express-js)
+- [Criando um CRUD completo com NodeJS, Express e MongoDB](https://medium.com/baixada-nerd/criando-um-crud-completo-com-nodejs-express-e-mongodb-parte-1-3-6c8389d7147d)
+- [A simple CRUD application with Javascript](https://medium.com/@etiennerouzeaud/a-simple-crud-application-with-javascript-ebc82f688c59)
+- [Create a Simple CRUD Database App: Connecting to MySQL with PHP](https://www.taniarascia.com/create-a-simple-database-app-connecting-to-mysql-with-php/)
