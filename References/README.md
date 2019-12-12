@@ -51,3 +51,4 @@
 - [Módulos essenciais para Node.js](https://udgwebdev.com/modulos-essenciais-para-nodejs-parte-1/)
 - [18 bibliotecas de Java Script e Node.js para microsserviços](https://computerworld.com.br/2019/01/21/18-bibliotecas-de-java-script-e-node-js-para-microsservicos/)
 - [5 dicas para criar melhores aplicações usando Node.js](https://braziljs.org/artigos/5-dicas-para-criar-melhores-aplicacoes-usando-node-js/)
+- [OAuth 2 Simplified](https://aaronparecki.com/oauth-2-simplified/)
