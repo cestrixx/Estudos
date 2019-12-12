@@ -7,6 +7,10 @@ const database = require('./src/database.js')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
+app.get('/', (req, res, next) => {
+    res.send("<h1>Bem Vindo</h1>");
+})
+
 app.get('/produtos', (req, res, next) => {
     res.send(database.getProdutos())
 })
