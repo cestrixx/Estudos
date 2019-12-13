@@ -7,15 +7,15 @@ router.get('/', function (req, res) {
     });
 });
 
-var productsController = require('../controllers/products');
+var controller = require('../controllers/products');
 
 router.route('/products')
-    .get(productsController.getAll)
-    .post(productsController.add);
+    .get(controller.getAll)
+    .post(controller.add);
 
 router.route('/products/:id')
-    .get(productsController.get)
-    .put(contactController.update)
-    .delete(contactController.delete);
+    .get(controller.get)
+    .put(controller.update)
+    .delete(controller.delete);
 
 module.exports = router;
