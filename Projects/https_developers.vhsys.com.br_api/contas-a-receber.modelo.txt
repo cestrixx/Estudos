@@ -1,0 +1,2008 @@
+Contas a receber
+
+Contas_a_receber - Cadastrar uma receita
+
+2.0.0 
+Requisição para cadastro de receita
+
+POST
+https://api.vhsys.com/v2/contas-receber
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/contas-receber \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "nome_conta" : "Nome da conta",
+        "id_categoria" : "0000",
+        "categoria_rec" : "0000",
+        "id_banco" : "000",
+        "id_cliente" : "00",
+        "nome_cliente" : "Nome do cliente",
+        "vencimento_rec" : "0000-00-00",
+        "valor_rec" : "00.00",
+        "valor_pago" : "00.00",
+        "data_emissao" : "0000-00-00",
+        "n_documento_rec" : "0000",
+        "observacoes_rec" : "Observações",
+        "id_centro_custos" : "000",
+        "centro_custos_rec" : "Centro de custo",
+        "liquidado_rec" : "Sim",
+        "data_pagamento" : "0000-00-00",
+        "obs_pagamento" : "Observações",
+        "forma_pagamento" : "Cartão",
+        "tipo_conta" : "Boleto",
+        "valor_juros" : "00.00",
+        "valor_desconto" : "00.00",
+        "valor_acrescimo" : "00.00"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+nome_conta	String	
+Nome da receita
+
+Faixa de tamanho: 45
+
+id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+Faixa de tamanho: 20
+
+vencimento_rec	Date	
+Data do vencimento
+
+Valores permitidos: YYYY-MM-DD
+
+valor_rec	Decimal	
+Valor da receita
+
+Faixa de tamanho: 10,2
+
+data_emissao	Date	
+Data da emissão
+
+Valores permitidos: YYYY-MM-DD
+
+id_categoria opcional	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+Faixa de tamanho: 0-9
+
+categoria_rec opcional	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+Faixa de tamanho: 0-50
+
+id_cliente opcional	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 0-20
+
+nome_cliente opcional	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 0-255
+
+valor_pago opcional	Decimal	
+Valor pago
+
+Faixa de tamanho: 10,2
+
+n_documento_rec opcional	String	
+Número do documento
+
+Faixa de tamanho: 0-45
+
+observacoes_rec opcional	String	
+Observações da receita
+
+id_centro_custos opcional	Integer	
+ID do centro de custo (Consultar centros de custo disponíveis)
+
+Faixa de tamanho: 0-20
+
+centro_custos_rec opcional	String	
+Nome do centro de custo (Consultar centros de custo disponíveis)
+
+Faixa de tamanho: 0-255
+
+liquidado_rec opcional	Enum	
+Se a conta esta liquidada
+
+Valor padrão: Nao
+
+Valores permitidos: Sim, Nao
+
+data_pagamento opcional	Date	
+Data do pagamento
+
+Valores permitidos: YYYY-MM-DD
+
+obs_pagamento opcional	String	
+Observação do pagamento
+
+forma_pagamento opcional	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+Faixa de tamanho: 0-255
+
+valor_juros opcional	Decimal	
+Valor dos juros
+
+Faixa de tamanho: 10,2
+
+valor_desconto opcional	Decimal	
+Valor do desconto
+
+Faixa de tamanho: 10,2
+
+valor_acrescimo opcional	Decimal	
+Valor do acrescimo
+
+Faixa de tamanho: 10,2
+
+tipo_conta opcional	Enum	
+Tipo da conta
+
+Valor padrão: Conta
+
+Valores permitidos: Boleto, Conta, Duplicata
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_conta_rec	Integer	
+ID da receita
+
+  id_registro	Integer	
+ID do registro
+
+  nome_conta	String	
+Nome da receita
+
+  id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+  categoria_rec	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+  id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vencimento_rec	Date	
+Data do vencimento
+
+  valor_rec	Decimal	
+Valor da receita
+
+  data_emissao	Date	
+Data da emissão
+
+  n_documento_rec	String	
+Número do documento
+
+  observacoes_rec	String	
+Observações da receita
+
+  id_centro_custos	Integer	
+ID do centro de custo (Consultar centros de custo disponíveis)
+
+  centro_custos_rec	String	
+Nome do centro de custo (Consultar centros de custo disponíveis)
+
+  liquidado_rec	Enum	
+Se a conta esta liquidada
+
+  data_pagamento	Date	
+Data do pagamento
+
+  obs_pagamento	String	
+Observação do pagamento
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  valor_juros	Decimal	
+Valor dos juros
+
+  valor_desconto	Decimal	
+Valor do desconto
+
+  valor_acrescimo	Decimal	
+Valor do acrescimo
+
+  tipo_conta	Enum	
+Tipo da conta
+
+  data_cad_rec	Date	
+Data de cadastro da receita
+
+  data_mod_rec	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da receita no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_conta_rec": 123456,
+              "id_registro": 1,
+              "nome_conta": "Nome da conta",
+              "id_categoria": 57,
+              "categoria_rec": "Outras Receitas",
+              "id_banco": 123,
+              "id_cliente": 123,
+              "nome_cliente": "Nome do cliente",
+              "vencimento_rec": "0000-00-00",
+              "valor_rec": "00.00",
+              "valor_pago": "00.00",
+              "data_emissao": "0000-00-00",
+              "n_documento_rec": "0000",
+              "observacoes_rec": "Observações",
+              "id_centro_custos": 0,
+              "centro_custos_rec": "0",
+              "liquidado_rec": "Sim",
+              "data_pagamento": "0000-00-00",
+              "obs_pagamento": "Observações",
+              "forma_pagamento": "Dinheiro",
+              "valor_juros": 00.00,
+              "valor_desconto": 00.00,
+              "valor_acrescimo": 00.00,
+              "tipo_conta": "Boleto",
+              "data_cad_rec": "0000-00-00 00:00:00",
+              "data_mod_rec": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar a receita!"
+   }
+Contas_a_receber - Alterar uma receita
+
+2.0.0 
+Requisição para alterar uma receita
+
+PUT
+https://api.vhsys.com/v2/contas-receber/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/contas-receber/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "nome_conta" : "Nome da conta",
+        "id_categoria" : "0000",
+        "categoria_rec" : "0000",
+        "id_banco" : "000",
+        "id_cliente" : "00",
+        "nome_cliente" : "Nome do cliente",
+        "vencimento_rec" : "0000-00-00",
+        "valor_rec" : "00.00",
+        "valor_pago" : "00.00",
+        "data_emissao" : "0000-00-00",
+        "n_documento_rec" : "0000",
+        "observacoes_rec" : "Observações",
+        "id_centro_custos" : "000",
+        "centro_custos_rec" : "Centro de custo",
+        "liquidado_rec" : "Sim",
+        "data_pagamento" : "0000-00-00",
+        "obs_pagamento" : "Observações",
+        "forma_pagamento" : "Cartão",
+        "tipo_conta" : "Boleto",
+        "valor_juros" : "00.00",
+        "valor_desconto" : "00.00",
+        "valor_acrescimo" : "00.00"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da receita
+
+nome_conta opcional	String	
+Nome da receita
+
+Faixa de tamanho: 0-45
+
+id_categoria opcional	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+Faixa de tamanho: 0-9
+
+categoria_rec opcional	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+Faixa de tamanho: 0-50
+
+id_banco opcional	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+Faixa de tamanho: 0-20
+
+id_cliente opcional	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 0-20
+
+nome_cliente opcional	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 0-255
+
+vencimento_rec opcional	Date	
+Data do vencimento
+
+Valores permitidos: YYYY-MM-DD
+
+valor_rec opcional	Decimal	
+Valor da receita
+
+Faixa de tamanho: 10,2
+
+valor_pago opcional	Decimal	
+Valor pago
+
+Faixa de tamanho: 10,2
+
+data_emissao opcional	Date	
+Data da emissão
+
+Valores permitidos: YYYY-MM-DD
+
+n_documento_rec opcional	String	
+Número do documento
+
+Faixa de tamanho: 0-45
+
+observacoes_rec opcional	String	
+Observações da receita
+
+id_centro_custos opcional	Integer	
+ID do centro de custo (Consultar centros de custo disponíveis)
+
+Faixa de tamanho: 0-20
+
+centro_custos_rec opcional	String	
+Nome do centro de custo (Consultar centros de custo disponíveis)
+
+Faixa de tamanho: 0-255
+
+liquidado_rec opcional	Enum	
+Se a conta esta liquidada
+
+Valores permitidos: Sim, Nao
+
+data_pagamento opcional	Date	
+Data do pagamento
+
+Valores permitidos: YYYY-MM-DD
+
+obs_pagamento opcional	String	
+Observação do pagamento
+
+forma_pagamento opcional	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+Faixa de tamanho: 0-255
+
+valor_juros opcional	Decimal	
+Valor dos juros
+
+Faixa de tamanho: 10,2
+
+valor_desconto opcional	Decimal	
+Valor do desconto
+
+Faixa de tamanho: 10,2
+
+valor_acrescimo opcional	Decimal	
+Valor do acrescimo
+
+Faixa de tamanho: 10,2
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_conta_rec	Integer	
+ID da receita
+
+  id_registro	Integer	
+ID do registro
+
+  nome_conta	String	
+Nome da receita
+
+  id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+  categoria_rec	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+  id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vencimento_rec	Date	
+Data do vencimento
+
+  valor_rec	Decimal	
+Valor da receita
+
+  valor_pago	Decimal	
+Valor pago
+
+  data_emissao	Date	
+Data da emissão
+
+  n_documento_rec	String	
+Número do documento
+
+  observacoes_rec	String	
+Observações da receita
+
+  id_centro_custos	Integer	
+ID do centro de custo (Consultar centros de custo disponíveis)
+
+  centro_custos_rec	String	
+Nome do centro de custo (Consultar centros de custo disponíveis)
+
+  liquidado_rec	Enum	
+Se a conta esta liquidada
+
+  data_pagamento	Date	
+Data do pagamento
+
+  obs_pagamento	String	
+Observação do pagamento
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  valor_juros	Decimal	
+Valor dos juros
+
+  valor_desconto	Decimal	
+Valor do desconto
+
+  valor_acrescimo	Decimal	
+Valor do acrescimo
+
+  tipo_conta	Enum	
+Tipo da conta
+
+  data_cad_re	Date	
+Data de cadastro da receita
+
+  data_mod_rec	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da receita no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_conta_rec": 123456,
+              "id_registro": 1,
+              "nome_conta": "Nome da conta",
+              "id_categoria": 57,
+              "categoria_rec": "Outras Receitas",
+              "id_banco": 123,
+              "id_cliente": 123,
+              "nome_cliente": "Nome do cliente",
+              "vencimento_rec": "0000-00-00",
+              "valor_rec": "00.00",
+              "valor_pago": "00.00",
+              "data_emissao": "0000-00-00",
+              "n_documento_rec": "0000",
+              "observacoes_rec": "Observações",
+              "id_centro_custos": 0,
+              "centro_custos_rec": "0",
+              "liquidado_rec": "Sim",
+              "data_pagamento": "0000-00-00",
+              "obs_pagamento": "Observações",
+              "forma_pagamento": "Dinheiro",
+              "valor_juros": 00.00,
+              "valor_desconto": 00.00,
+              "valor_acrescimo": 00.00,
+              "tipo_conta": "Boleto",
+              "data_cad_rec": "0000-00-00 00:00:00",
+              "data_mod_rec": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar a receita!"
+   }
+Contas_a_receber - Excluir uma receita
+
+2.0.0 
+Requisição para deletar uma receita, a receita deletada pode ser encontrada com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/contas-receber/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/contas-receber/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da receita
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_conta_rec	Integer	
+ID da receita
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_conta_rec": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar a receita!"
+   }
+Contas_a_receber - Consultar receita
+
+2.0.0 
+Requisição para a consulta de dados da receita
+
+GET
+https://api.vhsys.com/v2/contas-receber/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/contas-receber/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da receita
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_conta_rec	Integer	
+ID da receita
+
+  id_registro	Integer	
+ID do registro
+
+  nome_conta	String	
+Nome da receita
+
+  id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+  categoria_rec	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+  id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+  id_cliente	Integer	
+ID do cliente (Consultar Clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar Clientes disponíveis)
+
+  vencimento_rec	Date	
+Data do vencimento
+
+  valor_rec	Decimal	
+Valor da receita
+
+  valor_pago	Decimal	
+Valor pago
+
+  data_emissao	Date	
+Data da emissão
+
+  n_documento_rec	String	
+Número do documento
+
+  observacoes_rec	String	
+Observações da receita
+
+  id_centro_custos	Integer	
+ID do centro de custo (Consultar centros de custo disponíveis)
+
+  centro_custos_rec	String	
+Nome do centro de custo (Consultar centros de custo disponíveis)
+
+  liquidado_rec	Enum	
+Se a conta esta liquidada
+
+  data_pagamento	Date	
+Data do pagamento
+
+  obs_pagamento	String	
+Observação do pagamento
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  valor_juros	Decimal	
+Valor dos juros
+
+  valor_desconto	Decimal	
+Valor do desconto
+
+  valor_acrescimo	Decimal	
+Valor do acrescimo
+
+  tipo_conta	Enum	
+Tipo da conta
+
+  data_cad_rec	Date	
+Data de cadastro da receita
+
+  data_mod_rec	Date	
+Data da última modificação
+
+  agrupado	Integer	
+Se essa receita foi agrupada com outras
+
+  agrupado_data	Date	
+Data do agrupamento da receita
+
+  agrupado_user	String	
+Usuário que efetuou o agrupamento
+
+  agrupamento	Integer	
+Se essa receita é o resultado de um agrupamento
+
+  lixeira	Enum	
+Situação da receita no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_conta_rec": 123456,
+              "id_registro": 1,
+              "nome_conta": "Nome da conta",
+              "id_categoria": 57,
+              "categoria_rec": "Outras Receitas",
+              "id_banco": 123,
+              "id_cliente": 123,
+              "nome_cliente": "Nome do cliente",
+              "vencimento_rec": "0000-00-00",
+              "valor_rec": "00.00",
+              "valor_pago": "00.00",
+              "data_emissao": "0000-00-00",
+              "n_documento_rec": "0000",
+              "observacoes_rec": "Observações",
+              "id_centro_custos": 0,
+              "centro_custos_rec": "0",
+              "liquidado_rec": "Sim",
+              "data_pagamento": "0000-00-00",
+              "obs_pagamento": "Observações",
+              "forma_pagamento": "Dinheiro",
+              "valor_juros": 00.00,
+              "valor_desconto": 00.00,
+              "valor_acrescimo": 00.00,
+              "tipo_conta": "Boleto",
+              "data_cad_rec": "0000-00-00 00:00:00",
+              "data_mod_rec": "0000-00-00 00:00:00",
+              "agrupado": "0",
+              "agrupado_data": "0000-00-00 00:00:00",
+              "agrupado_user": "Usuário",
+              "agrupamento": "0",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma receita encontrada!"
+   }
+Contas_a_receber - Lista de receitas
+
+2.0.0 
+Requisição para a consulta de todas as contas a receber
+
+GET
+https://api.vhsys.com/v2/contas-receber
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/contas-receber \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+order opcional	String	
+Nome do campo para ordenação EX:data_mod_rec
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+valor_receita opcional	String	
+Valor da receita 
+buscar a partir de um valor: valor_receita=10.00 
+buscar entre valores: valor_receita=10.00,20.00
+
+valor_pago opcional	String	
+Valor pago 
+buscar a partir de um valor: valor_pago=10.00 
+buscar entre valores: valor_pago=10.00,20.00
+
+data_pagamento opcional	Date	
+Data do pagamento 
+buscar a partir de uma data: data_pagamento=0000-00-00 
+buscar entre datas: data_pagamento=0000-00-00,0000-00-00
+
+Valores permitidos: YYYY-MM-DD
+
+data_vencimento opcional	Date	
+Data do vencimento 
+buscar a partir de uma data: data_vencimento=0000-00-00 
+buscar entre datas: data_vencimento=0000-00-00,0000-00-00
+
+Valores permitidos: YYYY-MM-DD
+
+nome_conta opcional	String	
+Nome da receita
+
+id_registro opcional	String	
+ID do registro
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+liquidado opcional	Enum	
+Se a conta está liquidada
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+data_modificacao opcional	Date	
+Registros criados ou modificados após a data informada
+
+Valores permitidos: YYYY-MM-DD
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de contas no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_conta_rec	Integer	
+ID da receita
+
+  id_registro	Integer	
+ID do registro
+
+  nome_conta	String	
+Nome da receita
+
+  id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+  categoria_rec	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+  id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+  id_cliente	Integer	
+ID do cliente (Consultar cliente disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar cliente disponíveis)
+
+  vencimento_rec	Date	
+Data do vencimento
+
+  valor_rec	Decimal	
+Valor da receita
+
+  valor_pago	Decimal	
+Valor pago
+
+  data_emissao	Date	
+Data da emissão
+
+  n_documento_rec	String	
+Número do documento
+
+  observacoes_rec	String	
+Observações da receita
+
+  id_centro_custos	Integer	
+ID do centro de custo (Consultar centros de custo disponíveis)
+
+  centro_custos_rec	String	
+Nome do centro de custo (Consultar centros de custo disponíveis)
+
+  liquidado_rec	Enum	
+Se a conta esta liquidada
+
+  data_pagamento	Date	
+Data do pagamento
+
+  obs_pagamento	String	
+Observação do pagamento
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  valor_juros	Decimal	
+Valor dos juros
+
+  valor_desconto	Decimal	
+Valor do desconto
+
+  valor_acrescimo	Decimal	
+Valor do acrescimo
+
+  tipo_conta	Enum	
+Tipo da conta
+
+  data_cad_recData	Date	
+de cadastro da receita
+
+  data_mod_rec	Date	
+Data da última modificação
+
+  agrupado	Integer	
+Se essa receita foi agrupada com outras
+
+  agrupado_data	Date	
+Data do agrupamento da receita
+
+  agrupado_user	String	
+Usuário que efetuou o agrupamento
+
+  agrupamento	Integer	
+Se essa receita é o resultado de um agrupamento
+
+  lixeira	Enum	
+Situação da receita no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_conta_rec": 123456,
+              "id_registro": 1,
+              "nome_conta": "Nome da conta",
+              "id_categoria": 57,
+              "categoria_rec": "Outras Receitas",
+              "id_banco": 123,
+              "id_cliente": 123,
+              "nome_cliente": "Nome do cliente",
+              "vencimento_rec": "0000-00-00",
+              "valor_rec": "00.00",
+              "valor_pago": "00.00",
+              "data_emissao": "0000-00-00",
+              "n_documento_rec": "0000",
+              "observacoes_rec": "Observações",
+              "id_centro_custos": 0,
+              "centro_custos_rec": "0",
+              "liquidado_rec": "Sim",
+              "data_pagamento": "0000-00-00",
+              "obs_pagamento": "Observações",
+              "forma_pagamento": "Dinheiro",
+              "valor_juros": 00.00,
+              "valor_desconto": 00.00,
+              "valor_acrescimo": 00.00,
+              "tipo_conta":"Boleto",
+              "data_cad_rec": "0000-00-00 00:00:00",
+              "data_mod_rec": "0000-00-00 00:00:00",
+              "agrupado": "0",
+              "agrupado_data": "0000-00-00 00:00:00",
+              "agrupado_user": "Usuário",
+              "agrupamento": "0",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma conta encontrada!"
+   }
+Contas_a_receber - Cadastrar um anexo
+
+2.0.0 
+Requisição para cadastro de anexo
+
+POST
+https://api.vhsys.com/v2/contas-receber/:id_receita/anexos
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/contas-receber/:id_receita/anexos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "link_arquivo" : "Link do arquivo para upload",
+        "titulo_arquivo" : "titulo do arquivo",
+        "privado" : "Sim",
+        "link" : "Publico"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_receita	Integer	
+ID da receita
+
+Faixa de tamanho: 9
+
+link_arquivo	String	
+Link do arquivo para upload
+
+Faixa de tamanho: 255
+
+titulo_arquivo	String	
+Título do arquivo
+
+Faixa de tamanho: 50
+
+privado opcional	Enum	
+Se o arquivo irá ser privado apenas para seu usuário no sistema
+
+Valor padrão: Nao
+
+Valores permitidos: Sim, Nao
+
+link opcional	Enum	
+Se o link do arquivo irá ser público para usuários fora do sistema
+
+Valor padrão: Publico
+
+Valores permitidos: Publico, Privado
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de anexos para a receita
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_arquivo	Integer	
+ID do anexo
+
+  nome_arquivo	String	
+Nome do arquivo
+
+  titulo_arquivo	String	
+Titulo do arquivo
+
+  extensao_arquivo	String	
+Extenção do arquivo
+
+  tamanho_arquivo	Integer	
+Tamanho do arquivo (KB)
+
+  privado	Enum	
+Se esse arquivo é provado
+
+  link	Enum	
+Tipo do Link
+
+  downloads	Integer	
+Número de downloads
+
+  data_cad_arquivo	Date	
+Data de cadastro
+
+  data_exclusao	Date	
+Data de exclusão
+
+  lixeira	Enum	
+Situação do anexo no sistema
+
+  link_arquivo	String	
+Link do anexo enviado
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_arquivo": 1223,
+              "nome_arquivo": "nome_do_arquivo.jpg",
+              "titulo_arquivo": "nome_do_arquivo.jpg",
+              "extensao_arquivo": ".jpg",
+              "tamanho_arquivo": 000000,
+              "privado": "Nao",
+              "link": "Publico",
+              "downloads": 0,
+              "data_cad_arquivo": "0000-00-00 00:00:00",
+              "data_exclusao": "0000-00-00 00:00:00",
+              "lixeira": "Nao",
+              "link_arquivo": "http://www.linkdoarquivoenviado/image.jpg",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o anexo!"
+   }
+Contas_a_receber - Consultar anexo
+
+2.0.0 
+Requisição para a consulta de dados do anexo
+
+GET
+https://api.vhsys.com/v2/contas-receber/:id_receita/anexos/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/contas-receber/:id_receita/anexos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_receita	Integer	
+ID da receita
+
+:id	Integer	
+ID do anexo
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de anexos para a receita
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_arquivo	Integer	
+ID do anexo
+
+  nome_arquivo	String	
+Nome do arquivo
+
+  titulo_arquivo	String	
+Titulo do arquivo
+
+  extensao_arquivo	String	
+Extenção do arquivo
+
+  tamanho_arquivo	Integer	
+Tamanho do arquivo (KB)
+
+  privado	Enum	
+Se esse arquivo é provado
+
+  link	Enum	
+Tipo do Link
+
+  downloads	Integer	
+Número de downloads
+
+  data_cad_arquivo	Date	
+Data de cadastro
+
+  data_exclusao	Date	
+Data de exclusão
+
+  lixeira	Enum	
+Situação do anexo no sistema
+
+  link_arquivo	String	
+Link do anexo enviado
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_arquivo": 1223,
+              "nome_arquivo": "nome_do_arquivo.jpg",
+              "titulo_arquivo": "nome_do_arquivo.jpg",
+              "extensao_arquivo": ".jpg",
+              "tamanho_arquivo": 000000,
+              "privado": "Nao",
+              "link": "Publico",
+              "downloads": 0,
+              "data_cad_arquivo": "0000-00-00 00:00:00",
+              "data_exclusao": "0000-00-00 00:00:00",
+              "lixeira": "Nao",
+              "link_arquivo": "http://www.linkdoarquivoenviado/image.jpg",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum anexo encontrado!"
+   }
+Contas_a_receber - Desliquidar uma receita
+
+2.0.0 
+Requisição para desliquidar uma receita
+
+PUT
+https://api.vhsys.com/v2/contas-receber/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/contas-receber/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "liquidado_rec" : "Nao"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da receita
+
+liquidado_rec	Enum	
+Se a conta esta liquidada
+
+Valores permitidos: Sim, Nao
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_conta_rec	Integer	
+ID da receita
+
+  id_registro	Integer	
+ID do registro
+
+  nome_conta	String	
+Nome da receita
+
+  id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+  categoria_rec	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+  id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vencimento_rec	Date	
+Data do vencimento
+
+  valor_rec	Decimal	
+Valor da receita
+
+  valor_pago	Decimal	
+Valor pago
+
+  data_emissao	Date	
+Data da emissão
+
+  n_documento_rec	String	
+Número do documento
+
+  observacoes_rec	String	
+Observações da receita
+
+  id_centro_custos	Integer	
+ID do centro de custo (Consultar centros de custo disponíveis)
+
+  centro_custos_rec	String	
+Nome do centro de custo (Consultar centros de custo disponíveis)
+
+  liquidado_rec	Enum	
+Se a conta esta liquidada
+
+  data_pagamento	Date	
+Data do pagamento
+
+  obs_pagamento	String	
+Observação do pagamento
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  valor_juros	Decimal	
+Valor dos juros
+
+  valor_desconto	Decimal	
+Valor do desconto
+
+  valor_acrescimo	Decimal	
+Valor do acrescimo
+
+  tipo_conta	Enum	
+Tipo da conta
+
+  data_cad_rec	Date	
+Data de cadastro da receita
+
+  data_mod_rec	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da receita no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_conta_rec": 123456,
+              "id_registro": 1,
+              "nome_conta": "Nome da conta",
+              "id_categoria": 57,
+              "categoria_rec": "Outras Receitas",
+              "id_banco": 123,
+              "id_cliente": 123,
+              "nome_cliente": "Nome do cliente",
+              "vencimento_rec": "0000-00-00",
+              "valor_rec": "00.00",
+              "valor_pago": "00.00",
+              "data_emissao": "0000-00-00",
+              "n_documento_rec": "0000",
+              "observacoes_rec": "Observações",
+              "id_centro_custos": 0,
+              "centro_custos_rec": "0",
+              "liquidado_rec": "Sim",
+              "data_pagamento": "0000-00-00",
+              "obs_pagamento": "Observações",
+              "forma_pagamento": "Dinheiro",
+              "valor_juros": 00.00,
+              "valor_desconto": 00.00,
+              "valor_acrescimo": 00.00,
+              "tipo_conta": "Boleto",
+              "data_cad_rec": "0000-00-00 00:00:00",
+              "data_mod_rec": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar a receita!"
+   }
+Contas_a_receber - Excluir um anexo
+
+2.0.0 
+Requisição para deletar um anexo, o anexo deletado pode ser encontrado com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/contas-receber/:id_receita/anexos/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/contas-receber/:id_receita/anexos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_receita	Integer	
+ID da receita
+
+:id	Integer	
+ID da anexo
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_arquivo	Integer	
+ID do anexo
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_arquivo": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar o anexo!"
+   }
+Contas_a_receber - Liquidar uma receita
+
+2.0.0 
+Requisição para liquidar uma receita
+
+PUT
+https://api.vhsys.com/v2/contas-receber/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/contas-receber/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "liquidado_rec" : "Sim",
+        "valor_rec" : "00.00",
+        "data_pagamento" : "0000-00-00"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da receita
+
+liquidado_rec	Enum	
+Se a conta esta liquidada
+
+Valores permitidos: Sim, Nao
+
+data_pagamento	Date	
+Data do pagamento
+
+Valores permitidos: YYYY-MM-DD
+
+obs_pagamento	String	
+Observação do pagamento
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_conta_rec	Integer	
+ID da receita
+
+  id_registro	Integer	
+ID do registro
+
+  nome_conta	String	
+Nome da receita
+
+  id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+  categoria_rec	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+  id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vencimento_rec	Date	
+Data do vencimento
+
+  valor_rec	Decimal	
+Valor da receita
+
+  valor_pago	Decimal	
+Valor pago
+
+  data_emissao	Date	
+Data da emissão
+
+  n_documento_rec	String	
+Número do documento
+
+  observacoes_rec	String	
+Observações da receita
+
+  id_centro_custos	Integer	
+ID do centro de custo (Consultar centros de custo disponíveis)
+
+  centro_custos_rec	String	
+Nome do centro de custo (Consultar centros de custo disponíveis)
+
+  liquidado_rec	Enum	
+Se a conta esta liquidada
+
+  data_pagamento	Date	
+Data do pagamento
+
+  obs_pagamento	String	
+Observação do pagamento
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  valor_juros	Decimal	
+Valor dos juros
+
+  valor_desconto	Decimal	
+Valor do desconto
+
+  valor_acrescimo	Decimal	
+Valor do acrescimo
+
+  tipo_conta	Enum	
+Tipo da conta
+
+  data_cad_rec	Date	
+Data de cadastro da receita
+
+  data_mod_rec	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da receita no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_conta_rec": 123456,
+              "id_registro": 1,
+              "nome_conta": "Nome da conta",
+              "id_categoria": 57,
+              "categoria_rec": "Outras Receitas",
+              "id_banco": 123,
+              "id_cliente": 123,
+              "nome_cliente": "Nome do cliente",
+              "vencimento_rec": "0000-00-00",
+              "valor_rec": "00.00",
+              "valor_pago": "00.00",
+              "data_emissao": "0000-00-00",
+              "n_documento_rec": "0000",
+              "observacoes_rec": "Observações",
+              "id_centro_custos": 0,
+              "centro_custos_rec": "0",
+              "liquidado_rec": "Sim",
+              "data_pagamento": "0000-00-00",
+              "obs_pagamento": "Observações",
+              "forma_pagamento": "Dinheiro",
+              "valor_juros": 00.00,
+              "valor_desconto": 00.00,
+              "valor_acrescimo": 00.00,
+              "tipo_conta": "Boleto",
+              "data_cad_rec": "0000-00-00 00:00:00",
+              "data_mod_rec": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar a receita!"
+   }
+Contas_a_receber - Lista de anexos
+
+2.0.0 
+Requisição para a consulta de todas os anexos da receita
+
+GET
+https://api.vhsys.com/v2/contas-receber/:id_receita/anexos
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/contas-receber/:id_receita/anexos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_receita	Integer	
+ID da receita
+
+order opcional	String	
+Nome do campo para ordenação EX:data_mod_rec
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+data_cadastro opcional	Date	
+Data do cadastro 
+buscar a partir de uma data: data_cad_arquivo=0000-00-00 
+buscar entre datas: data_cad_arquivo=0000-00-00,0000-00-00
+
+Valores permitidos: YYYY-MM-DD
+
+extensao_arquivo opcional	String	
+Extenção do arquivo
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de anexos para a receita
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_arquivo	Integer	
+ID do anexo
+
+  nome_arquivo	String	
+Nome do arquivo
+
+  titulo_arquivo	String	
+Titulo do arquivo
+
+  extensao_arquivo	String	
+Extenção do arquivo
+
+  tamanho_arquivo	Integer	
+Tamanho do arquivo (KB)
+
+  privado	Enum	
+Se esse arquivo é provado
+
+  link	Enum	
+Tipo do Link
+
+  downloads	Integer	
+Número de downloads
+
+  data_cad_arquivo	Date	
+Data de cadastro
+
+  data_exclusao	Date	
+Data de exclusão
+
+  lixeira	Enum	
+Situação do anexo no sistema
+
+  link_arquivo	String	
+Link do anexo enviado
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_arquivo": 1223,
+              "nome_arquivo": "nome_do_arquivo.jpg",
+              "titulo_arquivo": "nome_do_arquivo.jpg",
+              "extensao_arquivo": ".jpg",
+              "tamanho_arquivo": 000000,
+              "privado": "Nao",
+              "link": "Publico",
+              "downloads": 0,
+              "data_cad_arquivo": "0000-00-00 00:00:00",
+              "data_exclusao": "0000-00-00 00:00:00",
+              "lixeira": "Nao",
+              "link_arquivo": "http://www.linkdoarquivoenviado/image.jpg",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma anexo encontrado!"
+   }

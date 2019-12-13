@@ -1,0 +1,460 @@
+Categorias financeiras
+
+Categorias_financeiras - Cadastrar uma categoria
+
+2.0.0 
+Requisição para cadastro de categorias financeiras
+
+POST
+https://api.vhsys.com/v2/categorias-financeiras
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/categorias-financeiras \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "tipo_categoria" : "Receita",
+        "desc_categoria" : "Descrição da categoria"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+tipo_categoria	Enum	
+Tipo da categoria
+
+Valor padrão: Receita
+
+Valores permitidos: PJ, PF
+
+desc_categoria	String	
+Descrição da categoria
+
+Faixa de tamanho: 50
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_categoria	Integer	
+ID da categoria
+
+  tipo_categoria	Enum	
+Tipo da categoria
+
+  desc_categoria	String	
+Descrição da categoria
+
+  lixeira	Enum	
+Situação da categoria no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_categoria": 123456789,
+               "tipo_categoria": "Receita",
+               "desc_categoria": "Descrição da categoria",
+               "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar a categoria financeira!"
+   }
+Categorias_financeiras - Alterar uma categoria
+
+2.0.0 
+Requisição para alterar uma categoria financeira
+
+PUT
+https://api.vhsys.com/v2/categorias-financeiras/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/categorias-financeiras/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "tipo_categoria" : "Receita",
+        "desc_categoria" : "Descrição da categoria"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da categoria financeira
+
+tipo_categoria opcional	Enum	
+Tipo da categoria
+
+Valores permitidos: Receita, Despesa
+
+desc_categoria opcional	String	
+Descrição da categoria
+
+Faixa de tamanho: 0-50
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_categoria	Integer	
+ID da categoria
+
+  tipo_categoria	Enum	
+Tipo da categoria
+
+  desc_categoria	String	
+Descrição da categoria
+
+  lixeira	Enum	
+Situação da categoria no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_categoria": 123456789,
+               "tipo_categoria": "Receita",
+               "desc_categoria": "Descrição da categoria",
+               "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar a categoria financeira!"
+   }
+Categorias_financeiras - Excluir uma categoria
+
+2.0.0 
+Requisição para deletar uma categoria financeira, a Categoria financeira deletada por ser encontrada com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/categorias-financeiras/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/categorias-financeiras/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da categoria financeira
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_categoria	Integer	
+ID da categoria financeira
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_categoria": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar a categoria financeira!"
+   }
+Categorias_financeiras - Consultar uma categoria
+
+2.0.0 
+Requisição para a consulta de dados da categoria financeira
+
+GET
+https://api.vhsys.com/v2/categorias-financeiras/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/categorias-financeiras/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da categoria
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_categoria	Integer	
+ID da categoria
+
+  tipo_categoria	Enum	
+Tipo da categoria
+
+  desc_categoria	String	
+Descrição da categoria
+
+  lixeira	Enum	
+Situação da categoria no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_categoria": 123456789,
+               "tipo_categoria": "Receita",
+               "desc_categoria": "Descrição da categoria",
+               "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma categoria financeira encontrada!"
+   }
+Categorias_financeiras - Lista de categorias
+
+2.0.0 
+Requisição para a consulta de diversas categorias financeiras.
+
+GET
+https://api.vhsys.com/v2/categorias-financeiras
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/categorias-financeiras \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+order opcional	String	
+Nome do campo para ordenação EX:desc_categoria
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+nome_categoria opcional	String	
+Nome da categoria
+
+tipo_categoria opcional	Enum	
+Tipo da categoria
+
+Valores permitidos: Receita, Despesa
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de categorias no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_categoria	Integer	
+ID da categoria
+
+  tipo_categoria	Enum	
+Tipo da categoria
+
+  desc_categoria	String	
+Descrição da categoria
+
+  lixeira	Enum	
+Situação da categoria no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+               "id_categoria": 123456789,
+               "tipo_categoria": "Receita",
+               "desc_categoria": "Descrição da categoria",
+               "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma categoria financeira encontrada!"
+   }

@@ -1,0 +1,673 @@
+Notas consumidor impostos
+
+Notas_consumidor___impostos - Cadastrar imposto - COFINS
+
+2.0.0 
+Requisição para cadastar os impostos de um produto para a emissão de NFc-e, ao cadastar um novo imposto para o produto os anteriores serão removidos
+
+POST
+https://api.vhsys.com/v2/notas-consumidor/:id_nfc/produtos/:id/cofins
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/notas-consumidor/:id_nfc/produtos/:id/cofins \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_nfc	Integer	
+ID da nota fiscal (Consultar NFce disponíveis)
+
+:id	Integer	
+ID de vinclulo produto/nota fiscal (Consultar produtos disponíveis)
+
+cst_cofins	String	
+Situação tributária do COFINS
+
+Valor padrão: 8
+
+Faixa de tamanho: 2
+
+vBC_cofins opcional	Decimal	
+Base COFINS
+
+Faixa de tamanho: 10,2
+
+pCOFINS_cofins opcional	Decimal	
+Alíquota COFINS
+
+Faixa de tamanho: 10,2
+
+vCOFINS_cofins opcional	Decimal	
+Valor COFINS
+
+Faixa de tamanho: 10,2
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_cofins	Integer	
+ID Imposto
+
+  cst_cofins	String	
+Situação tributária do COFINS
+
+  vBC_cofins	Decimal	
+Base COFINS
+
+  pCOFINS_cofins	Decimal	
+Alíquota COFINS
+
+  vCOFINS_cofins	Decimal	
+Valor COFINS
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+				"id_cofins":123456,
+				"cst_cofins":"2",
+				"vBC_cofins":"0.00",
+				"pCOFINS_cofins":"0.00",
+				"vCOFINS_cofins":"0.00"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastar o imposto para a nota fiscal!"
+   }
+Notas_consumidor___impostos - Cadastrar imposto - Combustivel
+
+2.0.0 
+Requisição para cadastar os impostos de um produto para a emissão de NFc-e, ao cadastar um novo imposto para o produto os anteriores serão removidos
+
+POST
+https://api.vhsys.com/v2/notas-consumidor/:id_nfc/produtos/:id/combustivel
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/notas-consumidor/:id_nfc/produtos/:id/combustivel \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_nfc	Integer	
+ID da nota fiscal (Consultar NFce disponíveis)
+
+:id	Integer	
+ID de vinclulo produto/nota fiscal (Consultar produtos disponíveis)
+
+cod_anp_comb opcional	String	
+Código da ANP
+
+Faixa de tamanho: 0-9
+
+cod_codif_comb opcional	String	
+Código autorização CODIF
+
+Faixa de tamanho: 0-21
+
+qTemp_comb opcional	Decimal	
+Qtde. de combustível/Temperatura
+
+Faixa de tamanho: 10,4
+
+UFCons_comb opcional	String	
+Estado de consumo
+
+Faixa de tamanho: 0-2
+
+qBCProd_comb opcional	Decimal	
+Base da CIDE
+
+Faixa de tamanho: 10,4
+
+vAliqProd_comb opcional	Decimal	
+Alíquota em reais da CIDE
+
+Faixa de tamanho: 10,4
+
+vCIDE_comb opcional	Decimal	
+Valor da CIDE
+
+Faixa de tamanho: 10,2
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_comb	Integer	
+ID Imposto
+
+  cod_anp_comb	String	
+Código da ANP
+
+  cod_codif_comb	String	
+Código autorização CODIF
+
+  qTemp_comb	Decimal	
+Qtde. de combustível/Temperatura
+
+  UFCons_comb	String	
+Estado de consumo
+
+  qBCProd_comb	Decimal	
+Base da CIDE
+
+  vAliqProd_comb	Decimal	
+Alíquota em reais da CIDE
+
+  vCIDE_comb	Decimal	
+Valor da CIDE
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+				"id_comb":13456,
+				"cod_anp_comb":"123456",
+				"cod_codif_comb":"123456",
+				"qTemp_comb":"0.00",
+				"UFCons_comb":"PR",
+				"qBCProd_comb":"0.00",
+				"vAliqProd_comb":"0.00",
+				"vCIDE_comb":"0.00",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastar o imposto para a nota fiscal!"
+   }
+Notas_consumidor___impostos - Cadastrar imposto - ICMS
+
+2.0.0 
+Requisição para cadastar os impostos de um produto para a emissão de NFc-e, ao cadastar um novo imposto para o produto os anteriores serão removidos
+
+POST
+https://api.vhsys.com/v2/notas-consumidor/:id_nfc/produtos/:id/icms
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/notas-consumidor/:id_nfc/produtos/:id/icms \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_nfc	Integer	
+ID da nota fiscal (Consultar NFc-e disponíveis)
+
+:id	Integer	
+ID de vinclulo produto/nota fiscal (Consultar produtos disponíveis)
+
+cst_icms	String	
+Situação tributária do ICMS - Simples Nacional
+
+Faixa de tamanho: 3
+
+origem_mercadoria	Integer	
+Origem da mercadoria
+
+Faixa de tamanho: 1
+
+modalidade_icms opcional	Integer	
+Modalidade BC ICMS
+
+Faixa de tamanho: 0-1
+
+vBC_icms opcional	Decimal	
+Base ICMS
+
+Faixa de tamanho: 10,2
+
+pICMS_icms opcional	Decimal	
+Alíq. ICMS
+
+Faixa de tamanho: 10,2
+
+vICMS_icms opcional	Decimal	
+Valor ICMS
+
+Faixa de tamanho: 10,2
+
+pRedBC_icms opcional	Decimal	
+Redução Base
+
+Faixa de tamanho: 10,2
+
+motDesICMS_icms opcional	Integer	
+Motivo Desoneração
+
+Faixa de tamanho: 0-1
+
+pCredSN_icms opcional	Decimal	
+Aplicável Créd.
+
+Faixa de tamanho: 10,2
+
+vBCSTRet_icms opcional	Decimal	
+Base ICMS ST Retido
+
+Faixa de tamanho: 10,2
+
+vCredICMSSN_icms opcional	Decimal	
+Crédito ICMS
+
+Faixa de tamanho: 10,2
+
+vICMSSTRet_icms opcional	Decimal	
+Valor ICMS ST Retido
+
+Faixa de tamanho: 10,2
+
+pDif_icms opcional	Decimal	
+Percentual do diferimento
+
+Faixa de tamanho: 10,4
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_icms	Integer	
+ID Imposto
+
+  cst_icms	String	
+Situação tributária do ICMS - Simples Nacional
+
+  origem_mercadoria	Integer	
+Origem da mercadoria
+
+  modalidade_icms	Integer	
+Modalidade BC ICMS
+
+  vBC_icms	Decimal	
+Base ICMS
+
+  pICMS_icms	Decimal	
+Alíq. ICMS
+
+  vICMS_icms	Decimal	
+Valor ICMS
+
+  pRedBC_icms	Decimal	
+Redução Base
+
+  motDesICMS_icms	Integer	
+Motivo Desoneração
+
+  pCredSN_icms	Decimal	
+Aplicável Créd.
+
+  vBCSTRet_icms	Decimal	
+Base ICMS ST Retido
+
+  vCredICMSSN_icms	Decimal	
+Crédito ICMS
+
+  vICMSSTRet_icms	Decimal	
+Valor ICMS ST Retido
+
+  pDif_icms	Decimal	
+Percentual do diferimento
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+				"id_icms":"123456",
+				"cst_icms":"123",
+				"origem_mercadoria":1,
+				"modalidade_icms":1,
+				"vBC_icms":"0.00",
+				"pICMS_icms":"0.00",
+				"vICMS_icms":"0.00",
+				"pRedBC_icms":"0.00",
+				"motDesICMS_icms":0,
+				"pCredSN_icms":"0.00",
+				"vBCSTRet_icms":"0.00",
+				"vCredICMSSN_icms":"0.00",
+				"vICMSSTRet_icms":"0.00",
+				"pDif_icms":"0.00",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastar o imposto para a nota fiscal!"
+   }
+Notas_consumidor___impostos - Cadastrar imposto - ISSQN
+
+2.0.0 
+Requisição para cadastar os impostos de um produto para a emissão de NFc-e, ao cadastar um novo imposto para o produto os anteriores serão removidos
+
+POST
+https://api.vhsys.com/v2/notas-consumidor/:id_nfc/produtos/:id/issqn
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/notas-consumidor/:id_nfc/produtos/:id/issqn \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_nfc	Integer	
+ID da nota fiscal (Consultar NFc-e disponíveis)
+
+:id	Integer	
+ID de vinclulo produto/nota fiscal (Consultar produtos disponíveis)
+
+tributacao_issqn	String	
+Tributação ISSQN
+
+Faixa de tamanho: 1
+
+vBC_issqn opcional	Decimal	
+Valor BC
+
+Faixa de tamanho: 10,2
+
+pISSQN_issqn opcional	Decimal	
+Alíq. ISSQN
+
+Faixa de tamanho: 10,2
+
+vISSQN_issqn opcional	Decimal	
+Valor ISSQN
+
+Faixa de tamanho: 10,2
+
+cListServ_issqn opcional	String	
+Lista de Serviço
+
+Faixa de tamanho: 0-4
+
+cidade_issqn opcional	String	
+Cidade
+
+Faixa de tamanho: 0-200
+
+cidade_issqn_cod opcional	Integer	
+Código da cidade
+
+Faixa de tamanho: 0-10
+
+estado_issqn opcional	String	
+Estado
+
+Faixa de tamanho: 0-2
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_issqn	Integer	
+ID Imposto
+
+  tributacao_issqn	String	
+Tributação ISSQN
+
+  vBC_issqn	Decimal	
+Valor BC
+
+  pISSQN_issqn	Decimal	
+Alíq. ISSQN
+
+  vISSQN_issqn	Decimal	
+Valor ISSQN
+
+  cListServ_issqn	String	
+Lista de Serviço
+
+  cidade_issqn	String	
+Cidade
+
+  cidade_issqn_cod	Integer	
+Código da cidade
+
+  estado_issqn	String	
+Estado
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+				"id_issqn":"12345",
+				"tributacao_issqn":"1",
+				"vBC_issqn":"0.00",
+				"pISSQN_issqn":"0.00",
+				"vISSQN_issqn":"0.00",
+				"cListServ_issqn":"1",
+				"cidade_issqn":"Cidade",
+				"cidade_issqn_cod":1354785,
+				"estado_issqn":"PR"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastar o imposto para a nota fiscal!"
+   }
+Notas_consumidor___impostos - Cadastrar imposto - PIS
+
+2.0.0 
+Requisição para cadastar os impostos de um produto para a emissão de NFc-e, ao cadastar um novo imposto para o produto os anteriores serão removidos
+
+POST
+https://api.vhsys.com/v2/notas-consumidor/:id_nfc/produtos/:id/pis
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/notas-consumidor/:id_nfc/produtos/:id/pis \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_nfc	Integer	
+ID da nota fiscal (Consultar NFc-e disponíveis)
+
+:id	Integer	
+ID de vinclulo produto/nota fiscal (Consultar produtos disponíveis)
+
+cst_pis	String	
+Situação tributária do PIS
+
+Faixa de tamanho: 2
+
+vPIS_pis opcional	Decimal	
+Alíquota PIS
+
+Faixa de tamanho: 10,2
+
+vBC_pis opcional	Decimal	
+Base PIS
+
+Faixa de tamanho: 10,2
+
+pPIS_pis opcional	Decimal	
+Alíquota PIS
+
+Faixa de tamanho: 10,2
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_pis	Integer	
+ID Imposto
+
+cst_pis opcional	String	
+Situação tributária do PIS
+
+vPIS_pis opcional	Decimal	
+Alíquota PIS
+
+vBC_pis opcional	Decimal	
+Base PIS
+
+pPIS_pis opcional	Decimal	
+Alíquota PIS
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+				"id_pis":"123456",
+				"cst_pis":"12",
+				"vPIS_pis":"0.00",
+				"vBC_pis":"0.00",
+				"pPIS_pis":"0.00",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastar o imposto para a nota fiscal!"
+   }

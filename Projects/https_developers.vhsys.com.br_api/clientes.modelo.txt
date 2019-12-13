@@ -1,0 +1,1706 @@
+Clientes
+
+Clientes - Cadastrar um cliente
+
+2.0.0 
+Requisição para cadastro de cliente
+
+POST
+https://api.vhsys.com/v2/clientes
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/clientes \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "razao_cliente" : "Razão Social",
+        "tipo_pessoa" : "PJ",
+        "tipo_cadastro" : "Cliente",
+        "cnpj_cliente" : "000.000.000-00",
+        "fantasia_cliente" : "Nome Fantasia",
+        "endereco_cliente" : "Endereço do cliente",
+        "numero_cliente" : "0000",
+        "bairro_cliente" : "Bairro do cliente",
+        "complemento_cliente" : "Casa",
+        "cep_cliente" : "00.000-000",
+        "cidade_cliente" : "Cidade do cliente",
+        "uf_cliente" : "PR",
+        "contato_cliente" : "Nome do contato",
+        "fone_cliente" : "(00) 00000-0000",
+        "celular_cliente" : "(00) 00000-0000",
+        "email_cliente" : "email@contato.com.br",
+        "insc_estadual_cliente" : "0123456789",
+        "insc_municipal_cliente" : "0123456789",
+        "insc_produtor_cliente" : "0123456789",
+        "insc_suframa_cliente" : "0123456789",
+        "situacao_cliente" : "Ativo",
+        "vendedor_cliente" : "Nome do vendedor",
+        "vendedor_cliente_id" : "123",
+        "data_nasc_cliente" : "0000-00-00",
+        "observacoes_cliente" : "Observações do cadastro",
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+razao_cliente	String	
+Razão social
+
+Faixa de tamanho: 255
+
+tipo_pessoa opcional	Enum	
+Tipo do cadastro
+
+Valor padrão: PJ
+
+Valores permitidos: PJ, PF
+
+tipo_cadastro opcional	Enum	
+Tipo do cadastro do cliente
+
+Valor padrão: Cliente
+
+Valores permitidos: Cliente, Fornecedor, Ambos
+
+cnpj_cliente opcional	String	
+CNPJ / CPF do cliente
+
+Faixa de tamanho: 0-18
+
+fantasia_cliente opcional	String	
+Nome Fantasia
+
+Faixa de tamanho: 0-255
+
+endereco_cliente opcional	String	
+Endereço
+
+Faixa de tamanho: 0-255
+
+numero_cliente opcional	Integer	
+Número
+
+Faixa de tamanho: 0-7
+
+bairro_cliente opcional	String	
+Bairro
+
+Faixa de tamanho: 0-45
+
+complemento_cliente opcional	String	
+Complemento
+
+Faixa de tamanho: 0-45
+
+cep_cliente opcional	String	
+CEP
+
+Faixa de tamanho: 0-10
+
+cidade_cliente opcional	String	
+Cidade
+
+Faixa de tamanho: 0-255
+
+uf_cliente opcional	String	
+Estado
+
+Faixa de tamanho: 0-2
+
+contato_cliente opcional	String	
+Nome do contato do cliente
+
+Faixa de tamanho: 0-255
+
+fone_cliente opcional	String	
+Telefone do cliente
+
+Faixa de tamanho: 0-20
+
+celular_cliente opcional	String	
+Celular do cliente
+
+Faixa de tamanho: 0-20
+
+email_cliente opcional	String	
+Email do cliente
+
+Faixa de tamanho: 0-255
+
+insc_estadual_cliente opcional	String	
+Inscrição Estadual do cliente
+
+Faixa de tamanho: 0-45
+
+insc_municipal_cliente opcional	String	
+Inscrição Municipal do cliente
+
+Faixa de tamanho: 0-45
+
+insc_produtor_cliente opcional	String	
+Inscrição de produtor rural
+
+Faixa de tamanho: 0-20
+
+insc_suframa_cliente opcional	String	
+Inscrição do SUFRAMA
+
+Faixa de tamanho: 0-20
+
+situacao_cliente opcional	Enum	
+Status do cliente
+
+Valor padrão: Ativo
+
+Valores permitidos: Ativo, Inativo
+
+vendedor_cliente opcional	String	
+Nome do vendedor vinculado
+
+Faixa de tamanho: 0-255
+
+vendedor_cliente_id opcional	Integer	
+ID do vendedor vinculado
+
+Faixa de tamanho: 0-10
+
+data_nasc_cliente opcional	Date	
+Data de nascimento do cliente
+
+Valores permitidos: YYYY-MM-DD
+
+observacoes_cliente opcional	String	
+Observações do cadastro
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_cliente	Integer	
+ID do cliente
+
+  tipo_pessoa	Enum	
+Tipo do cadastro
+
+  tipo_cadastro	Enum	
+Tipo do cadastro do cliente
+
+  cnpj_cliente	String	
+CNPJ / CPF do cliente
+
+  razao_cliente	String	
+Razão social
+
+  fantasia_cliente	String	
+Nome Fantasia
+
+  endereco_cliente	String	
+Endereço
+
+  numero_cliente	Integer	
+Número
+
+  bairro_cliente	String	
+Bairro
+
+  complemento_cliente	String	
+Complemento
+
+  cep_cliente	String	
+CEP
+
+  cidade_cliente	String	
+Cidade
+
+  cidade_cliente_cod	Integer	
+Código da cidade
+
+  uf_cliente	String	
+Estado
+
+  contato_cliente	String	
+Nome do contato do cliente
+
+  fone_cliente	String	
+Telefone do cliente
+
+  fone_contato_cliente	String	
+Telefone do contato
+
+  fone_ramal_cliente	String	
+Número do ramal
+
+  fax_cliente	String	
+Número do Fax
+
+  celular_cliente	String	
+Celular do cliente
+
+  email_cliente	String	
+Email do cliente
+
+  email_contato_cliente	String	
+Email do contato
+
+  website_cliente	String	
+Website
+
+  insc_estadual_cliente	String	
+Inscrição Estadual do cliente
+
+  insc_municipal_cliente	String	
+Inscrição Municipal do cliente
+
+  insc_produtor_cliente	String	
+Inscrição de produtor rural
+
+  insc_suframa_cliente	String	
+Inscrição do SUFRAMA
+
+  situacao_cliente	Enum	
+Status do cliente
+
+  vendedor_cliente	String	
+Nome do vendedor vinculado
+
+  vendedor_cliente_id	Integer	
+ID do vendedor vinculado
+
+  observacoes_cliente	String	
+Observações do cadastro
+
+  data_nasc_cliente	Date	
+Data de nascimento do cliente
+
+  data_cad_cliente	Date	
+Data de cadastro do cliente
+
+  data_mod_cliente	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação do cliente no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_cliente": 123456789,
+               "tipo_pessoa": "PJ",
+               "tipo_cadastro": "Cliente",
+               "cnpj_cliente": 000.000.000-00,
+               "razao_cliente": "Razão Social",
+               "fantasia_cliente": "Nome Fantasia",
+               "endereco_cliente": "Endereço do cliente",
+               "numero_cliente": 0000,
+               "bairro_cliente": "Bairro do cliente",
+               "complemento_cliente": "Casa",
+               "cep_cliente": 00.000-000,
+               "cidade_cliente": "Cidade do cliente",
+               "cidade_cliente_cod": 0123456,
+               "uf_cliente": "PR",
+               "contato_cliente": "Nome do contato",
+               "fone_cliente": (00) 00000-0000,
+               "fone_contato_cliente": (00) 00000-0000,
+               "fone_ramal_cliente": (00) 00000-0000,
+               "fax_cliente": (00) 00000-0000,
+               "celular_cliente": (00) 00000-0000,
+               "email_cliente": "email@cliente.com.br",
+               "email_contato_cliente": "email@contato.com.br",
+               "website_cliente": "www.meusite.com.br",
+               "insc_estadual_cliente": 0123456789,
+               "insc_municipal_cliente": 0123456789,
+               "insc_produtor_cliente": 0123456789,
+               "insc_suframa_cliente": 0123456789,
+               "situacao_cliente": "Ativo",
+               "vendedor_cliente": "Nome do vendedor",
+               "vendedor_cliente_id": 123,
+               "observacoes_cliente": "Observações do cadastro",
+               "data_nasc_cliente": 0000-00-00,
+               "data_cad_cliente": 00-00-0000 00:00:00,
+               "data_mod_cliente": 00-00-0000 00:00:00,
+               "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o cliente!"
+   }
+Clientes - Alterar um cliente
+
+2.0.0 
+
+Requisição para alterar um cliente
+
+PUT
+https://api.vhsys.com/v2/clientes/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/clientes/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "razao_cliente" : "Razão Social",
+        "tipo_pessoa" : "PJ",
+        "tipo_cadastro" : "Cliente",
+        "cnpj_cliente" : "000.000.000-00",
+        "fantasia_cliente" : "Nome Fantasia",
+        "endereco_cliente" : "Endereço do cliente",
+        "numero_cliente" : "0000",
+        "bairro_cliente" : "Bairro do cliente",
+        "complemento_cliente" : "Casa",
+        "cep_cliente" : "00.000-000",
+        "cidade_cliente" : "Cidade do cliente",
+        "uf_cliente" : "PR",
+        "contato_cliente" : "Nome do contato",
+        "fone_cliente" : "(00) 00000-0000",
+        "celular_cliente" : "(00) 00000-0000",
+        "email_cliente" : "email@contato.com.br",
+        "insc_estadual_cliente" : "0123456789",
+        "insc_municipal_cliente" : "0123456789",
+        "insc_produtor_cliente" : "0123456789",
+        "insc_suframa_cliente" : "0123456789",
+        "situacao_cliente" : "Ativo",
+        "vendedor_cliente" : "Nome do vendedor",
+        "vendedor_cliente_id" : "123",
+        "data_nasc_cliente" : "0000-00-00",
+        "observacoes_cliente" : "Observações do cadastro",
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID do cliente
+
+razao_cliente opcional	String	
+Razão social
+
+Faixa de tamanho: 0-255
+
+tipo_pessoa opcional	Enum	
+Tipo do cadastro
+
+Valores permitidos: PJ, PF
+
+tipo_cadastro opcional	Enum	
+Tipo do cadastro do cliente
+
+Valores permitidos: Cliente, Fornecedor, Ambos
+
+cnpj_cliente opcional	String	
+CNPJ / CPF do cliente
+
+Faixa de tamanho: 0-18
+
+fantasia_cliente opcional	String	
+Nome Fantasia
+
+Faixa de tamanho: 0-255
+
+endereco_cliente opcional	String	
+Endereço
+
+Faixa de tamanho: 0-255
+
+numero_cliente opcional	Integer	
+Número
+
+Faixa de tamanho: 0-7
+
+bairro_cliente opcional	String	
+Bairro
+
+Faixa de tamanho: 0-45
+
+complemento_cliente opcional	String	
+Complemento
+
+Faixa de tamanho: 0-45
+
+cep_cliente opcional	String	
+CEP
+
+Faixa de tamanho: 0-10
+
+cidade_cliente opcional	String	
+Cidade
+
+Faixa de tamanho: 0-255
+
+uf_cliente opcional	String	
+Estado
+
+Faixa de tamanho: 0-2
+
+contato_cliente opcional	String	
+Nome do contato do cliente
+
+Faixa de tamanho: 0-255
+
+fone_cliente opcional	String	
+Telefone do cliente
+
+Faixa de tamanho: 0-20
+
+celular_cliente opcional	String	
+Celular do cliente
+
+Faixa de tamanho: 0-20
+
+email_cliente opcional	String	
+Email do cliente
+
+Faixa de tamanho: 0-255
+
+insc_estadual_cliente opcional	String	
+Inscrição Estadual do cliente
+
+Faixa de tamanho: 0-45
+
+insc_municipal_cliente opcional	String	
+Inscrição Municipal do cliente
+
+Faixa de tamanho: 0-45
+
+insc_produtor_cliente opcional	String	
+Inscrição de produtor rural
+
+Faixa de tamanho: 0-20
+
+insc_suframa_cliente opcional	String	
+Inscrição do SUFRAMA
+
+Faixa de tamanho: 0-20
+
+situacao_cliente opcional	Enum	
+Status do cliente
+
+Valores permitidos: Ativo, Inativo
+
+vendedor_cliente opcional	String	
+Nome do vendedor vinculado
+
+Faixa de tamanho: 0-255
+
+vendedor_cliente_id opcional	Integer	
+ID do vendedor vinculado
+
+Faixa de tamanho: 0-10
+
+data_nasc_cliente opcional	Date	
+Data de nascimento do cliente
+
+Valores permitidos: YYYY-MM-DD
+
+observacoes_cliente opcional	String	
+Observações do cadastro
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_cliente	Integer	
+ID do cliente
+
+  tipo_pessoa	Enum	
+Tipo do cadastro
+
+  tipo_cadastro	Enum	
+Tipo do cadastro do cliente
+
+  cnpj_cliente	String	
+CNPJ / CPF do cliente
+
+  razao_cliente	String	
+Razão social
+
+  fantasia_cliente	String	
+Nome Fantasia
+
+  endereco_cliente	String	
+Endereço
+
+  numero_cliente	Integer	
+Número
+
+  bairro_cliente	String	
+Bairro
+
+  complemento_cliente	String	
+Complemento
+
+  cep_cliente	String	
+CEP
+
+  cidade_cliente	String	
+Cidade
+
+  cidade_cliente_cod	Integer	
+Código da cidade
+
+  uf_cliente	String	
+Estado
+
+  contato_cliente	String	
+Nome do contato do cliente
+
+  fone_cliente	String	
+Telefone do cliente
+
+  fone_contato_cliente	String	
+Telefone do contato
+
+  fone_ramal_cliente	String	
+Número do ramal
+
+  fax_cliente	String	
+Número do Fax
+
+  celular_cliente	String	
+Celular do cliente
+
+  email_cliente	String	
+Email do cliente
+
+  email_contato_cliente	String	
+Email do contato
+
+  website_cliente	String	
+Website
+
+  insc_estadual_cliente	String	
+Inscrição Estadual do cliente
+
+  insc_municipal_cliente	String	
+Inscrição Municipal do cliente
+
+  insc_produtor_cliente	String	
+Inscrição de produtor rural
+
+  insc_suframa_cliente	String	
+Inscrição do SUFRAMA
+
+  situacao_cliente	Enum	
+Status do cliente
+
+  vendedor_cliente	String	
+Nome do vendedor vinculado
+
+  vendedor_cliente_id	Integer	
+ID do vendedor vinculado
+
+  observacoes_cliente	String	
+Observações do cadastro
+
+  data_nasc_cliente	Date	
+Data de nascimento do cliente
+
+  data_cad_cliente	Date	
+Data de cadastro do cliente
+
+  data_mod_cliente	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação do cliente no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_cliente": 123456789,
+               "tipo_pessoa": "PJ",
+               "tipo_cadastro": "Cliente",
+               "cnpj_cliente": 000.000.000-00,
+               "razao_cliente": "Razão Social",
+               "fantasia_cliente": "Nome Fantasia",
+               "endereco_cliente": "Endereço do cliente",
+               "numero_cliente": 0000,
+               "bairro_cliente": "Bairro do cliente",
+               "complemento_cliente": "Casa",
+               "cep_cliente": 00.000-000,
+               "cidade_cliente": "Cidade do cliente",
+               "cidade_cliente_cod": 0123456,
+               "uf_cliente": "PR",
+               "contato_cliente": "Nome do contato",
+               "fone_cliente": (00) 00000-0000,
+               "fone_contato_cliente": (00) 00000-0000,
+               "fone_ramal_cliente": (00) 00000-0000,
+               "fax_cliente": (00) 00000-0000,
+               "celular_cliente": (00) 00000-0000,
+               "email_cliente": "email@cliente.com.br",
+               "email_contato_cliente": "email@contato.com.br",
+               "website_cliente": "www.meusite.com.br",
+               "insc_estadual_cliente": 0123456789,
+               "insc_municipal_cliente": 0123456789,
+               "insc_produtor_cliente": 0123456789,
+               "insc_suframa_cliente": 0123456789,
+               "situacao_cliente": "Ativo",
+               "vendedor_cliente": "Nome do vendedor",
+               "vendedor_cliente_id": 123,
+               "observacoes_cliente": "Observações do cadastro",
+               "data_nasc_cliente": 0000-00-00,
+               "data_cad_cliente": 00-00-0000 00:00:00,
+               "data_mod_cliente": 00-00-0000 00:00:00,
+               "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar o cliente!"
+   }
+Clientes - Excluir um cliente
+
+2.0.0 
+Requisição para deletar um cliente, o Cliente deletado por ser encontrado com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/clientes/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/clientes/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID do cliente
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_cliente	Integer	
+ID do cliente
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_cliente": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar o cliente!"
+   }
+Clientes - Consultar cliente
+
+2.0.0 
+Requisição para a consulta de dados do cliente
+
+GET
+https://api.vhsys.com/v2/clientes/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/clientes/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID do cliente
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_cliente	Integer	
+ID do cliente
+
+  tipo_pessoa	Enum	
+Tipo do cadastro
+
+  tipo_cadastro	Enum	
+Tipo do cadastro do cliente
+
+  cnpj_cliente	String	
+CNPJ / CPF do cliente
+
+  razao_cliente	String	
+Razão social
+
+  fantasia_cliente	String	
+Nome Fantasia
+
+  endereco_cliente	String	
+Endereço
+
+  numero_cliente	Integer	
+Número
+
+  bairro_cliente	String	
+Bairro
+
+  complemento_cliente	String	
+Complemento
+
+  cep_cliente	String	
+CEP
+
+  cidade_cliente	String	
+Cidade
+
+  cidade_cliente_cod	Integer	
+Código da cidade
+
+  uf_cliente	String	
+Estado
+
+  contato_cliente	String	
+Nome do contato do cliente
+
+  fone_cliente	String	
+Telefone do cliente
+
+  fone_contato_cliente	String	
+Telefone do contato
+
+  fone_ramal_cliente	String	
+Número do ramal
+
+  fax_cliente	String	
+Número do Fax
+
+  celular_cliente	String	
+Celular do cliente
+
+  email_cliente	String	
+Email do cliente
+
+  email_contato_cliente	String	
+Email do contato
+
+  website_cliente	String	
+Website
+
+  insc_estadual_cliente	String	
+Inscrição Estadual do cliente
+
+  insc_municipal_cliente	String	
+Inscrição Municipal do cliente
+
+  insc_produtor_cliente	String	
+Inscrição de produtor rural
+
+  insc_suframa_cliente	String	
+Inscrição do SUFRAMA
+
+  situacao_cliente	Enum	
+Status do cliente
+
+  vendedor_cliente	String	
+Nome do vendedor vinculado
+
+  vendedor_cliente_id	Integer	
+ID do vendedor vinculado
+
+  observacoes_cliente	String	
+Observações do cadastro
+
+  data_nasc_cliente	Date	
+Data de nascimento do cliente
+
+  data_cad_cliente	Date	
+Data de cadastro do cliente
+
+  data_mod_cliente	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação do cliente no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_cliente": 123456789,
+               "tipo_pessoa": "PJ",
+               "tipo_cadastro": "Cliente",
+               "cnpj_cliente": 000.000.000-00,
+               "razao_cliente": "Razão Social",
+               "fantasia_cliente": "Nome Fantasia",
+               "endereco_cliente": "Endereço do cliente",
+               "numero_cliente": 0000,
+               "bairro_cliente": "Bairro do cliente",
+               "complemento_cliente": "Casa",
+               "cep_cliente": 00.000-000,
+               "cidade_cliente": "Cidade do cliente",
+               "cidade_cliente_cod": 0123456,
+               "uf_cliente": "PR",
+               "contato_cliente": "Nome do contato",
+               "fone_cliente": (00) 00000-0000,
+               "fone_contato_cliente": (00) 00000-0000,
+               "fone_ramal_cliente": (00) 00000-0000,
+               "fax_cliente": (00) 00000-0000,
+               "celular_cliente": (00) 00000-0000,
+               "email_cliente": "email@cliente.com.br",
+               "email_contato_cliente": "email@contato.com.br",
+               "website_cliente": "www.meusite.com.br",
+               "insc_estadual_cliente": 0123456789,
+               "insc_municipal_cliente": 0123456789,
+               "insc_produtor_cliente": 0123456789,
+               "insc_suframa_cliente": 0123456789,
+               "situacao_cliente": "Ativo",
+               "vendedor_cliente": "Nome do vendedor",
+               "vendedor_cliente_id": 123,
+               "observacoes_cliente": "Observações do cadastro",
+               "data_nasc_cliente": 0000-00-00,
+               "data_cad_cliente": 00-00-0000 00:00:00,
+               "data_mod_cliente": 00-00-0000 00:00:00,
+               "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum cliente encontrado!"
+   }
+Clientes - Lista de clientes
+
+2.0.0 
+Requisição para a consulta de diversos clientes.
+
+GET
+https://api.vhsys.com/v2/clientes
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/clientes \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+order opcional	String	
+Nome do campo para ordenação EX:data_mod_cliente
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+cnpj_cliente opcional	String	
+CNPJ / CPF do cliente
+
+razao_cliente opcional	String	
+Razão social do cliente
+
+fantasia_cliente opcional	String	
+Nome Fantasia do cliente
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+data_modificacao opcional	Date	
+Registros criados ou modificados após a data informada
+
+Valores permitidos: YYYY-MM-DD
+
+data_cadastro opcional	Date	
+Registros criados após a data informada
+
+Valores permitidos: YYYY-MM-DD
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de clientes no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_cliente	Integer	
+ID do cliente
+
+  tipo_pessoa	Enum	
+Tipo do cadastro
+
+  tipo_cadastro	Enum	
+Tipo do cadastro do cliente
+
+  cnpj_cliente	String	
+CNPJ / CPF do cliente
+
+  razao_cliente	String	
+Razão social
+
+  fantasia_cliente	String	
+Nome Fantasia
+
+  endereco_cliente	String	
+Endereço
+
+  numero_cliente	Integer	
+Número
+
+  bairro_cliente	String	
+Bairro
+
+  complemento_cliente	String	
+Complemento
+
+  cep_cliente	String	
+CEP
+
+  cidade_cliente	String	
+Cidade
+
+  cidade_cliente_cod	Integer	
+Código da cidade
+
+  uf_cliente	String	
+Estado
+
+  contato_cliente	String	
+Nome do contato do cliente
+
+  fone_cliente	String	
+Telefone do cliente
+
+  fone_contato_cliente	String	
+Telefone do contato
+
+  fone_ramal_cliente	String	
+Número do ramal
+
+  fax_cliente	String	
+Número do Fax
+
+  celular_cliente	String	
+Celular do cliente
+
+  email_cliente	String	
+Email do cliente
+
+  email_contato_cliente	String	
+Email do contato
+
+  website_cliente	String	
+Website
+
+  insc_estadual_cliente	String	
+Inscrição Estadual do cliente
+
+  insc_municipal_cliente	String	
+Inscrição Municipal do cliente
+
+  insc_produtor_cliente	String	
+Inscrição de produtor rural
+
+  insc_suframa_cliente	String	
+Inscrição do SUFRAMA
+
+  situacao_cliente	Enum	
+Status do cliente
+
+  vendedor_cliente	String	
+Nome do vendedor vinculado
+
+  vendedor_cliente_id	Integer	
+ID do vendedor vinculado
+
+  observacoes_cliente	String	
+Observações do cadastro
+
+  data_nasc_cliente	Date	
+Data de nascimento do cliente
+
+  data_cad_cliente	Date	
+Data de cadastro do cliente
+
+  data_mod_cliente	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação do cliente no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+               "id_cliente": 123456789,
+               "tipo_pessoa": "PJ",
+               "tipo_cadastro": "Cliente",
+               "cnpj_cliente": 000.000.000-00,
+               "razao_cliente": "Razão Social",
+               "fantasia_cliente": "Nome Fantasia",
+               "endereco_cliente": "Endereço do cliente",
+               "numero_cliente": 0000,
+               "bairro_cliente": "Bairro do cliente",
+               "complemento_cliente": "Casa",
+               "cep_cliente": 00.000-000,
+               "cidade_cliente": "Cidade do cliente",
+               "cidade_cliente_cod": 0123456,
+               "uf_cliente": "PR",
+               "contato_cliente": "Nome do contato",
+               "fone_cliente": (00) 00000-0000,
+               "fone_contato_cliente": (00) 00000-0000,
+               "fone_ramal_cliente": (00) 00000-0000,
+               "fax_cliente": (00) 00000-0000,
+               "celular_cliente": (00) 00000-0000,
+               "email_cliente": "email@cliente.com.br",
+               "email_contato_cliente": "email@contato.com.br",
+               "website_cliente": "www.meusite.com.br",
+               "insc_estadual_cliente": 0123456789,
+               "insc_municipal_cliente": 0123456789,
+               "insc_produtor_cliente": 0123456789,
+               "insc_suframa_cliente": 0123456789,
+               "situacao_cliente": "Ativo",
+               "vendedor_cliente": "Nome do vendedor",
+               "vendedor_cliente_id": 123,
+               "observacoes_cliente": "Observações do cadastro",
+               "data_nasc_cliente": 0000-00-00,
+               "data_cad_cliente": 00-00-0000 00:00:00,
+               "data_mod_cliente": 00-00-0000 00:00:00,
+               "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum cliente encontrado!"
+   }
+Clientes - Alterar uma categoria
+
+2.0.0 
+Requisição para alterar uma categoria
+
+PUT
+https://api.vhsys.com/v2/categorias-clientes/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/categorias-clientes/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "nome_categoria" : "Nome da categoria",
+        "status_categoria" : "Ativo",
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da categoria
+
+nome_categoria opcional	String	
+Nome da categoria
+
+Faixa de tamanho: 0-255
+
+tipo_pessoa opcional	Enum	
+Status da categoria
+
+Valores permitidos: Ativo, Inativo
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_categoria	Integer	
+ID da categoria
+
+  nome_categoria	String	
+Razão social
+
+  status_categoria	Enum	
+Status da categoria
+
+  data_cad_categoria	Date	
+Data de cadastro da categoria
+
+  data_mod_categoria	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da categoria no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_categoria": 123456789,
+               "nome_categoria": "Nome da categoria",
+               "status_categoria": "Ativo",
+               "data_cad_categoria": 00-00-0000 00:00:00,
+               "data_mod_categoria": 00-00-0000 00:00:00,
+               "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar a categoria!"
+   }
+Clientes - Cadastrar uma categoria
+
+2.0.0 
+Requisição para cadastro de categorias para clientes
+
+POST
+https://api.vhsys.com/v2/categorias-clientes
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/categorias-clientes \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "nome_categoria" : "Nome da categoria",
+        "status_categoria" : "Ativo",
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+nome_categoria opcional	String	
+Nome da categoria
+
+Faixa de tamanho: 0-255
+
+tipo_pessoa opcional	Enum	
+Status da categoria
+
+Valores permitidos: Ativo, Inativo
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_categoria	Integer	
+ID da categoria
+
+  nome_categoria	String	
+Razão social
+
+  status_categoria	Enum	
+Status da categoria
+
+  data_cad_categoria	Date	
+Data de cadastro da categoria
+
+  data_mod_categoria	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da categoria no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_categoria": 123456789,
+               "nome_categoria": "Nome da categoria",
+               "status_categoria": "Ativo",
+               "data_cad_categoria": 00-00-0000 00:00:00,
+               "data_mod_categoria": 00-00-0000 00:00:00,
+               "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar a categoria!"
+   }
+Clientes - Consultar categorias
+
+2.0.0 
+Requisição para a consulta de dados das categorias de clientes
+
+GET
+https://api.vhsys.com/v2/categorias-clientes/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/categorias-clientes/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da categoria
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_categoria	Integer	
+ID da categoria
+
+  nome_categoria	String	
+Razão social
+
+  status_categoria	Enum	
+Status da categoria
+
+  data_cad_categoria	Date	
+Data de cadastro da categoria
+
+  data_mod_categoria	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da categoria no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_categoria": 123456789,
+               "nome_categoria": "Nome da categoria",
+               "status_categoria": "Ativo",
+               "data_cad_categoria": 00-00-0000 00:00:00,
+               "data_mod_categoria": 00-00-0000 00:00:00,
+               "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma categoria encontrada!"
+   }
+Clientes - Excluir uma categoria
+
+2.0.0 
+Requisição para deletar uma categoria, a categoria deletada pode ser encontrada com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/categorias-clientes/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/categorias-clientes/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da categoria
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_categoria	Integer	
+ID da categoria
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_categoria": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar a categoria!"
+   }
+Clientes - Lista de categorias
+
+2.0.0 
+Requisição para a consulta de diversas categorias e classificações.
+
+GET
+https://api.vhsys.com/v2/categorias-clientes
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/categorias-clientes \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+order opcional	String	
+Nome do campo para ordenação EX:data_mod_categoria
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+data_modificacao opcional	Date	
+Registros criados ou modificados após a data informada
+
+Valores permitidos: YYYY-MM-DD
+
+data_cadastro opcional	Date	
+Registros criados após a data informada
+
+Valores permitidos: YYYY-MM-DD
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_categoria	Integer	
+ID da categoria
+
+  nome_categoria	String	
+Nome da categoria
+
+  status_categoria	Enum	
+Status da categoria
+
+  data_cad_cliente	Date	
+Data de cadastro da categoria
+
+  data_mod_cliente	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da categoria no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_categoria": 123456789,
+               "nome_categoria": "Nome da categoria",
+               "status_categoria": "Ativo",
+               "data_cad_categoria": 00-00-0000 00:00:00,
+               "data_mod_categoria": 00-00-0000 00:00:00,
+               "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma categoria encontrada!"
+   }

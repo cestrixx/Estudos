@@ -1,0 +1,600 @@
+Extratos
+
+Extratos - Cadastrar um extrato
+
+2.0.0 
+Requisição para cadastro de extrato
+
+POST
+https://api.vhsys.com/v2/extratos
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/extratos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "id_fluxo" : 123456,
+        "id_banco" : 1,
+        "nome_conta" : "Nome da conta",
+        "id_cliente" : 123,
+        "nome_cliente" : "Nome do cliente",
+        "data_fluxo" : "0000-00-00",
+        "valor_fluxo" : "0.00",
+        "observacoes_fluxo" : "Observação",
+        "id_centro_custos" : 1,
+        "centro_custos_fluxo" : "Nome do centro de custo",
+        "id_categoria" : 0,
+        "categoria_fluxo" : "Nome da categoria",
+        "forma_pagamento" : "Dinheiro",
+        "tipo_fluxo" :  "Saida",
+        "data_cad_fluxo" : "0000-00-00 00:00:00",
+        "data_mod_fluxo" : "0000-00-00 00:00:00",
+        "lixeira" :  "Nao"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+nome_conta	String	
+Nome da conta
+
+Faixa de tamanho: 0-45
+
+tipo_fluxo	Enum	
+Se o extrato é de Entrada (Receita) ou Saída (Despesa)
+
+Valores permitidos: Entrada, Saida
+
+id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+Faixa de tamanho: 0-20
+
+valor_fluxo	Decimal	
+Valor do extrato
+
+Faixa de tamanho: 10,2
+
+data_fluxo	Date	
+Data do extrato
+
+Valores permitidos: YYYY-MM-DD
+
+id_cliente opcional	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 0-20
+
+nome_cliente opcional	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 0-255
+
+observacoes_fluxo opcional	String	
+Observações do extrato
+
+id_centro_custos opcional	Integer	
+ID do centro de custo
+
+Faixa de tamanho: 0-20
+
+centro_custos_fluxo opcional	String	
+Nome do centro de custo
+
+Faixa de tamanho: 0-50
+
+id_categoria opcional	Integer	
+ID da categoria
+
+Faixa de tamanho: 0-9
+
+categoria_fluxo opcional	String	
+Nome da categoria
+
+Faixa de tamanho: 0-50
+
+forma_pagamento opcional	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+Faixa de tamanho: 0-255
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+id_fluxo	Integer	
+ID do extrato
+
+id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+nome_conta	String	
+Nome da conta
+
+id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+data_fluxo	Date	
+Data do extrato
+
+valor_fluxo	Decimal	
+Valor do extrato
+
+observacoes_fluxo	String	
+Observações do extato
+
+id_centro_custos	Integer	
+ID do centro de custo
+
+centro_custos_fluxo	String	
+Nome do centro de custo
+
+id_categoria	Integer	
+ID da categoria
+
+categoria_fluxo	String	
+Nome da categoria
+
+forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+tipo_fluxo	Enum	
+Tipo do extrato no sistema
+
+data_cad_fluxo	Date	
+Data de cadastro do extrato
+
+data_mod_fluxo	Date	
+Data da última modificação
+
+lixeira	Enum	
+Situação do extrato no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_fluxo": 123456,
+              "id_banco": 1,
+              "nome_conta": "Nome da conta",
+              "id_cliente": 123,
+              "nome_cliente": "Nome do cliente",
+              "data_fluxo": "0000-00-00",
+              "valor_fluxo": "0.00",
+              "observacoes_fluxo": "Observação",
+              "id_centro_custos": 1,
+              "centro_custos_fluxo": "Nome do centro de custo",
+              "id_categoria": 0,
+              "categoria_fluxo": "Nome da categoria",
+              "forma_pagamento": "Dinheiro",
+              "tipo_fluxo": "Saida",
+              "data_cad_fluxo": "0000-00-00 00:00:00",
+              "data_mod_fluxo": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o extrato!"
+   }
+Extratos - Excluir um extrato
+
+2.0.0 
+Requisição para deletar um extrato, o Extratos deletado pode ser encontrado com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/extratos/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/extratos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID do extrato
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_fluxo	Integer	
+ID do extrato
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_fluxo": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar o extrato!"
+   }
+Extratos - Consultar extratos
+
+2.0.0 
+Requisição para a consulta de dados do extrato
+
+GET
+https://api.vhsys.com/v2/extratos/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/extratos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID do extrato
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+id_fluxo	Integer	
+ID do extrato
+
+id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+nome_conta	String	
+Nome da conta
+
+id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+data_fluxo	Date	
+Data do extrato
+
+valor_fluxo	Decimal	
+Valor do extrato
+
+observacoes_fluxo	String	
+Observações do extato
+
+id_centro_custos	Integer	
+ID do centro de custo
+
+centro_custos_fluxo	String	
+Nome do centro de custo
+
+id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+categoria_fluxo	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+tipo_fluxo	Enum	
+Tipo do extrato no sistema
+
+data_cad_fluxo	Date	
+Data de cadastro do extrato
+
+data_mod_fluxo	Date	
+Data da última modificação
+
+lixeira	Enum	
+Situação do extrato no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_fluxo": 123456,
+              "id_banco": 1,
+              "nome_conta": "Nome da conta",
+              "id_cliente": 123,
+              "nome_cliente": "Nome do cliente",
+              "data_fluxo": "0000-00-00",
+              "valor_fluxo": "0.00",
+              "observacoes_fluxo": "Observação",
+              "id_centro_custos": 1,
+              "centro_custos_fluxo": "Nome do centro de custo",
+              "id_categoria": 0,
+              "categoria_fluxo": "Nome da categoria",
+              "forma_pagamento": "Dinheiro",
+              "tipo_fluxo": "Saida",
+              "data_cad_fluxo": "0000-00-00 00:00:00",
+              "data_mod_fluxo": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum extrato encontrado!"
+   }
+Extratos - Lista de extratos
+
+2.0.0 
+Requisição para a consulta de diversos extratos.
+
+GET
+https://api.vhsys.com/v2/extratos
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/extratos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+order opcional	String	
+Nome do campo para ordenação EX:data_mod_fluxo
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+nome_cliente opcional	String	
+Nome do cliente
+
+nome_conta opcional	String	
+Nome do conta
+
+tipo opcional	Enum	
+Tipo da conta
+
+Valor padrão: null
+
+Valores permitidos: Entrada, Saida
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+data_modificacao opcional	Date	
+Registros criados ou modificados após a data informada
+
+Valores permitidos: YYYY-MM-DD
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de extratos no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+id_fluxo	Integer	
+ID do extrato
+
+id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+nome_conta	String	
+Nome da conta
+
+id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+data_fluxo	Date	
+Data do extrato
+
+valor_fluxo	Decimal	
+Valor do extrato
+
+observacoes_fluxo	String	
+Observações do extato
+
+id_centro_custos	Integer	
+ID do centro de custo
+
+centro_custos_fluxo	String	
+Nome do centro de custo
+
+id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+categoria_fluxo	String	
+Nome da categoria (Consultar categorias disponíveis)
+
+forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+tipo_fluxo	Enum	
+Tipo do extrato no sistema
+
+data_cad_fluxo	Date	
+Data de cadastro do extrato
+
+data_mod_fluxo	Date	
+Data da última modificação
+
+lixeira	Enum	
+Situação do extrato no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_fluxo": 123456,
+              "id_banco": 1,
+              "nome_conta": "Nome da conta",
+              "id_cliente": 123,
+              "nome_cliente": "Nome do cliente",
+              "data_fluxo": "0000-00-00",
+              "valor_fluxo": "0.00",
+              "observacoes_fluxo": "Observação",
+              "id_centro_custos": 1,
+              "centro_custos_fluxo": "Nome do centro de custo",
+              "id_categoria": 0,
+              "categoria_fluxo": "Nome da categoria",
+              "forma_pagamento": "Dinheiro",
+              "tipo_fluxo": "Saida",
+              "data_cad_fluxo": "0000-00-00 00:00:00",
+              "data_mod_fluxo": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum extrato encontrado!"
+   }

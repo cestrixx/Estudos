@@ -1,0 +1,100 @@
+Tabelas Auxiliares
+Tabela Auxiliar para contas bancárias
+Numero e nomes de bancos (campo numero_banco)
+
+Valor	Descrição
+237	Bradesco
+033	Santander
+001	Banco do Brasil
+104	Caixa
+399	Hsbc
+341	Itau
+748	Sicredi
+099	Unicred
+999	Não é um banco (Cartões, Caixinha, etc)
+389	Mercantil do Brasil
+756	Bancoob
+998	Outros
+Tabela Auxiliar para comissão
+Valores para aplicar regra de comissão (campo comissao_regra)
+
+Valor	Descrição
+1	Liberação integral no faturamento
+2	Liberação parcial vinculada as parcelas
+Tabela Auxiliar para formas de pagamento
+Valores para preenchimento do campo forma_pagamento
+
+Valor
+Dinheiro
+Cheque
+Permuta
+Cartão de Crédito
+Cartão de Débito
+Boleto
+Transferência
+Doc
+Ted
+Depósito Identificado
+Depósito em C/C
+Duplicata Mercantil
+Faturado
+Faturar
+Débito Automático
+Lotérica
+Banco
+DDA
+Pagamento online
+BNDES
+Outros
+DP Descontada
+CH Descontado
+Vale Alimentação
+Vale Refeição
+Vale Presente
+Vale Combustível
+Tabela Auxiliar para Tipos de NF-e
+Valores para preenchimento do campo tp_nfe
+
+Valor	Descrição
+0	Entrada
+1	Saida
+2	Importação
+3	Exportação
+Tabela Auxiliar para Finalidades de NF-e
+Valores para preenchimento do campo finalidade_nfe
+
+Valor	Descrição
+1	NF-e normal
+2	NF-e complementar
+3	NF-e de ajuste
+4	Devolução/Retorno
+Tabela Auxiliar para tipos de frete
+Valores para preenchimento do campo frete_por_pedido
+
+Valor	Descrição
+0	Emitente
+1	Destinatário
+2	Terceiro
+9	Sem frete
+Tabela Auxiliar para local de prestação de serviço
+Valores para preenchimento do campo local_prestacao
+
+Valor	Descrição
+0	Endereço do emitente
+1	Endereço do destinatário
+9	Outro endereço
+Tabela Auxiliar para Natureza da operação
+Valores para preenchimento do campo natureza_pedido
+
+Valor	Descrição
+1	Tributação no município
+2	Tributação fora do município
+3	Isenção
+4	Imune
+5	Processo Judicial
+Tabela Auxiliar para Regime de tributação
+Valores para preenchimento do campo regime_pedido
+
+Valor	Descrição
+1	Optante pelo Simples Nacional
+2	Contribuinte sujeito a tributação normal

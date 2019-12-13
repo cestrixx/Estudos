@@ -1,0 +1,1531 @@
+Produtos
+
+Produtos - Cadastrar um produto
+
+2.0.0 
+Requisição para cadastro de produtos
+
+POST
+https://api.vhsys.com/v2/produtos
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/produtos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "id_categoria" : 1,
+        "cod_produto" : 123456,
+        "marca_produto" : "Marca do produto",
+        "desc_produto" : "Nome do produto",
+        "fornecedor_produto" : "Nome do fornecedor",
+        "fornecedor_produto_id" : 123456,
+        "minimo_produto" : "15.00",
+        "maximo_produto" : "30.00",
+        "estoque_produto" : "10.00",
+        "unidade_produto" : "UN",
+        "valor_produto" : "15.00",
+        "valor_custo_produto" : "5.00",
+        "peso_produto" : "1.00",
+        "peso_liq_produto" : "0.50",
+        "icms_produto" : "1.00",
+        "ipi_produto" : "1.00",
+        "pis_produto" : "1.00",
+        "cofins_produto" : "1.00",
+        "cest_produto" : "123456",
+        "ncm_produto" : "123456",
+        "codigo_barra_produto" : "123456789",
+        "obs_produto" : "Observação do produto",
+        "tipo_produto" : "Produto",
+        "kit_produto" : "Nao",
+        "status_produto" : "Ativo"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+id_categoria opcional	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+cod_produto opcional	String	
+Código do produto
+
+Faixa de tamanho: 0-60
+
+marca_produto opcional	String	
+Marca do produto
+
+Faixa de tamanho: 0-45
+
+desc_produto	String	
+Nome do produto
+
+Faixa de tamanho: 120
+
+fornecedor_produto opcional	String	
+Nome do fornecedor (Consultar fornecedores disponíveis)
+
+Faixa de tamanho: 0-120
+
+fornecedor_produto_id opcional	Integer	
+ID do fornecedor (Consultar fornecedores disponíveis)
+
+Faixa de tamanho: 0-11
+
+minimo_produto opcional	Decimal	
+Estoque minimo para o produto
+
+Faixa de tamanho: 15,6
+
+maximo_produto opcional	Decimal	
+Estoque máximo para o produto
+
+Faixa de tamanho: 15,6
+
+estoque_produto opcional	Decimal	
+Estoque do produto
+
+Faixa de tamanho: 15,6
+
+unidade_produto opcional	String	
+Unidade do produto
+
+Faixa de tamanho: 0-6
+
+valor_produto opcional	Decimal	
+Valor do produto
+
+Faixa de tamanho: 15,6
+
+valor_custo_produto opcional	Decimal	
+Valor de custo do produto
+
+Faixa de tamanho: 15,6
+
+peso_produto opcional	Decimal	
+Peso do produto (KG)
+
+Faixa de tamanho: 15,6
+
+peso_liq_produto opcional	Decimal	
+Peso liquido do produto (KG)
+
+Faixa de tamanho: 15,6
+
+icms_produto opcional	Decimal	
+ICMS do produto (%)
+
+Faixa de tamanho: 10,2
+
+ipi_produto opcional	Decimal	
+IPI do produto (%)
+
+Faixa de tamanho: 10,2
+
+pis_produto opcional	Decimal	
+PIS do produto (%)
+
+Faixa de tamanho: 10,2
+
+cofins_produto opcional	Decimal	
+COFINS do produto (%)
+
+Faixa de tamanho: 10,2
+
+cest_produto opcional	String	
+CEST do produto
+
+Faixa de tamanho: 0-7
+
+ncm_produto opcional	String	
+NCM do porduto
+
+Faixa de tamanho: 0-10
+
+codigo_barra_produto opcional	String	
+Código de barras do produto
+
+Faixa de tamanho: 0-255
+
+obs_produto opcional	String	
+Observação do produto
+
+tipo_produto opcional	Enum	
+Tipo do produto
+
+Valor padrão: Produto
+
+Valores permitidos: Produto, Servico, Ambos
+
+kit_produto opcional	Enum	
+Se o produto é um Kit
+
+Valor padrão: Nao
+
+Valores permitidos: Sim, Nao
+
+status_produto opcional	Enum	
+Status do produto
+
+Valor padrão: Ativo
+
+Valores permitidos: Ativo, Inativo
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de produtos no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_produto	Integer	
+ID do produto
+
+  id_registro	Integer	
+ID do registro
+
+  id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+  cod_produto	String	
+Código do produto
+
+  marca_produto	String	
+Marca do produto
+
+  desc_produto	String	
+Nome do produto
+
+  atalho_produto	String	
+Atalho para o produto
+
+  fornecedor_produto	String	
+Nome do Fornecedor (Consultar fornecedores disponíveis)
+
+  fornecedor_produto_id	Integer	
+ID do Fornecedor (Consultar fornecedores disponíveis)
+
+  minimo_produto	Decimal	
+Estoque minimo para produto
+
+  maximo_produto	Decimal	
+Estoque máximo para o produto
+
+  estoque_produto	Decimal	
+Estoque atual do produto
+
+  unidade_produto	String	
+Unidade de medida do produto
+
+  valor_produto	Decimal	
+Valor do produto
+
+  valor_custo_produto	Decimal	
+Valor de custo para o produto
+
+  peso_produto	Decimal	
+Peso do produto
+
+  peso_liq_produto	Decimal	
+Peso liquido do produto
+
+  icms_produto	Decimal	
+ICMS do produto
+
+  ipi_produto	Decimal	
+API do produto
+
+  pis_produto	Decimal	
+PIS do produto
+
+  cofins_produto	Decimal	
+CONFINS do produto
+
+  unidade_tributavel	String	
+Unidade tributavel
+
+  cest_produto	String	
+CEST do produto
+
+  ncm_produto	String	
+NCM do produto
+
+  codigo_barra_produto	String	
+Código de barras
+
+  obs_produto	String	
+Observação do produto
+
+  tipo_produto	Enum	
+Tipo do produto
+
+  tamanho_produto	String	
+Tamanho do produto
+
+  localizacao_produto	String	
+Localização do produto no estoque
+
+  kit_produto	Enum	
+Se o produto é um Kit
+
+  status_produto	Enum	
+Status do produto
+
+  data_cad_produto	Date	
+data de cadastro do produto
+
+  data_mod_produto	Date	
+data de modificação do produto
+
+  lixeira	Enum	
+Situação do produto no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+		"id_produto": 1234,
+		"id_registro": 1,
+		"id_categoria": 12,
+		"cod_produto": "123456",
+		"marca_produto": "Marca do produto",
+		"desc_produto": "Nome do produto",
+		"atalho_produto": "Nome-do-produto",
+		"fornecedor_produto": "Nome do fornecedor",
+		"fornecedor_produto_id": 1134345,
+		"minimo_produto": "10.000000",
+		"maximo_produto": "1.000000",
+		"estoque_produto": "0.000000",
+		"unidade_produto": "UN",
+		"valor_produto": "120.000000",
+		"valor_custo_produto": "100.000000",
+		"peso_produto": "15.000000",
+		"peso_liq_produto": "17.000000",
+		"icms_produto": 123456,
+		"ipi_produto": 123456,
+		"pis_produto": 123456,
+		"cofins_produto": 123456,
+		"unidade_tributavel": 123456,
+		"cest_produto": "123456",
+		"ncm_produto": "12548369",
+		"codigo_barra_produto": "1234567890128",
+		"obs_produto": "OBSERVAÇÕES",
+		"tipo_produto": "Produto",
+		"tamanho_produto": "M",
+		"localizacao_produto": "Estoque Local",
+		"kit_produto": "Sim",
+		"status_produto": "Ativo",
+		"data_cad_produto": "2017-07-19 14:37:04",
+		"data_mod_produto": "2017-07-20 19:26:29",
+		"lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o produto!"
+   }
+Produtos - Alterar um produto
+
+2.0.0 
+Requisição para alterar um produto
+
+PUT
+https://api.vhsys.com/v2/produtos/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/produtos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "id_categoria" : 1,
+        "cod_produto" : 123456,
+        "marca_produto" : "Marca do produto",
+        "desc_produto" : "Nome do produto",
+        "fornecedor_produto" : "Nome do fornecedor",
+        "fornecedor_produto_id" : 123456,
+        "minimo_produto" : "15.00",
+        "maximo_produto" : "30.00",
+        "estoque_produto" : "10.00",
+        "unidade_produto" : "UN",
+        "valor_produto" : "15.00",
+        "valor_custo_produto" : "5.00",
+        "peso_produto" : "1.00",
+        "peso_liq_produto" : "0.50",
+        "icms_produto" : "1.00",
+        "ipi_produto" : "1.00",
+        "pis_produto" : "1.00",
+        "cofins_produto" : "1.00",
+        "cest_produto" : "123456",
+        "ncm_produto" : "123456",
+        "codigo_barra_produto" : "123456789",
+        "obs_produto" : "Observação do produto",
+        "tipo_produto" : "Produto",
+        "kit_produto" : "Nao",
+        "status_produto" : "Ativo"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+Id do produto
+
+id_categoria opcional	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+cod_produto opcional	String	
+Código do produto
+
+Faixa de tamanho: 0-60
+
+marca_produto opcional	String	
+Marca do produto
+
+Faixa de tamanho: 0-45
+
+desc_produto opcional	String	
+Nome do produto
+
+Faixa de tamanho: 0-120
+
+fornecedor_produto opcional	String	
+Nome do fornecedor (Consultar fornecedores disponíveis)
+
+Faixa de tamanho: 0-120
+
+fornecedor_produto_id opcional	Integer	
+ID do fornecedor (Consultar fornecedores disponíveis)
+
+Faixa de tamanho: 0-11
+
+minimo_produto opcional	Decimal	
+Estoque minimo para o produto
+
+Faixa de tamanho: 15,6
+
+maximo_produto opcional	Decimal	
+Estoque máximo para o produto
+
+Faixa de tamanho: 15,6
+
+estoque_produto opcional	Decimal	
+Estoque do produto
+
+Faixa de tamanho: 15,6
+
+unidade_produto opcional	String	
+Unidade do produto
+
+Faixa de tamanho: 0-6
+
+valor_produto opcional	Decimal	
+Valor do produto
+
+Faixa de tamanho: 15,6
+
+valor_custo_produto opcional	Decimal	
+Valor de custo do produto
+
+Faixa de tamanho: 15,6
+
+peso_produto opcional	Decimal	
+Peso do produto (KG)
+
+Faixa de tamanho: 15,6
+
+peso_liq_produto opcional	Decimal	
+Peso liquido do produto (KG)
+
+Faixa de tamanho: 15,6
+
+icms_produto opcional	Decimal	
+ICMS do produto (%)
+
+Faixa de tamanho: 10,2
+
+ipi_produto opcional	Decimal	
+IPI do produto (%)
+
+Faixa de tamanho: 10,2
+
+pis_produto opcional	Decimal	
+PIS do produto (%)
+
+Faixa de tamanho: 10,2
+
+cofins_produto opcional	Decimal	
+COFINS do produto (%)
+
+Faixa de tamanho: 10,2
+
+cest_produto opcional	String	
+CEST do produto
+
+Faixa de tamanho: 0-7
+
+ncm_produto opcional	String	
+NCM do porduto
+
+Faixa de tamanho: 0-10
+
+codigo_barra_produto opcional	String	
+Código de barras do produto
+
+Faixa de tamanho: 0-255
+
+obs_produto opcional	String	
+Observação do PRODUTO
+
+tipo_produto opcional	Enum	
+Tipo do produto
+
+Valores permitidos: Produto, Servico, Ambos
+
+kit_produto opcional	Enum	
+Se o produto é um Kit
+
+Valores permitidos: Sim, Nao
+
+status_produto opcional	Enum	
+Status do produto
+
+Valores permitidos: Ativo, Inativo
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de produtos no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_produto	Integer	
+ID do produto
+
+  id_registro	Integer	
+ID do registro
+
+  id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+  cod_produto	String	
+Código do produto
+
+  marca_produto	String	
+Marca do produto
+
+  desc_produto	String	
+Nome do produto
+
+  atalho_produto	String	
+Atalho para o produto
+
+  fornecedor_produto	String	
+Nome do Fornecedor (Consultar fornecedores disponíveis)
+
+  fornecedor_produto_id	Integer	
+ID do Fornecedor (Consultar fornecedores disponíveis)
+
+  minimo_produto	Decimal	
+Estoque minimo para produto
+
+  maximo_produto	Decimal	
+Estoque máximo para o produto
+
+  estoque_produto	Decimal	
+Estoque atual do produto
+
+  unidade_produto	String	
+Unidade de medida do produto
+
+  valor_produto	Decimal	
+Valor do produto
+
+  valor_custo_produto	Decimal	
+Valor de custo para o produto
+
+  peso_produto	Decimal	
+Peso do produto
+
+  peso_liq_produto	Decimal	
+Peso liquido do produto
+
+  icms_produto	Decimal	
+ICMS do produto
+
+  ipi_produto	Decimal	
+API do produto
+
+  pis_produto	Decimal	
+PIS do produto
+
+  cofins_produto	Decimal	
+CONFINS do produto
+
+  unidade_tributavel	String	
+Unidade tributavel
+
+  cest_produto	String	
+CEST do produto
+
+  ncm_produto	String	
+NCM do produto
+
+  codigo_barra_produto	String	
+Código de barras
+
+  obs_produto	String	
+Observação do produto
+
+  tipo_produto	Enum	
+Tipo do produto
+
+  tamanho_produto	String	
+Tamanho do produto
+
+  localizacao_produto	String	
+Localização do produto no estoque
+
+  kit_produto	Enum	
+Se o produto é um Kit
+
+  status_produto	Enum	
+Status do produto
+
+  data_cad_produto	Date	
+data de cadastro do produto
+
+  data_mod_produto	Date	
+data de modificação do produto
+
+  lixeira	Enum	
+Situação do produto no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+		"id_produto": 1234,
+		"id_registro": 1,
+		"id_categoria": 12,
+		"cod_produto": "123456",
+		"marca_produto": "Marca do produto",
+		"desc_produto": "Nome do produto",
+		"atalho_produto": "Nome-do-produto",
+		"fornecedor_produto": "Nome do fornecedor",
+		"fornecedor_produto_id": 1134345,
+		"minimo_produto": "10.000000",
+		"maximo_produto": "1.000000",
+		"estoque_produto": "0.000000",
+		"unidade_produto": "UN",
+		"valor_produto": "120.000000",
+		"valor_custo_produto": "100.000000",
+		"peso_produto": "15.000000",
+		"peso_liq_produto": "17.000000",
+		"icms_produto": 123456,
+		"ipi_produto": 123456,
+		"pis_produto": 123456,
+		"cofins_produto": 123456,
+		"unidade_tributavel": 123456,
+		"cest_produto": "123456",
+		"ncm_produto": "12548369",
+		"codigo_barra_produto": "1234567890128",
+		"obs_produto": "OBSERVAÇÕES",
+		"tipo_produto": "Produto",
+		"tamanho_produto": "M",
+		"localizacao_produto": "Estoque Local",
+		"kit_produto": "Sim",
+		"status_produto": "Ativo",
+		"data_cad_produto": "2017-07-19 14:37:04",
+		"data_mod_produto": "2017-07-20 19:26:29",
+		"lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar o produto!"
+   }
+Produtos - Excluir um produto
+
+2.0.0 
+Requisição para deletar um produto, o Produto deletado por ser encontrado com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/produtos/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/produtos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+Id do produto
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_produto	Integer	
+ID do produto
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_produto": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar o produto!"
+   }
+Produtos - Consultar produto
+
+2.0.0 
+Requisição para a consulta de dados do produto
+
+GET
+https://api.vhsys.com/v2/produtos/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/produtos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+Id do Produto
+
+lista_preco opcional	Integer	
+Retorna as listas de preço vinculados a esse produto
+
+Valor padrão: null
+
+Valores permitidos: 1
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de produtos no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_produto	Integer	
+ID do produto
+
+  id_registro	Integer	
+ID do registro
+
+  id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+  cod_produto	String	
+Código do produto
+
+  marca_produto	String	
+Marca do produto
+
+  desc_produto	String	
+Nome do produto
+
+  atalho_produto	String	
+Atalho para o produto
+
+  fornecedor_produto	String	
+Nome do Fornecedor (Consultar fornecedores disponíveis)
+
+  fornecedor_produto_id	Integer	
+ID do Fornecedor (Consultar fornecedores disponíveis)
+
+  minimo_produto	Decimal	
+Estoque minimo para produto
+
+  maximo_produto	Decimal	
+Estoque máximo para o produto
+
+  estoque_produto	Decimal	
+Estoque atual do produto
+
+  unidade_produto	String	
+Unidade de medida do produto
+
+  valor_produto	Decimal	
+Valor do produto
+
+  valor_custo_produto	Decimal	
+Valor de custo para o produto
+
+  peso_produto	Decimal	
+Peso do produto
+
+  peso_liq_produto	Decimal	
+Peso liquido do produto
+
+  icms_produto	Decimal	
+ICMS do produto
+
+  ipi_produto	Decimal	
+API do produto
+
+  pis_produto	Decimal	
+PIS do produto
+
+  cofins_produto	Decimal	
+CONFINS do produto
+
+  unidade_tributavel	String	
+Unidade tributavel
+
+  cest_produto	String	
+CEST do produto
+
+  ncm_produto	String	
+NCM do produto
+
+  codigo_barra_produto	String	
+Código de barras
+
+  obs_produto	String	
+Observação do produto
+
+  tipo_produto	Enum	
+Tipo do produto
+
+  tamanho_produto	String	
+Tamanho do produto
+
+  localizacao_produto	String	
+Localização do produto no estoque
+
+  kit_produto	Enum	
+Se o produto é um Kit
+
+  status_produto	Enum	
+Status do produto
+
+  data_cad_produto	Date	
+data de cadastro do produto
+
+  data_mod_produto	Date	
+data de modificação do produto
+
+  lixeira	Enum	
+Situação do produto no sistema
+
+  lista_preco	Object[]	
+Listas de preco vinculadas oo produto
+
+    id_lista	Integer	
+ID da lista de preço
+
+    nome_lista	String	
+Nome da lista de preço
+
+    status_lista	String	
+Status da lista de preço
+
+    valor_produto	Decimal	
+Valor do produto na lista de preço
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+		"id_produto": 1234,
+		"id_registro": 1,
+		"id_categoria": 12,
+		"cod_produto": "123456",
+		"marca_produto": "Marca do produto",
+		"desc_produto": "Nome do produto",
+		"atalho_produto": "Nome-do-produto",
+		"fornecedor_produto": "Nome do fornecedor",
+		"fornecedor_produto_id": 1134345,
+		"minimo_produto": "10.000000",
+		"maximo_produto": "1.000000",
+		"estoque_produto": "0.000000",
+		"unidade_produto": "UN",
+		"valor_produto": "120.000000",
+		"valor_custo_produto": "100.000000",
+		"peso_produto": "15.000000",
+		"peso_liq_produto": "17.000000",
+		"icms_produto": 123456,
+		"ipi_produto": 123456,
+		"pis_produto": 123456,
+		"cofins_produto": 123456,
+		"unidade_tributavel": 123456,
+		"cest_produto": "123456",
+		"ncm_produto": "12548369",
+		"codigo_barra_produto": "1234567890128",
+		"obs_produto": "OBSERVAÇÕES",
+		"tipo_produto": "Produto",
+		"tamanho_produto": "M",
+		"localizacao_produto": "Estoque Local",
+		"kit_produto": "Sim",
+		"status_produto": "Ativo",
+		"data_cad_produto": "2017-07-19 14:37:04",
+		"data_mod_produto": "2017-07-20 19:26:29",
+		"lixeira": "Nao",
+		"lista_preco": [{
+			"id_lista": 12345,
+			"nome_lista": "Nome da lista",
+			"status_lista": "Ativo",
+			"valor_produto": "15.00",
+		}]
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum produto encontrado!"
+   }
+Produtos - Lista de produtos
+
+2.0.0 
+Requisição para a consulta de diversos produtos.
+
+GET
+https://api.vhsys.com/v2/produtos
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/produtos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+order opcional	String	
+Nome do campo para ordenação EX:data_mod_produto
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+cod_produto opcional	String	
+Código do produto
+
+marca_produto opcional	String	
+Marca do produto
+
+desc_produto opcional	String	
+Nome do produto
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+data_modificacao opcional	Date	
+Registros criados ou modificados após a data informada
+
+Valores permitidos: YYYY-MM-DD
+
+lista_preco opcional	Integer	
+Retorna as listas de preço vinculados a esse produto
+
+Valor padrão: null
+
+Valores permitidos: 1
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de produtos no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_produto	Integer	
+ID do produto
+
+  id_registro	Integer	
+ID do registro
+
+  id_categoria	Integer	
+ID da categoria (Consultar categorias disponíveis)
+
+  cod_produto	String	
+Código do produto
+
+  marca_produto	String	
+Marca do produto
+
+  desc_produto	String	
+Nome do produto
+
+  atalho_produto	String	
+Atalho para o produto
+
+  fornecedor_produto	String	
+Nome do Fornecedor (Consultar fornecedores disponíveis)
+
+  fornecedor_produto_id	Integer	
+ID do Fornecedor (Consultar fornecedores disponíveis)
+
+  minimo_produto	Decimal	
+Estoque minimo para produto
+
+  maximo_produto	Decimal	
+Estoque máximo para o produto
+
+  estoque_produto	Decimal	
+Estoque atual do produto
+
+  unidade_produto	String	
+Unidade de medida do produto
+
+  valor_produto	Decimal	
+Valor do produto
+
+  valor_custo_produto	Decimal	
+Valor de custo para o produto
+
+  peso_produto	Decimal	
+Peso do produto
+
+  peso_liq_produto	Decimal	
+Peso liquido do produto
+
+  icms_produto	Decimal	
+ICMS do produto
+
+  ipi_produto	Decimal	
+API do produto
+
+  pis_produto	Decimal	
+PIS do produto
+
+  cofins_produto	Decimal	
+CONFINS do produto
+
+  unidade_tributavel	String	
+Unidade tributavel
+
+  cest_produto	String	
+CEST do produto
+
+  ncm_produto	String	
+NCM do produto
+
+  codigo_barra_produto	String	
+Código de barras
+
+  obs_produto	String	
+Observação do produto
+
+  tipo_produto	Enum	
+Tipo do produto
+
+  tamanho_produto	String	
+Tamanho do produto
+
+  localizacao_produto	String	
+Localização do produto no estoque
+
+  kit_produto	Enum	
+Se o produto é um Kit
+
+  status_produto	Enum	
+Status do produto
+
+  data_cad_produto	Date	
+data de cadastro do produto
+
+  data_mod_produto	Date	
+data de modificação do produto
+
+  lixeira	Enum	
+Situação do produto no sistema
+
+  lista_preco	Object[]	
+Listas de preco vinculadas oo produto
+
+    id_lista	Integer	
+ID da lista de preço
+
+    nome_lista	String	
+Nome da lista de preço
+
+    status_lista	String	
+Status da lista de preço
+
+    valor_produto	Decimal	
+Valor do produto na lista de preço
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+		"id_produto": 1234,
+		"id_registro": 1,
+		"id_categoria": 12,
+		"cod_produto": "123456",
+		"marca_produto": "Marca do produto",
+		"desc_produto": "Nome do produto",
+		"atalho_produto": "Nome-do-produto",
+		"fornecedor_produto": "Nome do fornecedor",
+		"fornecedor_produto_id": 1134345,
+		"minimo_produto": "10.000000",
+		"maximo_produto": "1.000000",
+		"estoque_produto": "0.000000",
+		"unidade_produto": "UN",
+		"valor_produto": "120.000000",
+		"valor_custo_produto": "100.000000",
+		"peso_produto": "15.000000",
+		"peso_liq_produto": "17.000000",
+		"icms_produto": 123456,
+		"ipi_produto": 123456,
+		"pis_produto": 123456,
+		"cofins_produto": 123456,
+		"unidade_tributavel": 123456,
+		"cest_produto": "123456",
+		"ncm_produto": "12548369",
+		"codigo_barra_produto": "1234567890128",
+		"obs_produto": "OBSERVAÇÕES",
+		"tipo_produto": "Produto",
+		"tamanho_produto": "M",
+		"localizacao_produto": "Estoque Local",
+		"kit_produto": "Sim",
+		"status_produto": "Ativo",
+		"data_cad_produto": "2017-07-19 14:37:04",
+		"data_mod_produto": "2017-07-20 19:26:29",
+		"lixeira": "Nao",
+		"lista_preco": [{
+			"id_lista": 12345,
+			"nome_lista": "Nome da lista",
+			"status_lista": "Ativo",
+			"valor_produto": "15.00",
+		}]
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum produto encontrado!"
+   }
+Produtos - Lançar estoque
+
+2.0.0 
+Requisição para cadastro de estoque para um produto
+
+POST
+https://api.vhsys.com/v2/produtos/:id_produto/estoque
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/produtos/:id_produto/estoque \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "tipo_estoque" : "Saida",
+        "qtde_estoque" : "1.00",
+        "valor_estoque" : "15.00",
+        "obs_estoque" : "Observação"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_produto	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+Faixa de tamanho: 0-20
+
+tipo_estoque	Enum	
+Tipo do estoque
+
+Valor padrão: Entrada
+
+Valores permitidos: Entrada, Saida
+
+qtde_estoque	Decimal	
+Quantidade do estoque
+
+Faixa de tamanho: 10,4
+
+valor_estoque opcional	Decimal	
+Valor do produto
+
+Faixa de tamanho: 10,4
+
+obs_estoque opcional	String	
+Observação para o lançamento
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_produto	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+  tipo_estoque	Enum	
+Tipo do estoque
+
+  qtde_estoque	Decimal	
+Quantidade do estoque
+
+  obs_estoque	String	
+Observação do lançamento
+
+  data_cad_estoque	Date	
+Data de cadastro do estoque
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_produto": 123456789,
+              "tipo_estoque": "Entrada",
+              "qtde_estoque": "1.00",
+              "valor_estoque": "450.00",
+              "obs_estoque": "Observação",
+              "data_cad_estoque": 0000-00-00,
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o estoque!"
+   }
+Produtos - Lista de estoques
+
+2.0.0 
+Requisição para a consulta estoque do produto
+
+GET
+https://api.vhsys.com/v2/produtos/:id_produto/estoque
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/produtos/:id_produto/estoque \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_produto	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_produto	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+  tipo_estoque	Enum	
+Tipo do estoque
+
+  qtde_estoque	Decimal	
+Quantidade do estoque
+
+  obs_estoque	String	
+Observação do lançamento
+
+  data_cad_estoque	Date	
+Data de cadastro do estoque
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_produto": 123456789,
+              "tipo_estoque": "Entrada",
+              "qtde_estoque": "1.00",
+              "valor_estoque": "450.00",
+              "obs_estoque": "Observação",
+              "data_cad_estoque": 0000-00-00,
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum estoque encontrado!"
+   }

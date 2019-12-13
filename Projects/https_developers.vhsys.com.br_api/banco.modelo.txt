@@ -1,0 +1,1500 @@
+Bancos
+
+Bancos - Cadastrar um banco
+
+2.0.0 
+Requisição para cadastro de bancos
+
+POST
+https://api.vhsys.com/v2/contas-bancarias
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/contas-bancarias \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "numero_banco" : "000",
+        "nome_banco_cad" : "Nome do banco",
+        "multa_atraso" : "00.00,
+        "saldo_inicial" : "00.00",
+        "saldo_inicial_data" : "0000-00-00",
+        "gerar_boletos" : 1,
+        "id_carteira" : 000,
+        "carteira_banco" : 0000,
+        "convenio_banco" : 0000,
+        "cedente_banco" : 0000,
+        "agencia_banco" : 0000,
+        "agencia_dv_banco" : 0,
+        "conta_banco" : 00,
+        "conta_dv_banco" : 00,
+        "codigo_cedente" : 00,
+        "instrucoes_boleto" : 000,
+        "com_registro" : 1,
+        "correcao_dia" : "0.00",
+        "status_banco" : "Ativo,
+        "cobrar_juros" : "1",
+        "taxa_boleto" : "0.00",
+        "padrao_receita" : "0",
+        "padrao_despesa" : "1",
+        "sequencia" : "0"   
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+nome_banco_cad	String	
+Nome do banco
+
+Faixa de tamanho: 50
+
+numero_banco	String	
+Número do banco ( Tabelas auxiliares )
+
+Faixa de tamanho: 3
+
+saldo_inicial opcional	Decimal	
+Saldo inicial
+
+Valor padrão: 0.00
+
+Faixa de tamanho: 10,2
+
+multa_atraso opcional	Decimal	
+Valor de multa por atraso
+
+Faixa de tamanho: 10,2
+
+saldo_inicial_data opcional	Date	
+Data do saldo inicial
+
+Valores permitidos: YYYY-MM-DD
+
+gerar_boletos opcional	Enum	
+Se essa conta irá gerar boletos
+
+Valor padrão: 1
+
+Valores permitidos: 0, 1
+
+id_carteira opcional	Integer	
+ID da carteira (Consultar carteiras disponíveis)
+
+Valor padrão: 0
+
+Faixa de tamanho: 0,4
+
+carteira_banco opcional	String	
+Número da carteira
+
+Faixa de tamanho: 0,25
+
+convenio_banco opcional	String	
+Número do convênio
+
+Faixa de tamanho: 0,30
+
+cedente_banco opcional	String	
+Número do cedente
+
+Faixa de tamanho: 0,255
+
+agencia_banco opcional	String	
+Número da agência
+
+Faixa de tamanho: 0,10
+
+agencia_dv_banco opcional	String	
+Número do dígito verificador da agência
+
+Faixa de tamanho: 0,10
+
+conta_banco opcional	String	
+Número da conta
+
+Faixa de tamanho: 0,15
+
+conta_dv_banco opcional	String	
+Número do dígito verificador da conta
+
+Faixa de tamanho: 0,10
+
+codigo_cedente opcional	String	
+Código do cedente
+
+Faixa de tamanho: 0,30
+
+instrucoes_boleto opcional	String	
+Instruções do boleto
+
+correcao_dia opcional	Decimal	
+Valor de correção ao dia
+
+Faixa de tamanho: 10,3
+
+taxa_boleto opcional	Decimal	
+Valor da taxa do boleto
+
+Faixa de tamanho: 10,2
+
+cobrar_juros opcional	Enum	
+Se essa conta irá cobrar juros
+
+Valor padrão: 0
+
+Valores permitidos: 0, 1
+
+status_banco opcional	Enum	
+Status do banco
+
+Valor padrão: Inativo
+
+Valores permitidos: Ativo, Inativo
+
+com_registro opcional	Enum	
+Se essa conta irá gerar boletos com registro
+
+Valor padrão: 0
+
+Valores permitidos: 0, 1
+
+sequencia opcional	Integer	
+Número inicial do boleto
+
+Valor padrão: 0
+
+Faixa de tamanho: 0-11
+
+padrao_receita opcional	Enum	
+Se essa conta irá ser padrão para receitas
+
+Valor padrão: 0
+
+Valores permitidos: 0, 1
+
+padrao_despesa opcional	Enum	
+Se essa conta irá ser padrão para despesas
+
+Valor padrão: 0
+
+Valores permitidos: 0, 1
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de bancos no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_banco_cad	Integer	
+ID do banco
+
+  saldo_inicial	Decimal	
+Saldo inicial
+
+  saldo_inicial_data	Date	
+Data do saldo inicial
+
+  gerar_boletos	Integer	
+Se essa conta irá gerar boletos
+
+  id_carteira	Integer	
+ID da carteira (Consultar carteiras disponíveis)
+
+  carteira_banco	String	
+Número da carteira
+
+  convenio_banco	String	
+Número do convênio
+
+  cedente_banco	String	
+Número do cedente
+
+  agencia_banco	String	
+Número da agência
+
+  agencia_dv_banco	String	
+Número do dígito verificador da agência
+
+  conta_banco	String	
+Número da conta
+
+  conta_dv_banco	String	
+Número do dígito verificador da conta
+
+  codigo_cedente	String	
+Código do cedente
+
+  instrucoes_boleto	String	
+Instruções do boleto
+
+  correcao_dia	Decimal	
+Valor de correção ao dia
+
+  taxa_boleto	Decimal	
+Valor da taxa do boleto
+
+  cobrar_juros	Integer	
+Se essa conta irá cobrar juros
+
+  status_banco	String	
+Status do banco
+
+  com_registro	Integer	
+Se essa conta irá gerar boletos com registro
+
+  data_cad_banco	Date	
+Data de cadastro do banco
+
+  data_mod_banco	Date	
+Data de modificação do banco
+
+  sequencia	Integer	
+Número inicial do boleto
+
+  padrao_receita	Integer	
+Se essa conta irá ser padrão para receitas
+
+  padrao_despesa	Integer	
+Se essa conta irá ser padrão para despesas
+
+  lixeira	Enum	
+Situação do banco no sistema
+
+  nome_banco_cad	String	
+Nome do banco
+
+  multa_atraso	Decimal	
+Valor de multa por atraso
+
+  numero_banco	String	
+Número do banco ( Tabelas auxiliares )
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_banco_cad": 0123,
+              "saldo_inicial": "0.00",
+              "saldo_inicial_data": "0000-00-00",
+              "gerar_boletos": 1,
+              "id_carteira": 000,
+              "carteira_banco": 0000,
+              "convenio_banco": 000,
+              "cedente_banco": 000,
+              "agencia_banco": 0000,
+              "agencia_dv_banco": 0,
+              "conta_banco": 0000,
+              "conta_dv_banco": 0,
+              "codigo_cedente": 000,
+              "instrucoes_boleto": 0,
+              "correcao_dia": "1.00",
+              "taxa_boleto": "2.00",
+              "cobrar_juros": 1,
+              "status_banco": "Ativo",
+              "com_registro": 0,
+              "data_cad_banco": "0000-00-00 00:00:00",
+              "data_mod_banco": "0000-00-00 00:00:00",
+              "sequencia": 0,
+              "padrao_receita": 0,
+              "padrao_despesa": 0,
+              "lixeira": "Nao",
+              "nome_banco_cad": "Nome do banco",
+              "multa_atraso": "15.50",
+              "numero_banco": "000"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o banco!"
+   }
+Bancos - Alterar um banco
+
+2.0.0 
+Requisição para alterar um banco
+
+PUT
+https://api.vhsys.com/v2/contas-bancarias/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/contas-bancarias/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "numero_banco" : "000",
+        "nome_banco_cad" : "Nome do banco",
+        "multa_atraso" : "00.00,
+        "saldo_inicial" : "00.00",
+        "saldo_inicial_data" : "0000-00-00",
+        "gerar_boletos" : 1,
+        "id_carteira" : 000,
+        "carteira_banco" : 0000,
+        "convenio_banco" : 0000,
+        "cedente_banco" : 0000,
+        "agencia_banco" : 0000,
+        "agencia_dv_banco" : 0,
+        "conta_banco" : 00,
+        "conta_dv_banco" : 00,
+        "codigo_cedente" : 00,
+        "instrucoes_boleto" : 000,
+        "com_registro" : 1,
+        "correcao_dia" : "0.00",
+        "status_banco" : "Ativo,
+        "cobrar_juros" : "1",
+        "taxa_boleto" : "0.00",
+        "padrao_receita" : "0",
+        "padrao_despesa" : "1",
+        "sequencia" : "0"   
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+Id do banco
+
+nome_banco_cad opcional	String	
+Nome do banco
+
+Faixa de tamanho: 50
+
+numero_banco opcional	String	
+Número do banco ( Tabelas auxiliares )
+
+Faixa de tamanho: 3
+
+saldo_inicial opcional	Decimal	
+Saldo inicial
+
+Valor padrão: 0.00
+
+Faixa de tamanho: 10,2
+
+multa_atraso opcional	Decimal	
+Valor de multa por atraso
+
+Faixa de tamanho: 10,2
+
+saldo_inicial_data opcional	Date	
+Data do saldo inicial
+
+Valores permitidos: YYYY-MM-DD
+
+gerar_boletos opcional	Enum	
+Se essa conta irá gerar boletos
+
+Valor padrão: 1
+
+Valores permitidos: 0, 1
+
+id_carteira opcional	Integer	
+ID da carteira (Consultar carteiras disponíveis)
+
+Valor padrão: 0
+
+Faixa de tamanho: 0,4
+
+carteira_banco opcional	String	
+Número da carteira
+
+Faixa de tamanho: 0,25
+
+convenio_banco opcional	String	
+Número do convênio
+
+Faixa de tamanho: 0,30
+
+cedente_banco opcional	String	
+Número do cedente
+
+Faixa de tamanho: 0,255
+
+agencia_banco opcional	String	
+Número da agência
+
+Faixa de tamanho: 0,10
+
+agencia_dv_banco opcional	String	
+Número do dígito verificador da agência
+
+Faixa de tamanho: 0,10
+
+conta_banco opcional	String	
+Número da conta
+
+Faixa de tamanho: 0,15
+
+conta_dv_banco opcional	String	
+Número do dígito verificador da conta
+
+Faixa de tamanho: 0,10
+
+codigo_cedente opcional	String	
+Código do cedente
+
+Faixa de tamanho: 0,30
+
+instrucoes_boleto opcional	String	
+Instruções do boleto
+
+correcao_dia opcional	Decimal	
+Valor de correção ao dia
+
+Faixa de tamanho: 10,3
+
+taxa_boleto opcional	Decimal	
+Valor da taxa do boleto
+
+Faixa de tamanho: 10,2
+
+cobrar_juros opcional	Enum	
+Se essa conta irá cobrar juros
+
+Valor padrão: 0
+
+Valores permitidos: 0, 1
+
+status_banco opcional	Enum	
+Status do banco
+
+Valor padrão: Inativo
+
+Valores permitidos: Ativo, Inativo
+
+com_registro opcional	Enum	
+Se essa conta irá gerar boletos com registro
+
+Valor padrão: 0
+
+Valores permitidos: 0, 1
+
+sequencia opcional	Integer	
+Número inicial do boleto
+
+Valor padrão: 0
+
+Faixa de tamanho: 0-11
+
+padrao_receita opcional	Enum	
+Se essa conta irá ser padrão para receitas
+
+Valor padrão: 0
+
+Valores permitidos: 0, 1
+
+padrao_despesa opcional	Enum	
+Se essa conta irá ser padrão para despesas
+
+Valor padrão: 0
+
+Valores permitidos: 0, 1
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de bancos no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_banco_cad	Integer	
+ID do banco
+
+  saldo_inicial	Decimal	
+Saldo inicial
+
+  saldo_inicial_data	Date	
+Data do saldo inicial
+
+  gerar_boletos	Integer	
+Se essa conta irá gerar boletos
+
+  id_carteira	Integer	
+ID da carteira (Consultar carteiras disponíveis)
+
+  carteira_banco	String	
+Número da carteira
+
+  convenio_banco	String	
+Número do convênio
+
+  cedente_banco	String	
+Número do cedente
+
+  agencia_banco	String	
+Número da agência
+
+  agencia_dv_banco	String	
+Número do dígito verificador da agência
+
+  conta_banco	String	
+Número da conta
+
+  conta_dv_banco	String	
+Número do dígito verificador da conta
+
+  codigo_cedente	String	
+Código do cedente
+
+  instrucoes_boleto	String	
+Instruções do boleto
+
+  correcao_dia	Decimal	
+Valor de correção ao dia
+
+  taxa_boleto	Decimal	
+Valor da taxa do boleto
+
+  cobrar_juros	Integer	
+Se essa conta irá cobrar juros
+
+  status_banco	String	
+Status do banco
+
+  com_registro	Integer	
+Se essa conta irá gerar boletos com registro
+
+  data_cad_banco	Date	
+Data de cadastro do banco
+
+  data_mod_banco	Date	
+Data de modificação do banco
+
+  sequencia	Integer	
+Número inicial do boleto
+
+  padrao_receita	Integer	
+Se essa conta irá ser padrão para receitas
+
+  padrao_despesa	Integer	
+Se essa conta irá ser padrão para despesas
+
+  lixeira	Enum	
+Situação do banco no sistema
+
+  nome_banco_cad	String	
+Nome do banco
+
+  multa_atraso	Decimal	
+Valor de multa por atraso
+
+  numero_banco	String	
+Número do banco ( Tabelas auxiliares )
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_banco_cad": 0123,
+              "saldo_inicial": "0.00",
+              "saldo_inicial_data": "0000-00-00",
+              "gerar_boletos": 1,
+              "id_carteira": 000,
+              "carteira_banco": 0000,
+              "convenio_banco": 000,
+              "cedente_banco": 000,
+              "agencia_banco": 0000,
+              "agencia_dv_banco": 0,
+              "conta_banco": 0000,
+              "conta_dv_banco": 0,
+              "codigo_cedente": 000,
+              "instrucoes_boleto": 0,
+              "correcao_dia": "1.00",
+              "taxa_boleto": "2.00",
+              "cobrar_juros": 1,
+              "status_banco": "Ativo",
+              "com_registro": 0,
+              "data_cad_banco": "0000-00-00 00:00:00",
+              "data_mod_banco": "0000-00-00 00:00:00",
+              "sequencia": 0,
+              "padrao_receita": 0,
+              "padrao_despesa": 0,
+              "lixeira": "Nao",
+              "nome_banco_cad": "Nome do banco",
+              "multa_atraso": "15.50",
+              "numero_banco": "000"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar o banco!"
+   }
+Bancos - Excluir um banco
+
+2.0.0 
+Requisição para deletar um banco, o Banco deletado por ser encontrado com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/contas-bancarias/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/contas-bancarias/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+Id do banco
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_banco	Integer	
+ID do banco
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_banco_cad": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar o banco!"
+   }
+Bancos - Consultar banco
+
+2.0.0 
+Requisição para a consulta de dados do banco
+
+GET
+https://api.vhsys.com/v2/contas-bancarias/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/contas-bancarias/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+Id do Banco
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de bancos no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_banco_cad	Integer	
+ID do banco
+
+  saldo_inicial	Decimal	
+Saldo inicial
+
+  saldo_inicial_data	Date	
+Data do saldo inicial
+
+  gerar_boletos	Integer	
+Se essa conta irá gerar boletos
+
+  id_carteira	Integer	
+ID da carteira (Consultar carteiras disponíveis)
+
+  carteira_banco	String	
+Número da carteira
+
+  convenio_banco	String	
+Número do convênio
+
+  cedente_banco	String	
+Número do cedente
+
+  agencia_banco	String	
+Número da agência
+
+  agencia_dv_banco	String	
+Número do dígito verificador da agência
+
+  conta_banco	String	
+Número da conta
+
+  conta_dv_banco	String	
+Número do dígito verificador da conta
+
+  codigo_cedente	String	
+Código do cedente
+
+  instrucoes_boleto	String	
+Instruções do boleto
+
+  correcao_dia	Decimal	
+Valor de correção ao dia
+
+  taxa_boleto	Decimal	
+Valor da taxa do boleto
+
+  cobrar_juros	Integer	
+Se essa conta irá cobrar juros
+
+  status_banco	String	
+Status do banco
+
+  com_registro	Integer	
+Se essa conta irá gerar boletos com registro
+
+  data_cad_banco	Date	
+Data de cadastro do banco
+
+  data_mod_banco	Date	
+Data de modificação do banco
+
+  sequencia	Integer	
+Número inicial do boleto
+
+  padrao_receita	Integer	
+Se essa conta irá ser padrão para receitas
+
+  padrao_despesa	Integer	
+Se essa conta irá ser padrão para despesas
+
+  lixeira	Enum	
+Situação do banco no sistema
+
+  nome_banco_cad	String	
+Nome do banco
+
+  multa_atraso	Decimal	
+Valor de multa por atraso
+
+  numero_banco	String	
+Número do banco ( Tabelas auxiliares )
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_banco_cad": 0123,
+              "saldo_inicial": "0.00",
+              "saldo_inicial_data": "0000-00-00",
+              "gerar_boletos": 1,
+              "id_carteira": 000,
+              "carteira_banco": 0000,
+              "convenio_banco": 000,
+              "cedente_banco": 000,
+              "agencia_banco": 0000,
+              "agencia_dv_banco": 0,
+              "conta_banco": 0000,
+              "conta_dv_banco": 0,
+              "codigo_cedente": 000,
+              "instrucoes_boleto": 0,
+              "correcao_dia": "1.00",
+              "taxa_boleto": "2.00",
+              "cobrar_juros": 1,
+              "status_banco": "Ativo",
+              "com_registro": 0,
+              "data_cad_banco": "0000-00-00 00:00:00",
+              "data_mod_banco": "0000-00-00 00:00:00",
+              "sequencia": 0,
+              "padrao_receita": 0,
+              "padrao_despesa": 0,
+              "lixeira": "Nao",
+              "nome_banco_cad": "Nome do banco",
+              "multa_atraso": "15.50",
+              "numero_banco": "000"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum banco encontrado!"
+   }
+Bancos - Lista de Bancos
+
+2.0.0 
+Requisição para a consulta dos bancos cadastrados no sistema.
+
+GET
+https://api.vhsys.com/v2/contas-bancarias
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/contas-bancarias \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+order opcional	String	
+Nome do campo para ordenação EX:data_cad_banco
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limite de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+nome_banco_cad opcional	String	
+Nome do banco
+
+data_modificacao opcional	Date	
+Registros criados ou modificados após a data informada
+
+Valores permitidos: YYYY-MM-DD
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de bancos no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_banco_cad	Integer	
+ID do banco
+
+  saldo_inicial	Decimal	
+Saldo inicial
+
+  saldo_inicial_data	Date	
+Data do saldo inicial
+
+  gerar_boletos	Integer	
+Se essa conta irá gerar boletos
+
+  id_carteira	Integer	
+ID da carteira (Consultar carteiras disponíveis)
+
+  carteira_banco	String	
+Número da carteira
+
+  convenio_banco	String	
+Número do convênio
+
+  cedente_banco	String	
+Número do cedente
+
+  agencia_banco	String	
+Número da agência
+
+  agencia_dv_banco	String	
+Número do dígito verificador da agência
+
+  conta_banco	String	
+Número da conta
+
+  conta_dv_banco	String	
+Número do dígito verificador da conta
+
+  codigo_cedente	String	
+Código do cedente
+
+  instrucoes_boleto	String	
+Instruções do boleto
+
+  correcao_dia	Decimal	
+Valor de correção ao dia
+
+  taxa_boleto	Decimal	
+Valor da taxa do boleto
+
+  cobrar_juros	Integer	
+Se essa conta irá cobrar juros
+
+  status_banco	String	
+Status do banco
+
+  com_registro	Integer	
+Se essa conta irá gerar boletos com registro
+
+  data_cad_banco	Date	
+Data de cadastro do banco
+
+  data_mod_banco	Date	
+Data de modificação do banco
+
+  sequencia	Integer	
+Número inicial do boleto
+
+  padrao_receita	Integer	
+Se essa conta irá ser padrão para receitas
+
+  padrao_despesa	Integer	
+Se essa conta irá ser padrão para despesas
+
+  lixeira	Enum	
+Situação do banco no sistema
+
+  nome_banco_cad	String	
+Nome do banco
+
+  multa_atraso	Decimal	
+Valor de multa por atraso
+
+  numero_banco	String	
+Número do banco ( Tabelas auxiliares )
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_banco_cad": 0123,
+              "saldo_inicial": "0.00",
+              "saldo_inicial_data": "0000-00-00",
+              "gerar_boletos": 1,
+              "id_carteira": 000,
+              "carteira_banco": 0000,
+              "convenio_banco": 000,
+              "cedente_banco": 000,
+              "agencia_banco": 0000,
+              "agencia_dv_banco": 0,
+              "conta_banco": 0000,
+              "conta_dv_banco": 0,
+              "codigo_cedente": 000,
+              "instrucoes_boleto": 0,
+              "correcao_dia": "1.00",
+              "taxa_boleto": "2.00",
+              "cobrar_juros": 1,
+              "status_banco": "Ativo",
+              "com_registro": 0,
+              "data_cad_banco": "0000-00-00 00:00:00",
+              "data_mod_banco": "0000-00-00 00:00:00",
+              "sequencia": 0,
+              "padrao_receita": 0,
+              "padrao_despesa": 0,
+              "lixeira": "Nao",
+              "nome_banco_cad": "Nome do banco",
+              "multa_atraso": "15.50",
+              "numero_banco": "000"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum banco encontrado!"
+   }
+Bancos - Consultar carteiras
+
+2.0.0 
+Requisição para a consulta de dados da carteira
+
+GET
+https://api.vhsys.com/v2/carteiras/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/carteiras/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+Id da carteira
+
+cod_carteira opcional	Integer	
+Código da carteira
+
+numero_banco opcional	String	
+Número do banco
+
+nome_banco opcional	String	
+Nome do banco
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_carteira	Integer	
+ID da carteira
+
+  com_registro	Integer	
+Se a carteira aceita boletos com registro
+
+  cod_carteira	String	
+Código da carteira
+
+  desc_carteira	String	
+Descrição da carteira
+
+  mascara_agencia	String	
+Mascara para número da agência
+
+  mascara_conta	String	
+Mascara para número da conta
+
+  mascara_convenio	String	
+Mascara para número do convênio
+
+  mascara_cedente	String	
+Mascara para número do cedente
+
+  dig_agencia	Integer	
+Número de digitos para agência
+
+  dig_conta	Integer	
+Número de digitos para conta
+
+  dig_convenio	Integer	
+Número de digitos cara convênio
+
+  dig_cedente	Integer	
+Número de digitos para cedente
+
+  numero_banco	String	
+Número do banco
+
+  nome_banco	String	
+Nome do banco
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_carteira": 000,
+              "com_registro": 1,
+              "cod_carteira": "02",
+              "desc_carteira": "02 - Carteira teste",
+              "mascara_agencia": "0000-A",
+              "mascara_conta": "0000000-A",
+              "mascara_convenio": "",
+              "mascara_cedente": "000000000000000",
+              "dig_agencia": 4,
+              "dig_conta": 7,
+              "dig_convenio": 0,
+              "dig_cedente": 15,
+              "numero_banco": "237",
+              "nome_banco": "Bradesco"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma carteira encontrada!"
+   }
+Bancos - Lista de carteiras
+
+2.0.0 
+Requisição para a consulta de diversas certeiras.
+
+GET
+https://api.vhsys.com/v2/carteiras
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/carteiras \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+order opcional	String	
+Nome do campo para ordenação EX:id_carteira
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limite de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+cod_carteira opcional	Integer	
+Código da carteira
+
+numero_banco opcional	String	
+Número do banco
+
+nome_banco opcional	String	
+Nome do banco
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de carteiras no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_carteira	Integer	
+ID da carteira
+
+  com_registro	Integer	
+Se a carteira aceita boletos com registro
+
+  cod_carteira	String	
+Código da carteira
+
+  desc_carteira	String	
+Descrição da carteira
+
+  mascara_agencia	String	
+Mascara para número da agência
+
+  mascara_conta	String	
+Mascara para número da conta
+
+  mascara_convenio	String	
+Mascara para número do convênio
+
+  mascara_cedente	String	
+Mascara para número do cedente
+
+  dig_agencia	Integer	
+Número de digitos para agência
+
+  dig_conta	Integer	
+Número de digitos para conta
+
+  dig_convenio	Integer	
+Número de digitos cara convênio
+
+  dig_cedente	Integer	
+Número de digitos para cedente
+
+  numero_banco	String	
+Número do banco
+
+  nome_banco	String	
+Nome do banco
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_carteira": 000,
+              "com_registro": 1,
+              "cod_carteira": "02",
+              "desc_carteira": "02 - Carteira teste",
+              "mascara_agencia": "0000-A",
+              "mascara_conta": "0000000-A",
+              "mascara_convenio": "",
+              "mascara_cedente": "000000000000000",
+              "dig_agencia": 4,
+              "dig_conta": 7,
+              "dig_convenio": 0,
+              "dig_cedente": 15,
+              "numero_banco": "237",
+              "nome_banco": "Bradesco"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma carteira encontrada!"
+   }

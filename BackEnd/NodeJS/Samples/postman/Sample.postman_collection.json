@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "d4ca5e68-0eb0-4598-ae5e-2c600c656e24",
+		"name": "Sample",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetProducts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "localhost:3003/produtos",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetProduct",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3003/produtos/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"produtos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddProduct",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nome",
+							"value": "iPad Pro",
+							"type": "text"
+						},
+						{
+							"key": "preco",
+							"value": "6.799",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3003/produtos",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateProduct",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:3003/produtos/2?nome=Apple Watch 3&preco=1.999",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"produtos",
+						"2"
+					],
+					"query": [
+						{
+							"key": "nome",
+							"value": "Apple Watch 3"
+						},
+						{
+							"key": "preco",
+							"value": "1.999"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteProduct",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3003/produtos/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"produtos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

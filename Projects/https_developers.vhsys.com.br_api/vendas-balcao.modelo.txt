@@ -1,0 +1,1672 @@
+Vendas Balcao
+
+Vendas_Balcao - Cadastrar venda balcão
+
+2.0.0 
+Requisição para cadastro de vendas balcão
+
+POST
+https://api.vhsys.com/v2/vendas-balcao
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/vendas-balcao \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "id_cliente" : 123456,
+        "nome_cliente" : "Nome do cliente",
+        "vendedor_pedido" : "Nome do vendedor",
+        "vendedor_pedido_id" : 12346,
+        "desconto_pedido" : "0.00",
+        "acrescimo_pedido" : "0.00",
+        "forma_pagamento" : "Dinheiro",
+        "valor_recebido" : "0.00",
+        "troco_pedido" : "0.00",
+        "id_banco" : 1234566,
+        "obs_pedido" : "Observação",
+        "status_pedido" : "Em Aberto",
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+id_cliente opcional	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 9
+
+nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 255
+
+vendedor_pedido opcional	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 255
+
+vendedor_pedido_id opcional	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 9
+
+desconto_pedido opcional	Decimal	
+Valor total do desconto
+
+Faixa de tamanho: 10,2
+
+acrescimo_pedido opcional	Decimal	
+Valor total do acrescimo
+
+Faixa de tamanho: 10,2
+
+forma_pagamento opcional	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+valor_recebido opcional	Decimal	
+Valor recebido
+
+Faixa de tamanho: 10,2
+
+troco_pedido opcional	Decimal	
+Valor do troco
+
+Faixa de tamanho: 10,2
+
+id_banco opcional	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+obs_pedido opcional	String	
+Observações da venda balcão
+
+status_pedido opcional	Enum	
+Status do pedido
+
+Valores permitidos: Em Aberto, Em Andamento, Atendido, Cancelado
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_frente	Integer	
+ID da venda balcão
+
+  id_pedido	Integer	
+ID Sequencial da venda balcão
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  valor_total_produtos	Decimal	
+Valor total dos produtos
+
+  desconto_pedido	Decimal	
+Valor do desconto
+
+  acrescimo_pedido	Decimal	
+Valor do acrescimo
+
+  valor_total_nota	Decimal	
+Valor total da venda balcão
+
+  valor_recebido	Decimal	
+Valor recebido na venda balcão
+
+  troco_pedido	Decimal	
+Valor do troco na venda balcão
+
+  id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+  obs_pedido	String	
+Observações da venda balcão
+
+  status_pedido	Enum	
+Status da venda balcão
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  estoque_pedido	Integer	
+Estoque Lançado
+
+  pedido_emitido	Integer	
+Pedido gerado
+
+  nfce_emitido	Integer	
+NFCe emitida
+
+  data_cad_pedido	Date	
+Data de cadastro da venda balcão
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da venda balcão no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_frente": 123456,
+              "id_pedido": 1,
+              "id_cliente": 123,
+              "nome_cliente": "Nome co cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 123456,
+              "valor_total_produtos": "0.00",
+              "desconto_pedido": "0.00",
+              "acrescimo_pedido": "0.00",
+              "valor_total_nota": "0.00",
+              "forma_pagamento": 'Dinheiro',
+              "valor_recebido": "0.00",
+              "troco_pedido": "0.00",
+              "id_banco": 1,
+              "obs_pedido": "Observação",
+              "status_pedido": "Em Aberto",
+              "contas_pedido": 0,
+              "estoque_pedido": 0,
+              "pedido_emitido": 0,
+              "nfce_emitido": 0,
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar a venda balcão!"
+   }
+Vendas_Balcao - Alterar venda balcão
+
+2.0.0 
+Requisição para alterar uma venda balcão
+
+PUT
+https://api.vhsys.com/v2/vendas-balcao/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/vendas-balcao/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "id_cliente" : 123456,
+        "nome_cliente" : "Nome do cliente",
+        "vendedor_pedido" : "Nome do vendedor",
+        "vendedor_pedido_id" : 12346,
+        "desconto_pedido" : "0.00",
+        "acrescimo_pedido" : "0.00",
+        "forma_pagamento" : "Dinheiro",
+        "valor_recebido" : "0.00",
+        "troco_pedido" : "0.00",
+        "id_banco" : 1234566,
+        "obs_pedido" : "Observação",
+        "status_pedido" : "Em Aberto"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da venda balcão
+
+id_cliente opcional	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 0-9
+
+nome_cliente opcional	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 0-255
+
+vendedor_pedido opcional	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 0-255
+
+vendedor_pedido_id opcional	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 0-9
+
+desconto_pedido opcional	Decimal	
+Valor total do desconto
+
+Faixa de tamanho: 10,2
+
+acrescimo_pedido opcional	Decimal	
+Valor total do acrescimo
+
+Faixa de tamanho: 10,2
+
+forma_pagamento opcional	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+valor_recebido opcional	Decimal	
+Valor recebido
+
+Faixa de tamanho: 10,2
+
+troco_pedido opcional	Decimal	
+Valor do troco
+
+Faixa de tamanho: 10,2
+
+id_banco opcional	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+obs_pedido opcional	String	
+Observações da venda balcão
+
+status_pedido opcional	Enum	
+Status do pedido
+
+Valores permitidos: Em Aberto, Em Andamento, Atendido, Cancelado
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_frente	Integer	
+ID da venda balcão
+
+  id_pedido	Integer	
+ID Sequencial da venda balcão
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  valor_total_produtos	Decimal	
+Valor total dos produtos
+
+  desconto_pedido	Decimal	
+Valor do desconto
+
+  acrescimo_pedido	Decimal	
+Valor do acrescimo
+
+  valor_total_nota	Decimal	
+Valor total da venda balcão
+
+  valor_recebido	Decimal	
+Valor recebido na venda balcão
+
+  troco_pedido	Decimal	
+Valor do troco na venda balcão
+
+  id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+  obs_pedido	String	
+Observações da venda balcão
+
+  status_pedido	Enum	
+Status da venda balcão
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  estoque_pedido	Integer	
+Estoque Lançado
+
+  pedido_emitido	Integer	
+Pedido gerado
+
+  nfce_emitido	Integer	
+NFCe emitida
+
+  data_cad_pedido	Date	
+Data de cadastro da venda balcão
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da venda balcão no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_frente": 123456,
+              "id_pedido": 1,
+              "id_cliente": 123,
+              "nome_cliente": "Nome co cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 123456,
+              "valor_total_produtos": "0.00",
+              "desconto_pedido": "0.00",
+              "acrescimo_pedido": "0.00",
+              "valor_total_nota": "0.00",
+              "forma_pagamento": 'Dinheiro',
+              "valor_recebido": "0.00",
+              "troco_pedido": "0.00",
+              "id_banco": 1,
+              "obs_pedido": "Observação",
+              "status_pedido": "Em Aberto",
+              "contas_pedido": 0,
+              "estoque_pedido": 0,
+              "pedido_emitido": 0,
+              "nfce_emitido": 0,
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar a venda balcão!"
+   }
+Vendas_Balcao - Excluir uma venda balcão
+
+2.0.0 
+Requisição para deletar uma venda balacão, a venda balacão deletada por ser encontrada com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/vendas-balcao/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/vendas-balcao/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da venda balcão
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_frente	Integer	
+ID da venda balcão
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_frente": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar a venda balcão!"
+   }
+Vendas_Balcao - Consultar vendas balcão
+
+2.0.0 
+Requisição para a consulta de dados da vendas balcão
+
+GET
+https://api.vhsys.com/v2/vendas-balcao/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/vendas-balcao/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da venda balcão
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_frente	Integer	
+ID da venda balcão
+
+  id_pedido	Integer	
+ID Sequencial da venda balcão
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  valor_total_produtos	Decimal	
+Valor total dos produtos
+
+  desconto_pedido	Decimal	
+Valor do desconto
+
+  acrescimo_pedido	Decimal	
+Valor do acrescimo
+
+  valor_total_nota	Decimal	
+Valor total da venda balcão
+
+  valor_recebido	Decimal	
+Valor recebido na venda balcão
+
+  troco_pedido	Decimal	
+Valor do troco na venda balcão
+
+  id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+  obs_pedido	String	
+Observações da venda balcão
+
+  status_pedido	Enum	
+Status da venda balcão
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  estoque_pedido	Integer	
+Estoque Lançado
+
+  pedido_emitido	Integer	
+Pedido gerado
+
+  nfce_emitido	Integer	
+NFCe emitida
+
+  data_cad_pedido	Date	
+Data de cadastro da venda balcão
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da venda balcão no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_frente": 123456,
+              "id_pedido": 1,
+              "id_cliente": 123,
+              "nome_cliente": "Nome co cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 123456,
+              "valor_total_produtos": "0.00",
+              "desconto_pedido": "0.00",
+              "acrescimo_pedido": "0.00",
+              "valor_total_nota": "0.00",
+              "forma_pagamento": 'Dinheiro',
+              "valor_recebido": "0.00",
+              "troco_pedido": "0.00",
+              "id_banco": 1,
+              "obs_pedido": "Observação",
+              "status_pedido": "Em Aberto",
+              "contas_pedido": 0,
+              "estoque_pedido": 0,
+              "pedido_emitido": 0,
+              "nfce_emitido": 0,
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma venda balcão encontrada!"
+   }
+Vendas_Balcao - Lista de Vendas balcão
+
+2.0.0 
+Requisição para a consulta de diversas vendas balcão
+
+GET
+https://api.vhsys.com/v2/vendas-balcao
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/vendas-balcao \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+order opcional	String	
+Nome do campo para ordenação EX:data_mod_pedido
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+nome_cliente opcional	String	
+Nome do cliente
+
+vendedor opcional	String	
+Nome do vendedor
+
+valor_produtos opcional	String	
+Valor total dos produtos 
+buscar a partir de um valor: valor_produtos=10.00 
+buscar entre valores: valor_produtos=10.00,20.00
+
+valor_total opcional	String	
+Valor total da nota 
+buscar a partir de um valor: valor_total=10.00 
+buscar entre valores: valor_total=10.00,20.00
+
+status opcional	String	
+Status da nota
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+data_modificacao opcional	Date	
+Registros criados ou modificados após a data informada
+
+Valores permitidos: YYYY-MM-DD
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de vendas balcão no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_frente	Integer	
+ID da venda balcão
+
+  id_pedido	Integer	
+ID Sequencial da venda balcão
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  valor_total_produtos	Decimal	
+Valor total dos produtos
+
+  desconto_pedido	Decimal	
+Valor do desconto
+
+  acrescimo_pedido	Decimal	
+Valor do acrescimo
+
+  valor_total_nota	Decimal	
+Valor total da venda balcão
+
+  valor_recebido	Decimal	
+Valor recebido na venda balcão
+
+  troco_pedido	Decimal	
+Valor do troco na venda balcão
+
+  id_banco	Integer	
+ID do banco (Consultar bancos disponíveis)
+
+  obs_pedido	String	
+Observações da venda balcão
+
+  status_pedido	Enum	
+Status da venda balcão
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  estoque_pedido	Integer	
+Estoque Lançado
+
+  pedido_emitido	Integer	
+Pedido gerado
+
+  nfce_emitido	Integer	
+NFCe emitida
+
+  data_cad_pedido	Date	
+Data de cadastro da venda balcão
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação da venda balcão no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_frente": 123456,
+              "id_pedido": 1,
+              "id_cliente": 123,
+              "nome_cliente": "Nome co cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 123456,
+              "valor_total_produtos": "0.00",
+              "desconto_pedido": "0.00",
+              "acrescimo_pedido": "0.00",
+              "valor_total_nota": "0.00",
+              "forma_pagamento": 'Dinheiro',
+              "valor_recebido": "0.00",
+              "troco_pedido": "0.00",
+              "id_banco": 1,
+              "obs_pedido": "Observação",
+              "status_pedido": "Em Aberto",
+              "contas_pedido": 0,
+              "estoque_pedido": 0,
+              "pedido_emitido": 0,
+              "nfce_emitido": 0,
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma venda balcão encontrada!"
+   }
+Vendas_Balcao - Alterar um produto
+
+2.0.0 
+Requisição para alterar um produto de uma venda balcão
+
+PUT
+https://api.vhsys.com/v2/vendas-balcao/:id_frente/produtos/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/vendas-balcao/:id_frente/produtos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "id_produto" : 12345,
+        "cod_produto" : "Código do produto",
+        "desc_produto" : "Nome do produto",
+        "qtde_produto" : "1.00",
+        "valor_unit_produto" : "0.00",
+        "valor_custo_produto" : "0.00"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_frente	Integer	
+ID da venda balcão (Consultar vendas balcão disponíveis)
+
+:id	Integer	
+ID do vínculo produto/venda balcão
+
+id_produto opcional	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+Faixa de tamanho: 0-20
+
+desc_produto opcional	String	
+Nome do produto (Consultar produtos disponíveis)
+
+Faixa de tamanho: 255
+
+cod_produto opcional	String	
+Código do produto
+
+Faixa de tamanho: 50
+
+qtde_produto opcional	Decimal	
+Quantidade do produto
+
+Faixa de tamanho: 10,4
+
+valor_unit_produto opcional	Decimal	
+Valor unitário do produto
+
+Faixa de tamanho: 10,4
+
+valor_custo_produto opcional	Decimal	
+Valor de custo do produto
+
+Faixa de tamanho: 10,4
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_produto	Integer	
+Id do vínculo produto/venda balcão
+
+  id_frente	Integer	
+ID da venda balcão (Consultar vendas balcão disponíveis)
+
+  id_produto	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+  cod_produto	String	
+Código do produto
+
+  desc_produto	String	
+Nome do produto (Consultar produtos disponíveis)
+
+  qtde_produto	Decimal	
+Quantidade de produtos
+
+  valor_unit_produto	Decimal	
+Valor unitário do produto
+
+  valor_custo_produto	Decimal	
+Valor de custo do produto
+
+  valor_total_produto	Decimal	
+Valor total do produto
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ped_produto": 123456,
+              "id_frente": 123456,
+              "id_produto": 12346,
+              "cod_produto": "CODIGODOPRODUTO",
+              "desc_produto": "Nome do produto",
+              "qtde_produto": "0.00",
+              "valor_unit_produto": "0.00",
+              "valor_custo_produto": "0.00",
+              "valor_total_produto": "0.00",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar o produto da venda balcão!"
+   }
+Vendas_Balcao - Cadastra um produto
+
+2.0.0 
+Requisição para cadastro de produto para a venda balcão
+
+POST
+https://api.vhsys.com/v2/vendas-balcao/:id_frente/produtos
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/vendas-balcao/:id_frente/produtos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '[{
+        "qtde_produto":"3",
+        "id_produto":"00000",
+        "valor_unit_produto":"15.00 de pagamento",
+        "desc_produto":"Produto 1"
+    },{
+        "qtde_produto":"3",
+        "id_produto":"00000",
+        "valor_unit_produto":"25.00",
+        "desc_produto":"Produto 2"
+    }]'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_frente	Integer	
+ID da venda balcão (Consultar vendas balcão disponíveis)
+
+id_produto opcional	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+Faixa de tamanho: 0-20
+
+desc_produto	String	
+Nome do produto (Consultar produtos disponíveis)
+
+Faixa de tamanho: 255
+
+cod_produto opcional	String	
+Código do produto
+
+Faixa de tamanho: 50
+
+qtde_produto	Decimal	
+Quantidade do produto
+
+Faixa de tamanho: 10,4
+
+valor_unit_produto	Decimal	
+Valor unitário do produto
+
+Faixa de tamanho: 10,4
+
+valor_custo_produto opcional	Decimal	
+Valor de custo do produto
+
+Faixa de tamanho: 10,4
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_produto	Integer	
+Id do vínculo produto/venda balcão
+
+  id_frente	Integer	
+ID da venda balcão (Consultar vendas balcão disponíveis)
+
+  id_produto	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+  cod_produto	String	
+Código do produto
+
+  desc_produto	String	
+Nome do produto (Consultar produtos disponíveis)
+
+  qtde_produto	Decimal	
+Quantidade de produtos
+
+  valor_unit_produto	Decimal	
+Valor unitário do produto
+
+  valor_custo_produto	Decimal	
+Valor de custo do produto
+
+  valor_total_produto	Decimal	
+Valor total do produto
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ped_produto": 123456,
+              "id_frente": 123456,
+              "id_produto": 12346,
+              "cod_produto": "CODIGODOPRODUTO",
+              "desc_produto": "Nome do produto",
+              "qtde_produto": "0.00",
+              "valor_unit_produto": "0.00",
+              "valor_custo_produto": "0.00",
+              "valor_total_produto": "0.00",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o produto para a venda balcão!"
+   }
+Vendas_Balcao - Cadastra um status
+
+2.0.0 
+Requisição para cadastro de status para a venda balcão
+
+POST
+https://api.vhsys.com/v2/vendas-balcao/:id_frente/status
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/vendas-balcao/:id_frente/status \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "data_status" : "0000-00-00",
+        "obs_status" : "Observação do status",
+        "tipo_status" : "Cancelado"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_frente	Integer	
+ID da venda balcão (Consultar vendas balcão disponíveis)
+
+data_status	Date	
+Data do status
+
+Valores permitidos: YYYY-MM-DD
+
+tipo_status	Enum	
+Tipo do status
+
+Valores permitidos: Em Aberto, Em Andamento, Cancelado, Atendido
+
+obs_status opcional	String	
+Observação do status
+
+Faixa de tamanho: 255
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_status	Integer	
+Id do status
+
+  id_frente	Integer	
+ID da venda balcão (Consultar vendas balcão disponíveis)
+
+  data_status	Data	
+Data de cadastro do status
+
+  obs_status	String	
+Descrição do status
+
+  tipo_status	String	
+Tipo do status
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_status": 123456,
+              "id_frente": 1234,
+              "data_status": "0000-00-00",
+              "obs_status": "Observação do status",
+              "tipo_status": "Em Aberto",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o status para a venda balcão!"
+   }
+Vendas_Balcao - Cadastra uma parcela
+
+2.0.0 
+Requisição para cadastro de parcelas para a venda balcão, ao cadastrar novas parcelas para uma venda balcão as parcelas anteriores serão removidas
+
+POST
+https://api.vhsys.com/v2/vendas-balcao/:id_frente/parcelas
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/vendas-balcao/:id_frente/parcelas \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '[{
+        "data_parcela":"0000-00-00",
+        "valor_parcela":"00.00",
+        "forma_pagamento":"Forma de pagamento",
+        "observacoes_parcela":"Observação"
+    },{
+        "data_parcela":"0000-00-00",
+        "valor_parcela":"00.00",
+        "forma_pagamento":"Forma de pagamento",
+        "observacoes_parcela":"Observação"
+    }]'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_frente	Integer	
+ID da venda balcão (Consultar vendas balcão disponíveis)
+
+data_parcela	Date	
+Data da parcela
+
+Valores permitidos: YYYY-MM-DD
+
+valor_parcela	Decimal	
+Valor da parcela
+
+Faixa de tamanho: 10,2
+
+forma_pagamento opcional	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+observacoes_parcela opcional	String	
+Observação da parcela
+
+Faixa de tamanho: 255
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_frente	Integer	
+ID da venda balcão (Consultar vendas balcão disponíveis)
+
+  data_parcela	Date	
+Data da parcela
+
+  valor_parcela	Decimal	
+Valor da parcela
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  observacoes_parcela	String	
+Observação da parcela
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_frente": 1233456,
+              "data_parcela": "0000-00-00",
+              "valor_parcela": "00.00",
+              "forma_pagamento": "Forma de pagamento",
+              "observacoes_parcela": "Observação"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar a parcela para a venda balcão!"
+   }
+Vendas_Balcao - Excluir um produto
+
+2.0.0 
+Requisição para deletar um produto de uma venda balcão
+
+DELETE
+https://api.vhsys.com/v2/vendas-balcao/:id_frente/produtos/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/vendas-balcao/:id_frente/produtos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_frente	Integer	
+ID da venda balcão (Consultar vendas balcão disponíveis)
+
+:id	Integer	
+ID do vínculo produto/venda balcão
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_produto	Integer	
+ID vínculo produto/venda balcão
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_ped_produto": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar o produto da venda balcão!"
+   }
+Vendas_Balcao - Lista de parcelas
+
+2.0.0 
+Requisição para a consulta das parcelas de uma venda balcão
+
+GET
+https://api.vhsys.com/v2/vendas-balcao/:id_frente/parcelas
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/vendas-balcao/:id_frente/parcelas \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_frente	Integer	
+ID da venda balcão (Consultar vendas balcão disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_frente	Integer	
+ID da venda balcão (Consultar vendas balcão disponíveis)
+
+  data_parcela	Date	
+Data da parcela
+
+  valor_parcela	Decimal	
+Valor da parcela
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  observacoes_parcela	String	
+Observação da parcela
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_frente": 1233456,
+              "data_parcela": "0000-00-00",
+              "valor_parcela": "00.00",
+              "forma_pagamento": "Forma de pagamento",
+              "observacoes_parcela": "Observação"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma parcela para a venda balcão encontrada!"
+   }
+Vendas_Balcao - Lista de produtos
+
+2.0.0 
+Requisição para a consulta de diversos produtos da venda balcão
+
+GET
+https://api.vhsys.com/v2/vendas-balcao/:id_frente/produtos
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/vendas-balcao/:id_frente/produtos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_frente	Integer	
+ID da venda balcão (Consultar vendas balcão disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_produto	Integer	
+Id do vínculo produto/venda balcão
+
+  id_frente	Integer	
+ID da venda balcão (Consultar vendas balcão disponíveis)
+
+  id_produto	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+  cod_produto	String	
+Código do produto
+
+  desc_produto	String	
+Nome do produto (Consultar produtos disponíveis)
+
+  qtde_produto	Decimal	
+Quantidade de produtos
+
+  valor_unit_produto	Decimal	
+Valor unitário do produto
+
+  valor_custo_produto	Decimal	
+Valor de custo do produto
+
+  valor_total_produto	Decimal	
+Valor total do produto
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ped_produto": 123456,
+              "id_frente": 123456,
+              "id_produto": 12346,
+              "cod_produto": "CODIGODOPRODUTO",
+              "desc_produto": "Nome do produto",
+              "qtde_produto": "0.00",
+              "valor_unit_produto": "0.00",
+              "valor_custo_produto": "0.00",
+              "valor_total_produto": "0.00",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum produto para a venda balcão encontrada!"
+   }
+Vendas_Balcao - Lista de status
+
+2.0.0 
+Requisição para a consulta dos status da venda balcão
+
+GET
+https://api.vhsys.com/v2/vendas-balcao/:id_frente/status
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/vendas-balcao/:id_frente/status \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_frente	Integer	
+ID da venda balcão (Consultar vendas balcão disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_status	Integer	
+Id do status
+
+  id_frente	Integer	
+ID da venda balcão (Consultar vendas balcão disponíveis)
+
+  data_status	Data	
+Data de cadastro do status
+
+  obs_status	String	
+Descrição do status
+
+  tipo_status	String	
+Tipo do status
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_status": 123456,
+              "id_frente": 1234,
+              "data_status": "0000-00-00",
+              "obs_status": "Observação do status",
+              "tipo_status": "Em Aberto",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum status para a venda balcão encontrada!"
+   }

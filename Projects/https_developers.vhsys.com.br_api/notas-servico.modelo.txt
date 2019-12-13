@@ -1,0 +1,2323 @@
+Notas servico
+
+Notas_servico - Cadastrar uma nota fiscal
+
+2.0.0 
+Requisição para cadastro de notas fiscais de serviço
+
+POST
+https://api.vhsys.com/v2/notas-servico
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/notas-servico \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "serie_nota" : 1234,
+        "id_cliente" : 123456,
+        "nome_cliente" : "Nome do cliente",
+        "vendedor_pedido" : "Nome do vendedor",
+        "vendedor_pedido_id" : 123456,
+        "desc_servicos" : "Descrição do serviço",
+        "valor_total_servicos" : "0.00",
+        "valor_deducoes" : "0.00",
+        "valor_incondicionado" : "0.00",
+        "valor_condicionado" : "0.00",
+        "valor_base_calculo" : "0.00",
+        "valor_aliquota" : "0.00",
+        "valor_imposto" : "0.00",
+        "reter_iss" : 0,
+        "aliq_cofins" : "0.00",
+        "valor_cofins" : "0.00",
+        "aliq_pis" : "0.00",
+        "valor_pis" : "0.00",
+        "aliq_contribuicao" : "0.00",
+        "valor_contribuicao" : "0.00",
+        "aliq_ir" : "0.00",
+        "valor_ir" : "0.00",
+        "aliq_iss" : "0.00",
+        "valor_iss" : "0.00",
+        "reter_cofins" : 0,
+        "reter_pis" : 0,
+        "reter_csll" : 0,
+        "reter_ir" : 0,
+        "reter_inss" : 0,
+        "valor_total_nota" : "0.00",
+        "valor_aliq_tributos" : "0.00",
+        "valor_tributos" : "0.00",
+        "valor_aliq_tributos_mun" : "0.00",
+        "valor_tributos_mun" : "0.00",
+        "regime_pedido" : 1,
+        "natureza_pedido" : 1,
+        "local_prestacao" : 1,
+        "local_prestacao_cidade" : "Nome da cidade",
+        "local_prestacao_cidade_cod" : "Código da IBGE cidade",
+        "obs_pedido" : "Observação da nota de serviço",
+        "obs_interno_pedido" : "Observação interna da nota de serviço",
+        "status_pedido" : "Cancelado",
+        "ambiente" : 1,
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 255
+
+desc_servicos	String	
+Descrição do serviço
+
+valor_total_servicos	Decimal	
+Valor das despesas
+
+Faixa de tamanho: 10,2
+
+ambiente	Integer	
+Ambiente de emissão
+1 - Produção / 2 - Homologação
+
+Faixa de tamanho: 0-9
+
+serie_nota opcional	Integer	
+Serie da nota fiscal
+
+Faixa de tamanho: 0-9
+
+id_cliente opcional	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 0-9
+
+vendedor_pedido opcional	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 255
+
+vendedor_pedido_id opcional	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 0-9
+
+valor_deducoes opcional	Decimal	
+Valor das deduções
+
+Faixa de tamanho: 10,2
+
+valor_incondicionado opcional	Decimal	
+Valor incondicionado
+
+Faixa de tamanho: 10,2
+
+valor_condicionado opcional	Decimal	
+Valor condicionado
+
+Faixa de tamanho: 10,2
+
+valor_base_calculo opcional	Decimal	
+Valor da base de calculo
+
+Faixa de tamanho: 10,2
+
+valor_aliquota opcional	Decimal	
+Valor da alíquota
+
+Faixa de tamanho: 10,2
+
+valor_imposto opcional	Decimal	
+Valor dos impostos
+
+Faixa de tamanho: 10,2
+
+reter_iss opcional	Enum	
+Reter ISS
+
+Valores permitidos: 0, 1
+
+reter_cofins opcional	Enum	
+Reter COFINS
+
+Valores permitidos: 0, 1
+
+reter_pis opcional	Enum	
+Reter PIS
+
+Valores permitidos: 0, 1
+
+reter_csll opcional	Enum	
+Reter CSLL
+
+Valores permitidos: 0, 1
+
+reter_ir opcional	Enum	
+Reter IRR
+
+Valores permitidos: 0, 1
+
+reter_inss opcional	Enum	
+Reter INSS
+
+Valores permitidos: 0, 1
+
+aliq_cofins opcional	Decimal	
+Alíquota de cofins
+
+Faixa de tamanho: 10,2
+
+aliq_pis opcional	Decimal	
+Alíquota de PIS
+
+Faixa de tamanho: 10,2
+
+aliq_contribuicao opcional	Decimal	
+Alíquota de contribuição
+
+Faixa de tamanho: 10,2
+
+aliq_ir opcional	Decimal	
+Alíquota de IRR
+
+Faixa de tamanho: 10,2
+
+aliq_iss opcional	Decimal	
+Alíquota de ISS
+
+Faixa de tamanho: 10,2
+
+valor_cofins opcional	Decimal	
+Valor COFINS
+
+Faixa de tamanho: 10,2
+
+valor_pis opcional	Decimal	
+Valor PIS
+
+Faixa de tamanho: 10,2
+
+valor_contribuicao opcional	Decimal	
+Valor Contribuição
+
+Faixa de tamanho: 10,2
+
+valor_ir opcional	Decimal	
+Valor de IRR
+
+Faixa de tamanho: 10,2
+
+valor_iss opcional	Decimal	
+Valor de ISS
+
+Faixa de tamanho: 10,2
+
+valor_total_nota opcional	Decimal	
+Valor total da nota
+
+Faixa de tamanho: 10,2
+
+valor_aliq_tributos opcional	Decimal	
+Valor Alíquota dos tributos
+
+Faixa de tamanho: 10,2
+
+valor_tributos opcional	Decimal	
+Valor dos tributos
+
+Faixa de tamanho: 10,2
+
+valor_aliq_tributos_mun opcional	Decimal	
+Valor Alíquota dos tributos do município
+
+Faixa de tamanho: 10,2
+
+valor_tributos_mun opcional	Decimal	
+Valor dos tributos do município
+
+Faixa de tamanho: 10,2
+
+regime_pedido opcional	String	
+Regime de tributação (Consulte tabelas auxiliares)
+
+Faixa de tamanho: 0-4
+
+natureza_pedido opcional	String	
+Natureza da operação (Consulte tabelas auxiliares)
+
+Faixa de tamanho: 0-60
+
+local_prestacao opcional	Integer	
+Local da prestação do serviço (Consulte tabelas auxiliares)
+
+Faixa de tamanho: 0-4
+
+local_prestacao_cidade opcional	String	
+Nome da cidade da prestação do serviço
+
+Faixa de tamanho: 0-60
+
+local_prestacao_cidade_cod opcional	String	
+Código IBGE da cidade da prestação do serviço
+
+Faixa de tamanho: 0-60
+
+obs_pedido opcional	String	
+Observações da nota fiscal
+
+obs_interno_pedido opcional	String	
+Observação interna da nota fiscal
+
+status_pedido opcional	Enum	
+Status da nota fiscal
+
+Valores permitidos: Em Aberto, Em Andamento, Atendido, Cancelado
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_servico	Integer	
+ID do serviço
+
+  serie_nota	Integer	
+Número de serie da nota
+
+  id_pedido	Integer	
+ID Sequencial da nota
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vendedor_pedido	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+  vendedor_pedido_id	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+  desc_servicos	String	
+Descrição do serviço
+
+  valor_total_servicos	Decimal	
+Valor total do serviço
+
+  valor_deducoes	Decimal	
+Valor total das deduções
+
+  valor_incondicionado	Decimal	
+Valor incondicionado
+
+  valor_condicionado	Decimal	
+Valor condicionado
+
+  valor_base_calculo	Decimal	
+Valor da base de calculo
+
+  valor_aliquota	Decimal	
+Valor da alíquota
+
+  valor_imposto	Decimal	
+Valor dos impostos
+
+  aliq_cofins	Decimal	
+Valor da alíquota COFINS
+
+  valor_cofins	Decimal	
+Valor do COFINS
+
+  reter_cofins	Enum	
+Reter COFINS
+
+  aliq_pis	Decimal	
+Valor da alíquota PIS
+
+  valor_pis	Decimal	
+Valor do PIS
+
+  reter_pis	Enum	
+Reter PIS
+
+  aliq_contribuicao	Decimal	
+Valor da alíquota contribuicao
+
+  valor_contribuicao	Decimal	
+Valor da contribuicao
+
+  reter_csll	Enum	
+Reter CSLL
+
+  aliq_ir	Decimal	
+Valor da alíquota IR
+
+  valor_ir	Decimal	
+Valor do IR
+
+  reter_ir	Enum	
+Reter IR
+
+  aliq_iss	Decimal	
+Valor da alíquota ISS
+
+  valor_iss	Decimal	
+Valor do ISS
+
+  reter_iss	Enum	
+Reter ISS
+
+  reter_inss	Enum	
+Reter INSS
+
+  valor_total_nota	Decimal	
+Valor total da nota
+
+  valor_aliq_tributos	Decimal	
+Valor alíquota dos tributos
+
+  valor_tributos	Decimal	
+Valor dos tributos
+
+  valor_aliq_tributos_mun	Decimal	
+Valor alíquota dos tributos do município
+
+  valor_tributos_mun	Decimal	
+Valor dos tributos do município
+
+  condicao_pagamento	Integer	
+Númeto total de parcelas
+
+  regime_pedido	Integer	
+Regime de tributação (Consulte tabelas auxiliares)
+
+  natureza_pedido	String	
+Natureza da operação (Consulte tabelas auxiliares)
+
+  local_prestacao	Integer	
+Local da prestação do serviço (Consulte tabelas auxiliares)
+
+  local_prestacao_cidade	String	
+Cidade da prestação dos serviço
+
+  local_prestacao_cidade_cod	Integer	
+Código da cidade da prestação dos serviço
+
+  obs_pedido	String	
+Observações da nota fiscal de serviço
+
+  obs_interno_pedido	String	
+Observações internas da nota fiscal de serviço
+
+  status_pedido	Enum	
+Status da nota fiscal de serviço
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  comissao_pedido	Integer	
+Comissão Lançada
+
+  boletos_pedido	Integer	
+Boleto gerado
+
+  nota_emitida	Integer	
+Se a nota fiscal foi emitida
+
+  nota_chave	String	
+Chave da nota fiscal
+
+  nota_protocolo	String	
+Protocolo da nota fiscal
+
+  nota_numero_nfse	String	
+Numero da NFSe
+
+  nota_recibo_lote	String	
+Numero do recibo NFSe
+
+  nota_data_autorizacao	Date	
+Data da autorização da nota fiscal
+
+  nota_usuario_autorizacao	Integer	
+Usuário que emitiu a nota fiscal
+
+  nota_usuario_cancelamento	Integer	
+Usuário que cancelou a nota
+
+  data_cad_pedido	Date	
+Data de cadastro da nota fiscal de serviço
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  ambiente	Integer	
+Ambiente de emissão
+1 - Produção / 2 - Homologação
+
+  lixeira	Enum	
+Situação da nota fiscal de serviço no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_servico": 123456,
+              "serie_nota": "123",
+              "id_pedido": 12345679,
+              "id_cliente": 123456,
+              "nome_cliente": "Nome do cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 123456,
+              "desc_servicos": "Descrição do serviço",
+              "valor_total_servicos": "0.00",
+              "valor_deducoes": "0.00",
+              "valor_incondicionado": "0.00",
+              "valor_condicionado": "0.00",
+              "valor_base_calculo": "0.00",
+              "valor_aliquota": "0.00",
+              "valor_imposto": "0.00",
+              "reter_iss": 0,
+              "aliq_cofins": "0.00",
+              "valor_cofins": "0.00",
+              "aliq_pis": "0.00",
+              "valor_pis": "0.00",
+              "aliq_contribuicao": "0.00",
+              "valor_contribuicao": "0.00",
+              "aliq_ir": "0.00",
+              "valor_ir": "0.00",
+              "aliq_iss": "8.00",
+              "valor_iss": "0.00",
+              "reter_cofins": 1,
+              "reter_pis": 1,
+              "reter_csll": 1,
+              "reter_ir": 1,
+              "reter_inss": 1,
+              "valor_total_nota": "0.00",
+              "valor_aliq_tributos": "0.00",
+              "valor_tributos": "0.00",
+              "valor_aliq_tributos_mun": "0.00",
+              "valor_tributos_mun": "0.00",
+              "condicao_pagamento": 2,
+              "regime_pedido": 1,
+              "natureza_pedido": "",
+              "local_prestacao": 0,
+              "local_prestacao_cidade": "Nome da cidade",
+              "local_prestacao_cidade_cod": "123456789",
+              "obs_pedido": "Observação da nota",
+              "obs_interno_pedido": "Observação interna da nota",
+              "status_pedido": "Cancelado",
+              "contas_pedido": 0,
+              "comissao_pedido": 0,
+              "boletos_pedido": 0,
+              "nota_emitida": 0,
+              "nota_chave": "",
+              "nota_protocolo": "",
+              "nota_numero_nfse": 0,
+              "nota_recibo_lote": "",
+              "nota_data_autorizacao": "",
+              "nota_usuario_autorizacao": "",
+              "nota_data_cancelamento": "0000-00-00 00:00:00",
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "ambiente": 1,
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar a nota fiscal!"
+   }
+Notas_servico - Alterar uma nota fiscal
+
+2.0.0 
+Requisição para alterar uma nota fiscal de serviço
+
+PUT
+https://api.vhsys.com/v2/notas-servico/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/notas-servico/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "serie_nota" : 1234,
+        "id_cliente" : 123456,
+        "nome_cliente" : "Nome do cliente",
+        "vendedor_pedido" : "Nome do vendedor",
+        "vendedor_pedido_id" : 123456,
+        "desc_servicos" : "Descrição do serviço",
+        "valor_total_servicos" : "0.00",
+        "valor_deducoes" : "0.00",
+        "valor_incondicionado" : "0.00",
+        "valor_condicionado" : "0.00",
+        "valor_base_calculo" : "0.00",
+        "valor_aliquota" : "0.00",
+        "valor_imposto" : "0.00",
+        "reter_iss" : 0,
+        "aliq_cofins" : "0.00",
+        "valor_cofins" : "0.00",
+        "aliq_pis" : "0.00",
+        "valor_pis" : "0.00",
+        "aliq_contribuicao" : "0.00",
+        "valor_contribuicao" : "0.00",
+        "aliq_ir" : "0.00",
+        "valor_ir" : "0.00",
+        "aliq_iss" : "0.00",
+        "valor_iss" : "0.00",
+        "reter_cofins" : 0,
+        "reter_pis" : 0,
+        "reter_csll" : 0,
+        "reter_ir" : 0,
+        "reter_inss" : 0,
+        "valor_total_nota" : "0.00",
+        "valor_aliq_tributos" : "0.00",
+        "valor_tributos" : "0.00",
+        "valor_aliq_tributos_mun" : "0.00",
+        "valor_tributos_mun" : "0.00",
+        "regime_pedido" : 1,
+        "natureza_pedido" : 1,
+        "local_prestacao" : 1,
+        "local_prestacao_cidade" : "Nome da cidade",
+        "local_prestacao_cidade_cod" : "Código da IBGE cidade",
+        "obs_pedido" : "Observação da nota de serviço",
+        "obs_interno_pedido" : "Observação interna da nota de serviço",
+        "status_pedido" : "Cancelado",
+        "ambiente" : 1
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID do serviço
+
+Faixa de tamanho: 9
+
+serie_nota opcional	Integer	
+Serie da nota fiscal
+
+Faixa de tamanho: 0-9
+
+id_cliente opcional	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 0-9
+
+nome_cliente opcional	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 255
+
+vendedor_pedido opcional	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 255
+
+vendedor_pedido_id opcional	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 0-9
+
+desc_servicos opcional	String	
+Descrição do serviço
+
+valor_total_servicos opcional	Decimal	
+Valor das despesas
+
+Faixa de tamanho: 10,2
+
+valor_deducoes opcional	Decimal	
+Valor das deduções
+
+Faixa de tamanho: 10,2
+
+valor_incondicionado opcional	Decimal	
+Valor incondicionado
+
+Faixa de tamanho: 10,2
+
+valor_condicionado opcional	Decimal	
+Valor condicionado
+
+Faixa de tamanho: 10,2
+
+valor_base_calculo opcional	Decimal	
+Valor da base de calculo
+
+Faixa de tamanho: 10,2
+
+valor_aliquota opcional	Decimal	
+Valor da alíquota
+
+Faixa de tamanho: 10,2
+
+valor_imposto opcional	Decimal	
+Valor dos impostos
+
+Faixa de tamanho: 10,2
+
+reter_iss opcional	Enum	
+Reter ISS
+
+Valores permitidos: 0, 1
+
+reter_cofins opcional	Enum	
+Reter COFINS
+
+Valores permitidos: 0, 1
+
+reter_pis opcional	Enum	
+Reter PIS
+
+Valores permitidos: 0, 1
+
+reter_csll opcional	Enum	
+Reter CSLL
+
+Valores permitidos: 0, 1
+
+reter_ir opcional	Enum	
+Reter IRR
+
+Valores permitidos: 0, 1
+
+reter_inss opcional	Enum	
+Reter INSS
+
+Valores permitidos: 0, 1
+
+aliq_cofins opcional	Decimal	
+Alíquota de cofins
+
+Faixa de tamanho: 10,2
+
+aliq_pis opcional	Decimal	
+Alíquota de PIS
+
+Faixa de tamanho: 10,2
+
+aliq_contribuicao opcional	Decimal	
+Alíquota de contribuição
+
+Faixa de tamanho: 10,2
+
+aliq_ir opcional	Decimal	
+Alíquota de IRR
+
+Faixa de tamanho: 10,2
+
+aliq_iss opcional	Decimal	
+Alíquota de ISS
+
+Faixa de tamanho: 10,2
+
+valor_cofins opcional	Decimal	
+Valor COFINS
+
+Faixa de tamanho: 10,2
+
+valor_pis opcional	Decimal	
+Valor PIS
+
+Faixa de tamanho: 10,2
+
+valor_contribuicao opcional	Decimal	
+Valor Contribuição
+
+Faixa de tamanho: 10,2
+
+valor_ir opcional	Decimal	
+Valor de IRR
+
+Faixa de tamanho: 10,2
+
+valor_iss opcional	Decimal	
+Valor de ISS
+
+Faixa de tamanho: 10,2
+
+valor_total_nota opcional	Decimal	
+Valor total da nota
+
+Faixa de tamanho: 10,2
+
+valor_aliq_tributos opcional	Decimal	
+Valor Alíquota dos tributos
+
+Faixa de tamanho: 10,2
+
+valor_tributos opcional	Decimal	
+Valor dos tributos
+
+Faixa de tamanho: 10,2
+
+valor_aliq_tributos_mun opcional	Decimal	
+Valor Alíquota dos tributos do município
+
+Faixa de tamanho: 10,2
+
+valor_tributos_mun opcional	Decimal	
+Valor dos tributos do município
+
+Faixa de tamanho: 10,2
+
+regime_pedido opcional	String	
+Regime de tributação (Consulte tabelas auxiliares)
+
+Faixa de tamanho: 0-4
+
+natureza_pedido opcional	String	
+Natureza da operação (Consulte tabelas auxiliares)
+
+Faixa de tamanho: 0-60
+
+local_prestacao opcional	Integer	
+Local da prestação do serviço (Consulte tabelas auxiliares)
+
+Faixa de tamanho: 0-4
+
+local_prestacao_cidade opcional	String	
+Nome da cidade da prestação do serviço
+
+Faixa de tamanho: 0-60
+
+local_prestacao_cidade_cod opcional	String	
+Código IBGE da cidade da prestação do serviço
+
+Faixa de tamanho: 0-60
+
+obs_pedido opcional	String	
+Observações da nota fiscal
+
+obs_interno_pedido opcional	String	
+Observação interna da nota fiscal
+
+status_pedido opcional	Enum	
+Status da nota fiscal
+
+Valores permitidos: Em Aberto, Em Andamento, Atendido, Cancelado
+
+ambiente opcional	Integer	
+Ambiente de emissão
+1 - Produção / 2 - Homologação
+
+Faixa de tamanho: 0-9
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_servico	Integer	
+ID do serviço
+
+  serie_nota	Integer	
+Número de serie da nota
+
+  id_pedido	Integer	
+ID Sequencial da nota
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vendedor_pedido	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+  vendedor_pedido_id	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+  desc_servicos	String	
+Descrição do serviço
+
+  valor_total_servicos	Decimal	
+Valor total do serviço
+
+  valor_deducoes	Decimal	
+Valor total das deduções
+
+  valor_incondicionado	Decimal	
+Valor incondicionado
+
+  valor_condicionado	Decimal	
+Valor condicionado
+
+  valor_base_calculo	Decimal	
+Valor da base de calculo
+
+  valor_aliquota	Decimal	
+Valor da alíquota
+
+  valor_imposto	Decimal	
+Valor dos impostos
+
+  aliq_cofins	Decimal	
+Valor da alíquota COFINS
+
+  valor_cofins	Decimal	
+Valor do COFINS
+
+  reter_cofins	Enum	
+Reter COFINS
+
+  aliq_pis	Decimal	
+Valor da alíquota PIS
+
+  valor_pis	Decimal	
+Valor do PIS
+
+  reter_pis	Enum	
+Reter PIS
+
+  aliq_contribuicao	Decimal	
+Valor da alíquota contribuicao
+
+  valor_contribuicao	Decimal	
+Valor da contribuicao
+
+  reter_csll	Enum	
+Reter CSLL
+
+  aliq_ir	Decimal	
+Valor da alíquota IR
+
+  valor_ir	Decimal	
+Valor do IR
+
+  reter_ir	Enum	
+Reter IR
+
+  aliq_iss	Decimal	
+Valor da alíquota ISS
+
+  valor_iss	Decimal	
+Valor do ISS
+
+  reter_iss	Enum	
+Reter ISS
+
+  reter_inss	Enum	
+Reter INSS
+
+  valor_total_nota	Decimal	
+Valor total da nota
+
+  valor_aliq_tributos	Decimal	
+Valor alíquota dos tributos
+
+  valor_tributos	Decimal	
+Valor dos tributos
+
+  valor_aliq_tributos_mun	Decimal	
+Valor alíquota dos tributos do município
+
+  valor_tributos_mun	Decimal	
+Valor dos tributos do município
+
+  condicao_pagamento	Integer	
+Númeto total de parcelas
+
+  regime_pedido	Integer	
+Regime de tributação (Consulte tabelas auxiliares)
+
+  natureza_pedido	String	
+Natureza da operação (Consulte tabelas auxiliares)
+
+  local_prestacao	Integer	
+Local da prestação do serviço (Consulte tabelas auxiliares)
+
+  local_prestacao_cidade	String	
+Cidade da prestação dos serviço
+
+  local_prestacao_cidade_cod	Integer	
+Código da cidade da prestação dos serviço
+
+  obs_pedido	String	
+Observações da nota fiscal de serviço
+
+  obs_interno_pedido	String	
+Observações internas da nota fiscal de serviço
+
+  status_pedido	Enum	
+Status da nota fiscal de serviço
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  comissao_pedido	Integer	
+Comissão Lançada
+
+  boletos_pedido	Integer	
+Boleto gerado
+
+  nota_emitida	Integer	
+Se a nota fiscal foi emitida
+
+  nota_chave	String	
+Chave da nota fiscal
+
+  nota_protocolo	String	
+Protocolo da nota fiscal
+
+  nota_numero_nfse	String	
+Numero da NFSe
+
+  nota_recibo_lote	String	
+Numero do recibo NFSe
+
+  nota_data_autorizacao	Date	
+Data da autorização da nota fiscal
+
+  nota_usuario_autorizacao	Integer	
+Usuário que emitiu a nota fiscal
+
+  nota_usuario_cancelamento	Integer	
+Usuário que cancelou a nota
+
+  data_cad_pedido	Date	
+Data de cadastro da nota fiscal de serviço
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  ambiente	Integer	
+Ambiente de emissão
+1 - Produção / 2 - Homologação
+
+  lixeira	Enum	
+Situação da nota fiscal de serviço no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_servico": 123456,
+              "serie_nota": "123",
+              "id_pedido": 12345679,
+              "id_cliente": 123456,
+              "nome_cliente": "Nome do cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 123456,
+              "desc_servicos": "Descrição do serviço",
+              "valor_total_servicos": "0.00",
+              "valor_deducoes": "0.00",
+              "valor_incondicionado": "0.00",
+              "valor_condicionado": "0.00",
+              "valor_base_calculo": "0.00",
+              "valor_aliquota": "0.00",
+              "valor_imposto": "0.00",
+              "reter_iss": 0,
+              "aliq_cofins": "0.00",
+              "valor_cofins": "0.00",
+              "aliq_pis": "0.00",
+              "valor_pis": "0.00",
+              "aliq_contribuicao": "0.00",
+              "valor_contribuicao": "0.00",
+              "aliq_ir": "0.00",
+              "valor_ir": "0.00",
+              "aliq_iss": "8.00",
+              "valor_iss": "0.00",
+              "reter_cofins": 1,
+              "reter_pis": 1,
+              "reter_csll": 1,
+              "reter_ir": 1,
+              "reter_inss": 1,
+              "valor_total_nota": "0.00",
+              "valor_aliq_tributos": "0.00",
+              "valor_tributos": "0.00",
+              "valor_aliq_tributos_mun": "0.00",
+              "valor_tributos_mun": "0.00",
+              "condicao_pagamento": 2,
+              "regime_pedido": 1,
+              "natureza_pedido": "",
+              "local_prestacao": 0,
+              "local_prestacao_cidade": "Nome da cidade",
+              "local_prestacao_cidade_cod": "123456789",
+              "obs_pedido": "Observação da nota",
+              "obs_interno_pedido": "Observação interna da nota",
+              "status_pedido": "Cancelado",
+              "contas_pedido": 0,
+              "comissao_pedido": 0,
+              "boletos_pedido": 0,
+              "nota_emitida": 0,
+              "nota_chave": "",
+              "nota_protocolo": "",
+              "nota_numero_nfse": 0,
+              "nota_recibo_lote": "",
+              "nota_data_autorizacao": "",
+              "nota_usuario_autorizacao": "",
+              "nota_data_cancelamento": "0000-00-00 00:00:00",
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "ambiente": 1,
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar a nota fiscal!"
+   }
+Notas_servico - Excluir uma nota fiscal
+
+2.0.0 
+Requisição para deletar uma nota fiscal de serviço, a nota fiscal deletada por ser encontrada com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/notas-servico/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/notas-servico/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da nota fiscal de serviço
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_servico	Integer	
+ID do nota fiscal de serviço
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_servico": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar a nota fiscal!"
+   }
+Notas_servico - Consultar nota fiscal
+
+2.0.0 
+Requisição para a consulta de dados da nota fiscal de serviço
+
+GET
+https://api.vhsys.com/v2/notas-servico/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/notas-servico/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID do serviço
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_servico	Integer	
+ID do serviço
+
+  serie_nota	Integer	
+Número de serie da nota
+
+  id_pedido	Integer	
+ID Sequencial da nota
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vendedor_pedido	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+  vendedor_pedido_id	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+  desc_servicos	String	
+Descrição do serviço
+
+  valor_total_servicos	Decimal	
+Valor total do serviço
+
+  valor_deducoes	Decimal	
+Valor total das deduções
+
+  valor_incondicionado	Decimal	
+Valor incondicionado
+
+  valor_condicionado	Decimal	
+Valor condicionado
+
+  valor_base_calculo	Decimal	
+Valor da base de calculo
+
+  valor_aliquota	Decimal	
+Valor da alíquota
+
+  valor_imposto	Decimal	
+Valor dos impostos
+
+  aliq_cofins	Decimal	
+Valor da alíquota COFINS
+
+  valor_cofins	Decimal	
+Valor do COFINS
+
+  reter_cofins	Enum	
+Reter COFINS
+
+  aliq_pis	Decimal	
+Valor da alíquota PIS
+
+  valor_pis	Decimal	
+Valor do PIS
+
+  reter_pis	Enum	
+Reter PIS
+
+  aliq_contribuicao	Decimal	
+Valor da alíquota contribuicao
+
+  valor_contribuicao	Decimal	
+Valor da contribuicao
+
+  reter_csll	Enum	
+Reter CSLL
+
+  aliq_ir	Decimal	
+Valor da alíquota IR
+
+  valor_ir	Decimal	
+Valor do IR
+
+  reter_ir	Enum	
+Reter IR
+
+  aliq_iss	Decimal	
+Valor da alíquota ISS
+
+  valor_iss	Decimal	
+Valor do ISS
+
+  reter_iss	Enum	
+Reter ISS
+
+  reter_inss	Enum	
+Reter INSS
+
+  valor_total_nota	Decimal	
+Valor total da nota
+
+  valor_aliq_tributos	Decimal	
+Valor alíquota dos tributos
+
+  valor_tributos	Decimal	
+Valor dos tributos
+
+  valor_aliq_tributos_mun	Decimal	
+Valor alíquota dos tributos do município
+
+  valor_tributos_mun	Decimal	
+Valor dos tributos do município
+
+  condicao_pagamento	Integer	
+Númeto total de parcelas
+
+  regime_pedido	Integer	
+Regime de tributação (Consulte tabelas auxiliares)
+
+  natureza_pedido	String	
+Natureza da operação (Consulte tabelas auxiliares)
+
+  local_prestacao	Integer	
+Local da prestação do serviço (Consulte tabelas auxiliares)
+
+  local_prestacao_cidade	String	
+Cidade da prestação dos serviço
+
+  local_prestacao_cidade_cod	Integer	
+Código da cidade da prestação dos serviço
+
+  obs_pedido	String	
+Observações da nota fiscal de serviço
+
+  obs_interno_pedido	String	
+Observações internas da nota fiscal de serviço
+
+  status_pedido	Enum	
+Status da nota fiscal de serviço
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  comissao_pedido	Integer	
+Comissão Lançada
+
+  boletos_pedido	Integer	
+Boleto gerado
+
+  nota_emitida	Integer	
+Se a nota fiscal foi emitida
+
+  nota_chave	String	
+Chave da nota fiscal
+
+  nota_protocolo	String	
+Protocolo da nota fiscal
+
+  nota_numero_nfse	String	
+Numero da NFSe
+
+  nota_recibo_lote	String	
+Numero do recibo NFSe
+
+  nota_data_autorizacao	Date	
+Data da autorização da nota fiscal
+
+  nota_usuario_autorizacao	Integer	
+Usuário que emitiu a nota fiscal
+
+  nota_usuario_cancelamento	Integer	
+Usuário que cancelou a nota
+
+  data_cad_pedido	Date	
+Data de cadastro da nota fiscal de serviço
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  ambiente	Integer	
+Ambiente de emissão
+1 - Produção / 2 - Homologação
+
+  lixeira	Enum	
+Situação da nota fiscal de serviço no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_servico": 123456,
+              "serie_nota": "123",
+              "id_pedido": 12345679,
+              "id_cliente": 123456,
+              "nome_cliente": "Nome do cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 123456,
+              "desc_servicos": "Descrição do serviço",
+              "valor_total_servicos": "0.00",
+              "valor_deducoes": "0.00",
+              "valor_incondicionado": "0.00",
+              "valor_condicionado": "0.00",
+              "valor_base_calculo": "0.00",
+              "valor_aliquota": "0.00",
+              "valor_imposto": "0.00",
+              "reter_iss": 0,
+              "aliq_cofins": "0.00",
+              "valor_cofins": "0.00",
+              "aliq_pis": "0.00",
+              "valor_pis": "0.00",
+              "aliq_contribuicao": "0.00",
+              "valor_contribuicao": "0.00",
+              "aliq_ir": "0.00",
+              "valor_ir": "0.00",
+              "aliq_iss": "8.00",
+              "valor_iss": "0.00",
+              "reter_cofins": 1,
+              "reter_pis": 1,
+              "reter_csll": 1,
+              "reter_ir": 1,
+              "reter_inss": 1,
+              "valor_total_nota": "0.00",
+              "valor_aliq_tributos": "0.00",
+              "valor_tributos": "0.00",
+              "valor_aliq_tributos_mun": "0.00",
+              "valor_tributos_mun": "0.00",
+              "condicao_pagamento": 2,
+              "regime_pedido": 1,
+              "natureza_pedido": "",
+              "local_prestacao": 0,
+              "local_prestacao_cidade": "Nome da cidade",
+              "local_prestacao_cidade_cod": "123456789",
+              "obs_pedido": "Observação da nota",
+              "obs_interno_pedido": "Observação interna da nota",
+              "status_pedido": "Cancelado",
+              "contas_pedido": 0,
+              "comissao_pedido": 0,
+              "boletos_pedido": 0,
+              "nota_emitida": 0,
+              "nota_chave": "",
+              "nota_protocolo": "",
+              "nota_numero_nfse": 0,
+              "nota_recibo_lote": "",
+              "nota_data_autorizacao": "",
+              "nota_usuario_autorizacao": "",
+              "nota_data_cancelamento": "0000-00-00 00:00:00",
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "ambiente": 1,
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma nota fiscal encontrada!"
+   }
+Notas_servico - Lista de notas fiscais
+
+2.0.0 
+Requisição para a consulta de diversas notas fiscais de serviço
+
+GET
+https://api.vhsys.com/v2/notas-servico
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/notas-servico \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+order opcional	String	
+Nome do campo para ordenação EX:data_mod_pedido
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+nome_cliente opcional	String	
+Nome do cliente
+
+vendedor opcional	String	
+Nome do vendedor
+
+valor_total opcional	String	
+Valor total da nota 
+buscar a partir de um valor: valor_total=10.00 
+buscar entre valores: valor_total=10.00,20.00
+
+status opcional	String	
+Status da nota
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+data_modificacao opcional	Date	
+Registros criados ou modificados após a data informada
+
+Valores permitidos: YYYY-MM-DD
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de notas fiscais no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_servico	Integer	
+ID do serviço
+
+  serie_nota	Integer	
+Número de serie da nota
+
+  id_pedido	Integer	
+ID Sequencial da nota
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vendedor_pedido	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+  vendedor_pedido_id	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+  desc_servicos	String	
+Descrição do serviço
+
+  valor_total_servicos	Decimal	
+Valor total do serviço
+
+  valor_deducoes	Decimal	
+Valor total das deduções
+
+  valor_incondicionado	Decimal	
+Valor incondicionado
+
+  valor_condicionado	Decimal	
+Valor condicionado
+
+  valor_base_calculo	Decimal	
+Valor da base de calculo
+
+  valor_aliquota	Decimal	
+Valor da alíquota
+
+  valor_imposto	Decimal	
+Valor dos impostos
+
+  aliq_cofins	Decimal	
+Valor da alíquota COFINS
+
+  valor_cofins	Decimal	
+Valor do COFINS
+
+  reter_cofins	Enum	
+Reter COFINS
+
+  aliq_pis	Decimal	
+Valor da alíquota PIS
+
+  valor_pis	Decimal	
+Valor do PIS
+
+  reter_pis	Enum	
+Reter PIS
+
+  aliq_contribuicao	Decimal	
+Valor da alíquota contribuicao
+
+  valor_contribuicao	Decimal	
+Valor da contribuicao
+
+  reter_csll	Enum	
+Reter CSLL
+
+  aliq_ir	Decimal	
+Valor da alíquota IR
+
+  valor_ir	Decimal	
+Valor do IR
+
+  reter_ir	Enum	
+Reter IR
+
+  aliq_iss	Decimal	
+Valor da alíquota ISS
+
+  valor_iss	Decimal	
+Valor do ISS
+
+  reter_iss	Enum	
+Reter ISS
+
+  reter_inss	Enum	
+Reter INSS
+
+  valor_total_nota	Decimal	
+Valor total da nota
+
+  valor_aliq_tributos	Decimal	
+Valor alíquota dos tributos
+
+  valor_tributos	Decimal	
+Valor dos tributos
+
+  valor_aliq_tributos_mun	Decimal	
+Valor alíquota dos tributos do município
+
+  valor_tributos_mun	Decimal	
+Valor dos tributos do município
+
+  condicao_pagamento	Integer	
+Númeto total de parcelas
+
+  regime_pedido	Integer	
+Regime de tributação (Consulte tabelas auxiliares)
+
+  natureza_pedido	String	
+Natureza da operação (Consulte tabelas auxiliares)
+
+  local_prestacao	Integer	
+Local da prestação do serviço (Consulte tabelas auxiliares)
+
+  local_prestacao_cidade	String	
+Cidade da prestação dos serviço
+
+  local_prestacao_cidade_cod	Integer	
+Código da cidade da prestação dos serviço
+
+  obs_pedido	String	
+Observações da nota fiscal de serviço
+
+  obs_interno_pedido	String	
+Observações internas da nota fiscal de serviço
+
+  status_pedido	Enum	
+Status da nota fiscal de serviço
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  comissao_pedido	Integer	
+Comissão Lançada
+
+  boletos_pedido	Integer	
+Boleto gerado
+
+  nota_emitida	Integer	
+Se a nota fiscal foi emitida
+
+  nota_chave	String	
+Chave da nota fiscal
+
+  nota_protocolo	String	
+Protocolo da nota fiscal
+
+  nota_numero_nfse	String	
+Numero da NFSe
+
+  nota_recibo_lote	String	
+Numero do recibo NFSe
+
+  nota_data_autorizacao	Date	
+Data da autorização da nota fiscal
+
+  nota_usuario_autorizacao	Integer	
+Usuário que emitiu a nota fiscal
+
+  nota_usuario_cancelamento	Integer	
+Usuário que cancelou a nota
+
+  data_cad_pedido	Date	
+Data de cadastro da nota fiscal de serviço
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  ambiente	Integer	
+Ambiente de emissão
+1 - Produção / 2 - Homologação
+
+  lixeira	Enum	
+Situação da nota fiscal de serviço no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_servico": 123456,
+              "serie_nota": "123",
+              "id_pedido": 12345679,
+              "id_cliente": 123456,
+              "nome_cliente": "Nome do cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 123456,
+              "desc_servicos": "Descrição do serviço",
+              "valor_total_servicos": "0.00",
+              "valor_deducoes": "0.00",
+              "valor_incondicionado": "0.00",
+              "valor_condicionado": "0.00",
+              "valor_base_calculo": "0.00",
+              "valor_aliquota": "0.00",
+              "valor_imposto": "0.00",
+              "reter_iss": 0,
+              "aliq_cofins": "0.00",
+              "valor_cofins": "0.00",
+              "aliq_pis": "0.00",
+              "valor_pis": "0.00",
+              "aliq_contribuicao": "0.00",
+              "valor_contribuicao": "0.00",
+              "aliq_ir": "0.00",
+              "valor_ir": "0.00",
+              "aliq_iss": "8.00",
+              "valor_iss": "0.00",
+              "reter_cofins": 1,
+              "reter_pis": 1,
+              "reter_csll": 1,
+              "reter_ir": 1,
+              "reter_inss": 1,
+              "valor_total_nota": "0.00",
+              "valor_aliq_tributos": "0.00",
+              "valor_tributos": "0.00",
+              "valor_aliq_tributos_mun": "0.00",
+              "valor_tributos_mun": "0.00",
+              "condicao_pagamento": 2,
+              "regime_pedido": 1,
+              "natureza_pedido": "",
+              "local_prestacao": 0,
+              "local_prestacao_cidade": "Nome da cidade",
+              "local_prestacao_cidade_cod": "123456789",
+              "obs_pedido": "Observação da nota",
+              "obs_interno_pedido": "Observação interna da nota",
+              "status_pedido": "Cancelado",
+              "contas_pedido": 0,
+              "comissao_pedido": 0,
+              "boletos_pedido": 0,
+              "nota_emitida": 0,
+              "nota_chave": "",
+              "nota_protocolo": "",
+              "nota_numero_nfse": 0,
+              "nota_recibo_lote": "",
+              "nota_data_autorizacao": "",
+              "nota_usuario_autorizacao": "",
+              "nota_data_cancelamento": "0000-00-00 00:00:00",
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "ambiente": 1,
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma nota fiscal encontrada!"
+   }
+Notas_servico - Cadastra um status
+
+2.0.0 
+Requisição para cadastro de status para a nota fiscal de serviço
+
+POST
+https://api.vhsys.com/v2/notas-servico/:id_servico/status
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/notas-servico/:id_servico/status \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        data_status : "0000-00-00",
+        obs_status : "Observação do status",
+        tipo_status : "Cancelado"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_servico	Integer	
+ID da nota fiscal de serviço (Consultar notas disponíveis)
+
+data_status	Date	
+Data do status
+
+Valores permitidos: YYYY-MM-DD
+
+tipo_status	Enum	
+Tipo do status
+
+Valores permitidos: Em Aberto, Em Andamento, Cancelado, Atendido
+
+obs_status opcional	String	
+Observação do status
+
+Faixa de tamanho: 255
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_status	Integer	
+Id do status
+
+  id_servico	Integer	
+ID da nota fiscal de serviço (Consultar notas disponíveis)
+
+  data_status	Data	
+Data de cadastro do status
+
+  obs_status	String	
+Descrição do status
+
+  tipo_status	String	
+Tipo do status
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_status": 123456,
+              "id_servico": 1234,
+              "data_status": "0000-00-00",
+              "obs_status": "Observação do status",
+              "tipo_status": "Em Aberto",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o status para a nota fiscal!"
+   }
+Notas_servico - Cadastra uma parcela
+
+2.0.0 
+Requisição para cadastro de parcelas para a nota fiscal de serviço, ao cadastrar novas parcelas para uma nota fiscal as parcelas anteriores serão removidas
+
+POST
+https://api.vhsys.com/v2/notas-servico/:id_servico/parcelas
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/notas-servico/:id_servico/parcelas \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '[{
+        "data_parcela":"0000-00-00",
+        "valor_parcela":"00.00",
+        "forma_pagamento":"Forma de pagamento",
+        "observacoes_parcela":"Observação"
+    },{
+        "data_parcela":"0000-00-00",
+        "valor_parcela":"00.00",
+        "forma_pagamento":"Forma de pagamento",
+        "observacoes_parcela":"Observação"
+    }]'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_servico	Integer	
+ID da nota fiscal de serviço (Consultar notas disponíveis)
+
+data_parcela	Date	
+Data da parcela
+
+Valores permitidos: YYYY-MM-DD
+
+valor_parcela	Decimal	
+Valor da parcela
+
+Faixa de tamanho: 10,2
+
+forma_pagamento opcional	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+observacoes_parcela opcional	String	
+Observação da parcela
+
+Faixa de tamanho: 255
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_servico	Integer	
+ID da nota fiscal de serviço (Consultar notas disponíveis)
+
+  data_parcela	Date	
+Data da parcela
+
+  valor_parcela	Decimal	
+Valor da parcela
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  observacoes_parcela	String	
+Observação da parcela
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_servico": 123456,
+              "data_parcela": "0000-00-00",
+              "valor_parcela": "00.00",
+              "forma_pagamento": "Forma de pagamento",
+              "observacoes_parcela": "Observação"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar a parcela para a nota fiscal!"
+   }
+Notas_servico - Emitir nota fiscal
+
+2.0.0 
+Requisição para emitir uma nota fiscal de serviço
+
+POST
+https://api.vhsys.com/v2/notas-servico/:id_servico/emitir
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/notas-servico/:id_servico/emitir \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID da venda (Consultar notas disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  Status	String	
+Status da emissão da NFe
+
+  xMotivo	String	
+Dados sobre a emissão
+
+  Protocolo	String	
+Protocolo da emissão
+
+  NumeroNFS	String	
+Numero da NFS
+
+  Chave	String	
+Chave de acesso da NFe
+
+  Danfe	String	
+Link da Danfe
+
+  DanfeErro	String	
+Erros encontrados
+
+  Ambiente	String	
+Ambiente da emissão da NFe
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "Status": 100,
+              "xMotivo": "100 - Autorizado o uso da NF-e",
+              "Protocolo": "1298936946516134195424",
+              "NumeroNFS":0123456789
+              "Chave": "745644565644254489552565444112329578911486675353",
+              "DanfeErro": "Erro referente a emissão",
+              "Ammbiente": "1",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao emitir a nota fiscal!"
+   }
+Notas_servico - Lista de parcelas
+
+2.0.0 
+Requisição para a consulta das parcelas de uma nota fiscal de serviço
+
+GET
+https://api.vhsys.com/v2/notas-servico/:id_servico/parcelas
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/notas-servico/:id_servico/parcelas \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_servico	Integer	
+ID da nota fiscal de serviço (Consultar notas disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_servico	Integer	
+ID da nota fiscal de serviço
+
+  data_parcela	Date	
+Data da parcela
+
+  valor_parcela	Decimal	
+Valor da parcela
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  observacoes_parcela	String	
+Observação da parcela
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_servico": 1233456,
+              "data_parcela": "0000-00-00",
+              "valor_parcela": "00.00",
+              "forma_pagamento": "Forma de pagamento",
+              "observacoes_parcela": "Observação"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma parcela para a nota fiscal encontrada!"
+   }
+Notas_servico - Lista de status
+
+2.0.0 
+Requisição para a consulta dos status da nota fiscal de serviço
+
+GET
+https://api.vhsys.com/v2/notas-servico/:id_servico/status
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/notas-servico/:id_servico/status \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_servico	Integer	
+ID da nota fiscal de serviço (Consultar notas disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_status	Integer	
+Id do status
+
+  id_servico	Integer	
+ID da nota fiscal de serviço (Consultar notas disponíveis)
+
+  data_status	Data	
+Data de cadastro do status
+
+  obs_status	String	
+Descrição do status
+
+  tipo_status	String	
+Tipo do status
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_status": 123456,
+              "id_servico": 1234,
+              "data_status": "0000-00-00",
+              "obs_status": "Observação do status",
+              "tipo_status": "Em Aberto",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum status para a nota encontrado!"
+   }

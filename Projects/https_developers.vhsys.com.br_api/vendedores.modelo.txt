@@ -1,0 +1,1148 @@
+Vendedores
+
+Vendedores - Cadastrar um vendedor
+
+2.0.0 
+Requisição para cadastro de vendedor
+
+POST
+https://api.vhsys.com/v2/vendedores
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/vendedores \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "tipo_pessoa" : "PF",
+        "cnpj_vendedor" : "000.000.000-00",
+        "razao_vendedor" : "Nome do vendedor",
+        "fantasia_vendedor" : "Nome fantasia do vendedor",
+        "endereco_vendedor" : "Endereço",
+        "numero_vendedor" : "0000",
+        "bairro_vendedor" : "Bairro",
+        "complemento_vendedor" : "Casa",
+        "cep_vendedor" : "00.000-000",
+        "cidade_vendedor" : "Nome da cidade",
+        "uf_vendedor" : "PR",
+        "contato_vendedor" : "Contato",
+        "fone_vendedor" : "(00) 0000-0000",
+        "fone_ramal_vendedor" : "000",
+        "celular_vendedor" : "(00) 0000-0000",
+        "email_vendedor" : "nome@email.com.br",
+        "website_vendedor" : "www.website.com.br",
+        "banco_vendedor" : "Nome do banco",
+        "banco_agencia" : "0000",
+        "banco_conta" : "00000-0",
+        "banco_salario" : "0000000.00",
+        "situacao_vendedor" : "Ativo",
+        "comissao_usuario" : "0.00",
+        "comissao_regra" : "1",
+        "observacoes_vendedor" : "Observação"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+razao_vendedor	String	
+Razão social ou nome
+
+Faixa de tamanho: 0-255
+
+tipo_pessoa opcional	Enum	
+Tipo do cadastro
+
+Valor padrão: PF
+
+Valores permitidos: PJ, PF
+
+cnpj_vendedor opcional	String	
+CNPJ / CPF do vendedor
+
+Faixa de tamanho: 0-18
+
+fantasia_vendedor opcional	String	
+Nome Fantasia
+
+Faixa de tamanho: 0-255
+
+endereco_vendedor opcional	String	
+Endereço
+
+Faixa de tamanho: 0-255
+
+numero_vendedor opcional	Integer	
+Número
+
+Faixa de tamanho: 0-7
+
+bairro_vendedor opcional	String	
+Bairro
+
+Faixa de tamanho: 0-45
+
+complemento_vendedor opcional	String	
+Complemento
+
+Faixa de tamanho: 0-45
+
+cep_vendedor opcional	String	
+CEP
+
+Faixa de tamanho: 0-10
+
+cidade_vendedor opcional	String	
+Cidade
+
+Faixa de tamanho: 0-255
+
+uf_vendedor opcional	String	
+Estado
+
+Faixa de tamanho: 0-2
+
+contato_vendedor opcional	String	
+Nome do contato do vendedor
+
+Faixa de tamanho: 0-255
+
+fone_vendedor opcional	String	
+Telefone do vendedor
+
+Faixa de tamanho: 0-20
+
+fone_ramal_vendedor opcional	String	
+Número do ramal
+
+Faixa de tamanho: 0-20
+
+celular_vendedor opcional	String	
+Celular do vendedor
+
+Faixa de tamanho: 0-20
+
+email_vendedor opcional	String	
+Email do vendedor
+
+Faixa de tamanho: 0-255
+
+website_vendedor opcional	String	
+Site do vendedor
+
+Faixa de tamanho: 0-50
+
+banco_vendedor opcional	String	
+Nome do banco
+
+Faixa de tamanho: 0-50
+
+banco_agencia opcional	String	
+Número da agencia
+
+Faixa de tamanho: 0-15
+
+banco_conta opcional	String	
+Número da conta
+
+Faixa de tamanho: 0-20
+
+banco_salario opcional	Decimal	
+Valor do salário do vendedor
+
+Faixa de tamanho: 10,2
+
+situacao_vendedor opcional	Enum	
+Status do vendedor
+
+Valor padrão: Ativo
+
+Valores permitidos: Ativo, Inativo
+
+comissao_usuario opcional	Decimal	
+Valor da comissão
+
+Faixa de tamanho: 10,2
+
+comissao_regra opcional	Integer	
+Regra para aplicar a comissão ( Tabelas auxiliares )
+
+Faixa de tamanho: 0-9
+
+observacoes_vendedor opcional	String	
+Observação do cadastro
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_vendedor	Integer	
+ID do vendedor
+
+  tipo_pessoa	Enum	
+Tipo do cadastro
+
+  cnpj_vendedor	String	
+CNPJ / CPF do vendedor
+
+  razao_vendedor	String	
+Razão social ou nome
+
+  fantasia_vendedor	String	
+Nome Fantasia
+
+  endereco_vendedor	String	
+Endereço
+
+  numero_vendedor	Integer	
+Número
+
+  bairro_vendedor	String	
+Bairro
+
+  complemento_vendedor	String	
+Complemento
+
+  cep_vendedor	String	
+CEP
+
+  cidade_vendedor	String	
+Cidade
+
+  uf_vendedor	String	
+Estado
+
+  contato_vendedor	String	
+Nome do contato do vendedor
+
+  fone_vendedor	String	
+Telefone do vendedor
+
+  fone_ramal_vendedor	String	
+Número do ramal
+
+  celular_vendedor	String	
+Celular do vendedor
+
+  email_vendedor	String	
+email do vendedor
+
+  website_vendedor	String	
+Website
+
+  banco_vendedor	String	
+Nome do banco
+
+  banco_agencia	String	
+Agencia
+
+  banco_conta	String	
+Conta
+
+  banco_salario	Decimal	
+Salário
+
+  comissao_usuario	Decimal	
+Valor da comissão
+
+  comissao_regra	Decimal	
+Regra para comissão ( Tabelas auxiliares )
+
+  usuario_vendedor	Integer	
+Usuário vinculado ao vendedor
+
+  observacoes_vendedor	String	
+Observações do cadastro
+
+  data_cad_vendedor	Date	
+Data de cadastro do vendedor
+
+  data_mod_vendedor	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação do vendedor no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_vendedor": 1234,
+              "id_registro": 1,
+              "tipo_pessoa": "PF",
+              "cnpj_vendedor": "000.000.000-00",
+              "razao_vendedor": "Nome do vendedor",
+              "fantasia_vendedor": "Nome fantasia do vendedor",
+              "endereco_vendedor": "Endereço",
+              "numero_vendedor": "0000",
+              "bairro_vendedor": "Bairro",
+              "complemento_vendedor": "Casa",
+              "cep_vendedor": "00.000-000",
+              "cidade_vendedor": "Nome da cidade",
+              "uf_vendedor": "PR",
+              "contato_vendedor": "Contato",
+              "fone_vendedor": "(00) 0000-0000",
+              "fone_ramal_vendedor": "000",
+              "celular_vendedor": "(00) 0000-0000",
+              "email_vendedor": "nome@email.com.br",
+              "website_vendedor": "www.website.com.br",
+              "banco_vendedor": "Nome do banco",
+              "banco_agencia": "0000",
+              "banco_conta": "00000-0",
+              "banco_salario": "0000000.00",
+              "situacao_vendedor": "Ativo",
+              "comissao_usuario": "0.00",
+              "comissao_regra": 1,
+              "usuario_vendedor": 0000,
+              "observacoes_vendedor": "Observação",
+              "data_cad_vendedor": "0000-00-00 00:00:00",
+              "data_mod_vendedor": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o vendedor!"
+   }
+Vendedores - Alterar um vendedor
+
+2.0.0 
+Requisição para alterar um vendedor
+
+PUT
+https://api.vhsys.com/v2/vendedores/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/vendedores/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "tipo_pessoa" : "PF",
+        "cnpj_vendedor" : "000.000.000-00",
+        "razao_vendedor" : "Nome do vendedor",
+        "fantasia_vendedor" : "Nome fantasia do vendedor",
+        "endereco_vendedor" : "Endereço",
+        "numero_vendedor" : "0000",
+        "bairro_vendedor" : "Bairro",
+        "complemento_vendedor" : "Casa",
+        "cep_vendedor" : "00.000-000",
+        "cidade_vendedor" : "Nome da cidade",
+        "uf_vendedor" : "PR",
+        "contato_vendedor" : "Contato",
+        "fone_vendedor" : "(00) 0000-0000",
+        "fone_ramal_vendedor" : "000",
+        "celular_vendedor" : "(00) 0000-0000",
+        "email_vendedor" : "nome@email.com.br",
+        "website_vendedor" : "www.website.com.br",
+        "banco_vendedor" : "Nome do banco",
+        "banco_agencia" : "0000",
+        "banco_conta" : "00000-0",
+        "banco_salario" : "0000000.00",
+        "situacao_vendedor" : "Ativo",
+        "comissao_usuario" : "0.00",
+        "comissao_regra" : "1",
+        "observacoes_vendedor" : "Observação"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+Id do vendedor
+
+razao_vendedor opcional	String	
+Razão social ou nome
+
+Faixa de tamanho: 0-255
+
+tipo_pessoa opcional	Enum	
+Tipo do cadastro
+
+Valores permitidos: PJ, PF
+
+cnpj_vendedor opcional	String	
+CNPJ / CPF do vendedor
+
+Faixa de tamanho: 0-18
+
+fantasia_vendedor opcional	String	
+Nome Fantasia
+
+Faixa de tamanho: 0-255
+
+endereco_vendedor opcional	String	
+Endereço
+
+Faixa de tamanho: 0-255
+
+numero_vendedor opcional	Integer	
+Número
+
+Faixa de tamanho: 0-7
+
+bairro_vendedor opcional	String	
+Bairro
+
+Faixa de tamanho: 0-45
+
+complemento_vendedor opcional	String	
+Complemento
+
+Faixa de tamanho: 0-45
+
+cep_vendedor opcional	String	
+CEP
+
+Faixa de tamanho: 0-10
+
+cidade_vendedor opcional	String	
+Cidade
+
+Faixa de tamanho: 0-255
+
+uf_vendedor opcional	String	
+Estado
+
+Faixa de tamanho: 0-2
+
+contato_vendedor opcional	String	
+Nome do contato do vendedor
+
+Faixa de tamanho: 0-255
+
+fone_vendedor opcional	String	
+Telefone do vendedor
+
+Faixa de tamanho: 0-20
+
+fone_ramal_vendedor opcional	String	
+Número do ramal
+
+Faixa de tamanho: 0-20
+
+celular_vendedor opcional	String	
+Celular do vendedor
+
+Faixa de tamanho: 0-20
+
+email_vendedor opcional	String	
+Email do vendedor
+
+Faixa de tamanho: 0-255
+
+website_vendedor opcional	String	
+Site do vendedor
+
+Faixa de tamanho: 0-50
+
+banco_vendedor opcional	String	
+Nome do banco
+
+Faixa de tamanho: 0-50
+
+banco_agencia opcional	String	
+Número da agencia
+
+Faixa de tamanho: 0-15
+
+banco_conta opcional	String	
+Número da conta
+
+Faixa de tamanho: 0-20
+
+banco_salario opcional	Decimal	
+Valor do salário do vendedor
+
+Faixa de tamanho: 10,2
+
+situacao_vendedor opcional	Enum	
+Status do vendedor
+
+Valores permitidos: Ativo, Inativo
+
+comissao_usuario opcional	Decimal	
+Valor da comissão
+
+Faixa de tamanho: 10,2
+
+comissao_regra opcional	Integer	
+Regra para aplicar a comissão ( Tabelas auxiliares )
+
+Faixa de tamanho: 0-9
+
+observacoes_vendedor opcional	String	
+Observação do cadastro
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_vendedor	Integer	
+ID do vendedor
+
+  tipo_pessoa	Enum	
+Tipo do cadastro
+
+  cnpj_vendedor	String	
+CNPJ / CPF do vendedor
+
+  razao_vendedor	String	
+Razão social ou nome
+
+  fantasia_vendedor	String	
+Nome Fantasia
+
+  endereco_vendedor	String	
+Endereço
+
+  numero_vendedor	Integer	
+Número
+
+  bairro_vendedor	String	
+Bairro
+
+  complemento_vendedor	String	
+Complemento
+
+  cep_vendedor	String	
+CEP
+
+  cidade_vendedor	String	
+Cidade
+
+  uf_vendedor	String	
+Estado
+
+  contato_vendedor	String	
+Nome do contato do vendedor
+
+  fone_vendedor	String	
+Telefone do vendedor
+
+  fone_ramal_vendedor	String	
+Número do ramal
+
+  celular_vendedor	String	
+Celular do vendedor
+
+  email_vendedor	String	
+email do vendedor
+
+  website_vendedor	String	
+Website
+
+  banco_vendedor	String	
+Nome do banco
+
+  banco_agencia	String	
+Agencia
+
+  banco_conta	String	
+Conta
+
+  banco_salario	Decimal	
+Salário
+
+  comissao_usuario	Decimal	
+Valor da comissão
+
+  comissao_regra	Decimal	
+Regra para comissão ( Tabelas auxiliares )
+
+  usuario_vendedor	Integer	
+Usuário vinculado ao vendedor
+
+  observacoes_vendedor	String	
+Observações do cadastro
+
+  data_cad_vendedor	Date	
+Data de cadastro do vendedor
+
+  data_mod_vendedor	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação do vendedor no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_vendedor": 1234,
+              "id_registro": 1,
+              "tipo_pessoa": "PF",
+              "cnpj_vendedor": "000.000.000-00",
+              "razao_vendedor": "Nome do vendedor",
+              "fantasia_vendedor": "Nome fantasia do vendedor",
+              "endereco_vendedor": "Endereço",
+              "numero_vendedor": "0000",
+              "bairro_vendedor": "Bairro",
+              "complemento_vendedor": "Casa",
+              "cep_vendedor": "00.000-000",
+              "cidade_vendedor": "Nome da cidade",
+              "uf_vendedor": "PR",
+              "contato_vendedor": "Contato",
+              "fone_vendedor": "(00) 0000-0000",
+              "fone_ramal_vendedor": "000",
+              "celular_vendedor": "(00) 0000-0000",
+              "email_vendedor": "nome@email.com.br",
+              "website_vendedor": "www.website.com.br",
+              "banco_vendedor": "Nome do banco",
+              "banco_agencia": "0000",
+              "banco_conta": "00000-0",
+              "banco_salario": "0000000.00",
+              "situacao_vendedor": "Ativo",
+              "comissao_usuario": "0.00",
+              "comissao_regra": 1,
+              "usuario_vendedor": 0000,
+              "observacoes_vendedor": "Observação",
+              "data_cad_vendedor": "0000-00-00 00:00:00",
+              "data_mod_vendedor": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar o vendedor!"
+   }
+Vendedores - Excluir um vendedor
+
+2.0.0 
+Requisição para deletar um vendedor, o Vendedor deletado por ser encontrado com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/vendedores/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/vendedores/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+Id do vendedor
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_vendedor	Integer	
+ID do vendedor
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "vendedor": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar o vendedor!"
+   }
+Vendedores - Consultar vendedor
+
+2.0.0 
+Requisição para a consulta de dados do vendedor
+
+GET
+https://api.vhsys.com/v2/vendedores/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/vendedores/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+Id do vendedor
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_vendedor	Integer	
+ID do vendedor
+
+  tipo_pessoa	Enum	
+Tipo do cadastro
+
+  cnpj_vendedor	String	
+CNPJ / CPF do vendedor
+
+  razao_vendedor	String	
+Razão social ou nome
+
+  fantasia_vendedor	String	
+Nome Fantasia
+
+  endereco_vendedor	String	
+Endereço
+
+  numero_vendedor	Integer	
+Número
+
+  bairro_vendedor	String	
+Bairro
+
+  complemento_vendedor	String	
+Complemento
+
+  cep_vendedor	String	
+CEP
+
+  cidade_vendedor	String	
+Cidade
+
+  uf_vendedor	String	
+Estado
+
+  contato_vendedor	String	
+Nome do contato do vendedor
+
+  fone_vendedor	String	
+Telefone do vendedor
+
+  fone_ramal_vendedor	String	
+Número do ramal
+
+  celular_vendedor	String	
+Celular do vendedor
+
+  email_vendedor	String	
+email do vendedor
+
+  website_vendedor	String	
+Website
+
+  banco_vendedor	String	
+Nome do banco
+
+  banco_agencia	String	
+Agencia
+
+  banco_conta	String	
+Conta
+
+  banco_salario	Decimal	
+Salário
+
+  comissao_usuario	Decimal	
+Valor da comissão
+
+  comissao_regra	Decimal	
+Regra para comissão ( Tabelas auxiliares )
+
+  usuario_vendedor	Integer	
+Usuário vinculado ao vendedor
+
+  observacoes_vendedor	String	
+Observações do cadastro
+
+  data_cad_vendedor	Date	
+Data de cadastro do vendedor
+
+  data_mod_vendedor	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação do vendedor no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_vendedor": 1234,
+              "id_registro": 1,
+              "tipo_pessoa": "PF",
+              "cnpj_vendedor": "000.000.000-00",
+              "razao_vendedor": "Nome do vendedor",
+              "fantasia_vendedor": "Nome fantasia do vendedor",
+              "endereco_vendedor": "Endereço",
+              "numero_vendedor": "0000",
+              "bairro_vendedor": "Bairro",
+              "complemento_vendedor": "Casa",
+              "cep_vendedor": "00.000-000",
+              "cidade_vendedor": "Nome da cidade",
+              "uf_vendedor": "PR",
+              "contato_vendedor": "Contato",
+              "fone_vendedor": "(00) 0000-0000",
+              "fone_ramal_vendedor": "000",
+              "celular_vendedor": "(00) 0000-0000",
+              "email_vendedor": "nome@email.com.br",
+              "website_vendedor": "www.website.com.br",
+              "banco_vendedor": "Nome do banco",
+              "banco_agencia": "0000",
+              "banco_conta": "00000-0",
+              "banco_salario": "0000000.00",
+              "situacao_vendedor": "Ativo",
+              "comissao_usuario": "0.00",
+              "comissao_regra": 1,
+              "usuario_vendedor": 0000,
+              "observacoes_vendedor": "Observação",
+              "data_cad_vendedor": "0000-00-00 00:00:00",
+              "data_mod_vendedor": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum vendedor encontrado!"
+   }
+Vendedores - Lista de vendedores
+
+2.0.0 
+Requisição para a consulta de diversos vendedores.
+
+GET
+https://api.vhsys.com/v2/vendedores
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/vendedores \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+order opcional	String	
+Nome do campo para ordenação EX:data_mod_vendedor
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+cnpj_vendedor opcional	String	
+CNPJ / CPF do Vendedor
+
+razao_vendedor opcional	String	
+Razão social ou Nome do vendedor
+
+fantasia_vendedor opcional	String	
+Nome Fantasia do vendedor
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+data_modificacao opcional	Date	
+Registros criados ou modificados após a data informada
+
+Valores permitidos: YYYY-MM-DD
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de vendedores no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_vendedor	Integer	
+ID do vendedor
+
+  tipo_pessoa	Enum	
+Tipo do cadastro
+
+  cnpj_vendedor	String	
+CNPJ / CPF do vendedor
+
+  razao_vendedor	String	
+Razão social ou nome
+
+  fantasia_vendedor	String	
+Nome Fantasia
+
+  endereco_vendedor	String	
+Endereço
+
+  numero_vendedor	Integer	
+Número
+
+  bairro_vendedor	String	
+Bairro
+
+  complemento_vendedor	String	
+Complemento
+
+  cep_vendedor	String	
+CEP
+
+  cidade_vendedor	String	
+Cidade
+
+  uf_vendedor	String	
+Estado
+
+  contato_vendedor	String	
+Nome do contato do vendedor
+
+  fone_vendedor	String	
+Telefone do vendedor
+
+  fone_ramal_vendedor	String	
+Número do ramal
+
+  celular_vendedor	String	
+Celular do vendedor
+
+  email_vendedor	String	
+email do vendedor
+
+  website_vendedor	String	
+Website
+
+  banco_vendedor	String	
+Nome do banco
+
+  banco_agencia	String	
+Agencia
+
+  banco_conta	String	
+Conta
+
+  banco_salario	Decimal	
+Salário
+
+  comissao_usuario	Decimal	
+Valor da comissão
+
+  comissao_regra	Decimal	
+Regra para comissão ( Tabelas auxiliares )
+
+  usuario_vendedor	Integer	
+Usuário vinculado ao vendedor
+
+  observacoes_vendedor	String	
+Observações do cadastro
+
+  data_cad_vendedor	Date	
+Data de cadastro do vendedor
+
+  data_mod_vendedor	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação do vendedor no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_vendedor": 1234,
+              "id_registro": 1,
+              "tipo_pessoa": "PF",
+              "cnpj_vendedor": "000.000.000-00",
+              "razao_vendedor": "Nome do vendedor",
+              "fantasia_vendedor": "Nome fantasia do vendedor",
+              "endereco_vendedor": "Endereço",
+              "numero_vendedor": "0000",
+              "bairro_vendedor": "Bairro",
+              "complemento_vendedor": "Casa",
+              "cep_vendedor": "00.000-000",
+              "cidade_vendedor": "Nome da cidade",
+              "uf_vendedor": "PR",
+              "contato_vendedor": "Contato",
+              "fone_vendedor": "(00) 0000-0000",
+              "fone_ramal_vendedor": "000",
+              "celular_vendedor": "(00) 0000-0000",
+              "email_vendedor": "nome@email.com.br",
+              "website_vendedor": "www.website.com.br",
+              "banco_vendedor": "Nome do banco",
+              "banco_agencia": "0000",
+              "banco_conta": "00000-0",
+              "banco_salario": "0000000.00",
+              "situacao_vendedor": "Ativo",
+              "comissao_usuario": "0.00",
+              "comissao_regra": 1,
+              "usuario_vendedor": 0000,
+              "observacoes_vendedor": "Observação",
+              "data_cad_vendedor": "0000-00-00 00:00:00",
+              "data_mod_vendedor": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum vendedor encontrado!"
+   }

@@ -1,0 +1,2600 @@
+Orcamentos
+
+Orcamentos - Cadastrar um orçamento
+
+2.0.0 
+Requisição para cadastro de orçamentos
+
+POST
+https://api.vhsys.com/v2/orcamentos
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/orcamentos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "id_cliente" : 123,
+        "nome_cliente" : "Nome do cliente",
+        "vendedor_pedido" : "Nome do vendedor",
+        "vendedor_pedido_id" : "123",
+        "desconto_pedido" : "10.00",
+        "peso_total_nota" : "0.00",
+        "peso_total_nota_liq" : "0.00",
+        "frete_pedido" : "10.00",
+        "valor_baseICMS" : "0.00",
+        "valor_ICMS" : "0.00",
+        "valor_baseST" : "0.00",
+        "valor_ST" : "0.00",
+        "valor_IPI" : "0.00",
+        "transportadora_pedido" : "Nome da transportadora",
+        "id_transportadora" : 15,
+        "data_pedido" : 0000-00-00,
+        "prazo_orcamento" : 10,
+        "referencia_pedido" : "Referência",
+        "obs_pedido" : "Observação",
+        "obs_interno_pedido" : "Observação interna",
+        "status_pedido" : "Em Aberto"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+id_cliente opcional	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 0-9
+
+nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 255
+
+vendedor_pedido opcional	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 255
+
+vendedor_pedido_id opcional	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 0-9
+
+desconto_pedido opcional	Decimal	
+Valor total do desconto
+
+Faixa de tamanho: 10,2
+
+peso_total_nota opcional	Decimal	
+Peso total do orçamento
+
+Faixa de tamanho: 10,2
+
+peso_total_nota_liq opcional	Decimal	
+Peso liquido do orçamento
+
+Faixa de tamanho: 10,2
+
+frete_pedido opcional	Decimal	
+Valor do frete
+
+Faixa de tamanho: 10,2
+
+valor_baseICMS opcional	Decimal	
+Valor da base de ICMS
+
+Faixa de tamanho: 10,2
+
+valor_ICMS opcional	Decimal	
+Valor do ICMS
+
+Faixa de tamanho: 10,2
+
+valor_baseST opcional	Decimal	
+Valor da base de ST
+
+Faixa de tamanho: 10,2
+
+valor_ST opcional	Decimal	
+Valor do ST
+
+Faixa de tamanho: 10,2
+
+valor_IPI opcional	Decimal	
+Valor do IPI
+
+Faixa de tamanho: 10,2
+
+transportadora_pedido opcional	String	
+Nome da transportadora (Consultar transportadoras disponíveis)
+
+Faixa de tamanho: 255
+
+id_transportadora opcional	Integer	
+ID da transportadora (Consultar transportadoras disponíveis)
+
+Faixa de tamanho: 0-9
+
+data_pedido opcional	Date	
+Data do orçamento
+
+Valores permitidos: YYYY-MM-DD
+
+prazo_orcamento opcional	String	
+Prazo de entrega (Dias)
+
+Faixa de tamanho: 20
+
+referencia_pedido opcional	String	
+Referência do orçamento
+
+Faixa de tamanho: 100
+
+obs_pedido opcional	String	
+Observações do orçamento
+
+obs_interno_pedido opcional	String	
+Observação interna do orçamento
+
+status_pedido opcional	Enum	
+Status do orçamento
+
+Valor padrão: Em Aberto
+
+Valores permitidos: Em Aberto, Em Andamento, Atendido, Cancelado
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_orcamento	Integer	
+ID do orçamento
+
+  id_pedido	Integer	
+ID Sequencial do orçamento
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vendedor_pedido	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+  vendedor_pedido_id	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+  valor_total_produtos	Decimal	
+Valor total dos produtos
+
+  desconto_pedido	Decimal	
+Valor do desconto
+
+  peso_total_nota	Decimal	
+Peso total do orçamento
+
+  peso_total_nota_liq	Decimal	
+Peso líquido do orçamento
+
+  frete_pedido	Decimal	
+Valor do frete
+
+  valor_total_nota	Decimal	
+Valor total da nota
+
+  valor_baseICMS	Decimal	
+Valor da base do ICMS
+
+  valor_ICMS	Decimal	
+Valor do ICMS
+
+  valor_baseST	Decimal	
+Valor da base de ST
+
+  valor_ST	Decimal	
+Valor do ST
+
+  valor_IPI	Decimal	
+Valor do IPI
+
+  transportadora_pedido	String	
+Nome da transportadora (Consultar transportadoras disponíveis)
+
+  id_transportadora	Integer	
+ID da transportadora (Consultar transportadoras disponíveis)
+
+  data_pedido	Date	
+Data do orçamento
+
+  prazo_orcamento	String	
+Prazo de entrega (Dias)
+
+  referencia_pedido	String	
+Referência do orçamento
+
+  obs_pedido	String	
+Observações do orçamento
+
+  obs_interno_pedido	String	
+Observações internas do orçamento
+
+  status_pedido	Enum	
+Status do orçamento
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  estoque_pedido	Integer	
+Estoque Lançado
+
+  comissao_pedido	Integer	
+Comissão Lançada
+
+  pedido_emitido	Integer	
+Pedido emitido
+
+  nota_emitida	Integer	
+Nota emitida
+
+  funil_emitido	Integer	
+Orçamento gerado no funil de vendas
+
+  data_cad_pedido	Date	
+Data de cadastro do orçamento
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação do orçamento no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_orcamento": 123456,
+              "id_pedido": 12345,
+              "id_cliente": 123,
+              "nome_cliente": "Nome do cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 123456,
+              "valor_total_produtos": "100.00",
+              "desconto_pedido": "10.00",
+              "peso_total_nota": "0.00",
+              "peso_total_nota_liq": "0.00",
+              "frete_pedido": "10.00",
+              "valor_total_nota": "100.00",
+              "valor_baseICMS": "0.00",
+              "valor_ICMS": "0.00",
+              "valor_baseST": "0.00",
+              "valor_ST": "0.00",
+              "valor_IPI": "0.00",
+              "transportadora_pedido": "Nome da transportadora",
+              "id_transportadora": 15,
+              "data_pedido": 0000-00-00,
+              "prazo_orcamento": 10,
+              "referencia_pedido": "Referência",
+              "obs_pedido": "Observação",
+              "obs_interno_pedido": "Observação interna",
+              "status_pedido": "Em Aberto",
+              "contas_pedido": 0,
+              "comissao_pedido": 0,
+              "estoque_pedido": 0,
+              "pedido_emitido": 0,
+              "nota_emitida": 0,
+              "funil_emitido": 0,
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o orçamento!"
+   }
+Orcamentos - Alterar um orçamento
+
+2.0.0 
+Requisição para alterar um orçamento
+
+PUT
+https://api.vhsys.com/v2/orcamentos/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/orcamentos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "id_cliente" : 123,
+        "nome_cliente" : "Nome do cliente",
+        "vendedor_pedido" : "Nome do vendedor",
+        "vendedor_pedido_id" : "123",
+        "desconto_pedido" : "10.00",
+        "peso_total_nota" : "0.00",
+        "peso_total_nota_liq" : "0.00",
+        "frete_pedido" : "10.00",
+        "valor_baseICMS" : "0.00",
+        "valor_ICMS" : "0.00",
+        "valor_baseST" : "0.00",
+        "valor_ST" : "0.00",
+        "valor_IPI" : "0.00",
+        "transportadora_pedido" : "Nome da transportadora",
+        "id_transportadora" : 15,
+        "data_pedido" : 0000-00-00,
+        "prazo_orcamento" : 10,
+        "referencia_pedido" : "Referência",
+        "obs_pedido" : "Observação",
+        "obs_interno_pedido" : "Observação interna",
+        "status_pedido" : "Em Aberto"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID do orçamento
+
+id_cliente opcional	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 0-9
+
+nome_cliente opcional	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+Faixa de tamanho: 255
+
+vendedor_pedido opcional	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 255
+
+vendedor_pedido_id opcional	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+Faixa de tamanho: 0-9
+
+desconto_pedido opcional	Decimal	
+Valor total do desconto
+
+Faixa de tamanho: 10,2
+
+peso_total_nota opcional	Decimal	
+Peso total do orçamento
+
+Faixa de tamanho: 10,2
+
+peso_total_nota_liq opcional	Decimal	
+Peso liquido do orçamento
+
+Faixa de tamanho: 10,2
+
+frete_pedido opcional	Decimal	
+Valor do frete
+
+Faixa de tamanho: 10,2
+
+valor_baseICMS opcional	Decimal	
+Valor da base de ICMS
+
+Faixa de tamanho: 10,2
+
+valor_ICMS opcional	Decimal	
+Valor do ICMS
+
+Faixa de tamanho: 10,2
+
+valor_baseST opcional	Decimal	
+Valor da base de ST
+
+Faixa de tamanho: 10,2
+
+valor_ST opcional	Decimal	
+Valor do ST
+
+Faixa de tamanho: 10,2
+
+valor_IPI opcional	Decimal	
+Valor do IPI
+
+Faixa de tamanho: 10,2
+
+transportadora_pedido opcional	String	
+Nome da transportadora (Consultar transportadoras disponíveis)
+
+Faixa de tamanho: 255
+
+id_transportadora opcional	Integer	
+ID da transportadora (Consultar transportadoras disponíveis)
+
+Faixa de tamanho: 0-9
+
+data_pedido opcional	Date	
+Data do orçamento
+
+Valores permitidos: YYYY-MM-DD
+
+prazo_orcamento opcional	String	
+Prazo de entrega (Dias)
+
+Faixa de tamanho: 20
+
+referencia_pedido opcional	String	
+Referência do orçamento
+
+Faixa de tamanho: 100
+
+obs_pedido opcional	String	
+Observações do orçamento
+
+obs_interno_pedido opcional	String	
+Observação interna do orçamento
+
+status_pedido opcional	Enum	
+Status do orçamento
+
+Valores permitidos: Em Aberto, Em Andamento, Atendido, Cancelado
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_orcamento	Integer	
+ID do orçamento
+
+  id_pedido	Integer	
+ID Sequencial do orçamento
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vendedor_pedido	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+  vendedor_pedido_id	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+  valor_total_produtos	Decimal	
+Valor total dos produtos
+
+  desconto_pedido	Decimal	
+Valor do desconto
+
+  peso_total_nota	Decimal	
+Peso total do orçamento
+
+  peso_total_nota_liq	Decimal	
+Peso líquido do orçamento
+
+  frete_pedido	Decimal	
+Valor do frete
+
+  valor_total_nota	Decimal	
+Valor total da nota
+
+  valor_baseICMS	Decimal	
+Valor da base do ICMS
+
+  valor_ICMS	Decimal	
+Valor do ICMS
+
+  valor_baseST	Decimal	
+Valor da base de ST
+
+  valor_ST	Decimal	
+Valor do ST
+
+  valor_IPI	Decimal	
+Valor do IPI
+
+  transportadora_pedido	String	
+Nome da transportadora (Consultar transportadoras disponíveis)
+
+  id_transportadora	Integer	
+ID da transportadora (Consultar transportadoras disponíveis)
+
+  data_pedido	Date	
+Data do orçamento
+
+  prazo_orcamento	String	
+Prazo de entrega (Dias)
+
+  referencia_pedido	String	
+Referência do orçamento
+
+  obs_pedido	String	
+Observações do orçamento
+
+  obs_interno_pedido	String	
+Observações internas do orçamento
+
+  status_pedido	Enum	
+Status do orçamento
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  estoque_pedido	Integer	
+Estoque Lançado
+
+  comissao_pedido	Integer	
+Comissão Lançada
+
+  pedido_emitido	Integer	
+Pedido emitido
+
+  nota_emitida	Integer	
+Nota emitida
+
+  funil_emitido	Integer	
+Orçamento gerado no funil de vendas
+
+  data_cad_pedido	Date	
+Data de cadastro do orçamento
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação do orçamento no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_orcamento": 123456,
+              "id_pedido": 12345,
+              "id_cliente": 123,
+              "nome_cliente": "Nome do cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 123456,
+              "valor_total_produtos": "100.00",
+              "desconto_pedido": "10.00",
+              "peso_total_nota": "0.00",
+              "peso_total_nota_liq": "0.00",
+              "frete_pedido": "10.00",
+              "valor_total_nota": "100.00",
+              "valor_baseICMS": "0.00",
+              "valor_ICMS": "0.00",
+              "valor_baseST": "0.00",
+              "valor_ST": "0.00",
+              "valor_IPI": "0.00",
+              "transportadora_pedido": "Nome da transportadora",
+              "id_transportadora": 15,
+              "data_pedido": 0000-00-00,
+              "prazo_orcamento": 10,
+              "referencia_pedido": "Referência",
+              "obs_pedido": "Observação",
+              "obs_interno_pedido": "Observação interna",
+              "status_pedido": "Em Aberto",
+              "contas_pedido": 0,
+              "comissao_pedido": 0,
+              "estoque_pedido": 0,
+              "pedido_emitido": 0,
+              "nota_emitida": 0,
+              "funil_emitido": 0,
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar o orçamento!"
+   }
+Orcamentos - Excluir um orçamento
+
+2.0.0 
+Requisição para deletar um orçamento, o orçamento deletada por ser encontrada com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/orcamentos/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/orcamentos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID do orçamento
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_orcamento	Integer	
+ID do orçamento
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_orcamento": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar o orçamento!"
+   }
+Orcamentos - Consultar orçamentos
+
+2.0.0 
+Requisição para a consulta de dados do orçamento
+
+GET
+https://api.vhsys.com/v2/orcamentos/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/orcamentos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+ID do orçamento
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_orcamento	Integer	
+ID do orçamento
+
+  id_pedido	Integer	
+ID Sequencial do orçamento
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vendedor_pedido	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+  vendedor_pedido_id	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+  valor_total_produtos	Decimal	
+Valor total dos produtos
+
+  desconto_pedido	Decimal	
+Valor do desconto
+
+  peso_total_nota	Decimal	
+Peso total do orçamento
+
+  peso_total_nota_liq	Decimal	
+Peso líquido do orçamento
+
+  frete_pedido	Decimal	
+Valor do frete
+
+  valor_total_nota	Decimal	
+Valor total da nota
+
+  valor_baseICMS	Decimal	
+Valor da base do ICMS
+
+  valor_ICMS	Decimal	
+Valor do ICMS
+
+  valor_baseST	Decimal	
+Valor da base de ST
+
+  valor_ST	Decimal	
+Valor do ST
+
+  valor_IPI	Decimal	
+Valor do IPI
+
+  transportadora_pedido	String	
+Nome da transportadora (Consultar transportadoras disponíveis)
+
+  id_transportadora	Integer	
+ID da transportadora (Consultar transportadoras disponíveis)
+
+  data_pedido	Date	
+Data do orçamento
+
+  prazo_orcamento	String	
+Prazo de entrega (Dias)
+
+  referencia_pedido	String	
+Referência do orçamento
+
+  obs_pedido	String	
+Observações do orçamento
+
+  obs_interno_pedido	String	
+Observações internas do orçamento
+
+  status_pedido	Enum	
+Status do orçamento
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  estoque_pedido	Integer	
+Estoque Lançado
+
+  comissao_pedido	Integer	
+Comissão Lançada
+
+  pedido_emitido	Integer	
+Pedido emitido
+
+  nota_emitida	Integer	
+Nota emitida
+
+  funil_emitido	Integer	
+Orçamento gerado no funil de vendas
+
+  data_cad_pedido	Date	
+Data de cadastro do orçamento
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação do orçamento no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_orcamento": 123456,
+              "id_pedido": 12345,
+              "id_cliente": 123,
+              "nome_cliente": "Nome do cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 123456,
+              "valor_total_produtos": "100.00",
+              "desconto_pedido": "10.00",
+              "peso_total_nota": "0.00",
+              "peso_total_nota_liq": "0.00",
+              "frete_pedido": "10.00",
+              "valor_total_nota": "100.00",
+              "valor_baseICMS": "0.00",
+              "valor_ICMS": "0.00",
+              "valor_baseST": "0.00",
+              "valor_ST": "0.00",
+              "valor_IPI": "0.00",
+              "transportadora_pedido": "Nome da transportadora",
+              "id_transportadora": 15,
+              "data_pedido": 0000-00-00,
+              "prazo_orcamento": 10,
+              "referencia_pedido": "Referência",
+              "obs_pedido": "Observação",
+              "obs_interno_pedido": "Observação interna",
+              "status_pedido": "Em Aberto",
+              "contas_pedido": 0,
+              "comissao_pedido": 0,
+              "estoque_pedido": 0,
+              "pedido_emitido": 0,
+              "nota_emitida": 0,
+              "funil_emitido": 0,
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum orçamento encontrado!"
+   }
+Orcamentos - Lista de orçamentos
+
+2.0.0 
+Requisição para a consulta de diversos orçamentos
+
+GET
+https://api.vhsys.com/v2/orcamentos
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/orcamentos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+order opcional	String	
+Nome do campo para ordenação EX:data_mod_pedido
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+nome_cliente opcional	String	
+Nome do cliente
+
+vendedor opcional	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+valor_produtos opcional	String	
+Valor total dos produtos 
+buscar a partir de um valor: valor_produtos=10.00 
+buscar entre valores: valor_produtos=10.00,20.00
+
+valor_total opcional	String	
+Valor total da nota 
+buscar a partir de um valor: valor_total=10.00 
+buscar entre valores: valor_total=10.00,20.00
+
+status opcional	String	
+Status da nota
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+data_modificacao opcional	Date	
+Registros criados ou modificados após a data informada
+
+Valores permitidos: YYYY-MM-DD
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de orçamentos no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_orcamento	Integer	
+ID do orçamento
+
+  id_pedido	Integer	
+ID Sequencial do orçamento
+
+  id_cliente	Integer	
+ID do cliente (Consultar clientes disponíveis)
+
+  nome_cliente	String	
+Nome do cliente (Consultar clientes disponíveis)
+
+  vendedor_pedido	String	
+Nome do vendedor (Consultar vendedores disponíveis)
+
+  vendedor_pedido_id	Integer	
+ID do vendedor (Consultar vendedores disponíveis)
+
+  valor_total_produtos	Decimal	
+Valor total dos produtos
+
+  desconto_pedido	Decimal	
+Valor do desconto
+
+  peso_total_nota	Decimal	
+Peso total do orçamento
+
+  peso_total_nota_lig	Decimal	
+Peso líquido dos produtos
+
+  frete_pedido	Decimal	
+Valor do frete
+
+  valor_total_nota	Decimal	
+Valor total do orçamento
+
+  valor_baseICMS	Decimal	
+Valor da base do ICMS
+
+  valor_ICMS	Decimal	
+Valor do ICMS
+
+  valor_baseST	Decimal	
+Valor da base de ST
+
+  valor_ST	Decimal	
+Valor do ST
+
+  valor_IPI	Decimal	
+Valor do IPI
+
+  transportadora_pedido	String	
+Nome da transportadora (Consultar transportadoras disponíveis)
+
+  id_transportadora	Integer	
+ID da transportadora (Consultar transportadoras disponíveis)
+
+  data_pedido	Date	
+Data do orçamento
+
+  prazo_orcamento	String	
+Prazo de entrega (Dias)
+
+  referencia_pedido	String	
+Referência do orçamento
+
+  obs_pedido	String	
+Observações do orçamento
+
+  obs_interno_pedido	String	
+Observações internas do orçamento
+
+  status_pedido	Enum	
+Status do orçamento
+
+  contas_pedido	Integer	
+Contas lançadas
+
+  estoque_pedido	Integer	
+Estoque Lançado
+
+  comissao_pedido	Integer	
+Comissão Lançada
+
+  pedido_emitido	Integer	
+Pedido emitido
+
+  nota_emitida	Integer	
+Nota emitida
+
+  funil_emitido	Integer	
+Orçamento gerado no funil de vendas
+
+  data_cad_pedido	Date	
+Data de cadastro do orçamento
+
+  data_mod_pedido	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação do orçamento no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_orcamento": 123456,
+              "id_pedido": 12345,
+              "id_cliente": 123,
+              "nome_cliente": "Nome do cliente",
+              "vendedor_pedido": "Nome do vendedor",
+              "vendedor_pedido_id": 123456,
+              "valor_total_produtos": "100.00",
+              "desconto_pedido": "10.00",
+              "peso_total_nota": "0.00",
+              "peso_total_nota_liq": "0.00",
+              "frete_pedido": "10.00",
+              "valor_total_nota": "100.00",
+              "valor_baseICMS": "0.00",
+              "valor_ICMS": "0.00",
+              "valor_baseST": "0.00",
+              "valor_ST": "0.00",
+              "valor_IPI": "0.00",
+              "transportadora_pedido": "Nome da transportadora",
+              "id_transportadora": 15,
+              "data_pedido": 0000-00-00,
+              "prazo_orcamento": 10,
+              "referencia_pedido": "Referência",
+              "obs_pedido": "Observação",
+              "obs_interno_pedido": "Observação interna",
+              "status_pedido": "Em Aberto",
+              "contas_pedido": 0,
+              "comissao_pedido": 0,
+              "estoque_pedido": 0,
+              "pedido_emitido": 0,
+              "nota_emitida": 0,
+              "funil_emitido": 0,
+              "data_cad_pedido": "0000-00-00 00:00:00",
+              "data_mod_pedido": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum orçamento encontrado!"
+   }
+Orcamentos - Alterar um produto
+
+2.0.0 
+Requisição para alterar um produto de um orçamento
+
+PUT
+https://api.vhsys.com/v2/orcamentos/:id_orcamento/produtos/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/orcamentos/:id_orcamento/produtos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "id_produto" : 12345,
+        "desc_produto" : "Nome do produto",
+        "qtde_produto" : "1.00",
+        "desconto_produto" : "10.00",
+        "ipi_produto" : "1.50",
+        "icms_produto" : "2.50",
+        "valor_unit_produto" : "450.00",
+        "valor_custo_produto" : "400.00",
+        "peso_produto" : "1.10",
+        "peso_liq_produto" : "1.10"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_orcamento	Integer	
+ID do orçamento (Consultar orçamentos disponíveis)
+
+:id	Integer	
+ID do vínculo produto/orçamento
+
+id_produto opcional	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+Faixa de tamanho: 0-20
+
+desc_produto opcional	String	
+Nome do produto (Consultar produtos disponíveis)
+
+Faixa de tamanho: 255
+
+qtde_produto opcional	Decimal	
+Quantidade do produto
+
+Faixa de tamanho: 10,4
+
+desconto_produto opcional	Decimal	
+Valor do desconto
+
+Faixa de tamanho: 10,2
+
+ipi_produto opcional	Decimal	
+Valor do IPI
+
+Faixa de tamanho: 10,2
+
+icms_produto opcional	Decimal	
+Valor do ICMS
+
+Faixa de tamanho: 10,2
+
+valor_unit_produto opcional	Decimal	
+Valor unitário do produto
+
+Faixa de tamanho: 10,4
+
+valor_custo_produto opcional	Decimal	
+Valor de custo do produto
+
+Faixa de tamanho: 10,4
+
+peso_produto opcional	Decimal	
+Peso do produto
+
+Faixa de tamanho: 10,2
+
+peso_liq_produto opcional	Decimal	
+Peso líquido do produto
+
+Faixa de tamanho: 10,2
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_produto	Integer	
+ID do vínculo produto/orçamento
+
+  id_produto	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+  desc_produto	String	
+Nome do produto (Consultar produtos disponíveis)
+
+  qtde_produto	Decimal	
+Quantidade do produto
+
+  desconto_produto	Decimal	
+Valor do desconto
+
+  ipi_produto	Decimal	
+Valor do IPI
+
+  icms_produto	Decimal	
+Valor do ICMS
+
+  valor_custo_produto	Decimal	
+Valor de custo do produto
+
+  valor_unit_produto	Decimal	
+Valor unitário do produto
+
+  peso_produto	Decimal	
+Peso do produto
+
+  peso_liq_produto	Decimal	
+Peso líquido do produto
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ped_produto": 123456,
+              "id_orcamento": 12345,
+              "id_produto": 12345,
+              "desc_produto": "Nome do produto",
+              "qtde_produto": "1.00",
+              "desconto_produto": "10.00",
+              "ipi_produto": "1.50",
+              "icms_produto": "2.50",
+              "valor_unit_produto": "450.00",
+              "valor_custo_produto": "400.00",
+              "valor_total_produto": 450.00,
+              "peso_produto": "1.10",
+              "peso_liq_produto": "1.10"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar o produto do orçamento!"
+   }
+Orcamentos - Cadastra um produto
+
+2.0.0 
+Requisição para cadastro de produto para o orçamento
+
+POST
+https://api.vhsys.com/v2/orcamentos/:id_orcamento/produtos
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/orcamentos/:id_orcamento/produtos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '[{
+        "qtde_produto":"3",
+        "id_produto":"0000000",
+        "valor_unit_produto":"15.00",
+        "desc_produto":"Produto 1"
+    },{
+        "qtde_produto":"3",
+        "id_produto":"0000000",
+        "valor_unit_produto":"25.00",
+        "desc_produto":"Produto 2"
+    }]'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_orcamento	Integer	
+ID do orçamento (Consultar orçamentos disponíveis)
+
+id_produto opcional	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+Faixa de tamanho: 0-20
+
+desc_produto	String	
+Nome do produto (Consultar produtos disponíveis)
+
+Faixa de tamanho: 255
+
+qtde_produto	Decimal	
+Quantidade do produto
+
+Faixa de tamanho: 10,4
+
+desconto_produto opcional	Decimal	
+Valor do desconto
+
+Faixa de tamanho: 10,2
+
+ipi_produto opcional	Decimal	
+Valor do IPI
+
+Faixa de tamanho: 10,2
+
+icms_produto opcional	Decimal	
+Valor do ICMS
+
+Faixa de tamanho: 10,2
+
+valor_custo_produto opcional	Decimal	
+Valor de custos do produto
+
+Faixa de tamanho: 10,4
+
+valor_unit_produto	Decimal	
+Valor unitário do produto
+
+Faixa de tamanho: 10,4
+
+peso_produto opcional	Decimal	
+Peso do produto
+
+Faixa de tamanho: 10,2
+
+peso_liq_produto opcional	Decimal	
+Peso líquido do produto
+
+Faixa de tamanho: 10,2
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_produto	Integer	
+ID do vínculo produto/orçamento
+
+  id_produto	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+  desc_produto	String	
+Nome do produto (Consultar produtos disponíveis)
+
+  qtde_produto	Decimal	
+Quantidade do produto
+
+  desconto_produto	Decimal	
+Valor do desconto
+
+  ipi_produto	Decimal	
+Valor do IPI
+
+  icms_produto	Decimal	
+Valor do ICMS
+
+  valor_custo_produto	Decimal	
+Valor de custo do produto
+
+  valor_unit_produto	Decimal	
+Valor unitário do produto
+
+  peso_produto	Decimal	
+Peso do produto
+
+  peso_liq_produto	Decimal	
+Peso líquido do produto
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ped_produto": 123456,
+              "id_orcamento": 12345,
+              "id_produto": 12345,
+              "desc_produto": "Nome do produto",
+              "qtde_produto": "1.00",
+              "desconto_produto": "10.00",
+              "ipi_produto": "1.50",
+              "icms_produto": "2.50",
+              "valor_custo_produto": "400.00",
+              "valor_unit_produto": "450.00",
+              "valor_total_produto": 450.00,
+              "peso_produto": "1.10",
+              "peso_liq_produto": "1.10"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o produto para o orçamento!"
+   }
+Orcamentos - Cadastra um status
+
+2.0.0 
+Requisição para cadastro de status para o orçamento
+
+POST
+https://api.vhsys.com/v2/orcamentos/:id_orcamento/status
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/orcamentos/:id_orcamento/status \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "data_status" : "0000-00-00",
+        "obs_status" : "Observação do status",
+        "tipo_status" : "Cancelado"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_orcamento	Integer	
+ID do orçamento (Consultar orçamentos disponíveis)
+
+data_status	Date	
+Data do status
+
+Valores permitidos: YYYY-MM-DD
+
+tipo_status	Enum	
+Tipo do status
+
+Valores permitidos: Em Aberto, Em Andamento, Cancelado, Atendido
+
+obs_status opcional	String	
+Observação do status
+
+Faixa de tamanho: 255
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_orcamento	Integer	
+ID do orçamento (Consultar orçamentos disponíveis)
+
+  data_status	Data	
+Data de cadastro do status
+
+  obs_status	String	
+Descrição do status
+
+  tipo_status	String	
+Tipo do status
+
+id_status	Integer	
+Id do status
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_status": 123456,
+              "id_orcamento": 1234,
+              "data_status": "0000-00-00",
+              "obs_status": "Observação do status",
+              "tipo_status": "Em Aberto",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o status para o orçamento!"
+   }
+Orcamentos - Cadastra uma parcela
+
+2.0.0 
+Requisição para cadastro de parcelas para o orçamento, ao cadastrar novas parcelas para um orçamento as parcelas anteriores serão removidas
+
+POST
+https://api.vhsys.com/v2/orcamentos/:id_orcamento/parcelas
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/orcamentos/:id_orcamento/parcelas \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '[{
+        "data_parcela":"0000-00-00",
+        "valor_parcela":"00.00",
+        "forma_pagamento":"Forma de pagamento",
+        "observacoes_parcela":"Observação"
+    },{
+        "data_parcela":"0000-00-00",
+        "valor_parcela":"00.00",
+        "forma_pagamento":"Forma de pagamento",
+        "observacoes_parcela":"Observação"
+    }]'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_orcamento	Integer	
+ID do orçamento (Consultar orçamentos disponíveis)
+
+data_parcela	Date	
+Data da parcela
+
+Valores permitidos: YYYY-MM-DD
+
+valor_parcela	Decimal	
+Valor da parcela
+
+Faixa de tamanho: 10,2
+
+forma_pagamento opcional	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+observacoes_parcela opcional	String	
+Observação da parcela
+
+Faixa de tamanho: 255
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_orcamento	Integer	
+ID do orçamento (Consultar orçamentos disponíveis)
+
+  data_parcela	Date	
+Data da parcela
+
+  valor_parcela	Decimal	
+Valor da parcela
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  observacoes_parcela	String	
+Observação da parcela
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_orcamento": 123456,
+              "data_parcela": "0000-00-00",
+              "valor_parcela": "00.00",
+              "forma_pagamento": "Forma de pagamento",
+              "observacoes_parcela": "Observação"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar a parcela para o orçamento!"
+   }
+Orcamentos - Cadastrar um anexo
+
+2.0.0 
+Requisição para cadastro de anexo
+
+POST
+https://api.vhsys.com/v2/orcamentos/:id_orcamento/anexos
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/orcamentos/:id_orcamento/anexos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "link_arquivo" : "Link do arquivo para upload",
+        "titulo_arquivo" : "titulo do arquivo",
+        "privado" : "Sim",
+        "link" : "Publico"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_orcamento	Integer	
+ID do orçamento
+
+Faixa de tamanho: 9
+
+link_arquivo	String	
+Link do arquivo para upload
+
+Faixa de tamanho: 255
+
+titulo_arquivo	String	
+Título do arquivo
+
+Faixa de tamanho: 50
+
+privado opcional	Enum	
+Se o arquivo irá ser privado apenas para seu usuário no sistema
+
+Valor padrão: Nao
+
+Valores permitidos: Sim, Nao
+
+link opcional	Enum	
+Se o link do arquivo irá ser público para usuários fora do sistema
+
+Valor padrão: Publico
+
+Valores permitidos: Publico, Privado
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de anexos para o orçamento
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_arquivo	Integer	
+ID do anexo
+
+  nome_arquivo	String	
+Nome do arquivo
+
+  titulo_arquivo	String	
+Titulo do arquivo
+
+  extensao_arquivo	String	
+Extenção do arquivo
+
+  tamanho_arquivo	Integer	
+Tamanho do arquivo (KB)
+
+  privado	Enum	
+Se esse arquivo é provado
+
+  link	Enum	
+Tipo do Link
+
+  downloads	Integer	
+Número de downloads
+
+  data_cad_arquivo	Date	
+Data de cadastro
+
+  data_exclusao	Date	
+Data de exclusão
+
+  lixeira	Enum	
+Situação do anexo no sistema
+
+  link_arquivo	String	
+Link do anexo enviado
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_arquivo": 1223,
+              "nome_arquivo": "nome_do_arquivo.jpg",
+              "titulo_arquivo": "nome_do_arquivo.jpg",
+              "extensao_arquivo": ".jpg",
+              "tamanho_arquivo": 000000,
+              "privado": "Nao",
+              "link": "Publico",
+              "downloads": 0,
+              "data_cad_arquivo": "0000-00-00 00:00:00",
+              "data_exclusao": "0000-00-00 00:00:00",
+              "lixeira": "Nao",
+              "link_arquivo": "http://www.linkdoarquivoenviado/image.jpg",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar o anexo!"
+   }
+Orcamentos - Consultar anexo
+
+2.0.0 
+Requisição para a consulta de dados do anexo
+
+GET
+https://api.vhsys.com/v2/orcamentos/:id_orcamento/anexos/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/orcamentos/:id_orcamento/anexos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_orcamento	Integer	
+ID do orçamento
+
+:id	Integer	
+ID do anexo
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de anexos para o orçamento
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_arquivo	Integer	
+ID do anexo
+
+  nome_arquivo	String	
+Nome do arquivo
+
+  titulo_arquivo	String	
+Titulo do arquivo
+
+  extensao_arquivo	String	
+Extenção do arquivo
+
+  tamanho_arquivo	Integer	
+Tamanho do arquivo (KB)
+
+  privado	Enum	
+Se esse arquivo é provado
+
+  link	Enum	
+Tipo do Link
+
+  downloads	Integer	
+Número de downloads
+
+  data_cad_arquivo	Date	
+Data de cadastro
+
+  data_exclusao	Date	
+Data de exclusão
+
+  lixeira	Enum	
+Situação do anexo no sistema
+
+  link_arquivo	String	
+Link do anexo enviado
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_arquivo": 1223,
+              "nome_arquivo": "nome_do_arquivo.jpg",
+              "titulo_arquivo": "nome_do_arquivo.jpg",
+              "extensao_arquivo": ".jpg",
+              "tamanho_arquivo": 000000,
+              "privado": "Nao",
+              "link": "Publico",
+              "downloads": 0,
+              "data_cad_arquivo": "0000-00-00 00:00:00",
+              "data_exclusao": "0000-00-00 00:00:00",
+              "lixeira": "Nao",
+              "link_arquivo": "http://www.linkdoarquivoenviado/image.jpg",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum anexo encontrado!"
+   }
+Orcamentos - Excluir um anexo
+
+2.0.0 
+Requisição para deletar um anexo, o anexo deletado pode ser encontrado com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/orcamentos/:id_orcamento/anexos/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/orcamentos/:id_orcamento/anexos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_orcamento	Integer	
+ID do orçamento
+
+:id	Integer	
+ID da anexo
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_arquivo	Integer	
+ID do anexo
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_arquivo": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar o anexo!"
+   }
+Orcamentos - Excluir um produto
+
+2.0.0 
+Requisição para deletar um produto do orçamento
+
+DELETE
+https://api.vhsys.com/v2/orcamentos/:id_orcamento/produtos/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/orcamentos/:id_orcamento/produtos/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_orcamento	Integer	
+ID do orçamento (Consultar orçamentos disponíveis)
+
+:id	Integer	
+ID do vínculo produto/orçamentos
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_produto	Integer	
+ID vínculo produto/orçamentos
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_ped_produto": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar o produto do orçamento!"
+   }
+Orcamentos - Lista de anexos
+
+2.0.0 
+Requisição para a consulta de todas os anexos do orçamento
+
+GET
+https://api.vhsys.com/v2/orcamentos/:id_orcamento/anexos
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/orcamentos/:id_orcamento/anexos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_orcamento	Integer	
+ID do orçamento
+
+order opcional	String	
+Nome do campo para ordenação EX:data_mod_rec
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+data_cadastro opcional	Date	
+Data do cadastro 
+buscar a partir de uma data: data_cad_arquivo=0000-00-00 
+buscar entre datas: data_cad_arquivo=0000-00-00,0000-00-00
+
+Valores permitidos: YYYY-MM-DD
+
+extensao_arquivo opcional	String	
+Extenção do arquivo
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de anexos para orçamentos
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_arquivo	Integer	
+ID do anexo
+
+  nome_arquivo	String	
+Nome do arquivo
+
+  titulo_arquivo	String	
+Titulo do arquivo
+
+  extensao_arquivo	String	
+Extenção do arquivo
+
+  tamanho_arquivo	Integer	
+Tamanho do arquivo (KB)
+
+  privado	Enum	
+Se esse arquivo é provado
+
+  link	Enum	
+Tipo do Link
+
+  downloads	Integer	
+Número de downloads
+
+  data_cad_arquivo	Date	
+Data de cadastro
+
+  data_exclusao	Date	
+Data de exclusão
+
+  lixeira	Enum	
+Situação do anexo no sistema
+
+  link_arquivo	String	
+Link do anexo enviado
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_arquivo": 1223,
+              "nome_arquivo": "nome_do_arquivo.jpg",
+              "titulo_arquivo": "nome_do_arquivo.jpg",
+              "extensao_arquivo": ".jpg",
+              "tamanho_arquivo": 000000,
+              "privado": "Nao",
+              "link": "Publico",
+              "downloads": 0,
+              "data_cad_arquivo": "0000-00-00 00:00:00",
+              "data_exclusao": "0000-00-00 00:00:00",
+              "lixeira": "Nao",
+              "link_arquivo": "http://www.linkdoarquivoenviado/image.jpg",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma anexo encontrado!"
+   }
+Orcamentos - Lista de parcelas
+
+2.0.0 
+Requisição para a consulta das parcelas de um orçamento
+
+GET
+https://api.vhsys.com/v2/orcamentos/:id_orcamento/parcelas
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/orcamentos/:id_orcamento/parcelas \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_orcamento	Integer	
+ID do orçamento (Consultar orçamentos disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_orcamento	Integer	
+ID do orçamento (Consultar orçamentos disponíveis)
+
+  data_parcela	Date	
+Data da parcela
+
+  valor_parcela	Decimal	
+Valor da parcela
+
+  forma_pagamento	String	
+Forma de pagamento (Consultar formas de pagamento disponíveis)
+
+  observacoes_parcela	String	
+Observação da parcela
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_orcamento": 1233456,
+              "data_parcela": "0000-00-00",
+              "valor_parcela": "00.00",
+              "forma_pagamento": "Forma de pagamento",
+              "observacoes_parcela": "Observação"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma parcela para o orçamento encontrado!"
+   }
+Orcamentos - Lista de produtos
+
+2.0.0 
+Requisição para a consulta de diversos produtos do orçamento
+
+GET
+https://api.vhsys.com/v2/orcamentos/:id_orcamento/produtos
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/orcamentos/:id_orcamento/produtos \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_orcamento	Integer	
+ID do orçamento
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_ped_produto	Integer	
+Id do vínculo produto/orçamento
+
+  id_orcamento	Integer	
+ID do orçamento (Consultar orçamentos disponíveis)
+
+  id_produto	Integer	
+ID do produto (Consultar produtos disponíveis)
+
+  desc_produto	String	
+Nome do produto (Consultar produtos disponíveis)
+
+  qtde_produto	Decimal	
+Quantidade de produtos
+
+  desconto_produto	Decimal	
+Valor do desconto
+
+  ipi_produto	Decimal	
+Valor do IPI
+
+  icms_produto	Decimal	
+Valor do ICMS
+
+  valor_unit_produto	Decimal	
+Valor unitário do produto
+
+  valor_custo_produto	Decimal	
+Valor de custo do produto
+
+  valor_total_produto	Decimal	
+Valor total do produto
+
+  peso_produto	Decimal	
+Peso do produto
+
+  peso_liq_produto	Decimal	
+Peso líquido do produto
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_ped_produto": 123456,
+              "id_orcamento": 1234,
+              "id_produto": 123456789,
+              "desc_produto": "Nome do produto",
+              "qtde_produto": "1.00",
+              "desconto_produto": "1.00",
+              "ipi_produto": "1.50",
+              "icms_produto": "2.50",
+              "valor_unit_produto": "450.00",
+              "valor_custo_produto": "400.00",
+              "valor_total_produto": 450.00,
+              "peso_produto": "1.10",
+              "peso_liq_produto": "1.10"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum produto para o orçamento encontrado!"
+   }
+Orcamentos - Lista de status
+
+2.0.0 
+Requisição para a consulta dos status do orçamento
+
+GET
+https://api.vhsys.com/v2/orcamentos/:id_orcamento/status
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/orcamentos/:id_orcamento/status \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id_orcamento	Integer	
+ID do orçamento (Consultar orçamentos disponíveis)
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_status	Integer	
+Id do status
+
+  id_orcamento	Integer	
+ID do orçamento (Consultar orçamentos disponíveis)
+
+  data_status	Data	
+Data de cadastro do status
+
+  obs_status	String	
+Descrição do status
+
+  tipo_status	String	
+Tipo do status
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_status": 123456,
+              "id_orcamento": 1234,
+              "data_status": "0000-00-00",
+              "obs_status": "Observação do status",
+              "tipo_status": "Em Aberto",
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+Status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhum status para o orçamento encontrado!"
+   }

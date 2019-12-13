@@ -1,0 +1,895 @@
+Transportadoras
+
+Transportadoras - Cadastrar um transportadora
+
+2.0.0 
+Requisição para cadastro de transportadoras
+
+POST
+https://api.vhsys.com/v2/transportadoras
+cURL
+PHP
+curl -X POST \
+    https://{api_address}/v2/transportadoras \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "desc_transportadora" : "Nome da transportadora",
+        "tipo_pessoa" : "PF",
+        "cnpj_transportadora" : "000.000.000-00",
+        "ie_transportadora" : "000000",
+        "endereco_transportadora" : "Endereço",
+        "numero_transportadora" : "000",
+        "cep_transportadora" : "00.000-00",
+        "bairro_transportadora" : "Bairro",
+        "complemento_transportadora" : "Complemento",
+        "cidade_transportadora" : "Cidade",
+        "estado_transportadora" : "PR",
+        "fone_transportadora" : "(00) 0000-0000",
+        "email_transportadora" : "nome@email.com.br",
+        "observacoes_transportadora" : "Observação",
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+desc_transportadora	String	
+Nome da transportadora
+
+Faixa de tamanho: 0-255
+
+tipo_pessoa opcional	Enum	
+Tipo do cadastro
+
+Valor padrão: PJ
+
+Valores permitidos: PJ, PF
+
+cnpj_transportadora opcional	String	
+CNPJ / CPF da transportadora
+
+Faixa de tamanho: 0-18
+
+ie_transportadora opcional	String	
+Inscrição Estadual
+
+Faixa de tamanho: 0-45
+
+endereco_transportadora opcional	String	
+Endereço
+
+Faixa de tamanho: 0-255
+
+numero_transportadora opcional	Integer	
+Numero
+
+Faixa de tamanho: 0-5
+
+cep_transportadora opcional	String	
+CEP
+
+Faixa de tamanho: 0-10
+
+bairro_transportadora opcional	String	
+Bairro
+
+Faixa de tamanho: 0-45
+
+complemento_transportadora opcional	String	
+Complemento
+
+Faixa de tamanho: 0-45
+
+cidade_transportadora opcional	String	
+Cidade
+
+Faixa de tamanho: 0-255
+
+estado_transportadora opcional	String	
+Estado
+
+Faixa de tamanho: 0-2
+
+fone_transportadora opcional	String	
+Telefone da transportadora
+
+Faixa de tamanho: 0-15
+
+email_transportadora opcional	String	
+email da transportadora
+
+Faixa de tamanho: 0-255
+
+observacoes_transportadora opcional	String	
+Observações do cadastro
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_transportadora	Integer	
+ID da transportadora
+
+  id_registro	Integer	
+ID do registro
+
+  tipo_pessoa	Enum	
+Tipo do cadastro
+
+  desc_transportadora	String	
+Nome da transportadora
+
+  cnpj_transportadora	String	
+CNPJ / CPF da transportadora
+
+  ie_transportadora	String	
+Inscrição estadual
+
+  endereco_transportadora	String	
+Endereço
+
+  numero_transportadora	Integer	
+Numero
+
+  cep_transportadora	String	
+CEP
+
+  bairro_transportadora	String	
+Bairro
+
+  complemento_transportadora	String	
+Complemento
+
+  cidade_transportadora	String	
+Cidade
+
+  cidade_transportadora_cod	Integer	
+Código da cidade
+
+  estado_transportadora	String	
+Estado
+
+  fone_transportadora	String	
+Telefone da transportadora
+
+  email_transportadora	String	
+email da transportadora
+
+  observacoes_transportadora	String	
+Observações do cadastro
+
+  data_cad_transportadora	Date	
+Data de cadastro da transportadora
+
+  data_mod_transportadora	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação do transportadora no sistema
+
+  total	Integer	
+Total de transportadoras no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_transportadora": 0000,
+              "id_registro": 0,
+              "tipo_pessoa": "PF",
+              "desc_transportadora": "Nome da transportadora",
+              "cnpj_transportadora": 000.000.000-00,
+              "ie_transportadora": 00000,
+              "endereco_transportadora": "Endereço",
+              "numero_transportadora": 0000,
+              "cep_transportadora": 00.000-000,
+              "bairro_transportadora": "Bairro",
+              "complemento_transportadora": "Casa",
+              "cidade_transportadora": "Cidade",
+              "cidade_transportadora_cod": 0000,
+              "estado_transportadora": "PR",
+              "fone_transportadora": "(00) 00000-0000",
+              "email_transportadora": "nome@email.com.br",
+              "observacoes_transportadora": "Observação",
+              "data_cad_transportadora": "0000-00-00 00:00:00",
+              "data_mod_transportadora": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao cadastrar a transportadora!"
+   }
+Transportadoras - Alterar uma transportadora
+
+2.0.0 
+Requisição para alterar uma transportadora
+
+PUT
+https://api.vhsys.com/v2/transportadoras/:id
+cURL
+PHP
+curl -X PUT \
+    https://{api_address}/v2/transportadoras/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+    -d '{
+        "desc_transportadora" : "Nome da transportadora",
+        "tipo_pessoa" : "PF",
+        "cnpj_transportadora" : "000.000.000-00",
+        "ie_transportadora" : "000000",
+        "endereco_transportadora" : "Endereço",
+        "numero_transportadora" : "000",
+        "cep_transportadora" : "00.000-00",
+        "bairro_transportadora" : "Bairro",
+        "complemento_transportadora" : "Complemento",
+        "cidade_transportadora" : "Cidade",
+        "estado_transportadora" : "PR",
+        "fone_transportadora" : "(00) 0000-0000",
+        "email_transportadora" : "nome@email.com",
+        "observacoes_transportadora" : "Observação"
+    }'
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+Id da transportadora
+
+desc_transportadora opcional	String	
+Nome da transportadora
+
+Faixa de tamanho: 0-255
+
+tipo_pessoa opcional	Enum	
+Tipo do cadastro
+
+Valores permitidos: PJ, PF
+
+cnpj_transportadora opcional	String	
+CNPJ / CPF da transportadora
+
+Faixa de tamanho: 0-18
+
+ie_transportadora opcional	String	
+Inscrição Estadual
+
+Faixa de tamanho: 0-45
+
+endereco_transportadora opcional	String	
+Endereço
+
+Faixa de tamanho: 0-255
+
+numero_transportadora opcional	Integer	
+Numero
+
+Faixa de tamanho: 0-5
+
+cep_transportadora opcional	String	
+CEP
+
+Faixa de tamanho: 0-10
+
+bairro_transportadora opcional	String	
+Bairro
+
+Faixa de tamanho: 0-45
+
+complemento_transportadora opcional	String	
+Complemento
+
+Faixa de tamanho: 0-45
+
+cidade_transportadora opcional	String	
+Cidade
+
+Faixa de tamanho: 0-255
+
+estado_transportadora opcional	String	
+Estado
+
+Faixa de tamanho: 0-2
+
+fone_transportadora opcional	String	
+Telefone da transportadora
+
+Faixa de tamanho: 0-15
+
+email_transportadora opcional	String	
+email da transportadora
+
+Faixa de tamanho: 0-255
+
+observacoes_transportadora opcional	String	
+Observações do cadastro
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_transportadora	Integer	
+ID da transportadora
+
+  id_registro	Integer	
+ID do registro
+
+  tipo_pessoa	Enum	
+Tipo do cadastro
+
+  desc_transportadora	String	
+Nome da transportadora
+
+  cnpj_transportadora	String	
+CNPJ / CPF da transportadora
+
+  ie_transportadora	String	
+Inscrição estadual
+
+  endereco_transportadora	String	
+Endereço
+
+  numero_transportadora	Integer	
+Numero
+
+  cep_transportadora	String	
+CEP
+
+  bairro_transportadora	String	
+Bairro
+
+  complemento_transportadora	String	
+Complemento
+
+  cidade_transportadora	String	
+Cidade
+
+  cidade_transportadora_cod	Integer	
+Código da cidade
+
+  estado_transportadora	String	
+Estado
+
+  fone_transportadora	String	
+Telefone da transportadora
+
+  email_transportadora	String	
+email da transportadora
+
+  observacoes_transportadora	String	
+Observações do cadastro
+
+  data_cad_transportadora	Date	
+Data de cadastro da transportadora
+
+  data_mod_transportadora	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação do transportadora no sistema
+
+  total	Integer	
+Total de transportadoras no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_transportadora": 0000,
+              "id_registro": 0,
+              "tipo_pessoa": "PF",
+              "desc_transportadora": "Nome da transportadora",
+              "cnpj_transportadora": 000.000.000-00,
+              "ie_transportadora": 00000,
+              "endereco_transportadora": "Endereço",
+              "numero_transportadora": 0000,
+              "cep_transportadora": 00.000-000,
+              "bairro_transportadora": "Bairro",
+              "complemento_transportadora": "Casa",
+              "cidade_transportadora": "Cidade",
+              "cidade_transportadora_cod": 0000,
+              "estado_transportadora": "PR",
+              "fone_transportadora": "(00) 00000-0000",
+              "email_transportadora": "nome@email.com.br",
+              "observacoes_transportadora": "Observação",
+              "data_cad_transportadora": "0000-00-00 00:00:00",
+              "data_mod_transportadora": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao alterar a transportadora!"
+   }
+Transportadoras - Excluir uma transportadora
+
+2.0.0 
+Requisição para deletar uma transportadora, a Transportadora deletada por ser encontrada com o metodo GET passando o parametro lixeira=Sim
+
+DELETE
+https://api.vhsys.com/v2/transportadora/:id
+cURL
+PHP
+curl -X DELETE \
+    https://{api_address}/v2/transportadora/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+Id da transportadora
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_transportadora	Integer	
+ID da transportadora
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+               "id_transportadora": 123456789
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Erro ao deletar a transportadora!"
+   }
+Transportadoras - Consultar transportadora
+
+2.0.0 
+Requisição para a consulta de dados da transportadora
+
+GET
+https://api.vhsys.com/v2/transportadoras/:id
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/transportadoras/:id \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+:id	Integer	
+Id da transportadora
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	Object[]	
+Dados de Resposta
+
+  id_transportadora	Integer	
+ID da transportadora
+
+  id_registro	Integer	
+ID do registro
+
+  tipo_pessoa	Enum	
+Tipo do cadastro
+
+  desc_transportadora	String	
+Nome da transportadora
+
+  cnpj_transportadora	String	
+CNPJ / CPF da transportadora
+
+  ie_transportadora	String	
+Inscrição estadual
+
+  endereco_transportadora	String	
+Endereço
+
+  numero_transportadora	Integer	
+Numero
+
+  cep_transportadora	String	
+CEP
+
+  bairro_transportadora	String	
+Bairro
+
+  complemento_transportadora	String	
+Complemento
+
+  cidade_transportadora	String	
+Cidade
+
+  cidade_transportadora_cod	Integer	
+Código da cidade
+
+  estado_transportadora	String	
+Estado
+
+  fone_transportadora	String	
+Telefone da transportadora
+
+  email_transportadora	String	
+email da transportadora
+
+  observacoes_transportadora	String	
+Observações do cadastro
+
+  data_cad_transportadora	Date	
+Data de cadastro da transportadora
+
+  data_mod_transportadora	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação do transportadora no sistema
+
+  total	Integer	
+Total de transportadoras no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "data": [
+           {
+              "id_transportadora": 0000,
+              "id_registro": 0,
+              "tipo_pessoa": "PF",
+              "desc_transportadora": "Nome da transportadora",
+              "cnpj_transportadora": 000.000.000-00,
+              "ie_transportadora": 00000,
+              "endereco_transportadora": "Endereço",
+              "numero_transportadora": 0000,
+              "cep_transportadora": 00.000-000,
+              "bairro_transportadora": "Bairro",
+              "complemento_transportadora": "Casa",
+              "cidade_transportadora": "Cidade",
+              "cidade_transportadora_cod": 0000,
+              "estado_transportadora": "PR",
+              "fone_transportadora": "(00) 00000-0000",
+              "email_transportadora": "nome@email.com.br",
+              "observacoes_transportadora": "Observação",
+              "data_cad_transportadora": "0000-00-00 00:00:00",
+              "data_mod_transportadora": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma transportadora encontrada!"
+   }
+Transportadoras - Lista de transportadoras
+
+2.0.0 
+Requisição para a consulta de diversos transportadoras.
+
+GET
+https://api.vhsys.com/v2/transportadoras
+cURL
+PHP
+curl -X GET \
+    https://{api_address}/v2/transportadoras \
+    -H 'access-token: SEU (Access-Token) DE ACESSO ' \
+    -H 'secret-access-token: SEU (Secret-Access-Token) DE ACESSO' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+Parâmetro
+
+Campo	Tipo	Descrição
+order opcional	String	
+Nome do campo para ordenação EX:data_mod_transportadora
+
+sort opcional	String	
+Tipo de ordenação
+
+Valor padrão: Asc
+
+Valores permitidos: Asc, Desc
+
+limit opcional	Integer	
+Limit de registros
+
+Valor padrão: 250
+
+Faixa de tamanho: 0-250
+
+offset opcional	Integer	
+Registro inicial da consulta
+
+cnpj_transportadora opcional	String	
+CNPJ / CPF da transportadora
+
+desc_transportadora opcional	String	
+Nome da transportadora
+
+lixeira opcional	Enum	
+Excluído
+
+Valor padrão: null
+
+Valores permitidos: Sim, Nao
+
+data_modificacao opcional	Date	
+Registros criados ou modificados após a data informada
+
+Valores permitidos: YYYY-MM-DD
+
+Success 200
+
+Campo	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+paging	Object[]	
+Dados de paginação
+
+  total	Integer	
+Total de transportadoras no sistema
+
+  offset	Integer	
+Offset da busca
+
+  limit	Integer	
+Limite da busca
+
+  limit_max	Integer	
+Limite máximo da busca
+
+data	Object[]	
+Dados de Resposta
+
+  id_transportadora	Integer	
+ID da transportadora
+
+  id_registro	Integer	
+ID do registro
+
+  tipo_pessoa	Enum	
+Tipo do cadastro
+
+  desc_transportadora	String	
+Nome da transportadora
+
+  cnpj_transportadora	String	
+CNPJ / CPF da transportadora
+
+  ie_transportadora	String	
+Inscrição estadual
+
+  endereco_transportadora	String	
+Endereço
+
+  numero_transportadora	Integer	
+Numero
+
+  cep_transportadora	String	
+CEP
+
+  bairro_transportadora	String	
+Bairro
+
+  complemento_transportadora	String	
+Complemento
+
+  cidade_transportadora	String	
+Cidade
+
+  cidade_transportadora_cod	Integer	
+Código da cidade
+
+  estado_transportadora	String	
+Estado
+
+  fone_transportadora	String	
+Telefone da transportadora
+
+  email_transportadora	String	
+email da transportadora
+
+  observacoes_transportadora	String	
+Observações do cadastro
+
+  data_cad_transportadora	Date	
+Data de cadastro da transportadora
+
+  data_mod_transportadora	Date	
+Data da última modificação
+
+  lixeira	Enum	
+Situação do transportadora no sistema
+
+Retorno de Sucesso:
+HTTP/1.1 200 OK
+   {
+       "code": 200,
+       "status": "success",
+       "paging": {
+           "total": 7,
+           "offset": 0,
+           "limit": 0,
+           "limit_max": 250
+       },
+       "data": [
+           {
+              "id_transportadora": 0000,
+              "id_registro": 0,
+              "tipo_pessoa": "PF",
+              "desc_transportadora": "Nome da transportadora",
+              "cnpj_transportadora": 000.000.000-00,
+              "ie_transportadora": 00000,
+              "endereco_transportadora": "Endereço",
+              "numero_transportadora": 0000,
+              "cep_transportadora": 00.000-000,
+              "bairro_transportadora": "Bairro",
+              "complemento_transportadora": "Casa",
+              "cidade_transportadora": "Cidade",
+              "cidade_transportadora_cod": 0000,
+              "estado_transportadora": "PR",
+              "fone_transportadora": "(00) 00000-0000",
+              "email_transportadora": "nome@email.com.br",
+              "observacoes_transportadora": "Observação",
+              "data_cad_transportadora": "0000-00-00 00:00:00",
+              "data_mod_transportadora": "0000-00-00 00:00:00",
+              "lixeira": "Nao"
+           }
+       ]
+   }
+Error 4xx
+
+Nome	Tipo	Descrição
+code	String	
+Código da resposta
+
+status	String	
+status da resposta
+
+data	String	
+Dados do erro
+
+Retorno de Erro:
+HTTP/1.1 403
+   {
+       "code": 403,
+       "status": "error",
+       "data": "Nenhuma transportadora encontrada!"
+   }
