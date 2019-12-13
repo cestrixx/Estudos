@@ -4,6 +4,8 @@
 **[Instrucoes de Instalacao](#installation-instructions)**<br>
 **[Instrucoes de Uso](#usage-instructions)**<br>
 **[Tools](#tools)**<br>
+**[Frameworks](#frameworks)**<br>
+**[Libraries](#libraries)**<br>
 
 
 ### Instrucoes de Instalacao
@@ -29,6 +31,7 @@
 
 
 ### Tools
+
   **Gerenciador de pacotes**
   > Essa utilidade auxilia na instalação e desinstalação de pacotes, gerenciamento da versões e gerenciamento de dependências necessárias para executar um projeto.
   - [NPM](https://www.npmjs.com)
@@ -44,18 +47,24 @@
   - [Link1](https://nodemon.io)
   - [Link2](https://medium.com/front-end-weekly/configuring-nodemon-on-a-node-js-server-da9eed2eeb5)
 
-  **Frameworks to Build Web APIs**
-  - [Express.js](https://expressjs.com)
+  **Roda como servidor**
+  - [Runkit](https://runkit.com/home)
+
+
+### Frameworks
+
+  **Build Web APIs**
+  - [Express](https://expressjs.com)
   - [Restify](http://restify.com)
   - [Fastfy](https://www.fastify.io)
+  - [Sails](https://sailsjs.com/)
+
+### Libraries
 
   **Axios**
   > Axios é um cliente HTTP, que funciona tanto no browser quanto em node.js. A biblioteca é basicamente uma API que sabe interagir tanto com XMLHttpRequest quanto com a interface http do node. Isso significa que o mesmo código utilizado para fazer requisições ajax no browser também funciona no servidor.
   - [Link1](https://github.com/axios/axios)
   - [Link2](http://codeheaven.io/how-to-use-axios-as-your-http-client-pt)
-
-  **Roda como servidor**
-  - [Runkit](https://runkit.com/home)
 
   **Teste**
   > Criar uma pasta teste e padronizar a criação das sub-pastas e dos arquivos do mesmo modo da padronização do projeto
