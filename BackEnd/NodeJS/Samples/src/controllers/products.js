@@ -1,52 +1,31 @@
-var model = require('../models/products');
+const products = require('../models/products');
 
-function add(req, res) {
-    if (!req.body.content) {
+exports.add = (req, res) => {
+    if (!req.body) {
         return res.status(400).send({
-            message: "Note content can not be empty"
+            message: "Error: O conteúdo da nota não pode estar vazio!"
         });
     }
-    const products = {
-        nome: req.body.nome,
-        preco: req.body.preco
-    }
-    model.add(products);
-    res.send(products);
+    products.add({ nome : req.body.nome, 
+                   preco: req.body.preco })
+         .then(product => res.send(product))
+         .catch(()     => { return res.status(400).send({message:  "Error: Usuario existente!"}) });
+};
+
+exports.getAll = (req, res) => {
+    products.getAll()
+        .then(products => res.send(products))
+        .catch(()      => { return res.status(400).send({message:  "Error: Nenhum usuario cadastrado!"}) });
 }
 
-function get(req, res) {
-    model.get(req.params.id)
-    .then(note => {
-        if(!note) {
-            return res.status(404).send({
-                message: "Note not found with id " + req.params.noteId
-            });            
-        }
-        res.send(note);
-    }).catch(err => {
-        if(err.kind === 'ObjectId') {
-            return res.status(404).send({
-                message: "Note not found with id " + req.params.noteId
-            });                
-        }
-        return res.status(500).send({
-            message: "Error retrieving note with id " + req.params.noteId
-        });
-    });
-
-    return {}
+exports.get = (req, res) => {
+    products.get(req.params.id)
+        .then(product => res.send(product))
+        .catch(()     => { return res.status(400).send({message:  "Error: Usuario não cadastrado!"}) });
 }
 
-function getAll() {
-    return Object.values({})
+exports.remove = (req, res) => {
+    products.remove(req.params.id)
+        .then()
+        .catch(() => { return res.status(400).send({message:  "Error: Usuario não cadastrado!"})});
 }
-
-function update(id, produto) {
-    return {}
-}
-
-function remove(id) {
-    return {}
-}
-
-module.exports = { add, get, getAll, update, remove }

@@ -3,31 +3,54 @@ const sequence = {
     get id() { return this._id++ }
 }
 
-const produtos = {}
+const products = {}
 
-function add(produto) {
-    if (!produto.id) produto.id = sequence.id
-    produtos[produto.id] = produto
-    return produto
-}
+exports.add = (product) => {
+    return new Promise((resolve, reject) => {
+        if (product.id) {
+            reject();
+        }
+        product.id = sequence.id
+        products[product.id] = product    
+        resolve(product);
+    })
+};
 
-function get(id) {
-    return produtos[id] || {}
-}
+exports.getAll = () => {
+    return new Promise((resolve, reject) => {
+         if (Object.entries(products).length === 0)
+             reject();
+        resolve(products);
+    })
+};
 
-function getAll() {
-    return Object.values(produtos)
-}
+exports.get = (id) => {
+    if (products[id] === undefined) {
+        console.log("Undefined");
+        console.log(products[id]);
+    } else {
+        console.log("Not Undefined");
+        console.log(products[id]);
+    }
 
-function update(id, produto) {
-    const produto = produtos[id]
-    return produto
-}
+    return new Promise((resolve, reject) => {
+        if (products[id] === undefined) {
+            reject();
+        } else {
+            resolve(produtos[id]);
+        }
+    })
+};
 
-function remove(id) {
-    const produto = produtos[id]
-    delete produtos[id]
-    return produto
-}
-
-module.exports = { add, get, getAll, remove }
+exports.remove = (id) => {
+    console.log(products[id]);
+    const newLocal = products[id];
+    return new Promise((resolve, reject) => {
+        if (newLocal === undefined)
+            reject();
+        else {
+            delete newLocal;
+            resolve();
+        }
+    })
+};

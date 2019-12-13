@@ -1,21 +1,8 @@
-let router = require('express').Router();
-
-router.get('/', function (req, res) {
-    res.json({
-        status: 'API Its Working',
-        message: 'Welcome to RESTHub crafted with love!',
-    });
-});
-
-var controller = require('../controllers/products');
-
-router.route('/products')
-    .get(controller.getAll)
-    .post(controller.add);
-
-router.route('/products/:id')
-    .get(controller.get)
-    .put(controller.update)
-    .delete(controller.delete);
-
-module.exports = router;
+module.exports = (app) => {
+    const products = require('../controllers/products');
+    app.post('/products', products.add);
+    app.get('/products', products.getAll);
+    app.get('/products/:id', products.get);
+    // app.put('/products/:id', products.update);
+    app.delete('/products/:id', products.remove);
+};
