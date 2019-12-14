@@ -1,6 +1,6 @@
 const sequence = {
     _id: 1,
-    get id() { return this._id++ }
+    get nextId() { return this._id++ }
 }
 
 const products = {}
@@ -10,7 +10,7 @@ exports.add = (product) => {
         if (product.id) {
             reject();
         }
-        product.id = sequence.id
+        product.id = sequence.nextId
         products[product.id] = product    
         resolve(product);
     })
@@ -25,32 +25,33 @@ exports.getAll = () => {
 };
 
 exports.get = (id) => {
-    if (products[id] === undefined) {
-        console.log("Undefined");
-        console.log(products[id]);
-    } else {
-        console.log("Not Undefined");
-        console.log(products[id]);
-    }
-
+    const product = products[id];
     return new Promise((resolve, reject) => {
-        if (products[id] === undefined) {
+       if (product === undefined)
             reject();
-        } else {
-            resolve(produtos[id]);
-        }
-    })
+       resolve(product);
+   })    
+};
+
+exports.update = (id, newProduct) => {
+    console.log(id);
+    console.log(newProduct)
+    const product = products[id];
+    return new Promise((resolve, reject) => {
+        if (product === undefined)
+            reject();
+        newProduct.id = id;
+        products[id] = newProduct;
+        resolve(newProduct);
+   })    
 };
 
 exports.remove = (id) => {
-    console.log(products[id]);
-    const newLocal = products[id];
+    const product = products[id];
     return new Promise((resolve, reject) => {
-        if (newLocal === undefined)
+        if (product === undefined)
             reject();
-        else {
-            delete newLocal;
-            resolve();
-        }
-    })
+        delete products[id];
+        resolve(product);
+   })    
 };

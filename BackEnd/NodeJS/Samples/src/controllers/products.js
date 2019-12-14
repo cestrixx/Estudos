@@ -24,8 +24,14 @@ exports.get = (req, res) => {
         .catch(()     => { return res.status(400).send({message:  "Error: Usuario não cadastrado!"}) });
 }
 
+exports.update = (req, res) => {
+    products.update(req.params.id, {"nome": req.body.nome, "preco": req.body.preco})
+        .then(product => res.send(product))
+        .catch(() => { return res.status(400).send({message:  "Error: Usuario não cadastrado!"})});
+}
+
 exports.remove = (req, res) => {
     products.remove(req.params.id)
-        .then()
+        .then(product => res.send(product))
         .catch(() => { return res.status(400).send({message:  "Error: Usuario não cadastrado!"})});
 }
