@@ -3,35 +3,35 @@ const products = require('../models/products');
 exports.add = (req, res) => {
     if (!req.body) {
         return res.status(400).send({
-            message: "Error: O conteúdo da nota não pode estar vazio!"
+            message: "Error: O conteúdo do produto não pode estar vazio!"
         });
     }
     products.add({ nome : req.body.nome, 
                    preco: req.body.preco })
          .then(product => res.send(product))
-         .catch(()     => { return res.status(400).send({message:  "Error: Usuario existente!"}) });
+         .catch(()     => { return res.status(400).send({message:  "Error: Produto existente!"}) });
 };
 
 exports.getAll = (req, res) => {
     products.getAll()
         .then(products => res.send(products))
-        .catch(()      => { return res.status(400).send({message:  "Error: Nenhum usuario cadastrado!"}) });
+        .catch(()      => { return res.status(400).send({message:  "Error: Nenhum produto cadastrado!"}) });
 }
 
 exports.get = (req, res) => {
     products.get(req.params.id)
         .then(product => res.send(product))
-        .catch(()     => { return res.status(400).send({message:  "Error: Usuario não cadastrado!"}) });
+        .catch(()     => { return res.status(400).send({message:  "Error: Produto não cadastrado!"}) });
 }
 
 exports.update = (req, res) => {
     products.update(req.params.id, {"nome": req.body.nome, "preco": req.body.preco})
         .then(product => res.send(product))
-        .catch(() => { return res.status(400).send({message:  "Error: Usuario não cadastrado!"})});
+        .catch(() => { return res.status(400).send({message:  "Error: Produto não cadastrado!"})});
 }
 
 exports.remove = (req, res) => {
     products.remove(req.params.id)
         .then(product => res.send(product))
-        .catch(() => { return res.status(400).send({message:  "Error: Usuario não cadastrado!"})});
+        .catch(() => { return res.status(400).send({message:  "Error: Produto não cadastrado!"})});
 }
