@@ -1,0 +1,79 @@
+
+Balta.io, cursos => https://github.com/balta-io
+				 => https://github.com/balta-io/1972
+
+Victor Lima - Guia do Programador => https://www.youtube.com/watch?v=LLqq6FemMNQ&list=PLJ_KhUnlXUPtbtLwaxxUxHqvcNQndmI4B
+
+// MRC
+
+Models		
+Routes		=> Delega as requisições do usario para o controllers
+Controllers	=> Verifica as requisições do usuario de manipula o database e devolve a resposta.
+
+
+[Node.js] => https://nodejs.org/en/
+
+1 - [Instalação] => https://nodejs.org/en/download/
+
+2 - [Gerenciador de dependencias] => Inicializar no projeto
+	
+	- [NPM] => É instalado junto com o nodejs : https://www.npmjs.com/
+		npm init [-y] -> (y) seta as configurações padrões
+	
+	- [YARN] => Precisa ser baixado e instalado : https://yarnpkg.com/en/
+		yarn init
+	
+	Eles criam e configuram o arquivo [package.json]
+		
+3 - [.gitignore] => Criar e configurar o arquivo
+	- adcionar a linha: node_modules -> para ignorar a pasta de modulos do nodejs baixados 
+
+4 - [Estrutura do Projeto] => Criar uma estrutura de pastas arquivos basicos do projeto
+	MRC =>	Models, Routes, Controllers
+	> src
+		> controllers	=> Manipula as requisições de cada rota, pegando dados dos modelos e inserindo nas respostas.
+		> models		=> Manipula os dados do respectivos datasources(file,database ou json).
+		> routes		=> Cria a rotas e conecta elas com os controles.
+	> test				=> Criar os arquivos de teste (criar no mesmo padrao das pastas e arquivos do projeto).
+	.gitignore
+	app.js				=> Configurações e sentenças globais da aplicação.
+	package.json 		=> criado pelo gerenciador de pacotes.
+	server.js			=> Configurações e sentenças do servidor, onde inicializa a configuração e o comando para escutar a porta.
+	
+5 - [TDD] => Desenvolvimento Orientado por Testes
+	- [Jest] => JavaScript Testing Framework : https://jestjs.io/
+		- Instalação 		: npm i -D jest  (instala o jest na pasta node_modules do projeto e configura como desenvolvimento).
+		- Rodar manualmente : .node_modules/.bin/jest.
+		- Criar arquivos    : padrao do nome => *.test.js [Ex: app.teste.js ].
+		- Configurar o arquivo package.json, para rodar o jest: script > "test": "jest".
+	- [Supertest] => HTTP assertions made easy via superagent : https://github.com/visionmedia/supertest#readme
+		- Instalação: npm i -D supertest
+		
+6 - [Express] => Web application framework : https://expressjs.com/
+	- Instalação : npm i -S express
+
+7 - [Normalizar uma porta] Pega uma porta disponivel no servidor
+
+	function normalizePort(val) {
+		const port = parseInt(val, 10);
+		if (isNaN(port)) {
+			return val;
+		}
+		if (port >= 0) {
+			return port;
+		}
+		return false;
+	}
+
+	const porta = normalizePort(process.env.PORT || '3003');
+  
+8 - [Nodemon] Monitor for any changes in your source and automatically restart your server : https://nodemon.io/
+		Instalação : npm i -D nodemon
+	
+9 - [Body-Parser] Node.js body parsing middleware : https://github.com/expressjs/body-parser
+		Instalação : npm i --save body-parser
+		
+	app.use(bodyParser.urlencoded({ extended: true }))
+	app.use(bodyParser.json())
+
+

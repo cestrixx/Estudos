@@ -5,7 +5,7 @@ const sequence = {
 
 const products = {}
 
-exports.add = (product) => {
+exports.create = (product) => {
     return new Promise((resolve, reject) => {
         if (product.id) {
             reject();
@@ -16,7 +16,7 @@ exports.add = (product) => {
     })
 };
 
-exports.getAll = () => {
+exports.readAll = () => {
     return new Promise((resolve, reject) => {
          if (Object.entries(products).length === 0)
              reject();
@@ -24,7 +24,7 @@ exports.getAll = () => {
     })
 };
 
-exports.get = (id) => {
+exports.read= (id) => {
     const product = products[id];
     return new Promise((resolve, reject) => {
        if (product === undefined)
@@ -46,7 +46,7 @@ exports.update = (id, newProduct) => {
    })    
 };
 
-exports.remove = (id) => {
+exports.delete = (id) => {
     const product = products[id];
     return new Promise((resolve, reject) => {
         if (product === undefined)

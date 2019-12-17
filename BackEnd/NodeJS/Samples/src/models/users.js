@@ -5,7 +5,7 @@ const sequence = {
 
 const users = {}
 
-exports.add = (user) => {
+exports.create = (user) => {
     return new Promise((resolve, reject) => {
         if (user.id) {
             reject();
@@ -16,7 +16,7 @@ exports.add = (user) => {
     })
 };
 
-exports.getAll = () => {
+exports.readAll = () => {
     return new Promise((resolve, reject) => {
          if (Object.entries(users).length === 0)
              reject();
@@ -24,7 +24,7 @@ exports.getAll = () => {
     })
 };
 
-exports.get = (id) => {
+exports.read = (id) => {
     const user = users[id];
     return new Promise((resolve, reject) => {
        if (user === undefined)
@@ -46,7 +46,7 @@ exports.update = (id, newuser) => {
    })    
 };
 
-exports.remove = (id) => {
+exports.delete = (id) => {
     const user = users[id];
     return new Promise((resolve, reject) => {
         if (user === undefined)

@@ -1,25 +1,25 @@
 const products = require('../models/products');
 
-exports.add = (req, res) => {
+exports.create = (req, res) => {
     if (!req.body) {
         return res.status(400).send({
             message: "Error: O conteúdo do produto não pode estar vazio!"
         });
     }
-    products.add({ nome : req.body.nome, 
+    products.create({ nome : req.body.nome, 
                    preco: req.body.preco })
          .then(product => res.send(product))
          .catch(()     => { return res.status(400).send({message:  "Error: Produto existente!"}) });
 };
 
-exports.getAll = (req, res) => {
-    products.getAll()
+exports.readAll = (req, res) => {
+    products.readAll()
         .then(products => res.send(products))
         .catch(()      => { return res.status(400).send({message:  "Error: Nenhum produto cadastrado!"}) });
 }
 
-exports.get = (req, res) => {
-    products.get(req.params.id)
+exports.read = (req, res) => {
+    products.read(req.params.id)
         .then(product => res.send(product))
         .catch(()     => { return res.status(400).send({message:  "Error: Produto não cadastrado!"}) });
 }
@@ -30,8 +30,8 @@ exports.update = (req, res) => {
         .catch(() => { return res.status(400).send({message:  "Error: Produto não cadastrado!"})});
 }
 
-exports.remove = (req, res) => {
-    products.remove(req.params.id)
+exports.delete = (req, res) => {
+    products.delete(req.params.id)
         .then(product => res.send(product))
         .catch(() => { return res.status(400).send({message:  "Error: Produto não cadastrado!"})});
 }

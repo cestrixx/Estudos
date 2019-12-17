@@ -1,9 +1,9 @@
 module.exports = (app) => {
     const users = require('../controllers/users');
-    app.post('/users', users.add);
-    app.get('/users', users.getAll);
+    app.post('/users', users.create);
+    app.get('/users', users.readAll);
     app.route('/users/:id')
-        .get(users.get)
+        .get(users.read)
         .put(users.update)
-        .delete(users.remove);
+        .delete(users.delete);
 };

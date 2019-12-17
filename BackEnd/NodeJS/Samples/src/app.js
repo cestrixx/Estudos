@@ -6,7 +6,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 // Routes
-require('./src/routes/users')(app);
-require('./src/routes/products')(app)
+var index = require('./routes/index')
+app.use('/', index)
+require('./routes/users')(app)
+require('./routes/products')(app)
 
 module.exports = app;

@@ -1,25 +1,25 @@
 const users = require('../models/users');
 
-exports.add = (req, res) => {
+exports.create = (req, res) => {
     if (!req.body) {
         return res.status(400).send({
             message: "Error: O conteúdo da nota não pode estar vazio!"
         });
     }
-    users.add({ nome : req.body.nome, 
+    users.create({ nome : req.body.nome, 
                 cep  : req.body.cep })
          .then(user => res.send(user))
          .catch(()  => res.status(400).send({ message: "Error: Usuario existente!" }));
 };
 
-exports.getAll = (req, res) => {
-    users.getAll()
+exports.readAll = (req, res) => {
+    users.readAll()
         .then(users => res.send(users))
         .catch(()   => res.status(400).send({ message: "Error: Nenhum usuario cadastrado!" }));
 };
 
-exports.get = (req, res) => {
-    users.get(req.params.id)
+exports.read = (req, res) => {
+    users.read(req.params.id)
         .then(user => res.send(user))
         .catch(()  => res.status(400).send({ message: "Error: Usuario não cadastrado!" }));
 };
@@ -30,8 +30,8 @@ exports.update = (req, res) => {
         .catch(()   => res.status(400).send({ message: "Error: Usuario não cadastrado!" }));
 };
 
-exports.remove = (req, res) => {
-    users.remove(req.params.id)
+exports.delete = (req, res) => {
+    users.delete(req.params.id)
         .then(user => res.send(user))
         .catch(()   => res.status(400).send({ message: "Error: Usuario não cadastrado!" }));
 };
