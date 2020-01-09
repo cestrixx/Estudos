@@ -26,3 +26,6 @@
 [Git]: https://github.com/cestrixx/Estudos/tree/master/Tools/Git
 [Markdown]: https://github.com/cestrixx/Estudos/tree/master/Tools/Markdown
 [Aqui]: https://github.com/cestrixx/Estudos/tree/master/References
+
+---
+Licença: ISC
