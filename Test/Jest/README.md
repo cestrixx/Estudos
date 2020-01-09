@@ -1,4 +1,4 @@
-#Jest
+# Jest
 
 ## Instalar
 npm -D jest
@@ -40,11 +40,16 @@ test('Responder na porta: 3003', () => {
 ## Automatizando o test
 ### Configurando:
 	- package.json
-		script
-			"secure-mode": "jest --watch"
+	  script
+	    "secure-mode": "jest --watch"
+	    ou
+	    "secure-mode": "jest --watch --verbose=true" -> para mostrar todas as informacoes do teste			
 ### Rodando:
 	npm run secure-mode
 	- abre um menu, com opcoes de teste(Rodar todos, rodar os testes falhados, ...)
 	- escolher a opcao [a] -> roda todos os testes
+	- escolher p e adciona um nome de arquivo, para rodar o teste só no arquivo expecifico
+	- escolher p, e enter, zera as configuracoes
+	- enter roda os testes novamente
 	
 
