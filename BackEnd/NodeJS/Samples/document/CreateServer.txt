@@ -4,6 +4,9 @@ Balta.io, cursos => https://github.com/balta-io
 
 Victor Lima - Guia do Programador => https://www.youtube.com/watch?v=LLqq6FemMNQ&list=PLJ_KhUnlXUPtbtLwaxxUxHqvcNQndmI4B
 
+Waldemar Neto Dev Lab - https://www.youtube.com/watch?v=jX3XZ0XPV8U
+
+
 // MRC
 
 Models		
