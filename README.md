@@ -16,6 +16,8 @@
 #### Tools
    - [Git], Git
    - [Markdown], Markdown
+   - [Glossário], Glossário
+   
 #### Referencias
    - [Aqui], Referencias
 
@@ -25,6 +27,7 @@
 [Test]: https://github.com/cestrixx/Estudos/tree/master/Test
 [Git]: https://github.com/cestrixx/Estudos/tree/master/Tools/Git
 [Markdown]: https://github.com/cestrixx/Estudos/tree/master/Tools/Markdown
+[Glossário]: https://github.com/cestrixx/Estudos/tree/master/glossary
 [Aqui]: https://github.com/cestrixx/Estudos/tree/master/References
 
 ---
