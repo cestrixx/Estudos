@@ -1,5 +1,9 @@
 # Estudos
 
+ ```
+ 	Dedicado a estudos e análises de variadas tecnologias.
+ ```
+
 #### Arquitetura
    - [Architecture], Architecture
 #### Languages
