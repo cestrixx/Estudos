@@ -8,7 +8,7 @@ Victor Lima - Guia do Programador => https://www.youtube.com/watch?v=LLqq6FemMNQ
 
 Models		
 Routes		=> Delega as requisições do usario para o controllers
-Controllers	=> Verifica as requisições do usuario de manipula o database e devolve a resposta.
+Controllers	=> Verifica as requisições do usuario e manipula o database e devolve a resposta.
 
 
 [Node.js] => https://nodejs.org/en/
@@ -34,9 +34,9 @@ Controllers	=> Verifica as requisições do usuario de manipula o database e dev
 		> controllers	=> Manipula as requisições de cada rota, pegando dados dos modelos e inserindo nas respostas.
 		> models		=> Manipula os dados do respectivos datasources(file,database ou json).
 		> routes		=> Cria a rotas e conecta elas com os controles.
+		app.js			=> Configurações e sentenças globais da aplicação.
 	> test				=> Criar os arquivos de teste (criar no mesmo padrao das pastas e arquivos do projeto).
 	.gitignore
-	app.js				=> Configurações e sentenças globais da aplicação.
 	package.json 		=> criado pelo gerenciador de pacotes.
 	server.js			=> Configurações e sentenças do servidor, onde inicializa a configuração e o comando para escutar a porta.
 	

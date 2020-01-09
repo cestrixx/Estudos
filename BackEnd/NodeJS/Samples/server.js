@@ -1,5 +1,5 @@
 const porta = normalizePort(process.env.PORT || '3003');
-const app = require('./src/app');
+const app   = require('./src/app');
 
 app.listen(porta, () => {
     console.log(`Servidor está executando na porta ${porta}.`)
