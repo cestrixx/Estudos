@@ -8,7 +8,7 @@ exports.create = (req, res) => {
     }
     users.create({ nome : req.body.nome, 
                 cep  : req.body.cep })
-         .then(user => res.send(user))
+         .then(user => res.status(201).send(user))
          .catch(()  => res.status(400).send({ message: "Error: Usuario existente!" }));
 };
 

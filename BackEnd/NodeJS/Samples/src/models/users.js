@@ -3,7 +3,7 @@ const sequence = {
     get nextId() { return this._id++ }
 }
 
-const users = {}
+const users = []
 
 exports.create = (user) => {
     return new Promise((resolve, reject) => {
