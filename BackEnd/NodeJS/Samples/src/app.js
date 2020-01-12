@@ -1,9 +1,10 @@
-const express = require('express')
-const app = express()
-const bodyParser = require('body-parser')
+const express = require('express');
+const app = express();
+const consign = require('consign');
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+consign({ cwd: 'src', verbose: false })
+    .include('./config/middlewares.js')
+    .into(app);
 
 // Routes
 var index = require('./routes/index')

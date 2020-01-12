@@ -56,3 +56,5 @@
 - [Criando um CRUD completo com NodeJS, Express e MongoDB](https://medium.com/baixada-nerd/criando-um-crud-completo-com-nodejs-express-e-mongodb-parte-1-3-6c8389d7147d)
 - [A simple CRUD application with Javascript](https://medium.com/@etiennerouzeaud/a-simple-crud-application-with-javascript-ebc82f688c59)
 - [Create a Simple CRUD Database App: Connecting to MySQL with PHP](https://www.taniarascia.com/create-a-simple-database-app-connecting-to-mysql-with-php/)
+
+- [Consign](https://github.com/jarradseers/consign)
