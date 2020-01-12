@@ -166,3 +166,38 @@ Apesar de ser single-threaded, é possível tratar requisições concorrentes em
 ## Orquestradores de containers
 * Openshift (RedHat)
 * kubernetes (Google)
+
+## Full stack
+
+> * **Tecnologias de back-end:** Em termos de linguagens de programação, você deve estar confortável com pelo menos uma linguagem do lado do servidor (PHP, NodeJS, Ruby, Python, C #). Em seguida, você deve estar bastante familiarizado com pelo menos uma tecnologia de gerenciamento de banco de dados (MySQL, PostgreSQL, Redis, MongoDB, Cassandra). Por fim, você deve saber o suficiente sobre Servidores Web (Apache, Nginx) e saber como configurar um aplicativo ou um site.
+> 
+> * **Tecnologias de front-end:** HTML, CSS e Javascript são obrigatórios. Juntamente com eles, como um desenvolvedor full stack, você deve saber sobre design responsivo, media queries, LESS, SASS, compatibilidade entre navegadores etc. Você também deve saber como se comunicar com o backend usando AJAX ou WebSockets. Vivemos a era do Javascript, portanto, é bom ter conhecimento em frameworks JavaScript (React, Angular, Vue, etc.).
+> 
+> * **Administração do sistema:** Você deve saber como funciona a hospedagem na nuvem (AWS, Rackspace, Digital Ocean) e como configurar uma instance. Você não precisa ser proficiente nisso, porque é uma ciência à parte, mas você deve ser capaz de lidar com o básico. Além disso, você deve estar familiarizado com a configuração do protocolo HTTPS, DNS, monitoramento de servidor, etc. O armazenamento em cache também é importante, Varnish, proxy reverso e Memcached.
+> 
+> * **Ferramentas de desenvolvimento Web:** Versionamento (Git, SVN) é indispensável. Além disso, para evitar as incompatibilidades de ambiente diferentes, é bom ter ferramentas de virtualização - elas podem economizar muito tempo com debug. Você deve saber como configurar o Virtual Box e o Vagrant, pelo menos.
+> 
+> Como um desenvolvedor full-stack, você não precisa dominar todas essas áreas e tecnologias, mas deve se sentir confortável com elas.
+
+## Rest
+GET | POST | PUT  | DELETE
+---------|----------|---------|--------
+ 200 | 201 | 200 | 200
+ 404 | 404 | 204 | 404
+  |  ||404    
+
+# REST
+REST é um acrônimo para **Representational State Transfer**. É arquitetura de padrões da web e protocolo HTTP. 
+
+Os aplicativos RESTful usam solicitações HTTP para executar quatro operações denominadas CRUD (C: criar, R: ler, U: atualizar e D: excluir). Criar e / ou atualizar é usado para postar dados, obter para ler / listar dados e excluir para remover dados.
+
+### Constraint REST
+* cliente/servidor
+* stateless
+* cache 
+* interface uniforme
+* sistema em camadas
+* codigo sob demanda
+
+# API 
+**Aplication Program interface**. Interface de programa de aplicações. É a tecnica utiliza para disponibilizar as funções de um outro sistema.
