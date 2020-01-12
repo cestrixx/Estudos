@@ -200,4 +200,4 @@ Os aplicativos RESTful usam solicitações HTTP para executar quatro operações
 * codigo sob demanda
 
 # API 
-**Aplication Program interface**. Interface de programa de aplicações. É a tecnica utiliza para disponibilizar as funções de um outro sistema.
+**Aplication Program interface**. Interface de programa de aplicações. É a tecnica utilizada para disponibilizar as funções de um outro sistema.
