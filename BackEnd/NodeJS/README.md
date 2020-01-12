@@ -73,3 +73,17 @@
 
   **Express-Validator**
   - [Express-Validator](https://express-validator.github.io/docs/)
+  
+  **Consign** [Link](https://github.com/jarradseers/consign#readme)
+  > Autoload your scripts! the successor to express-load
+  ```
+  npm i -S -E consign
+  ```
+  Ex:
+  ```javascript
+  const consign = require('consign');
+
+  consign({ cwd: 'src' })
+    .include('./config/middlewares.js')
+    .into(app);
+  ```
