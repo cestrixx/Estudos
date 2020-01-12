@@ -179,14 +179,7 @@ Apesar de ser single-threaded, é possível tratar requisições concorrentes em
 > 
 > Como um desenvolvedor full-stack, você não precisa dominar todas essas áreas e tecnologias, mas deve se sentir confortável com elas.
 
-## Rest
-GET | POST | PUT  | DELETE
----------|----------|---------|--------
- 200 | 201 | 200 | 200
- 404 | 404 | 204 | 404
-  |  ||404    
-
-# REST
+## REST
 REST é um acrônimo para **Representational State Transfer**. É arquitetura de padrões da web e protocolo HTTP. 
 
 Os aplicativos RESTful usam solicitações HTTP para executar quatro operações denominadas CRUD (C: criar, R: ler, U: atualizar e D: excluir). Criar e / ou atualizar é usado para postar dados, obter para ler / listar dados e excluir para remover dados.
@@ -199,5 +192,13 @@ Os aplicativos RESTful usam solicitações HTTP para executar quatro operações
 * sistema em camadas
 * codigo sob demanda
 
-# API 
+**Status**
+GET | POST | PUT  | DELETE
+---------|----------|---------|--------
+ 200 | 201 | 200 | 200
+ 404 | 404 | 204 | 404
+  |  ||404    
+
+
+## API 
 **Aplication Program interface**. Interface de programa de aplicações. É a tecnica utilizada para disponibilizar as funções de um outro sistema.
