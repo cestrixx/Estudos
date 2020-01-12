@@ -193,6 +193,8 @@ Os aplicativos RESTful usam solicitações HTTP para executar quatro operações
 * codigo sob demanda
 
 **Status**
+
+
 GET | POST | PUT  | DELETE
 ---------|----------|---------|--------
  200 | 201 | 200 | 200
