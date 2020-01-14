@@ -3,7 +3,10 @@
  ```
  	Dedicado a estudos e análises de variadas tecnologias.
  ```
-
+ #### Glossário
+   - [Glossário], Glossário
+ #### Raciocínio
+   - [Raciocínio], Raciocínio
 #### Arquitetura
    - [Architecture], Architecture
 #### Languages
@@ -16,12 +19,12 @@
 #### Tools
    - [Git], Git
    - [Markdown], Markdown
-   - [Glossário], Glossário
    
 #### Referencias
    - [Aqui], Referencias
 
 [Architecture]: https://github.com/cestrixx/Estudos/tree/master/Architecture
+[Raciocínio]: https://github.com/cestrixx/Estudos/tree/master/reasoning
 [JavaScript]: https://github.com/cestrixx/Estudos/tree/master/Languages/JavaScript
 [NodeJS]: https://github.com/cestrixx/Estudos/tree/master/BackEnd/NodeJS
 [Test]: https://github.com/cestrixx/Estudos/tree/master/Test
