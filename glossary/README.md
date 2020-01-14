@@ -56,7 +56,7 @@ Apesar de ser single-threaded, é possível tratar requisições concorrentes em
 ## Banco de Dados
 * **Relacionais/SQL:** Banco de dados baseados em relacionamentos. SQL é a sigla para “Structured Query Language” que significa, traduzindo para o português“Linguagem de Consulta Estruturada”. Trata-se de uma linguagem de consulta a banco de dados relacionais. (Ex: SQLLite, MySQL, PostgreSQL, SQL Server Microsoft, PL SQL Oracle)
 
-* **Nao Relacionais/NoSQL:** Banco de dados nao baseados em relacionamentos.
+* **Não Relacionais/NoSQL:** Banco de dados nao baseados em relacionamentos.
   * **Documento:** Os dados são armazenados como documentos. Os documentos podem ser descritos como dados no formato de chave-valor, como por exemplo, o padrão JSON. Um exemplo de banco de dados neste formato é o MongoDB e couchdb;
   
   * **Colunas:** Os dados são armazenados em linhas particulares de tabela no disco, podendo suportar várias linhas e colunas. Também permitem sub-colunas. Um banco de dados dessa família, por exemplo, é o Cassandra e hbase;
