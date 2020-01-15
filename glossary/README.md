@@ -204,3 +204,56 @@ GET | POST | PUT  | DELETE
 
 ## API 
 **Aplication Program interface**. Interface de programa de aplicações. É a tecnica utilizada para disponibilizar as funções de um outro sistema.
+
+## Comunicadores para devs
+* **Slack** (https://slack.com)
+* **Telegram**
+
+## Gerenciador de Tarefa/Projeto
+* **Trello** (https://trello.com)
+
+## Gerador de páginas estáticas
+* **python (lektor)** (https://www.getlektor.com)
+
+## SMTP Fake
+* **mailtrap** (https://mailtrap.io)
+
+## Task Runner
+* **Grunt** (https://gruntjs.com)
+* **Gulp** (https://gulpjs.com)
+
+## Gerenciador de dependência
+* **bower** (https://bower.io)
+* **yarn** (https://yarnpkg.com)
+
+## GPU
+> O GPU processa dados gráficos mais rápido que o CPU, por isso aceleração de hardware em animações CSS é importante.
+
+## Babel (https://babeljs.io)
+> Transpire = converte de JS Novo para JS antigo.
+
+## CLI - Command line interface
+
+## GITLAB (https://gitlab.com)
+> Interface gráfica para repositório baseado em git que pode ser usada pela empresa;
+
+## BitBucket (https://bitbucket.org)
+> Interface gráfica para repositório que pode ser usado até 5 usuários sem custo;
+
+## CMS
+> Content Management System (CMS) Sistema gerenciador de conteúdo
+
+## CRM
+> Customer Relationship Management (CRM) Gestão de relacionamento com o cliente
+
+### MVC 
+> Model View Controller padrão de arquitetura de software que divide a aplicação em 3 camadas
+
+## MVP
+> Produto Mínimo Viável
+
+## Express (https://expressjs.com)
+> Framework web dispõe métodos http e middlewares para criar api segura;
+
+## CDN
+> Armazenamento de conteúdo, rede de distribuição baseado na proximidade geográfica
