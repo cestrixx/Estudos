@@ -39,7 +39,8 @@ Dedicado a possibilitar recursos que facilitam o desenvolvimento.
 > 1. **Auto Close Tag**    - Serve para fechar tags automaticamente
 > 1. **Auto Rename Tag**   - Se você altera o nome na abertura da tag, altera automaticamente no final.
 > 1. **Bracket Pair Colorizer**    - Colore as chaves de forma que não confunda quando aninhadas
-> 1.  **Color Highlight**    - Ao digitar uma cor, Seja em HEX, RGB ou nome, automaticamente a cor é mostrada, como background da palavra
+> 1. **Rainbow Brackets** Colore os parenteses
+> 1. **Color Highlight**    - Ao digitar uma cor, Seja em HEX, RGB ou nome, automaticamente a cor é mostrada, como background da palavra
 > 1. **HTML Snippets**  - Atalhos para gerar html
 > 1. **Intellisense** for CSS class names in HTML - autocompleta os nomes das classes do css
 > 1. **TODO Highlight**  - Tu pode configurar pra mais, mas ao comentar TODO: , FIXIT: fica destacado para uma anotação importante
@@ -64,6 +65,10 @@ Dedicado a possibilitar recursos que facilitam o desenvolvimento.
 > 1. **azure cosmodb** conectar no mongo
 > 1. **image preview** preview da imagem
 > 1. **preview markdown** preview de markdown
+> 1. **Markdown Preview Github Styling** Altera a visualização de remarcação integrada do VS Code para combinar com o estilo do Github
+> 1. **Markdown Shortcuts** Atalhos para edição Markdown
+> 1. **Markdown Preview Enhanced** Visualização Markdown Aprimorada portada para vscode
+> 1. **vscode-pdf** View de PDF
 
 ### shortcuts
 ```
