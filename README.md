@@ -7,6 +7,10 @@
    - [Glossário], Glossário
  #### Raciocínio
    - [Raciocínio], Raciocínio
+ #### Lógica de Programação
+   - [Lógica de Programação], Lógica de Programação
+ #### Linguagens de Programação
+   - [Linguagens de Programação], Linguagens de Programação
 #### Arquitetura
    - [Architecture], Architecture
 #### Languages
@@ -24,13 +28,15 @@
    - [Aqui], Referencias
 
 [Architecture]: https://github.com/cestrixx/Estudos/tree/master/Architecture
-[Raciocínio]: https://github.com/cestrixx/Estudos/tree/master/reasoning
 [JavaScript]: https://github.com/cestrixx/Estudos/tree/master/Languages/JavaScript
 [NodeJS]: https://github.com/cestrixx/Estudos/tree/master/BackEnd/NodeJS
 [Test]: https://github.com/cestrixx/Estudos/tree/master/Test
 [Git]: https://github.com/cestrixx/Estudos/tree/master/Tools/Git
 [Markdown]: https://github.com/cestrixx/Estudos/tree/master/Tools/Markdown
 [Glossário]: https://github.com/cestrixx/Estudos/tree/master/glossary
+[Raciocínio]: https://github.com/cestrixx/Estudos/tree/master/reasoning
+[Lógica de Programação]: https://github.com/cestrixx/Estudos/tree/master/programmingLogic
+[Linguagens de Programação]: https://github.com/cestrixx/Estudos/tree/master/programmingLanguages
 [Aqui]: https://github.com/cestrixx/Estudos/tree/master/References
 
 ---
