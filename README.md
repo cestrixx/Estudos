@@ -36,7 +36,7 @@
 [Raciocínio]: https://github.com/cestrixx/Estudos/tree/master/reasoning
 [Lógica de Programação]: https://github.com/cestrixx/Estudos/tree/master/programmingLogic
 [Linguagens de Programação]: https://github.com/cestrixx/Estudos/tree/master/programmingLanguages
-[Ferramentas]: https://github.com/cleibp/sourceKnowledge/tree/master/tools
+[Ferramentas]: https://github.com/cestrixx/Estudos/tree/master/tools
 [Aqui]: https://github.com/cestrixx/Estudos/tree/master/References
 
 ---
