@@ -15,7 +15,7 @@
 
 ## Javascript
 > **JavaScript** é uma linguagem de programação interpretada estruturada, de script em alto nível com tipagem dinâmica fraca e multi-paradigma.
-* **[Leia mais]** (https://github.com/cestrixx/Estudos/tree/master/Languages/JavaScript)
+* **[Leia mais](https://github.com/cestrixx/Estudos/tree/master/Languages/JavaScript)**
 
 ## Python
 > **Python** é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte. Foi lançada por Guido van Rossum em 1991.
