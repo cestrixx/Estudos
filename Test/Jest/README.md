@@ -13,9 +13,9 @@ yarn add --dev jest
 ```
 
 ## 2. Configuração
-1 Criar a pasta [test] na pasta principal do projeto (Encontra os arquivos de test automaticamente).
-2 Criar arquivos de test, com prefixo [test] extensao [js] [Ex: server.test.js].
-3 Configurando o jest no comando npm test.
+1. Criar a pasta [test] na pasta principal do projeto (Encontra os arquivos de test automaticamente)
+2. Criar arquivos de test, com prefixo [test] extensao [js] [Ex: server.test.js]
+3. Configurando o jest no comando npm test
 
 package.json
 ``` json
