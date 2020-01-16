@@ -40,6 +40,7 @@ Dedicado a possibilitar recursos que facilitam o desenvolvimento.
 > 1. **Auto Rename Tag**   - Se você altera o nome na abertura da tag, altera automaticamente no final.
 > 1. **Bracket Pair Colorizer**    - Colore as chaves de forma que não confunda quando aninhadas
 > 1. **Rainbow Brackets** Colore os parenteses
+> 1. **Rainbow Tags** Set rainbow colors for HTML div tags. This makes it easier to find matching divs.
 > 1. **Color Highlight**    - Ao digitar uma cor, Seja em HEX, RGB ou nome, automaticamente a cor é mostrada, como background da palavra
 > 1. **HTML Snippets**  - Atalhos para gerar html
 > 1. **Intellisense** for CSS class names in HTML - autocompleta os nomes das classes do css
@@ -69,6 +70,10 @@ Dedicado a possibilitar recursos que facilitam o desenvolvimento.
 > 1. **Markdown Shortcuts** Atalhos para edição Markdown
 > 1. **Markdown Preview Enhanced** Visualização Markdown Aprimorada portada para vscode
 > 1. **vscode-pdf** View de PDF
+> 1. **Debugger for Firefox** Depure o aplicativo da Web ou a extensão do navegador no Firefox
+> 1. **Debugger for Chrome** Depure seu código JavaScript no navegador Chrome ou qualquer outro destino compatível com o protocolo Chrome Debugger.
+> 1. **jshint** Esta é a JSHint, uma ferramenta que ajuda a detectar erros e possíveis problemas no seu código JavaScript
+> 1. **Jest Snippets** Fragmentos de código para testar a estrutura Jest
 
 ### shortcuts
 ```
