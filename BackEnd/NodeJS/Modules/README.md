@@ -59,8 +59,9 @@
 
 - [Axios], Promise based HTTP client for the browser and node.js.
 - [Jest], Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
-
+- [Knex], A batteries-included, multi-dialect (MSSQL, MySQL, PostgreSQL, SQLite3, Oracle (including Oracle Wallet Authentication)) query builder for Node.js.
 
 
 [Axios]: https://github.com/axios/axios
 [Jest]: https://jestjs.io
+[Knex]: http://knexjs.org/
