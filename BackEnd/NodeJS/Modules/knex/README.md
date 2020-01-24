@@ -1,12 +1,10 @@
 # Knex.js
 
-```
 Um construtor de consultas com vários dialetos (MSSQL, MySQL, PostgreSQL, SQLite3, Oracle
-```
 
-## 1. Instalação
+# Instalação
 
-```
+```bash
 npm install knex --save
 
 # Then add one of the following (adding a --save) flag:
@@ -18,11 +16,11 @@ npm install oracledb
 npm install mssql
 ```
 
-## 2. Configuração
+# Configuração
 
-## 3. Execução
+# Execução
 
-## 4. Usabilidade
+# Usabilidade
 
-## 5. Documentação curta
+# Documentação curta
 

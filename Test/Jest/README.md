@@ -1,15 +1,12 @@
 # Jest
 
-```
 O Jest é um delicioso framework de testes de JavaScript, com foco na simplicidade.
-```
 
 ## 1. Instalação
 
-```
-npm install --save-dev jest
-ou
-yarn add --dev jest
+```bash
+ - npm install --save-dev jest
+ - yarn add --dev jest
 ```
 
 ## 2. Configuração
@@ -17,8 +14,8 @@ yarn add --dev jest
 2. Criar arquivos de test, com prefixo [test] extensao [js] [Ex: server.test.js]
 3. Configurando o jest no comando npm test
 
-package.json
-``` json
+##### package.json
+```json
   "scripts": {
     "test": "jest --coverage",
     "secure-mode": "jest --watch --verbose=true"
@@ -26,10 +23,9 @@ package.json
 ```	
 
 ## 3. Execução
-```
-npm test
-ou
-npm run secure-mode
+```bash
+- npm test
+- npm run secure-mode
 ```
 #### Parametro watch (secure-mode)
 > Observa os arquivos para alterações e executa novamente os testes relacionados aos arquivos alterados. Se você deseja executar novamente todos os testes quando um arquivo for alterado, use a opção --watchAll.
