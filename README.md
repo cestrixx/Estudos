@@ -11,6 +11,8 @@
    - [Lógica de Programação], Lógica de Programação
  #### Linguagens de Programação
    - [Linguagens de Programação], Linguagens de Programação
+ #### Paradigmas de Programação
+   - [Paradigmas de Programação], Paradigmas de Programação
 #### Arquitetura
    - [Architecture], Architecture
 #### Ferramentas
@@ -36,6 +38,7 @@
 [Raciocínio]: https://github.com/cestrixx/Estudos/tree/master/reasoning
 [Lógica de Programação]: https://github.com/cestrixx/Estudos/tree/master/programmingLogic
 [Linguagens de Programação]: https://github.com/cestrixx/Estudos/tree/master/programmingLanguages
+[Paradigmas de Programação]: https://github.com/cestrixx/Estudos/tree/master/paradigms
 [Ferramentas]: https://github.com/cestrixx/Estudos/tree/master/tools
 [Aqui]: https://github.com/cestrixx/Estudos/tree/master/References
 
