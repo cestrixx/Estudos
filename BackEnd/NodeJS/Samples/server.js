@@ -1,4 +1,4 @@
-const porta = normalizePort(process.env.PORT || '3003');
+const porta = normalizePort(process.env.PORT || '3003'); // criar um procurador de porta disponiveis automaticamente
 const app   = require('./src/app');
 
 app.listen(porta, () => {
