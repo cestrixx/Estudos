@@ -1,9 +1,8 @@
-module.exports = (app) => {
-    const users = require('../controllers/users');
-    app.post('/users', users.create);
-    app.get('/users', users.readAll);
+module.exports = app => {
+    app.post('/users', app.controllers.users.create);
+    app.get('/users', app.controllers.users.readAll);
     app.route('/users/:id')
-        .get(users.read)
-        .put(users.update)
-        .delete(users.delete);
+        .get(app.controllers.users.read)
+        .put(app.controllers.users.update)
+        .delete(app.controllers.users.delete);
 };

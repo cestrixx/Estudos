@@ -34,6 +34,21 @@ var knex = require('knex')({
 
 # Usabilidade
 
+```bash
+knex init
+```
+Cria o kinexfile.js - tem toda a configuração do banco de dados
+voce pode ter varias conecções com banco de dados
+uma para desenvolvimento outra para produção
+
+criar config/db.js
+```js
+const config = require('../knexfile.js')
+const knex = require('knex')(config)
+
+module.exports = knex
+```
+
 ```js
 const knex = require('knex')({
   client: 'sqlite3',

@@ -5,53 +5,57 @@ const sequence = {
 
 const users = []
 
-exports.create = (user) => {
-    return new Promise((resolve, reject) => {
-        if (user.id) {
-            reject();
-        }
-        user.id = sequence.nextId
-        users[user.id] = user    
-        resolve(user);
-    })
-};
+module.exports = app => {
+    const create = (user) => {
+        return new Promise((resolve, reject) => {
+            if (user.id) {
+                reject();
+            }
+            user.id = sequence.nextId
+            users[user.id] = user
+            resolve(user);
+        });
+    };
 
-exports.readAll = () => {
-    return new Promise((resolve, reject) => {
-         if (Object.entries(users).length === 0)
-             reject();
-        resolve(users);
-    })
-};
+    const readAll = () => {
+        return new Promise((resolve, reject) => {
+            if (Object.entries(users).length === 0)
+                reject();
+            resolve(users);
+        });
+    };
 
-exports.read = (id) => {
-    const user = users[id];
-    return new Promise((resolve, reject) => {
-       if (user === undefined)
-            reject();
-       resolve(user);
-   })    
-};
+    const read = (id) => {
+        const user = users[id];
+        return new Promise((resolve, reject) => {
+            if (user === undefined)
+                reject();
+            resolve(user);
+        });
+    };
 
-exports.update = (id, newuser) => {
-    console.log(id);
-    console.log(newuser)
-    const user = users[id];
-    return new Promise((resolve, reject) => {
-        if (user === undefined)
-            reject();
-        newuser.id = id;
-        users[id] = newuser;
-        resolve(newuser);
-   })    
-};
+    const update = (id, newuser) => {
+        console.log(id);
+        console.log(newuser)
+        const user = users[id];
+        return new Promise((resolve, reject) => {
+            if (user === undefined)
+                reject();
+            newuser.id = id;
+            users[id] = newuser;
+            resolve(newuser);
+        });
+    };
 
-exports.delete = (id) => {
-    const user = users[id];
-    return new Promise((resolve, reject) => {
-        if (user === undefined)
-            reject();
-        delete users[id];
-        resolve(user);
-   })    
+    const delete = (id) => {
+        const user = users[id];
+        return new Promise((resolve, reject) => {
+            if (user === undefined)
+                reject();
+            delete users[id];
+            resolve(user);
+        });
+    };
+
+    return { create, readAll, read, update, delete }
 };

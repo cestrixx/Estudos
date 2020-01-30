@@ -1,9 +1,8 @@
-module.exports = (app) => {
-    const products = require('../controllers/products');
-    app.post('/products', products.create);
-    app.get('/products', products.readAll);
+module.exports = app => {
+    app.post('/products', app.controllers.products.create);
+    app.get('/products', app.controllers.products.readAll);
     app.route('/products/:id')
-        .get(products.read)
-        .put(products.update)
-        .delete(products.create);
+        .get(app.controllers.products.read)
+        .put(app.controllers.products.update)
+        .delete(app.controllers.products.create);
 };

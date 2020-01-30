@@ -4,7 +4,9 @@ const consign = require('consign');
 
 consign({ cwd: 'src', verbose: false })
     .include('./config/middlewares.js')
-    .include('./config/routes.js')
+    .then('./models')
+    .then('./controllers')
+    .then('./routes')
     .into(app);
 
 // Routes
