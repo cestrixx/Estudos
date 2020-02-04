@@ -5,53 +5,55 @@ const sequence = {
 
 const products = {}
 
-exports.create = (product) => {
-    return new Promise((resolve, reject) => {
-        if (product.id) {
-            reject();
-        }
-        product.id = sequence.nextId
-        products[product.id] = product    
-        resolve(product);
-    })
-};
+module.exports = app => {
+    const add = (product) => {
+        return new Promise((resolve, reject) => {
+            if (product.id) {
+                reject()
+            }
+            product.id = sequence.nextId
+            products[product.id] = product
+            resolve(product)
+        })
+    }
 
-exports.readAll = () => {
-    return new Promise((resolve, reject) => {
-         if (Object.entries(products).length === 0)
-             reject();
-        resolve(products);
-    })
-};
+    const getAll = () => {
+        return new Promise((resolve, reject) => {
+            if (Object.entries(products).length === 0)
+                reject()
+            resolve(products)
+        })
+    }
 
-exports.read= (id) => {
-    const product = products[id];
-    return new Promise((resolve, reject) => {
-       if (product === undefined)
-            reject();
-       resolve(product);
-   })    
-};
+    const getById = (id) => {
+        const product = products[id];
+        return new Promise((resolve, reject) => {
+            if (product === undefined)
+                reject()
+            resolve(product)
+        })
+    }
 
-exports.update = (id, newProduct) => {
-    console.log(id);
-    console.log(newProduct)
-    const product = products[id];
-    return new Promise((resolve, reject) => {
-        if (product === undefined)
-            reject();
-        newProduct.id = id;
-        products[id] = newProduct;
-        resolve(newProduct);
-   })    
-};
+    const update = (id, newProduct) => {
+        const product = products[id]
+        return new Promise((resolve, reject) => {
+            if (product === undefined)
+                reject()
+            newProduct.id = id
+            products[id] = newProduct
+            resolve(newProduct)
+        })
+    }
 
-exports.delete = (id) => {
-    const product = products[id];
-    return new Promise((resolve, reject) => {
-        if (product === undefined)
-            reject();
-        delete products[id];
-        resolve(product);
-   })    
-};
+    const remove = (id) => {
+        const product = products[id];
+        return new Promise((resolve, reject) => {
+            if (product === undefined)
+                reject()
+            delete products[id]
+            resolve(product)
+        })
+    }
+
+    return { add, getAll, getById, update, remove }
+}

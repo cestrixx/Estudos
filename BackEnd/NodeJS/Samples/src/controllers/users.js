@@ -1,23 +1,23 @@
 module.exports = app => {
-    const create = (req, res) => {
+    const add = (req, res) => {
         if (!req.body) {
             return res.status(400).send({
                 message: "Error: O conteúdo da nota não pode estar vazio!"
             });
         }
-        app.models.users.create({ nome: req.body.nome, cep: req.body.cep })
+        app.models.users.add({ nome: req.body.nome, cep: req.body.cep })
             .then(user => res.status(201).send(user))
             .catch(() => res.status(400).send({ message: "Error: Usuario existente!" }));
     };
 
-    const readAll = (req, res) => {
-        app.models.users.readAll()
+    const getAll = (req, res) => {
+        app.models.users.getAll()
             .then(users => res.send(users))
             .catch(() => res.status(400).send({ message: "Error: Nenhum usuario cadastrado!" }));
     };
 
-    const read = (req, res) => {
-        app.models.users.read(req.params.id)
+    const getById = (req, res) => {
+        app.models.users.getById(req.params.id)
             .then(user => res.send(user))
             .catch(() => res.status(400).send({ message: "Error: Usuario não cadastrado!" }));
     };
@@ -28,11 +28,11 @@ module.exports = app => {
             .catch(() => res.status(400).send({ message: "Error: Usuario não cadastrado!" }));
     };
 
-    const delete = (req, res) => {
-        app.models.users.delete(req.params.id)
+    const remove = (req, res) => {
+        app.models.users.remove(req.params.id)
             .then(user => res.send(user))
             .catch(() => res.status(400).send({ message: "Error: Usuario não cadastrado!" }));
     };
 
-    return { create, readAll, read, update, delete }
+    return { add, getAll, getById, update, remove }
 }

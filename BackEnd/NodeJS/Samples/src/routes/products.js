@@ -1,8 +1,8 @@
 module.exports = app => {
-    app.post('/products', app.controllers.products.create);
-    app.get('/products', app.controllers.products.readAll);
+    app.post('/products', app.controllers.products.add);
+    app.get('/products', app.controllers.products.getAll);
     app.route('/products/:id')
-        .get(app.controllers.products.read)
+        .get(app.controllers.products.getById)
         .put(app.controllers.products.update)
-        .delete(app.controllers.products.create);
+        .delete(app.controllers.products.remove);
 };
