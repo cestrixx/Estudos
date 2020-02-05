@@ -3,13 +3,13 @@ const app = require('../src/app');
 const users = require('../src/models/users');
 
 beforeAll(() => {
-    users.create({ nome : "Carlos Eduardo de Souza", cep  : "15990515" });
-    users.create({ nome : "Paula Fernanda Florencio de Souza", cep  : "15990515" });
+    users.add({ nome : "Carlos Eduardo de Souza", cep  : "15990515" });
+    users.add({ nome : "Paula Fernanda Florencio de Souza", cep  : "15990515" });
 });
 
 afterAll(() => {
-    users.delete(1);
-    users.delete(2);
+    users.remove(1);
+    users.remove(2);
 });
 
 test('Deve listar todos os usuarios', () => {
