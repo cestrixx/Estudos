@@ -87,3 +87,16 @@
     .include('./config/middlewares.js')
     .into(app);
   ```
+  
+  knex
+  https://dev.to/easybuoy/setting-up-a-node-api-with-postgres-and-knex-588f
+  https://gist.github.com/NigelEarle/80150ff1c50031e59b872baf0e474977
+  http://knexjs.org/
+  https://github.com/knex/knex
+  
+  migration
+  https://www.npmjs.com/package/migration
+  
+  seeds
+  https://www.npmjs.com/package/seedjs
+  
