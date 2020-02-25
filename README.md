@@ -32,8 +32,8 @@
 [JavaScript]: https://github.com/cestrixx/Estudos/tree/master/Languages/JavaScript
 [NodeJS]: https://github.com/cestrixx/Estudos/tree/master/BackEnd/NodeJS
 [Test]: https://github.com/cestrixx/Estudos/tree/master/Test
-[Git]: https://github.com/cestrixx/Estudos/tree/master/Tools/Git
-[Markdown]: https://github.com/cestrixx/Estudos/tree/master/Tools/Markdown
+[Git]: https://github.com/cestrixx/Estudos/tree/master/tools/Git
+[Markdown]: https://github.com/cestrixx/Estudos/tree/master/tools/Markdown
 [Glossário]: https://github.com/cestrixx/Estudos/tree/master/glossary
 [Raciocínio]: https://github.com/cestrixx/Estudos/tree/master/reasoning
 [Lógica de Programação]: https://github.com/cestrixx/Estudos/tree/master/programmingLogic
