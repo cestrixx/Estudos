@@ -1,5 +1,7 @@
 # Docker
 
+### Docker User
+
 #### Run
 ```bash
 docker container run [options] none-da-imagem
@@ -148,4 +150,78 @@ Vários comandos Docker possuem aliases, por exemplo o container ls tem os segui
 • docker container list 
 • docker container ps 
 • docker ps (antiga sintaxe)
+
+### Docker Image
+
+Exemplos de uso:
+
+• DevOps - Imagens para processos de integração contínua
+• Portabilidade - Imagens  de  aplicação  para  ser  utilizada  em  todos  os  ambientes  (staging,prodution, etc)
+• Desenvolvimento - Imagens   que   aproximam   todos   os   devs   do   ambiente   de   produção   e diminuem a curva de entrada de novos membros
+• Imagens customizadas a partir de imagens públicas
+
+ ### Diferenças entre container e imagem
+ 
+ Utilizando  uma  analogia  com  OOP,  podemos  comparar  um  container  a  um  objeto  (instância),enquanto a imagem seria uma classe (modelo).Todos os subcomandos relativos ao container podem ser listados através do parâmetro --help, bemcomo imagens:
+ 
+ • docker container --help
+ • docker imagem --help
+
+### Entendendo melhor as imagens
+
+Toda imagem (bem como os containers) possuem um identificador único em formato hash usandosha256. Porém seu uso não é muito prático, então para simplificar isto o docker utiliza uma tag paraidentificar imagens.
+A  tag  normalmente  é  formada  por  um  nome,  seguido  de  :  dois  pontos  e  depois  uma  versão.  É extremamente comum utilizar uma versão chamada latest para representar a versão mais atual.
+
+Exemplos de tags de imagens:
+
+• nginx:latest
+• redis:3.2
+• redis:3
+• postgres:9.517
+
+Na  prática  uma  tag  é  apenas  um  ponteiro  para  o  hash  da  imagem,  e  várias  tagspodem  apontar  para  o  mesmo  hash.  Com  isto  é  comum  o  uso  de  alguns  apelidosnas tags, tomando como exemplo as imagens oficiais do redis. Existem 10 imagense 30 tags.
+
+### Comandos básicos no gerenciamento de imagens
+
+Já  usamos  de  maneira  implícita  o  recurso  de  download  de  imagens  docker,  agora  vamos  entendermelhor o gerenciamento de imagens.
+
+docker image pull "tag"
+
+Baixa  a  imagem  solicitada,  este  comando  pode  ser  executado  implicitamente,  quando  o  dockerprecisa de uma imagem para outra operação e não consegue localiza-la no cache local.
+
+docker image ls
+
+Lista todas as imagens já baixadas, é possível ainda usar a sintaxe antiga: docker images
+
+docker image rm "tag"
+
+Remove uma imagem do cache local, é possível ainda usar a sintaxe antiga: docker rmi "tag"
+
+docker image inspect "tag"
+
+Extrai diversas informações utilizando um formato JSON da imagem indicada.
+
+docker image "tag" "source" "tag"
+
+Cria uma nova tag baseada em uma tag anterior ou hash.
+
+docker image build -t "tag"
+
+Permite a criação de uma nova imagem, como veremos melhor em build.18
+
+docker image push "tag"
+
+Permite o envio de uma imagem ou tag local para um registry.
+
+### Docker Hub × Docker Registry
+
+##### Docker Registry 
+
+É uma aplicação server side para guardar e distribuir imagens Docker.
+
+##### Docker Hub
+
+É  uma  serviço  de  registro  de  imagens  Docker  em  nuvem,  que  permite  a  associação  comrepositórios  para  build  automatizado  de  imagens.  Imagens  marcadas  como  oficiais  no  DockerHub,   são   criadas   pela   própria   Docker   Inc.   E   o   código   fonte   pode   ser   encontrado   em: https://github.com/docker-library
+
+A linha de comando possui o comando docker search "tag" para procurar imagens no Docker Hub.
 
