@@ -102,6 +102,8 @@ Exemplo:
 
 > OO é sigla para orientação a objetos
 
+>  [Leia mais](https://github.com/cestrixx/Estudos/tree/master/paradigms/poo)
+
 ### Paradigma orientado a eventos
 
 > Toda linguagem que faz uso de interface gráfica é baseada nesse paradigma.
