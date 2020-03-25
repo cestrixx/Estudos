@@ -53,7 +53,7 @@
 
 Categoria | Estilo
 ----------|-------
-Comunicação | [Orientada a Serviços (SOA)](https://github.com/cleibp/sourceKnowledge/tree/master/architecture/soa) e Enterprise Service Bus (ESB)
+Comunicação | [Orientada a Serviços (SOA)](https://github.com/cestrixx/Estudos/tree/master/Architecture/soa) e Enterprise Service Bus (ESB)
 Deployment | Client/Server, N-Camadas e 3 Camadas
 Domain | Domain-Driven Design (DDD)
 Structure | Baseda em Componentes, Orientada a Objetos e em Layers
@@ -69,7 +69,7 @@ Layers | Conceito de particionamento da aplicação em um grupo empilhado.
 Message Bus | Modelo de arquitetura que prescreve o uso de um software que pode receber e enviar mensagens utilizando um ou mais canais de comunicação, para que as aplicações possam interagir sem precisar conhecer detalhes específicos sobre cada outra.
 N-Camadas | Desmembrar funcionalidades em segmentos separados na mesma layer, mas com cada segmento alocado em um camada diferente, ou seja, separado fisicamente em outro computador.
 Orientada a Objetos | Um paradigma de estrutura baseado na divisão de responsabilidades para um aplicação ou sistema com reutilização individual e objetos auto suficientes, cada um contendo dados em comportamento relevantes a seu objeto.
-[Orientada a Serviços](https://github.com/cleibp/sourceKnowledge/tree/master/architecture/soa) | Aplicações que expõe e consome funcionalidades como um serviço utilizando contratos e mensagens.
+[Orientada a Serviços](https://github.com/cestrixx/Estudos/tree/master/Architecture/soa) | Aplicações que expõe e consome funcionalidades como um serviço utilizando contratos e mensagens.
 [REST](https://github.com/cestrixx/Estudos/tree/master/Architecture/Rest)| Representational State Transfer (REST), em português Transferência Representacional de Estado. Define um conjunto de restrições a serem usadas para a criação de web services (serviços Web).
 
 
