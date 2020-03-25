@@ -14,7 +14,7 @@
  #### Paradigmas de Programação
    - [Paradigmas de Programação], Paradigmas de Programação
   #### Padrões de Projetos
-   - [Padrões de Projetos], Paradigmas de Programação
+   - [Padrões de Projetos], Padrões de Projetos
 #### Arquitetura
    - [Architecture], Architecture
 #### Ferramentas
