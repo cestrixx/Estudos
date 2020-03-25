@@ -13,6 +13,8 @@
    - [Linguagens de Programação], Linguagens de Programação
  #### Paradigmas de Programação
    - [Paradigmas de Programação], Paradigmas de Programação
+  #### Padrões de Projetos
+   - [Padrões de Projetos], Paradigmas de Programação
 #### Arquitetura
    - [Architecture], Architecture
 #### Ferramentas
@@ -39,6 +41,7 @@
 [Lógica de Programação]: https://github.com/cestrixx/Estudos/tree/master/programmingLogic
 [Linguagens de Programação]: https://github.com/cestrixx/Estudos/tree/master/programmingLanguages
 [Paradigmas de Programação]: https://github.com/cestrixx/Estudos/tree/master/paradigms
+[Padrões de Projetos]:  https://github.com/cestrixx/Estudos/blob/master/pattern/README.md
 [Ferramentas]: https://github.com/cestrixx/Estudos/tree/master/tools
 [Aqui]: https://github.com/cestrixx/Estudos/tree/master/References
 
