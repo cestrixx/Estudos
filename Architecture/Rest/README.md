@@ -49,3 +49,20 @@
  - [Gerando Codigo](https://github.com/cestrixx/Estudos/tree/master/Architecture/Rest/Aula-12-Gerando-C-digo.pdf)
  - [Gerando a documentacao](https://github.com/cestrixx/Estudos/tree/master/Architecture/Rest/Aula-13-Gerando-a-documenta-o.pdf)
  - [Recomendacao JSON-API-Specification](https://github.com/cestrixx/Estudos/tree/master/Architecture/Rest/Aula-14-Recomenda-o-JSON-API-Specification.pdf)
+ 
+ 
+ # REST
+
+> Representational State Transfer (REST), em português Transferência Representacional de Estado, é um estilo de arquitetura de software que define um conjunto de restrições a serem usadas para a criação de web services (serviços Web). Os Web services que estão em conformidade com o estilo arquitetural REST, denominados Web services RESTful, fornecem interoperabilidade entre sistemas de computadores na Internet. Os Web services RESTful permitem que os sistemas solicitantes acessem e manipulem representações textuais de recursos da Web usando um conjunto uniforme e predefinido de operações sem estado. Outros tipos de Web services, como Web services SOAP, expõem seus próprios conjuntos de operações arbitrários.
+
+> "Recursos da Web" foram definidos pela primeira vez na World Wide Web como documentos ou arquivos identificados por suas URLs. No entanto, hoje, eles têm uma definição muito mais genérica e abstrata que engloba qualquer coisa ou entidade que pode ser identificada, nomeada, endereçada ou manipulada, da forma que for, na Web. Em um Web service RESTful, as solicitações feitas ao URI de um recurso provocará uma resposta com uma carga útil formatada em HTML, XML, JSON ou algum outro formato. A resposta pode confirmar que alguma alteração foi feita no recurso armazenado e a resposta pode fornecer links de hipertexto para outros recursos ou conjuntos de recursos relacionados. Quando o HTTP é usado, como é o mais comum, as operações (métodos HTTP) disponíveis são GET, HEAD, POST, PUT, PATCH, DELETE, CONNECT, OPTIONS e TRACE.
+
+> Usando um protocolo sem estado e operações padrão, os sistemas RESTful buscam desempenho, confiabilidade e capacidade de crescimento rápido, reutilizando componentes que podem ser gerenciados e atualizados sem afetar o sistema como um todo, mesmo enquanto estiver em execução.
+
+# Caracteristicas
+> * É mais elegante, pois utiliza ao máximo o protocolo HTTP, evitando a construção de protocolos adicionais
+> * Tem o potencial de ser bem mais simples que uma implementação com WSDL/SOAP
+> * Tende a ser mais performático
+> * ~ 80% das integrações utilizam o protocolo HTTP.
+> * A possibilidade de ter difersças representações de um mesmo recurso, por exemplo, uma dada entidade pode ser representada > em diferentes formatos como Json, xml, html e text/plain, dependendo da requisição feita pelo cliente(Content-Negotiation)
+> * Possibilidade de navegar entre relacionamentos (Links web) de vários recursos de forma dinamica. seguindo a usabilidade de qualquer sistema web. HATEOAS (Hypermedia as the Engine of Application State).
